@@ -4,7 +4,7 @@
 Imports System.ComponentModel
 
 Public Class frmMain
-    Dim sw As New System.Diagnostics.Stopwatch()
+    Dim sw As New System.Diagnostics.Stopwatch() 'ストップウォッチ
     Dim n As Integer '周回カウント
 
     '*******************************************************
