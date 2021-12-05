@@ -57,7 +57,7 @@ Error_Rtn:
         '前処理
         Call subLogOutput("*** 前処理 ***") '画面ログ出力
         ReDim Preserve pOrder_d(-1)         'ドローン順番用配列
-        ReDim Preserve pIti(pMax_d, -1)     '位置情報
+        ReDim Preserve pIti(pcMax_d, -1)     '位置情報
         ReDim Preserve pTxrx(-1)            'Txrx用配列
         pOkNg_No = 0                        'OKorNG表示No
         ReDim pOkNg(-1)                     'OKorNG表示色設定
@@ -175,7 +175,7 @@ Error_Rtn:
     Private Sub btnIniGet_Click(sender As Object, e As EventArgs) Handles btnIniGet.Click
         On Error GoTo Error_Rtn
 
-        Dim sFileName As String = txtIniPath.Text & "\" & pIniFileName
+        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName
 
         If fncFileCheck(sFileName) Then
             Call subSetIni()
@@ -196,7 +196,7 @@ Error_Rtn:
     Private Sub btnIniSave_Click(sender As Object, e As EventArgs) Handles btnIniSave.Click
         On Error GoTo Error_Rtn
 
-        Dim sFileName As String = txtIniPath.Text & "\" & pIniFileName
+        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName
 
         If fncFileCheck(sFileName) Then
             Call subPutIni()
@@ -218,7 +218,7 @@ Error_Rtn:
     Private Sub btnIniGet2_Click(sender As Object, e As EventArgs) Handles btnIniGet2.Click
         On Error GoTo Error_Rtn
 
-        Dim sFileName As String = txtIniPath.Text & "\" & pIniFileName
+        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName
 
         If fncFileCheck(sFileName) Then
             Call subSetIni()
@@ -239,7 +239,7 @@ Error_Rtn:
     Private Sub btnIniSave2_Click(sender As Object, e As EventArgs) Handles btnIniSave2.Click
         On Error GoTo Error_Rtn
 
-        Dim sFileName As String = txtIniPath.Text & "\" & pIniFileName
+        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName
 
         If fncFileCheck(sFileName) Then
             Call subPutIni()

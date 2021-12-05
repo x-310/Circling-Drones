@@ -11,7 +11,7 @@ Module mduProc
         fncItiFile = False
 
         Dim sData As String = ""
-        ReDim Preserve pIti(pMax_d, n)      '位置情報
+        ReDim Preserve pIti(pcMax_d, n)      '位置情報
 
         'n=0の場合、画面設定値から取込む
         If n <> 0 Then
@@ -110,104 +110,6 @@ Module mduProc
         End Select
 
         fncItiFile = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
-    End Function
-
-    '*******************************************************
-    '   Itiファイルからtxrxファイルを作成する
-    '*******************************************************
-    Public Function fncItiFile2Txrx(ByVal m As Integer, ByVal n As Integer) As Boolean
-        On Error GoTo Error_Rtn
-        fncItiFile2Txrx = False
-
-        Dim iLoop As Integer
-        Dim jLoop As Integer
-        Dim iRow As Integer = 0
-        Dim id As Integer
-        Dim iv As Integer
-
-        ReDim Preserve pTxrx(-1) 'Txrx用配列
-        If n = 1 Then
-            For iLoop = 1 To pSet_d
-                id = iLoop
-                iv = 0
-                If id <> m Then
-                    ReDim Preserve pTxrx(iRow)             'pTxrx に新規行を追加
-
-                    pTxrx(iRow).sdv = "d" & id & "v" & iv
-                    pTxrx(iRow).sIdo = pIti(id, iv).sIdo
-                    pTxrx(iRow).sKeido = pIti(id, iv).sKeido
-                    pTxrx(iRow).sTakasa = pIti(id, iv).sTakasa
-
-                    'txrxファイル作成
-                    Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\" & pPjName & ".txrx", True, System.Text.Encoding.UTF8)
-                    oFileWrite.WriteLine("d" & id & "v" & iv)
-                    oFileWrite.WriteLine(pIti(id, iv).sIdo)
-                    oFileWrite.WriteLine(pIti(id, iv).sKeido)
-                    oFileWrite.WriteLine(pIti(id, iv).sTakasa)
-                    'クローズ
-                    oFileWrite.Dispose()
-                    oFileWrite.Close()
-
-                    ''dm_vn_txrxファイル作成
-                    'Dim oFileWrite_2 As New System.IO.StreamWriter(pPjPath & "\" & "d" & m & "_v" & n & ".txrx", True, System.Text.Encoding.UTF8)
-                    'oFileWrite_2.WriteLine("d" & id & "v" & iv)
-                    'oFileWrite_2.WriteLine(pIti(id, iv).sIdo)
-                    'oFileWrite_2.WriteLine(pIti(id, iv).sKeido)
-                    'oFileWrite_2.WriteLine(pIti(id, iv).sTakasa)
-                    ''クローズ
-                    'oFileWrite_2.Dispose()
-                    'oFileWrite_2.Close()
-
-                    iRow = iRow + 1
-                End If
-            Next
-        Else
-            'ドローン最新順
-            For iLoop = pOrder_d.Length - 1 To 1 Step -1
-                id = pOrder_d(iLoop).Substring(1, 1)
-                iv = pOrder_d(iLoop).Substring(3, 2)
-                If id <> m Then
-                    ReDim Preserve pTxrx(iRow)             'pTxrx に新規行を追加
-
-                    pTxrx(iRow).sdv = "d" & id & "v" & iv
-                    pTxrx(iRow).sIdo = pIti(id, iv).sIdo
-                    pTxrx(iRow).sKeido = pIti(id, iv).sKeido
-                    pTxrx(iRow).sTakasa = pIti(id, iv).sTakasa
-
-                    'txrxファイル作成
-                    Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\" & pPjName & ".txrx", True, System.Text.Encoding.UTF8)
-                    oFileWrite.WriteLine("d" & id & "v" & iv)
-                    oFileWrite.WriteLine(pIti(id, iv).sIdo)
-                    oFileWrite.WriteLine(pIti(id, iv).sKeido)
-                    oFileWrite.WriteLine(pIti(id, iv).sTakasa)
-                    'クローズ
-                    oFileWrite.Dispose()
-                    oFileWrite.Close()
-
-                    ''dm_vn_txrxファイル作成
-                    'Dim oFileWrite_2 As New System.IO.StreamWriter(pPjPath & "\" & "d" & m & "_v" & n & ".txrx", True, System.Text.Encoding.UTF8)
-                    'oFileWrite_2.WriteLine("d" & id & "v" & iv)
-                    'oFileWrite_2.WriteLine(pIti(id, iv).sIdo)
-                    'oFileWrite_2.WriteLine(pIti(id, iv).sKeido)
-                    'oFileWrite_2.WriteLine(pIti(id, iv).sTakasa)
-                    ''クローズ
-                    'oFileWrite_2.Dispose()
-                    'oFileWrite_2.Close()
-
-                    If (pSet_d - 1) = (iRow + 1) Then Exit For
-                    iRow = iRow + 1
-                End If
-            Next
-        End If
-
-        'コピー
-        fncFileCopy(pPjPath & "\" & pPjName & ".txrx", pPjPath & "\d" & m & "_v" & n & "_" & pPjName & ".txrx")
-
-        fncItiFile2Txrx = True
 Error_Exit:
         Exit Function
 Error_Rtn:

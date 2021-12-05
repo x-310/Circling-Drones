@@ -186,7 +186,7 @@ Error_Rtn:
 
         Dim MSG As String = NAME
 
-        MessageBox.Show(MSG, pAppName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show(MSG, pcAppName, MessageBoxButtons.OK, MessageBoxIcon.Information)
 Error_Exit:
         Exit Function
 Error_Rtn:

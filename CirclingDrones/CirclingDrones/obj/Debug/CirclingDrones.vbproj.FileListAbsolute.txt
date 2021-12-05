@@ -22,7 +22,6 @@ E:\マスタ\マスタ@開発\VB\CirclingDrones\CirclingDrones\CirclingDrones\ob
 D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\bin\Debug\CirclingDrones.exe
 D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\bin\Debug\CirclingDrones.pdb
 D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\bin\Debug\CirclingDrones.xml
-D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Debug\CirclingDrones.vbproj.AssemblyReference.cache
 D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Debug\CirclingDrones.frmMain.resources
 D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Debug\CirclingDrones.Resources.resources
 D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Debug\CirclingDrones.vbproj.GenerateResource.cache

@@ -97,7 +97,7 @@ Error_Rtn:
     End Function
 
     '*******************************************************
-    '   メモリからPower.txtを作成する
+    '   Power.txtを作成する
     '*******************************************************
     Public Function fncMem2Power(ByVal sPath As String) As Boolean
         On Error GoTo Error_Rtn
@@ -110,7 +110,7 @@ Error_Rtn:
             fncFileDel(sPath & "\Power.txt")
         End If
 
-        If Not IsNothing(pP2m) Then
+        If pP2m.Length >= 1 Then
             'Power.txtファイル作成
             Dim oFileWrite As New System.IO.StreamWriter(sPath & "\Power.txt", True, System.Text.Encoding.UTF8)
 
@@ -124,42 +124,6 @@ Error_Rtn:
 
             fncMem2Power = True
         End If
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
-    End Function
-
-    '*******************************************************
-    '      'プロジェクト名.txrxファイルを削除する
-    '*******************************************************
-    Public Function fncFileDelete_pj_txrx() As Boolean
-        fncFileDelete_pj_txrx = False
-
-        Dim sFile As String = ""
-
-        sFile = pPjPath & "\" & pPjName & ".txrx"
-        fncFileDel(sFile)
-
-        fncFileDelete_pj_txrx = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
-    End Function
-
-    '*******************************************************
-    '      'txrxファイルを削除する
-    '*******************************************************
-    Public Function fncFileDelete_txrx() As Boolean
-        fncFileDelete_txrx = False
-
-        Dim sFile As String = ""
-
-        sFile = pPjPath & "\" & "*.txrx"
-        fncFileDel(sFile)
-
-        fncFileDelete_txrx = True
 Error_Exit:
         Exit Function
 Error_Rtn:
@@ -197,31 +161,31 @@ Error_Rtn:
 
         '      End If
         '出力元ファイル存在チェック
-        If fncFileCheck(pExt_Out_Grid) AndAlso
-            fncFileCheck(pExt_Out_Meter) Then
-            'fncFileCheck(pExt_Out_Height) AndAlso
-            'fncFileCheck(pExt_Out_Power) Then
+        If fncFileCheck(pcExt_Out_Grid) AndAlso
+            fncFileCheck(pcExt_Out_Meter) Then
+            'fncFileCheck(pcExt_Out_Height) AndAlso
+            'fncFileCheck(pcExt_Out_Power) Then
             '①リネームして指定フォルダにコピー
-            sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pExt_Out_Grid
-            If fncFileCopy(pExt_Out_Grid, sFile) = False Then
+            sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Grid
+            If fncFileCopy(pcExt_Out_Grid, sFile) = False Then
                 'コピーエラー
                 iErrCnt = iErrCnt + 1
             End If
             '②リネームして指定フォルダにコピー
-            sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pExt_Out_Meter
-            If fncFileCopy(pExt_Out_Meter, sFile) = False Then
+            sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Meter
+            If fncFileCopy(pcExt_Out_Meter, sFile) = False Then
                 'コピーエラー
                 iErrCnt = iErrCnt + 1
             End If
             '③リネームして指定フォルダにコピー
-            'sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pExt_Out_Height
-            'If fncFileCopy(pExt_Out_Height, sFile) = False Then
+            'sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Height
+            'If fncFileCopy(pcExt_Out_Height, sFile) = False Then
             '    'コピーエラー
             '    iErrCnt = iErrCnt + 1
             'End If
             '④リネームして指定フォルダにコピー
-            'sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pExt_Out_Power
-            'If fncFileCopy(pExt_Out_Power, sFile) = False Then
+            'sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Power
+            'If fncFileCopy(pcExt_Out_Power, sFile) = False Then
             '    'コピーエラー
             '    iErrCnt = iErrCnt + 1
             'End If
@@ -300,15 +264,15 @@ Error_Rtn:
 
         'PjName
         pPjName = ""
-        iRET = GetPrivateProfileString(pSec_Set, pKey_11, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+        iRET = GetPrivateProfileString(pcSec_Set, pcKey_11, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pPjName = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
         'GnuPath
         pGnuPath = ""
-        iRET = GetPrivateProfileString(pSec_Set, pKey_12, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+        iRET = GetPrivateProfileString(pcSec_Set, pcKey_12, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pGnuPath = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
         'PjPath
         pPjPath = ""
-        iRET = GetPrivateProfileString(pSec_Set, pKey_13, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+        iRET = GetPrivateProfileString(pcSec_Set, pcKey_13, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pPjPath = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
         frmMain.txtIniPath.Text = pIniPath      'iniファイルパス
@@ -328,13 +292,13 @@ Error_Rtn:
 
             sSec = "d" & CInt(iCnt)
             'X
-            iRET = GetPrivateProfileString(sSec, pKey_X, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+            iRET = GetPrivateProfileString(sSec, pcKey_X, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
             sX = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
             'Y
-            iRET = GetPrivateProfileString(sSec, pKey_Y, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+            iRET = GetPrivateProfileString(sSec, pcKey_Y, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
             sY = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
             'Z
-            iRET = GetPrivateProfileString(sSec, pKey_Z, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+            iRET = GetPrivateProfileString(sSec, pcKey_Z, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
             sZ = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
             Select Case iCnt
@@ -386,15 +350,15 @@ Error_Rtn:
             pCommand(iCnt) = ""
         Next
 
-        iRET = GetPrivateProfileString(pSec_Command, pKey_1, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+        iRET = GetPrivateProfileString(pcSec_Command, pcKey_1, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pCommand(0) = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
-        iRET = GetPrivateProfileString(pSec_Command, pKey_2, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+        iRET = GetPrivateProfileString(pcSec_Command, pcKey_2, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pCommand(1) = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
-        iRET = GetPrivateProfileString(pSec_Command, pKey_3, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+        iRET = GetPrivateProfileString(pcSec_Command, pcKey_3, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pCommand(2) = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
-        iRET = GetPrivateProfileString(pSec_Command, pKey_4, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+        iRET = GetPrivateProfileString(pcSec_Command, pcKey_4, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pCommand(3) = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
-        iRET = GetPrivateProfileString(pSec_Command, pKey_5, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pIniFileName)
+        iRET = GetPrivateProfileString(pcSec_Command, pcKey_5, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pCommand(4) = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
         frmMain.txtCom1.Text = pCommand(0)            'コマンド
@@ -416,31 +380,31 @@ Error_Rtn:
 
         Dim iRET As Integer = 0
 
-        iRET = WritePrivateProfileString(pSec_Set, pKey_11, frmMain.txtPjName.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_Set, pKey_12, frmMain.txtGnuPath.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_Set, pKey_13, frmMain.txtPjPath.Text, pIniPath & "\" & pIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Set, pcKey_11, frmMain.txtPjName.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Set, pcKey_12, frmMain.txtGnuPath.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Set, pcKey_13, frmMain.txtPjPath.Text, pIniPath & "\" & pcIniFileName)
 
-        iRET = WritePrivateProfileString(pSec_d1, pKey_X, frmMain.txtX_d1.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d1, pKey_Y, frmMain.txtY_d1.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d1, pKey_Z, frmMain.txtZ_d1.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d2, pKey_X, frmMain.txtX_d2.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d2, pKey_Y, frmMain.txtY_d2.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d2, pKey_Z, frmMain.txtZ_d2.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d3, pKey_X, frmMain.txtX_d3.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d3, pKey_Y, frmMain.txtY_d3.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d3, pKey_Z, frmMain.txtZ_d3.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d4, pKey_X, frmMain.txtX_d4.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d4, pKey_Y, frmMain.txtY_d4.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d4, pKey_Z, frmMain.txtZ_d4.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d5, pKey_X, frmMain.txtX_d5.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d5, pKey_Y, frmMain.txtY_d5.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_d5, pKey_Z, frmMain.txtZ_d5.Text, pIniPath & "\" & pIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d1, pcKey_X, frmMain.txtX_d1.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d1, pcKey_Y, frmMain.txtY_d1.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d1, pcKey_Z, frmMain.txtZ_d1.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d2, pcKey_X, frmMain.txtX_d2.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d2, pcKey_Y, frmMain.txtY_d2.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d2, pcKey_Z, frmMain.txtZ_d2.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d3, pcKey_X, frmMain.txtX_d3.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d3, pcKey_Y, frmMain.txtY_d3.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d3, pcKey_Z, frmMain.txtZ_d3.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d4, pcKey_X, frmMain.txtX_d4.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d4, pcKey_Y, frmMain.txtY_d4.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d4, pcKey_Z, frmMain.txtZ_d4.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d5, pcKey_X, frmMain.txtX_d5.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d5, pcKey_Y, frmMain.txtY_d5.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_d5, pcKey_Z, frmMain.txtZ_d5.Text, pIniPath & "\" & pcIniFileName)
 
-        iRET = WritePrivateProfileString(pSec_Command, pKey_1, frmMain.txtCom1.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_Command, pKey_2, frmMain.txtCom2.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_Command, pKey_3, frmMain.txtCom3.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_Command, pKey_4, frmMain.txtCom4.Text, pIniPath & "\" & pIniFileName)
-        iRET = WritePrivateProfileString(pSec_Command, pKey_5, frmMain.txtCom5.Text, pIniPath & "\" & pIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Command, pcKey_1, frmMain.txtCom1.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Command, pcKey_2, frmMain.txtCom2.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Command, pcKey_3, frmMain.txtCom3.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Command, pcKey_4, frmMain.txtCom4.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Command, pcKey_5, frmMain.txtCom5.Text, pIniPath & "\" & pcIniFileName)
 Error_Exit:
         Exit Sub
 Error_Rtn:

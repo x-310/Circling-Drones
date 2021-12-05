@@ -18,3 +18,14 @@ E:\マスタ\マスタ@開発\VB\CirclingDrones\CirclingDrones\CirclingDrones\ob
 E:\マスタ\マスタ@開発\VB\CirclingDrones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.exe
 E:\マスタ\マスタ@開発\VB\CirclingDrones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.xml
 E:\マスタ\マスタ@開発\VB\CirclingDrones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.pdb
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\bin\Release\CirclingDrones.exe
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\bin\Release\CirclingDrones.pdb
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\bin\Release\CirclingDrones.xml
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.vbproj.AssemblyReference.cache
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.frmMain.resources
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.Resources.resources
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.vbproj.GenerateResource.cache
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.vbproj.CoreCompileInputs.cache
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.exe
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.xml
+D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.pdb

@@ -104,6 +104,8 @@
     <Compile Include="mduFile.vb" />
     <Compile Include="mduMain.vb" />
     <Compile Include="mduProc.vb" />
+    <Compile Include="mduTag.vb" />
+    <Compile Include="mduTxrx.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

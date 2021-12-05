@@ -6,39 +6,39 @@ Module mduMain
     '      定数定義
     '*******************************************************
     '画面用
-    Public Const pAppName As String = "Circling Drones"     'アプリ名
-    Public Const pMax_d As Integer = 5                      'ドローン台数の最大値
-    Public Const pMax_v As Integer = 1000                   '周回の最大値
+    Public Const pcAppName As String = "Circling Drones"     'アプリ名
+    Public Const pcMax_d As Integer = 5                      'ドローン台数の最大値
+    Public Const pcMax_v As Integer = 1000                   '周回の最大値
 
     'モジュール用
     Public Const pSetup As String = "DoNothing"
     Public Const p3d_pot_test_plus As String = "3d_pot_test_plus"
 
     '制御用
-    Public Const pIniFileName As String = "RKA_con.ini"
-    Public Const pSec_Set As String = "Set"
-    Public Const pKey_11 As String = "PjName"
-    Public Const pKey_12 As String = "GnuPath"
-    Public Const pKey_13 As String = "PjPath"
-    Public Const pSec_d1 As String = "d1"
-    Public Const pSec_d2 As String = "d2"
-    Public Const pSec_d3 As String = "d3"
-    Public Const pSec_d4 As String = "d4"
-    Public Const pSec_d5 As String = "d5"
-    Public Const pKey_X As String = "X"
-    Public Const pKey_Y As String = "Y"
-    Public Const pKey_Z As String = "Z"
-    Public Const pSec_Command As String = "Command"
-    Public Const pKey_1 As String = "1"
-    Public Const pKey_2 As String = "2"
-    Public Const pKey_3 As String = "3"
-    Public Const pKey_4 As String = "4"
-    Public Const pKey_5 As String = "5"
+    Public Const pcIniFileName As String = "RKA_con.ini"
+    Public Const pcSec_Set As String = "Set"
+    Public Const pcKey_11 As String = "PjName"
+    Public Const pcKey_12 As String = "GnuPath"
+    Public Const pcKey_13 As String = "PjPath"
+    Public Const pcSec_d1 As String = "d1"
+    Public Const pcSec_d2 As String = "d2"
+    Public Const pcSec_d3 As String = "d3"
+    Public Const pcSec_d4 As String = "d4"
+    Public Const pcSec_d5 As String = "d5"
+    Public Const pcKey_X As String = "X"
+    Public Const pcKey_Y As String = "Y"
+    Public Const pcKey_Z As String = "Z"
+    Public Const pcSec_Command As String = "Command"
+    Public Const pcKey_1 As String = "1"
+    Public Const pcKey_2 As String = "2"
+    Public Const pcKey_3 As String = "3"
+    Public Const pcKey_4 As String = "4"
+    Public Const pcKey_5 As String = "5"
 
-    Public Const pExt_Out_Grid As String = "130.1K2490GD2route_grid.csv"
-    Public Const pExt_Out_Meter As String = "130.1K249GD2route_meter.csv"
-    Public Const pExt_Out_Height As String = "true_height.csv"
-    Public Const pExt_Out_Power As String = "received_power.txt"
+    Public Const pcExt_Out_Grid As String = "130.1K2490GD2route_grid.csv"
+    Public Const pcExt_Out_Meter As String = "130.1K249GD2route_meter.csv"
+    Public Const pcExt_Out_Height As String = "true_height.csv"
+    Public Const pcExt_Out_Power As String = "received_power.txt"
 
 
     '*******************************************************
@@ -133,7 +133,7 @@ Module mduMain
             End If
         Next
 
-        'txrxファイルを削除
+        'スタート前にtxrxファイルを削除
         If fncFileDelete_txrx() Then
             Call subLogOutput("> " & "Txrxファイルを削除=>OK") '画面ログ出力
             Call subOkNg_Color(0) 'pOkNg設定（0：緑色、1：赤色、2：黄色）
@@ -235,14 +235,24 @@ Error_Rtn:
             Call subOkNg_Color(1) 'pOkNg設定（0：緑色、1：赤色、2：黄色）
         End If
 
-        'txrxファイル作成
+        'Itiファイルからtxrx用配列を作成
         If fncItiFile2Txrx(m, n) Then
+            Call subLogOutput("> Itiファイルからtxrx用配列作成=>OK") '画面ログ出力
+            Call subOkNg_Color(0) 'pOkNg設定（0：緑色、1：赤色、2：黄色）
+        Else
+            Call subLogOutput("> Itiファイルからtxrx用配列作成=>NG") '画面ログ出力
+            Call subOkNg_Color(1) 'pOkNg設定（0：緑色、1：赤色、2：黄色）
+        End If
+
+        'プロジェクト名.txrxファイルを作成
+        If fncMem2txrx() Then
             Call subLogOutput("> txrxファイル 作成=>OK") '画面ログ出力
             Call subOkNg_Color(0) 'pOkNg設定（0：緑色、1：赤色、2：黄色）
         Else
             Call subLogOutput("> txrxファイル 作成=>NG") '画面ログ出力
             Call subOkNg_Color(1) 'pOkNg設定（0：緑色、1：赤色、2：黄色）
         End If
+
 Error_Exit:
         Exit Sub
 Error_Rtn:
