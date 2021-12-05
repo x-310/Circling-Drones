@@ -11,8 +11,13 @@ Module mduTxrx
         fncMem2txrx = False
 
         Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
-        Dim inVertices As Integer = 0                   'nVertices作成個数
-        Dim sValue() As String                          'nVerticesデータ用配列
+
+        Dim inVertices_points As Integer = 0            'points用nVertices作成個数
+        Dim sValue_points() As String                   'points用nVerticesデータ用配列
+        Dim inVertices_route As Integer = 0             'route用nVertices作成個数
+        Dim sValue_route() As String                    'route用nVerticesデータ用配列
+        Dim inVertices_grid As Integer = 0              'grid用nVertices作成個数
+        Dim sValue_grid() As String                     'grid用nVerticesデータ用配列
 
         'ファイル存在チェック
         If fncFileCheck(sFile) Then
@@ -20,25 +25,50 @@ Module mduTxrx
             fncFileDel(sFile)
         End If
 
-        ReDim Preserve sValue(-1)                       'nVerticesデータ用配列初期化
+        'データ用配列初期化
+        ReDim Preserve sValue_points(-1)                'nVerticesデータ用配列初期化
+        ReDim Preserve sValue_route(-1)                 'nVerticesデータ用配列初期化
+        ReDim Preserve sValue_grid(-1)                  'nVerticesデータ用配列初期化
 
-        'nVerticesデータ作成（仮）
-        inVertices = 5                                  'nVertices作成個数
-        ReDim Preserve sValue(inVertices - 1)           'nVerticesデータ用配列
-        sValue(0) = "1111.247570000000000 111.187590000000000 1.000000000000000"
-        sValue(1) = "2222.247570000000000 222.187590000000000 2.000000000000000"
-        sValue(2) = "3333.247570000000000 333.187590000000000 3.000000000000000"
-        sValue(3) = "4444.247570000000000 444.187590000000000 4.000000000000000"
-        sValue(4) = "5555.247570000000000 555.187590000000000 5.000000000000000"
+        ' **********(仮)**********
+        'points用nVerticesデータ作成
+        inVertices_points = 1                                                                   'points用nVertices作成個数
+        ReDim Preserve sValue_points(inVertices_points - 1)                                     'points用nVerticesデータ用配列
+        sValue_points(0) = "1111.247570000000000 111.187590000000000 1.000000000000000"
+        '配列を更新
+        pTag_points = fncTagKeyUpdate(pcTag_points, "begin_<points>", "*** Points ***")         'pointsタグ
+        pTag_points = pTag_points & vbCrLf
+        pTag_points = fncTagKeyUpdate(pTag_points, "nVertices", CInt(inVertices_points))        'pointsタグ
+        pTag_points = pTag_points & vbCrLf
+        pTag_points = fncTagKeyAdd(pTag_points, "nVertices", inVertices_points, sValue_points)  'pointsタグ
 
-        '配列を更新 **********(仮)**********
-        pTag_points = fncTagKeyUpdate(pcTag_points, "begin_<points>", "*** Untitled Tx Points ***") 'pointsタグ
-        pTag_points = pTag_points & vbCrLf
-        pTag_points = fncTagKeyUpdate(pTag_points, "nVertices", CInt(inVertices))  'pointsタグ
-        pTag_points = pTag_points & vbCrLf
-        pTag_points = fncTagKeyAdd(pTag_points, "nVertices", inVertices, sValue)  'pointsタグ
-        pTag_route = fncTagKeyUpdate(pcTag_route, "begin_<route>", "*** Untitled Rx Route ***")     'routeタグ
-        pTag_grid = fncTagKeyUpdate(pcTag_grid, "begin_<grid>", "*** Dense Pine 50m Rx Grid ***")   'gridタグ
+        'route用nVerticesデータ作成
+        inVertices_route = 3                                                                'route用nVertices作成個数
+        ReDim Preserve sValue_route(inVertices_route - 1)                                  'route用nVerticesデータ用配列
+        sValue_route(0) = "1111.247570000000000 111.187590000000000 1.000000000000000"
+        sValue_route(1) = "2222.247570000000000 222.187590000000000 2.000000000000000"
+        sValue_route(2) = "3333.247570000000000 333.187590000000000 3.000000000000000"
+        '配列を更新
+        pTag_route = fncTagKeyUpdate(pcTag_route, "begin_<route>", "*** route ***")         'routeタグ
+        pTag_route = pTag_route & vbCrLf
+        pTag_route = fncTagKeyUpdate(pTag_route, "nVertices", CInt(inVertices_route))       'routeタグ
+        pTag_route = pTag_route & vbCrLf
+        pTag_route = fncTagKeyAdd(pTag_route, "nVertices", inVertices_route, sValue_route)  'routeタグ
+
+        'grid用nVerticesデータ作成
+        inVertices_grid = 5                                                                 'grid用nVertices作成個数
+        ReDim Preserve sValue_grid(inVertices_grid - 1)                                     'grid用nVerticesデータ用配列
+        sValue_grid(0) = "1111.247570000000000 111.187590000000000 1.000000000000000"
+        sValue_grid(1) = "2222.247570000000000 222.187590000000000 2.000000000000000"
+        sValue_grid(2) = "3333.247570000000000 333.187590000000000 3.000000000000000"
+        sValue_grid(3) = "4444.247570000000000 444.187590000000000 4.000000000000000"
+        sValue_grid(4) = "5555.247570000000000 555.187590000000000 5.000000000000000"
+        '配列を更新
+        pTag_grid = fncTagKeyUpdate(pcTag_grid, "begin_<grid>", "*** grid ***")             'gridタグ
+        pTag_grid = pTag_grid & vbCrLf
+        pTag_grid = fncTagKeyUpdate(pTag_grid, "nVertices", CInt(inVertices_grid))          'gridタグ
+        pTag_grid = pTag_grid & vbCrLf
+        pTag_grid = fncTagKeyAdd(pTag_grid, "nVertices", inVertices_grid, sValue_grid)      'gridタグ
 
         'txrxファイル作成
         Dim oFileWrite As New System.IO.StreamWriter(sFile, True, System.Text.Encoding.UTF8)

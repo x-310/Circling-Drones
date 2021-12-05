@@ -1,4 +1,4 @@
-﻿begin_<points> *** Untitled Tx Points ***
+﻿begin_<points> *** Points ***
 project_id 1
 active
 vertical_line yes
@@ -18,12 +18,8 @@ latitude 36.402900000000002
 visible yes
 terrain
 end_<reference>
-nVertices 5
+nVertices 1
 1111.247570000000000 111.187590000000000 1.000000000000000
-2222.247570000000000 222.187590000000000 2.000000000000000
-3333.247570000000000 333.187590000000000 3.000000000000000
-4444.247570000000000 444.187590000000000 4.000000000000000
-5555.247570000000000 555.187590000000000 5.000000000000000
 end_<location>
 pattern_show_arrow yes
 pattern_show_as_sphere no
@@ -43,7 +39,7 @@ power 23.00000
 end_<transmitter>
 powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
 end_<points>
-begin_<route> *** Untitled Rx Route ***
+begin_<route> *** route ***
 project_id 2
 inactive
 vertical_line no
@@ -63,7 +59,10 @@ visible no
 terrain
 end_<reference>
 spacing 5.00000
-nVertices 0
+nVertices 3
+1111.247570000000000 111.187590000000000 1.000000000000000
+2222.247570000000000 222.187590000000000 2.000000000000000
+3333.247570000000000 333.187590000000000 3.000000000000000
 end_<location>
 pattern_show_arrow no
 pattern_show_as_sphere no
@@ -86,7 +85,7 @@ NoiseFigure 3.00000
 end_<receiver>
 powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
 end_<route>
-begin_<route> *** Untitled Rx Route ***
+begin_<route> *** route ***
 project_id 2
 inactive
 vertical_line no
@@ -106,7 +105,10 @@ visible no
 terrain
 end_<reference>
 spacing 5.00000
-nVertices 0
+nVertices 3
+1111.247570000000000 111.187590000000000 1.000000000000000
+2222.247570000000000 222.187590000000000 2.000000000000000
+3333.247570000000000 333.187590000000000 3.000000000000000
 end_<location>
 pattern_show_arrow no
 pattern_show_as_sphere no
@@ -129,7 +131,7 @@ NoiseFigure 3.00000
 end_<receiver>
 powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
 end_<route>
-begin_<route> *** Untitled Rx Route ***
+begin_<route> *** route ***
 project_id 2
 inactive
 vertical_line no
@@ -149,7 +151,10 @@ visible no
 terrain
 end_<reference>
 spacing 5.00000
-nVertices 0
+nVertices 3
+1111.247570000000000 111.187590000000000 1.000000000000000
+2222.247570000000000 222.187590000000000 2.000000000000000
+3333.247570000000000 333.187590000000000 3.000000000000000
 end_<location>
 pattern_show_arrow no
 pattern_show_as_sphere no
@@ -172,7 +177,7 @@ NoiseFigure 3.00000
 end_<receiver>
 powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
 end_<route>
-begin_<grid> *** Dense Pine 50m Rx Grid ***
+begin_<grid> *** grid ***
 project_id 6
 active
 invisible
@@ -195,7 +200,12 @@ end_<reference>
 side1 467.08350
 side2 259.95938
 spacing 5.00000
-nVertices 0
+nVertices 5
+1111.247570000000000 111.187590000000000 1.000000000000000
+2222.247570000000000 222.187590000000000 2.000000000000000
+3333.247570000000000 333.187590000000000 3.000000000000000
+4444.247570000000000 444.187590000000000 4.000000000000000
+5555.247570000000000 555.187590000000000 5.000000000000000
 end_<location>
 pattern_show_arrow no
 pattern_show_as_sphere no
