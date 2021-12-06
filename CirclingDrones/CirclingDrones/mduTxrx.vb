@@ -350,7 +350,7 @@ Error_Rtn:
     End Function
 
     '*******************************************************
-    '      'プロジェクト名.txrxファイルを削除する
+    '      プロジェクト名.txrxファイルを削除する
     '*******************************************************
     Public Function fncFileDelete_pj_txrx() As Boolean
         fncFileDelete_pj_txrx = False
@@ -368,7 +368,7 @@ Error_Rtn:
     End Function
 
     '*******************************************************
-    '      'スタート前にtxrxファイルを削除する
+    '      スタート前にtxrxファイルを削除する
     '*******************************************************
     Public Function fncFileDelete_txrx() As Boolean
         fncFileDelete_txrx = False
