@@ -22,10 +22,15 @@ Module mduFile
               ByVal lpString As String,
               ByVal lpFileName As String) As Integer
 
-    '*******************************************************
-    '   P2mファイル取込み
-    '*******************************************************
-    Public Function fncReadP2m(ByVal sFileName As String)
+    ''' <summary>
+    ''' P2mファイルを取込みする
+    ''' </summary>
+    ''' <param name="sFileName">P2mファイルのパス</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
+    Public Function fncReadP2m(ByVal sFileName As String) As Boolean
         On Error GoTo Error_Rtn
         fncReadP2m = False
 
@@ -96,9 +101,14 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
-    '*******************************************************
-    '   Power.txtを作成する
-    '*******************************************************
+    ''' <summary>
+    ''' Power.txtを作成する
+    ''' </summary>
+    ''' <param name="sPath">Power.txtのパス</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Function fncMem2Power(ByVal sPath As String) As Boolean
         On Error GoTo Error_Rtn
         fncMem2Power = False
@@ -130,9 +140,13 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
-    '*******************************************************
-    '      'ドローン毎の周回用ファイルを削除する
-    '*******************************************************
+    ''' <summary>
+    ''' ドローン毎の周回用ファイルを削除する
+    ''' </summary>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Function fncFileDelete_d() As Boolean
         fncFileDelete_d = False
 
@@ -148,10 +162,15 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
-    '*******************************************************
-    '      3d_pot_test_plus.exeの出力ファイルを
-    '      リネームして指定フォルダにコピーする
-    '*******************************************************
+    ''' <summary>
+    ''' 出力ファイルをリネームして指定フォルダにコピーする
+    ''' </summary>
+    ''' <param name="m">ドローン</param>
+    ''' <param name="n">周回</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Function fncExtOutRename(ByVal m As Integer, ByVal n As Integer) As Boolean
         On Error GoTo Error_Rtn
         fncExtOutRename = False
@@ -177,18 +196,6 @@ Error_Rtn:
                 'コピーエラー
                 iErrCnt = iErrCnt + 1
             End If
-            '③リネームして指定フォルダにコピー
-            'sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Height
-            'If fncFileCopy(pcExt_Out_Height, sFile) = False Then
-            '    'コピーエラー
-            '    iErrCnt = iErrCnt + 1
-            'End If
-            '④リネームして指定フォルダにコピー
-            'sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Power
-            'If fncFileCopy(pcExt_Out_Power, sFile) = False Then
-            '    'コピーエラー
-            '    iErrCnt = iErrCnt + 1
-            'End If
         End If
 
         If iErrCnt <> 0 Then GoTo Error_Exit
@@ -199,23 +206,33 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
-    '*******************************************************
-    '      ファイルの存在チェック
-    '*******************************************************
-    Public Function fncFileCheck(ByVal fileName As String) As Boolean
+    ''' <summary>
+    ''' ファイルの存在をチェックする
+    ''' </summary>
+    ''' <param name="sFileName">ファイル名</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
+    Public Function fncFileCheck(ByVal sFileName As String) As Boolean
         On Error GoTo Error_Rtn
         fncFileCheck = False
 
-        fncFileCheck = System.IO.File.Exists(fileName)
+        fncFileCheck = System.IO.File.Exists(sFileName)
 Error_Exit:
         Exit Function
 Error_Rtn:
         GoTo Error_Exit
     End Function
 
-    '*******************************************************
-    '      ファイルの削除
-    '*******************************************************
+    ''' <summary>
+    ''' ファイルを削除する
+    ''' </summary>
+    ''' <param name="sFileName">削除ファイル名</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Function fncFileDel(ByVal sFileName As String) As Boolean
         On Error GoTo Error_Rtn
         fncFileDel = False
@@ -229,14 +246,20 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
-    '*******************************************************
-    '      ファイルの上書きコピー
-    '*******************************************************
-    Public Function fncFileCopy(ByVal fileName1 As String, ByVal fileName2 As String) As Boolean
+    ''' <summary>
+    ''' ファイルを上書きコピーする
+    ''' </summary>
+    ''' <param name="sFileName1">コピー元ファイル名</param>
+    ''' <param name="sFileName2">コピー先ファイル名</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
+    Public Function fncFileCopy(ByVal sFileName1 As String, ByVal sFileName2 As String) As Boolean
         On Error GoTo Error_Rtn
         fncFileCopy = False
 
-        System.IO.File.Copy(fileName1, fileName2, True)
+        System.IO.File.Copy(sFileName1, sFileName2, True)
 
         fncFileCopy = True
 Error_Exit:
@@ -245,9 +268,12 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
-    '*******************************************************
-    '   INIファイル読込
-    '*******************************************************
+    ''' <summary>
+    ''' Iniファイルを読込する
+    ''' </summary>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Sub subSetIni()
         On Error GoTo Error_Rtn
 
@@ -372,9 +398,12 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    '*******************************************************
-    '   INIファイル保存
-    '*******************************************************
+    ''' <summary>
+    ''' Iniファイルを保存する
+    ''' </summary>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Sub subPutIni()
         On Error GoTo Error_Rtn
 

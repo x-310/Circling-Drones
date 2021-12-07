@@ -8,7 +8,7 @@ Public Class frmMain
     Dim n As Integer '周回カウント
 
     '*******************************************************
-    '   メイン
+    '   メイン画面起動後処理
     '*******************************************************
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         On Error GoTo Error_Rtn
@@ -33,7 +33,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   スタート
+    '   スタートボタン押下後処理
     '*******************************************************
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
         On Error GoTo Error_Rtn
@@ -142,7 +142,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   gnuプロット
+    '   gnuプロットボタン押下後処理
     '*******************************************************
     Private Sub btmGnu_Click(sender As Object, e As EventArgs) Handles btmGnu.Click
         On Error GoTo Error_Rtn
@@ -156,7 +156,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   終了
+    '   終了ボタン押下後処理
     '*******************************************************
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         On Error GoTo Error_Rtn
@@ -169,7 +169,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   iniファイル読込
+    '   iniファイル読込ボタン押下後処理
     '*******************************************************
 
     Private Sub btnIniGet_Click(sender As Object, e As EventArgs) Handles btnIniGet.Click
@@ -191,7 +191,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   iniファイル保存
+    '   iniファイル保存ボタン押下後処理
     '*******************************************************
     Private Sub btnIniSave_Click(sender As Object, e As EventArgs) Handles btnIniSave.Click
         On Error GoTo Error_Rtn
@@ -213,7 +213,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   iniファイル読込
+    '   iniファイル読込ボタン押下後処理
     '*******************************************************
     Private Sub btnIniGet2_Click(sender As Object, e As EventArgs) Handles btnIniGet2.Click
         On Error GoTo Error_Rtn
@@ -234,7 +234,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   iniファイル保存
+    '   iniファイル保存ボタン押下後処理
     '*******************************************************
     Private Sub btnIniSave2_Click(sender As Object, e As EventArgs) Handles btnIniSave2.Click
         On Error GoTo Error_Rtn
@@ -256,7 +256,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   iniファイル
+    '   iniファイルボタン押下後処理
     '*******************************************************
     Private Sub btnIni_Click_1(sender As Object, e As EventArgs) Handles btnIni.Click
         On Error GoTo Error_Rtn
@@ -270,7 +270,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   フォームクローズ
+    '   メイン画面終了処理
     '*******************************************************
     Private Sub frmMain_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         On Error GoTo Error_Rtn
@@ -284,7 +284,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   P2mファイル取込みテスト用
+    '   P2mファイル取込ボタン押下後処理
     '*******************************************************
     Private Sub btnGetP2m_Click(sender As Object, e As EventArgs) Handles btnGetP2m.Click
         If fncReadP2m(pPjPath + "\b2.p2m") Then
@@ -295,7 +295,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   Power.txt作成テスト用
+    '   Power.txt作成ボタン押下後処理
     '*******************************************************
     Private Sub btnPutPower_Click(sender As Object, e As EventArgs) Handles btnPutPower.Click
         If fncMem2Power(pPjPath) Then
@@ -306,7 +306,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   pjフォルダ選択
+    '   pjフォルダ選択ボタン押下後処理
     '*******************************************************
     Private Sub btnPj_Click(sender As Object, e As EventArgs) Handles btnPj.Click
         On Error GoTo Error_Rtn
@@ -320,7 +320,7 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   exeフォルダ選択
+    '   exeフォルダ選択ボタン押下後処理
     '*******************************************************
     Private Sub btnExe_Click(sender As Object, e As EventArgs) Handles btnExe.Click
 

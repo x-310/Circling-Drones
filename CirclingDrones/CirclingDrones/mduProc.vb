@@ -3,9 +3,15 @@
 '*******************************************************
 Module mduProc
 
-    '*******************************************************
-    '   Itiファイルを作成する
-    '*******************************************************
+    ''' <summary>
+    ''' Itiファイルを作成する
+    ''' </summary>
+    ''' <param name="m">ドローン</param>
+    ''' <param name="n">周回</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Function fncItiFile(ByVal m As Integer, ByVal n As Integer) As Boolean
         On Error GoTo Error_Rtn
         fncItiFile = False

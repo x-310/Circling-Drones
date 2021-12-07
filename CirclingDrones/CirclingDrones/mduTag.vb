@@ -1,9 +1,8 @@
 ﻿'*******************************************************
-'      タグ用モジュール
+'      タグ用定義(テンプレート)
 '*******************************************************
 Module mduTag
 	'pointsタグテンプレート(nVerticesの初期値：0、最後は改行すること)
-
 	Public Const pcTag_points As String =
 "begin_<points> Untitled Tx Points
 project_id 1

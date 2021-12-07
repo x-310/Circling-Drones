@@ -2,9 +2,12 @@
 '      共通関数用モジュール
 '*******************************************************
 Module mduCommon
-    '*******************************************************
-    '      画面コントロール初期化
-    '*******************************************************
+    ''' <summary>
+    ''' 画面コントロールを初期化する
+    ''' </summary>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Sub subCtlReset()
         On Error GoTo Error_Rtn
 
@@ -51,9 +54,13 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    '*******************************************************
-    '      インターバル設定
-    '*******************************************************
+    ''' <summary>
+    ''' インターバルを設定する
+    ''' </summary>
+    ''' <param name="iInterval">インターバル値</param>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Sub subiInterval(ByVal iInterval As Integer)
         On Error GoTo Error_Rtn
 
@@ -67,9 +74,13 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    '*******************************************************
-    '      画面ボタン制御
-    '*******************************************************
+    ''' <summary>
+    ''' 画面ボタンを制御する
+    ''' </summary>
+    ''' <param name="bFlg">True:ON False:OFF</param>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history> 
     Public Sub subBtnOnoff(ByVal bFlg As Boolean)
         On Error GoTo Error_Rtn
 
@@ -84,9 +95,13 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    '*******************************************************
-    '      pOkNg設定（0：緑色、1：赤色、2：黄色）
-    '*******************************************************
+    ''' <summary>
+    ''' 画面ログ「OK/NG」用配列を設定する
+    ''' </summary>
+    ''' <param name="iColor">0：緑色、1：赤色、2：黄色</param>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history> 
     Public Sub subOkNg_Color(ByVal iColor As Integer)
         On Error GoTo Error_Rtn
 
@@ -100,15 +115,19 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    '*******************************************************
-    '      画面ログ出力（0：緑色、1：赤色、2：黄色）
-    '*******************************************************
+    ''' <summary>
+    ''' 画面ログ「OK/NG」の表示色をを出力する
+    ''' </summary>
+    ''' <param name="iLen">該当文字目</param>
+    ''' <param name="iColor">0：緑色、1：赤色、2：黄色</param>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>   
     Public Sub subLogOutput_Color(ByVal iLen As Integer, ByVal iColor As Integer)
         On Error GoTo Error_Rtn
 
         'カレットを該当文字目に移動
         frmMain.txtLogDisp.Select(iLen, 0)
-        'frmMain.txtLogDisp.Select(frmMain.txtLogDisp.Text.Length - 3, 0)
         '2文字選択する：OK or NG
         frmMain.txtLogDisp.SelectionLength = 2
         '色を変更する
@@ -128,9 +147,13 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    '*******************************************************
-    '      画面ログ出力
-    '*******************************************************
+    ''' <summary>
+    ''' 画面ログを出力する
+    ''' </summary>
+    ''' <param name="sMessage">出力文字</param>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Sub subLogOutput(ByVal sMessage As String)
         On Error GoTo Error_Rtn
 
@@ -141,9 +164,12 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    '*******************************************************
-    '      画面設定情報を取得
-    '*******************************************************
+    ''' <summary>
+    ''' 画面設定情報を取得する
+    ''' </summary>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Sub subSetGamen()
         On Error GoTo Error_Rtn
 
@@ -160,9 +186,12 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    '*******************************************************
-    '      テキストボックスのカーソル制御
-    '*******************************************************
+    ''' <summary>
+    ''' テキストボックスのカーソルを制御する
+    ''' </summary>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
     Public Sub subSetRow()
         On Error GoTo Error_Rtn
 
@@ -178,48 +207,66 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    '*******************************************************
-    '      メッセージボックス
-    '*******************************************************
-    Public Function fncMsgBox(ByVal NAME) As Long
+    ''' <summary>
+    ''' メッセージボックスを表示する
+    ''' </summary>
+    ''' <param name="sName">表示文字</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
+    Public Function fncMsgBox(ByVal sName) As Boolean
         On Error GoTo Error_Rtn
+        fncMsgBox = False
 
-        Dim MSG As String = NAME
+        Dim sMSG As String = sName
+        MessageBox.Show(sMSG, pcAppName, MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-        MessageBox.Show(MSG, pcAppName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        fncMsgBox = True
 Error_Exit:
         Exit Function
 Error_Rtn:
         GoTo Error_Exit
     End Function
 
-    '*******************************************************
-    '      エラーメッセージ
-    '*******************************************************
-    Public Function fncErrors(ByVal NAME) As Long
+    ''' <summary>
+    ''' エラーメッセージを表示する
+    ''' </summary>
+    ''' <param name="sName">表示文字</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
+    Public Function fncErrors(ByVal sName) As Boolean
         On Error GoTo Error_Rtn
+        fncErrors = False
 
-        Dim MSG As String
-
+        Dim sMSG As String
         Select Case Err()
             Case Else
-                MSG = NAME & Chr(13) & Err.Description
-                MessageBox.Show(MSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                sMSG = sName & Chr(13) & Err.Description
+                MessageBox.Show(sMSG, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
+
+        fncErrors = True
 Error_Exit:
         Exit Function
 Error_Rtn:
         GoTo Error_Exit
     End Function
 
-    '*******************************************************
-    '      プロセスを終了する
-    '*******************************************************
-    Public Sub subKillProc(ByVal NAME)
+    ''' <summary>
+    ''' プロセスを終了する
+    ''' </summary>
+    ''' <param name="sName">終了したいプロセス名</param>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    '''  <history></history>
+    Public Sub subKillProc(ByVal sName As String)
         On Error Resume Next
 
         Dim ps As System.Diagnostics.Process() =
-        System.Diagnostics.Process.GetProcessesByName(NAME)
+        System.Diagnostics.Process.GetProcessesByName(sName)
 
         For Each p As System.Diagnostics.Process In ps
             'プロセスを強制的に終了させる
