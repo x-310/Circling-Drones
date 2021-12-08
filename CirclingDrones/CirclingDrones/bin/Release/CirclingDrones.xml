@@ -28,7 +28,7 @@ CirclingDrones
  </summary>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduCommon.subiInterval(System.Int32)">
  <summary>
@@ -37,7 +37,7 @@ CirclingDrones
  <param name="iInterval">インターバル値</param>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduCommon.subBtnOnoff(System.Boolean)">
  <summary>
@@ -46,7 +46,7 @@ CirclingDrones
  <param name="bFlg">True:ON False:OFF</param>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history> 
+ <history></history> 
 </member>
 <member name="M:CirclingDrones.mduCommon.subOkNg_Color(System.Int32)">
  <summary>
@@ -55,7 +55,7 @@ CirclingDrones
  <param name="iColor">0：緑色、1：赤色、2：黄色</param>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history> 
+ <history></history> 
 </member>
 <member name="M:CirclingDrones.mduCommon.subLogOutput_Color(System.Int32,System.Int32)">
  <summary>
@@ -65,7 +65,7 @@ CirclingDrones
  <param name="iColor">0：緑色、1：赤色、2：黄色</param>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>   
+ <history></history>   
 </member>
 <member name="M:CirclingDrones.mduCommon.subLogOutput(System.String)">
  <summary>
@@ -74,7 +74,7 @@ CirclingDrones
  <param name="sMessage">出力文字</param>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduCommon.subSetGamen">
  <summary>
@@ -82,7 +82,7 @@ CirclingDrones
  </summary>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduCommon.subSetRow">
  <summary>
@@ -90,7 +90,7 @@ CirclingDrones
  </summary>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduCommon.fncMsgBox(System.Object)">
  <summary>
@@ -100,7 +100,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduCommon.fncErrors(System.Object)">
  <summary>
@@ -110,7 +110,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduCommon.subKillProc(System.String)">
  <summary>
@@ -119,7 +119,7 @@ CirclingDrones
  <param name="sName">終了したいプロセス名</param>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduFile.fncReadP2m(System.String)">
  <summary>
@@ -129,7 +129,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduFile.fncMem2Power(System.String)">
  <summary>
@@ -139,7 +139,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduFile.fncFileDelete_d">
  <summary>
@@ -148,7 +148,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduFile.fncExtOutRename(System.Int32,System.Int32)">
  <summary>
@@ -159,7 +159,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduFile.fncFileCheck(System.String)">
  <summary>
@@ -169,7 +169,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduFile.fncFileDel(System.String)">
  <summary>
@@ -179,7 +179,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduFile.fncFileCopy(System.String,System.String)">
  <summary>
@@ -190,7 +190,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduFile.subSetIni">
  <summary>
@@ -198,7 +198,7 @@ CirclingDrones
  </summary>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduFile.subPutIni">
  <summary>
@@ -206,7 +206,7 @@ CirclingDrones
  </summary>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduProc.fncItiFile(System.Int32,System.Int32)">
  <summary>
@@ -217,16 +217,16 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduTxrx.fncMem2txrx">
  <summary>
  プロジェクト名.txrxファイルを作成する
  </summary>
- <returns>追加項目データ</returns>
+ <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduTxrx.fncTagKeyAdd(System.String,System.String,System.Int32,System.String[])">
  <summary>
@@ -236,10 +236,10 @@ CirclingDrones
  <param name="sTagName">タグ名</param>
  <param name="iAddCnt">追加したい行数</param>
  <param name="sValue">追加データ</param>
- <returns>追加項目データ</returns>
+ <returns>追加する項目データ</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduTxrx.fncTagKeyUpdate(System.String,System.String,System.String)">
  <summary>
@@ -248,10 +248,10 @@ CirclingDrones
  <param name="sBlockData">ブロックデータ</param>
  <param name="sTagName">タグ名</param>
  <param name="sValue">変更データ</param>
- <returns>更新項目データ</returns>
+ <returns>更新する項目データ</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduTxrx.fncItiFile2Txrx(System.Int32,System.Int32)">
  <summary>
@@ -262,7 +262,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduTxrx.fncFileDelete_pj_txrx">
  <summary>
@@ -271,7 +271,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 <member name="M:CirclingDrones.mduTxrx.fncFileDelete_txrx">
  <summary>
@@ -280,7 +280,7 @@ CirclingDrones
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
-  <history></history>
+ <history></history>
 </member>
 </members>
 </doc>

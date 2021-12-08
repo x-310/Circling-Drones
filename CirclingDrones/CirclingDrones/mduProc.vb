@@ -11,13 +11,13 @@ Module mduProc
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncItiFile(ByVal m As Integer, ByVal n As Integer) As Boolean
         On Error GoTo Error_Rtn
         fncItiFile = False
 
-        Dim sData As String = ""
-        ReDim Preserve pIti(pcMax_d, n)      '位置情報
+        Dim sData As String = ""            'ファイル書込み用データ
+        ReDim Preserve pIti(pcMax_d, n)     '位置情報
 
         'n=0の場合、画面設定値から取込む
         If n <> 0 Then

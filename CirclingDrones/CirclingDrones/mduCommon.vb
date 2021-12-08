@@ -7,7 +7,7 @@ Module mduCommon
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Sub subCtlReset()
         On Error GoTo Error_Rtn
 
@@ -60,11 +60,11 @@ Error_Rtn:
     ''' <param name="iInterval">インターバル値</param>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Sub subiInterval(ByVal iInterval As Integer)
         On Error GoTo Error_Rtn
 
-        'インターバル設定
+
         System.Threading.Thread.Sleep(iInterval)
         'イベント発生
         Application.DoEvents()
@@ -80,7 +80,7 @@ Error_Rtn:
     ''' <param name="bFlg">True:ON False:OFF</param>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history> 
+    ''' <history></history> 
     Public Sub subBtnOnoff(ByVal bFlg As Boolean)
         On Error GoTo Error_Rtn
 
@@ -101,7 +101,7 @@ Error_Rtn:
     ''' <param name="iColor">0：緑色、1：赤色、2：黄色</param>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history> 
+    ''' <history></history> 
     Public Sub subOkNg_Color(ByVal iColor As Integer)
         On Error GoTo Error_Rtn
 
@@ -122,7 +122,7 @@ Error_Rtn:
     ''' <param name="iColor">0：緑色、1：赤色、2：黄色</param>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>   
+    ''' <history></history>   
     Public Sub subLogOutput_Color(ByVal iLen As Integer, ByVal iColor As Integer)
         On Error GoTo Error_Rtn
 
@@ -153,7 +153,7 @@ Error_Rtn:
     ''' <param name="sMessage">出力文字</param>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Sub subLogOutput(ByVal sMessage As String)
         On Error GoTo Error_Rtn
 
@@ -169,17 +169,27 @@ Error_Rtn:
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Sub subSetGamen()
         On Error GoTo Error_Rtn
 
-        pSet_d = frmMain.cmbSet_d.Text                  'ドローン設定台数
-        pSet_Interval = frmMain.cmbSet_Interval.Text    '周回の間隔(ミリ秒)
-        pSet_v = frmMain.cmbSet_v.Text                  '周回
+        'ドローン設定台数
+        pSet_d = frmMain.cmbSet_d.Text
 
-        frmMain.txtStopFlg.Text = "0"                   '周回ループ
-        frmMain.txtNG.Text = "" 'NGカウント表示
-        frmMain.txtLogDisp.Text = ""                    '画面ログ出力
+        '周回の間隔(ミリ秒)
+        pSet_Interval = frmMain.cmbSet_Interval.Text
+
+        '周回
+        pSet_v = frmMain.cmbSet_v.Text
+
+        '周回ループ
+        frmMain.txtStopFlg.Text = "0"
+
+        'NGカウント表示
+        frmMain.txtNG.Text = ""
+
+        '画面ログ出力
+        frmMain.txtLogDisp.Text = ""
 Error_Exit:
         Exit Sub
 Error_Rtn:
@@ -191,14 +201,16 @@ Error_Rtn:
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Sub subSetRow()
         On Error GoTo Error_Rtn
 
         'カレット位置を末尾に移動
         frmMain.txtLogDisp.SelectionStart = frmMain.txtLogDisp.Text.Length
+
         'テキストボックスにフォーカスを移動
         frmMain.txtLogDisp.Focus()
+
         'カレット位置までスクロール
         frmMain.txtLogDisp.ScrollToCaret()
 Error_Exit:
@@ -214,7 +226,7 @@ Error_Rtn:
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncMsgBox(ByVal sName) As Boolean
         On Error GoTo Error_Rtn
         fncMsgBox = False
@@ -236,12 +248,13 @@ Error_Rtn:
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncErrors(ByVal sName) As Boolean
         On Error GoTo Error_Rtn
         fncErrors = False
 
-        Dim sMSG As String
+        Dim sMSG As String  'メッセージ文
+
         Select Case Err()
             Case Else
                 sMSG = sName & Chr(13) & Err.Description
@@ -261,7 +274,7 @@ Error_Rtn:
     ''' <param name="sName">終了したいプロセス名</param>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Sub subKillProc(ByVal sName As String)
         On Error Resume Next
 

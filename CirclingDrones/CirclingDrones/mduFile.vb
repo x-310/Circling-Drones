@@ -29,27 +29,28 @@ Module mduFile
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncReadP2m(ByVal sFileName As String) As Boolean
         On Error GoTo Error_Rtn
         fncReadP2m = False
 
         ' StreamReader の新しいインスタンスを生成する
-        Dim oReader As New System.IO.StreamReader(sFileName, System.Text.Encoding.Default)
-        Dim sRowData As String = ""
-        Dim sColData As String = ""
-        Dim iRow As Integer = 0
-        Dim iCol As Integer = 0
-        Dim iColNo As Integer = 0
-        Dim iNowFlg As String = 0
-        Dim iLastFlg As String = 0
-        '▼▼ 行ループ
+        Dim oReader As New System.IO.StreamReader(sFileName, System.Text.Encoding.Default)  'ファイル読込用
+        Dim sRowData As String = ""                                                         '行データ
+        Dim sColData As String = ""                                                         'カラムデータ
+        Dim iRow As Integer = 0                                                             '行
+        Dim iCol As Integer = 0                                                             '列
+        Dim iColNo As Integer = 0                                                           '列No
+        Dim iNowFlg As String = 0                                                           '現在行
+        Dim iLastFlg As String = 0                                                          '最終行
+
+        '行ループ
         ReDim Preserve pP2m(-1)
         While (oReader.Peek() >= 0)
-            ReDim Preserve pP2m(iRow)             'pP2m に新規行を追加
-            sRowData = oReader.ReadLine()         '1行を文字型配列に格納
+            ReDim Preserve pP2m(iRow)       'pP2m に新規行を追加
+            sRowData = oReader.ReadLine()   '1行を文字型配列に格納
             If Left(sRowData, 1) <> "#" Then
-                '▼ 列ループ：１行分の列を埋める
+                '列ループ：１行分の列を埋める
                 iColNo = 0
                 sColData = ""
                 For iCol = 0 To sRowData.Length - 1
@@ -86,10 +87,10 @@ Module mduFile
                         sColData = sColData + sRowData.Substring(iCol, 1)
                         pP2m(iRow).sPhase = Trim(sColData)
                     End If
-                Next '▲ 列ループ
+                Next '列ループ
                 iRow += 1
             End If
-        End While '▲▲ 行ループ
+        End While '行ループ
 
         oReader.Close()
         oReader.Dispose()
@@ -108,12 +109,12 @@ Error_Rtn:
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncMem2Power(ByVal sPath As String) As Boolean
         On Error GoTo Error_Rtn
         fncMem2Power = False
 
-        Dim iRow As Integer
+        Dim iRow As Integer '行ループ
         'ファイル存在チェック
         If fncFileCheck(sPath & "\Power.txt") Then
             '存在すればファイル削除
@@ -146,11 +147,11 @@ Error_Rtn:
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncFileDelete_d() As Boolean
         fncFileDelete_d = False
 
-        Dim sFile As String = ""
+        Dim sFile As String = ""    'ファイル名
 
         sFile = pPjPath & "\" & "d*.*"
         fncFileDel(sFile)
@@ -170,27 +171,25 @@ Error_Rtn:
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncExtOutRename(ByVal m As Integer, ByVal n As Integer) As Boolean
         On Error GoTo Error_Rtn
         fncExtOutRename = False
 
-        Dim iErrCnt As Integer = 0
-        Dim sFile As String = ""
+        Dim iErrCnt As Integer = 0  'エラーカウント
+        Dim sFile As String = ""    'ファイル名
 
-        '      End If
         '出力元ファイル存在チェック
         If fncFileCheck(pcExt_Out_Grid) AndAlso
             fncFileCheck(pcExt_Out_Meter) Then
-            'fncFileCheck(pcExt_Out_Height) AndAlso
-            'fncFileCheck(pcExt_Out_Power) Then
-            '①リネームして指定フォルダにコピー
+            'リネームして指定フォルダにコピー
             sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Grid
             If fncFileCopy(pcExt_Out_Grid, sFile) = False Then
                 'コピーエラー
                 iErrCnt = iErrCnt + 1
             End If
-            '②リネームして指定フォルダにコピー
+
+            'リネームして指定フォルダにコピー
             sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Meter
             If fncFileCopy(pcExt_Out_Meter, sFile) = False Then
                 'コピーエラー
@@ -213,7 +212,7 @@ Error_Rtn:
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncFileCheck(ByVal sFileName As String) As Boolean
         On Error GoTo Error_Rtn
         fncFileCheck = False
@@ -232,7 +231,7 @@ Error_Rtn:
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncFileDel(ByVal sFileName As String) As Boolean
         On Error GoTo Error_Rtn
         fncFileDel = False
@@ -254,7 +253,7 @@ Error_Rtn:
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Function fncFileCopy(ByVal sFileName1 As String, ByVal sFileName2 As String) As Boolean
         On Error GoTo Error_Rtn
         fncFileCopy = False
@@ -273,12 +272,11 @@ Error_Rtn:
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Sub subSetIni()
         On Error GoTo Error_Rtn
 
-        Const DEF_STR As String = vbNullString
-        Const DEF_VAL As Long = 0
+        Const DEF_STR As String = vbNullString  'Null設定
 
         Dim iRET As Integer = 0
         Dim sBuf As String = New String(" ", 1024) 'Spaceが1024文字
@@ -306,11 +304,12 @@ Error_Rtn:
         frmMain.txtGnuPath.Text = pGnuPath      'gnuプロットパス
         frmMain.txtPjPath.Text = pPjPath        'pjフォルダパス
 
-        Dim iCnt As Integer
-        Dim sX As String
-        Dim sY As String
-        Dim sZ As String
-        Dim sSec As String
+        Dim iCnt As Integer 'ドローンループ
+        Dim sSec As String  'セクション名
+        Dim sX As String    'X値
+        Dim sY As String    'Y値
+        Dim sZ As String    'Z値
+
         For iCnt = 1 To 5
             sX = ""
             sY = ""
@@ -403,11 +402,11 @@ Error_Rtn:
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
-    '''  <history></history>
+    ''' <history></history>
     Public Sub subPutIni()
         On Error GoTo Error_Rtn
 
-        Dim iRET As Integer = 0
+        Dim iRET As Integer = 0 'リターン値
 
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_11, frmMain.txtPjName.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_12, frmMain.txtGnuPath.Text, pIniPath & "\" & pcIniFileName)

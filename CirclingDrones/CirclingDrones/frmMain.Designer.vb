@@ -29,6 +29,7 @@ Partial Class frmMain
         Me.btmGnu = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.pnlCon = New System.Windows.Forms.Panel()
+        Me.txtNG = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.txtLogDisp = New System.Windows.Forms.RichTextBox()
         Me.txtNow_m = New System.Windows.Forms.TextBox()
@@ -115,7 +116,6 @@ Partial Class frmMain
         Me.pnlTest = New System.Windows.Forms.Panel()
         Me.btnPutPower = New System.Windows.Forms.Button()
         Me.btnGetP2m = New System.Windows.Forms.Button()
-        Me.txtNG = New System.Windows.Forms.TextBox()
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -172,7 +172,7 @@ Partial Class frmMain
         Me.btnExe.Name = "btnExe"
         Me.btnExe.Size = New System.Drawing.Size(64, 45)
         Me.btnExe.TabIndex = 21
-        Me.btnExe.Text = "exeﾌｫﾙﾀﾞ選択"
+        Me.btnExe.Text = "exeﾌｫﾙﾀﾞ開く"
         Me.btnExe.UseVisualStyleBackColor = False
         '
         'btnPj
@@ -184,7 +184,7 @@ Partial Class frmMain
         Me.btnPj.Name = "btnPj"
         Me.btnPj.Size = New System.Drawing.Size(64, 45)
         Me.btnPj.TabIndex = 22
-        Me.btnPj.Text = "Pjﾌｫﾙﾀﾞ選択"
+        Me.btnPj.Text = "Pjﾌｫﾙﾀﾞ開く"
         Me.btnPj.UseVisualStyleBackColor = False
         '
         'btmGnu
@@ -227,6 +227,19 @@ Partial Class frmMain
         Me.pnlCon.Name = "pnlCon"
         Me.pnlCon.Size = New System.Drawing.Size(343, 340)
         Me.pnlCon.TabIndex = 10
+        '
+        'txtNG
+        '
+        Me.txtNG.BackColor = System.Drawing.Color.Black
+        Me.txtNG.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.txtNG.ForeColor = System.Drawing.Color.Red
+        Me.txtNG.Location = New System.Drawing.Point(280, 14)
+        Me.txtNG.MaxLength = 100
+        Me.txtNG.Name = "txtNG"
+        Me.txtNG.Size = New System.Drawing.Size(32, 22)
+        Me.txtNG.TabIndex = 315
+        Me.txtNG.Text = "1"
+        Me.txtNG.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label31
         '
@@ -1220,19 +1233,6 @@ Partial Class frmMain
         Me.btnGetP2m.TabIndex = 71
         Me.btnGetP2m.Text = "p2mファイル取込"
         Me.btnGetP2m.UseVisualStyleBackColor = False
-        '
-        'txtNG
-        '
-        Me.txtNG.BackColor = System.Drawing.Color.Black
-        Me.txtNG.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txtNG.ForeColor = System.Drawing.Color.Red
-        Me.txtNG.Location = New System.Drawing.Point(280, 14)
-        Me.txtNG.MaxLength = 100
-        Me.txtNG.Name = "txtNG"
-        Me.txtNG.Size = New System.Drawing.Size(32, 22)
-        Me.txtNG.TabIndex = 315
-        Me.txtNG.Text = "1"
-        Me.txtNG.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'frmMain
         '
