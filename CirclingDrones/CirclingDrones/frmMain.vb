@@ -301,28 +301,6 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   P2mファイル取込ボタン押下後処理
-    '*******************************************************
-    Private Sub btnGetP2m_Click(sender As Object, e As EventArgs) Handles btnGetP2m.Click
-        If fncReadP2m(pPjPath + "\b2.p2m") Then
-            fncMsgBox("OK")
-        Else
-            fncMsgBox("NG")
-        End If
-    End Sub
-
-    '*******************************************************
-    '   Power.txt作成ボタン押下後処理
-    '*******************************************************
-    Private Sub btnPutPower_Click(sender As Object, e As EventArgs) Handles btnPutPower.Click
-        If fncMem2Power(pPjPath) Then
-            fncMsgBox("OK")
-        Else
-            fncMsgBox("NG")
-        End If
-    End Sub
-
-    '*******************************************************
     '   pjフォルダ開くボタン押下後処理
     '*******************************************************
     Private Sub btnPj_Click(sender As Object, e As EventArgs) Handles btnPj.Click
@@ -349,5 +327,46 @@ Error_Exit:
         Exit Sub
 Error_Rtn:
         GoTo Error_Exit
+    End Sub
+
+    '*******************************************************
+    '   タブコントロール選択処理
+    '*******************************************************
+    Private Sub TabControl1_DrawItem(sender As Object, e As DrawItemEventArgs) Handles TabControl1.DrawItem
+        '対象のTabControlを取得
+        Dim tab As TabControl = CType(sender, TabControl)
+        'タブページのテキストを取得
+        Dim txt As String = tab.TabPages(e.Index).Text
+        'タブのテキストと背景を描画するためのブラシを決定する
+        Dim foreBrush, backBrush As Brush
+
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            '選択されているタブのテキストを赤、背景を青とする
+            foreBrush = Brushes.Black
+            backBrush = Brushes.White
+        Else
+            '選択されていないタブのテキストは灰色、背景を白とする
+            If (e.Index = 0) Then
+                foreBrush = Brushes.Gray
+                backBrush = Brushes.Honeydew
+            ElseIf (e.Index = 1) Then
+                foreBrush = Brushes.Gray
+                backBrush = Brushes.LightCyan
+            Else
+                foreBrush = Brushes.Gray
+                backBrush = Brushes.LightYellow
+            End If
+        End If
+
+        'StringFormatを作成
+        Dim sf As New StringFormat
+        '中央に表示する
+        sf.Alignment = StringAlignment.Center
+        sf.LineAlignment = StringAlignment.Center
+
+        '背景の描画
+        e.Graphics.FillRectangle(backBrush, e.Bounds)
+        'Textの描画
+        e.Graphics.DrawString(txt, e.Font, foreBrush, RectangleF.op_Implicit(e.Bounds), sf)
     End Sub
 End Class

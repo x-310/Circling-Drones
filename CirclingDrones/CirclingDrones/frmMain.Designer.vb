@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmMain
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.pnlBtn = New System.Windows.Forms.Panel()
         Me.btnIni = New System.Windows.Forms.Button()
@@ -29,6 +29,7 @@ Partial Class frmMain
         Me.btmGnu = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.pnlCon = New System.Windows.Forms.Panel()
+        Me.txtStopFlg = New System.Windows.Forms.TextBox()
         Me.txtNG = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.txtLogDisp = New System.Windows.Forms.RichTextBox()
@@ -36,7 +37,6 @@ Partial Class frmMain
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtNow_n = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtStopFlg = New System.Windows.Forms.TextBox()
         Me.btnStart = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbSet_v = New System.Windows.Forms.ComboBox()
@@ -112,10 +112,6 @@ Partial Class frmMain
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtCom1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TabPage9 = New System.Windows.Forms.TabPage()
-        Me.pnlTest = New System.Windows.Forms.Panel()
-        Me.btnPutPower = New System.Windows.Forms.Button()
-        Me.btnGetP2m = New System.Windows.Forms.Button()
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -133,8 +129,6 @@ Partial Class frmMain
         Me.TabPage8.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.TabPage9.SuspendLayout()
-        Me.pnlTest.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlBtn
@@ -211,7 +205,9 @@ Partial Class frmMain
         '
         'pnlCon
         '
+        Me.pnlCon.BackColor = System.Drawing.Color.Transparent
         Me.pnlCon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pnlCon.Controls.Add(Me.txtStopFlg)
         Me.pnlCon.Controls.Add(Me.txtNG)
         Me.pnlCon.Controls.Add(Me.Label31)
         Me.pnlCon.Controls.Add(Me.txtLogDisp)
@@ -219,7 +215,6 @@ Partial Class frmMain
         Me.pnlCon.Controls.Add(Me.Label7)
         Me.pnlCon.Controls.Add(Me.txtNow_n)
         Me.pnlCon.Controls.Add(Me.Label6)
-        Me.pnlCon.Controls.Add(Me.txtStopFlg)
         Me.pnlCon.Controls.Add(Me.btnStart)
         Me.pnlCon.Controls.Add(Me.Label2)
         Me.pnlCon.Controls.Add(Me.cmbSet_v)
@@ -228,9 +223,25 @@ Partial Class frmMain
         Me.pnlCon.Size = New System.Drawing.Size(343, 340)
         Me.pnlCon.TabIndex = 10
         '
+        'txtStopFlg
+        '
+        Me.txtStopFlg.BackColor = System.Drawing.SystemColors.Control
+        Me.txtStopFlg.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtStopFlg.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.txtStopFlg.ForeColor = System.Drawing.Color.LightGray
+        Me.txtStopFlg.Location = New System.Drawing.Point(-5, 1)
+        Me.txtStopFlg.MaxLength = 100
+        Me.txtStopFlg.Name = "txtStopFlg"
+        Me.txtStopFlg.Size = New System.Drawing.Size(23, 12)
+        Me.txtStopFlg.TabIndex = 309
+        Me.txtStopFlg.Text = "0"
+        Me.txtStopFlg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtStopFlg.Visible = False
+        '
         'txtNG
         '
         Me.txtNG.BackColor = System.Drawing.Color.Black
+        Me.txtNG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtNG.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txtNG.ForeColor = System.Drawing.Color.Red
         Me.txtNG.Location = New System.Drawing.Point(280, 14)
@@ -317,19 +328,6 @@ Partial Class frmMain
         Me.Label6.TabIndex = 309
         Me.Label6.Text = "周目"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtStopFlg
-        '
-        Me.txtStopFlg.BackColor = System.Drawing.Color.DimGray
-        Me.txtStopFlg.ForeColor = System.Drawing.Color.DarkGray
-        Me.txtStopFlg.Location = New System.Drawing.Point(318, -2)
-        Me.txtStopFlg.MaxLength = 100
-        Me.txtStopFlg.Name = "txtStopFlg"
-        Me.txtStopFlg.Size = New System.Drawing.Size(23, 19)
-        Me.txtStopFlg.TabIndex = 308
-        Me.txtStopFlg.Text = "0"
-        Me.txtStopFlg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.txtStopFlg.Visible = False
         '
         'btnStart
         '
@@ -430,7 +428,6 @@ Partial Class frmMain
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage8)
-        Me.TabControl1.Controls.Add(Me.TabPage9)
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -439,15 +436,16 @@ Partial Class frmMain
         '
         'TabPage1
         '
+        Me.TabPage1.BackColor = System.Drawing.Color.Transparent
         Me.TabPage1.Controls.Add(Me.pnlSet)
         Me.TabPage1.Controls.Add(Me.pnlCon)
+        Me.TabPage1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(361, 443)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "シミュレーション"
-        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'TabPage2
         '
@@ -1189,51 +1187,6 @@ Partial Class frmMain
         Me.Label9.Text = "コマンド1："
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'TabPage9
-        '
-        Me.TabPage9.BackColor = System.Drawing.Color.Transparent
-        Me.TabPage9.Controls.Add(Me.pnlTest)
-        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Size = New System.Drawing.Size(361, 443)
-        Me.TabPage9.TabIndex = 3
-        Me.TabPage9.Text = "単体テスト"
-        '
-        'pnlTest
-        '
-        Me.pnlTest.BackColor = System.Drawing.Color.Transparent
-        Me.pnlTest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pnlTest.Controls.Add(Me.btnPutPower)
-        Me.pnlTest.Controls.Add(Me.btnGetP2m)
-        Me.pnlTest.Location = New System.Drawing.Point(9, 6)
-        Me.pnlTest.Name = "pnlTest"
-        Me.pnlTest.Size = New System.Drawing.Size(343, 431)
-        Me.pnlTest.TabIndex = 70
-        '
-        'btnPutPower
-        '
-        Me.btnPutPower.BackColor = System.Drawing.Color.Transparent
-        Me.btnPutPower.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btnPutPower.ForeColor = System.Drawing.Color.Black
-        Me.btnPutPower.Location = New System.Drawing.Point(171, 11)
-        Me.btnPutPower.Name = "btnPutPower"
-        Me.btnPutPower.Size = New System.Drawing.Size(150, 31)
-        Me.btnPutPower.TabIndex = 72
-        Me.btnPutPower.Text = "Power.txt作成"
-        Me.btnPutPower.UseVisualStyleBackColor = False
-        '
-        'btnGetP2m
-        '
-        Me.btnGetP2m.BackColor = System.Drawing.Color.Transparent
-        Me.btnGetP2m.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btnGetP2m.ForeColor = System.Drawing.Color.Black
-        Me.btnGetP2m.Location = New System.Drawing.Point(13, 11)
-        Me.btnGetP2m.Name = "btnGetP2m"
-        Me.btnGetP2m.Size = New System.Drawing.Size(155, 31)
-        Me.btnGetP2m.TabIndex = 71
-        Me.btnGetP2m.Text = "p2mファイル取込"
-        Me.btnGetP2m.UseVisualStyleBackColor = False
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1270,8 +1223,6 @@ Partial Class frmMain
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
-        Me.TabPage9.ResumeLayout(False)
-        Me.pnlTest.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1296,7 +1247,6 @@ Partial Class frmMain
     Public WithEvents txtGnuPath As TextBox
     Public WithEvents txtPjName As TextBox
     Friend WithEvents btnIniSave As Button
-    Public WithEvents txtStopFlg As TextBox
     Friend WithEvents btnIniGet As Button
     Public WithEvents txtNow_n As TextBox
     Friend WithEvents Label6 As Label
@@ -1344,10 +1294,6 @@ Partial Class frmMain
     Friend WithEvents btnExe As Button
     Friend WithEvents txtLogDisp As RichTextBox
     Friend WithEvents TabPage8 As TabPage
-    Friend WithEvents TabPage9 As TabPage
-    Friend WithEvents pnlTest As Panel
-    Friend WithEvents btnPutPower As Button
-    Friend WithEvents btnGetP2m As Button
     Friend WithEvents btnIni As Button
     Friend WithEvents Label25 As Label
     Public WithEvents txtIniPath As TextBox
@@ -1369,4 +1315,5 @@ Partial Class frmMain
     Friend WithEvents btnIniSave2 As Button
     Friend WithEvents Label31 As Label
     Public WithEvents txtNG As TextBox
+    Public WithEvents txtStopFlg As TextBox
 End Class

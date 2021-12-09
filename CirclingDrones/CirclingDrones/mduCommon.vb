@@ -48,6 +48,13 @@ Module mduCommon
 
         frmMain.txtStopFlg.Text = "0"   '周回終了フラグ=1:終了
         frmMain.txtNG.Text = "" 'NGカウント表示
+
+        'タブのサイズを固定する
+        frmMain.TabControl1.SizeMode = TabSizeMode.Fixed
+        frmMain.TabControl1.ItemSize = New Size(100, 30)
+
+        'TabControlをオーナードローする
+        frmMain.TabControl1.DrawMode = TabDrawMode.OwnerDrawFixed
 Error_Exit:
         Exit Sub
 Error_Rtn:
