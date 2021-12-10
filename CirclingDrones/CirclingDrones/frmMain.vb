@@ -343,7 +343,7 @@ Error_Rtn:
         If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
             '選択されているタブのテキストを赤、背景を青とする
             foreBrush = Brushes.Black
-            backBrush = Brushes.White
+            backBrush = Brushes.Orange
         Else
             '選択されていないタブのテキストは灰色、背景を白とする
             If (e.Index = 0) Then
