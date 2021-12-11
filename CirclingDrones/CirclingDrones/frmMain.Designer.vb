@@ -147,60 +147,61 @@ Partial Class frmMain
         '
         'btnIni
         '
-        Me.btnIni.BackColor = System.Drawing.Color.Transparent
-        Me.btnIni.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btnIni.ForeColor = System.Drawing.Color.Blue
-        Me.btnIni.Location = New System.Drawing.Point(149, 8)
+        Me.btnIni.BackColor = System.Drawing.Color.Azure
+        Me.btnIni.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnIni.ForeColor = System.Drawing.Color.Black
+        Me.btnIni.Location = New System.Drawing.Point(150, 8)
         Me.btnIni.Name = "btnIni"
         Me.btnIni.Size = New System.Drawing.Size(57, 45)
         Me.btnIni.TabIndex = 23
-        Me.btnIni.Text = "Iniﾌｧｲﾙ開く"
+        Me.btnIni.Text = "INIﾌｧｲﾙ"
         Me.btnIni.UseVisualStyleBackColor = False
         '
         'btnExe
         '
-        Me.btnExe.BackColor = System.Drawing.Color.Transparent
-        Me.btnExe.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btnExe.ForeColor = System.Drawing.Color.Blue
-        Me.btnExe.Location = New System.Drawing.Point(12, 8)
+        Me.btnExe.BackColor = System.Drawing.Color.Honeydew
+        Me.btnExe.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnExe.ForeColor = System.Drawing.Color.Black
+        Me.btnExe.Location = New System.Drawing.Point(9, 8)
         Me.btnExe.Name = "btnExe"
-        Me.btnExe.Size = New System.Drawing.Size(64, 45)
+        Me.btnExe.Size = New System.Drawing.Size(68, 45)
         Me.btnExe.TabIndex = 21
-        Me.btnExe.Text = "exeﾌｫﾙﾀﾞ開く"
+        Me.btnExe.Text = "実行ﾌｫﾙﾀﾞ"
         Me.btnExe.UseVisualStyleBackColor = False
         '
         'btnPj
         '
-        Me.btnPj.BackColor = System.Drawing.Color.Transparent
-        Me.btnPj.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btnPj.ForeColor = System.Drawing.Color.Blue
-        Me.btnPj.Location = New System.Drawing.Point(79, 8)
+        Me.btnPj.BackColor = System.Drawing.Color.Honeydew
+        Me.btnPj.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnPj.ForeColor = System.Drawing.Color.Black
+        Me.btnPj.Location = New System.Drawing.Point(81, 8)
         Me.btnPj.Name = "btnPj"
         Me.btnPj.Size = New System.Drawing.Size(64, 45)
         Me.btnPj.TabIndex = 22
-        Me.btnPj.Text = "Pjﾌｫﾙﾀﾞ開く"
+        Me.btnPj.Text = "PJﾌｫﾙﾀﾞ"
         Me.btnPj.UseVisualStyleBackColor = False
         '
         'btmGnu
         '
-        Me.btmGnu.BackColor = System.Drawing.Color.Transparent
-        Me.btmGnu.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btmGnu.ForeColor = System.Drawing.Color.Blue
+        Me.btmGnu.BackColor = System.Drawing.Color.LightGoldenrodYellow
+        Me.btmGnu.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btmGnu.ForeColor = System.Drawing.Color.Black
         Me.btmGnu.Location = New System.Drawing.Point(211, 8)
         Me.btmGnu.Name = "btmGnu"
         Me.btmGnu.Size = New System.Drawing.Size(70, 45)
         Me.btmGnu.TabIndex = 24
-        Me.btmGnu.Text = "Gnuﾀｰﾐﾅﾙ開く"
+        Me.btmGnu.Text = "Gnuﾀｰﾐﾅﾙ"
         Me.btmGnu.UseVisualStyleBackColor = False
         '
         'btnExit
         '
         Me.btnExit.BackColor = System.Drawing.Color.MistyRose
-        Me.btnExit.Location = New System.Drawing.Point(283, 8)
+        Me.btnExit.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnExit.Location = New System.Drawing.Point(285, 8)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(63, 45)
         Me.btnExit.TabIndex = 25
-        Me.btnExit.Text = "終　了"
+        Me.btnExit.Text = "終了"
         Me.btnExit.UseVisualStyleBackColor = False
         '
         'pnlCon
@@ -247,6 +248,7 @@ Partial Class frmMain
         Me.txtNG.Location = New System.Drawing.Point(280, 14)
         Me.txtNG.MaxLength = 100
         Me.txtNG.Name = "txtNG"
+        Me.txtNG.ReadOnly = True
         Me.txtNG.Size = New System.Drawing.Size(32, 22)
         Me.txtNG.TabIndex = 315
         Me.txtNG.Text = "1"
@@ -271,6 +273,7 @@ Partial Class frmMain
         Me.txtLogDisp.ForeColor = System.Drawing.Color.LightGray
         Me.txtLogDisp.Location = New System.Drawing.Point(20, 47)
         Me.txtLogDisp.Name = "txtLogDisp"
+        Me.txtLogDisp.ReadOnly = True
         Me.txtLogDisp.Size = New System.Drawing.Size(301, 286)
         Me.txtLogDisp.TabIndex = 313
         Me.txtLogDisp.Text = ""
@@ -331,7 +334,9 @@ Partial Class frmMain
         '
         'btnStart
         '
-        Me.btnStart.BackColor = System.Drawing.Color.Honeydew
+        Me.btnStart.BackColor = System.Drawing.Color.Transparent
+        Me.btnStart.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnStart.ForeColor = System.Drawing.Color.Black
         Me.btnStart.Location = New System.Drawing.Point(146, 9)
         Me.btnStart.Name = "btnStart"
         Me.btnStart.Size = New System.Drawing.Size(86, 32)
@@ -346,9 +351,9 @@ Partial Class frmMain
         Me.Label2.ForeColor = System.Drawing.Color.Black
         Me.Label2.Location = New System.Drawing.Point(17, 18)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(68, 15)
+        Me.Label2.Size = New System.Drawing.Size(69, 15)
         Me.Label2.TabIndex = 305
-        Me.Label2.Text = "周回(v)："
+        Me.Label2.Text = "周回(n)："
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmbSet_v
@@ -382,7 +387,7 @@ Partial Class frmMain
         Me.cmbSet_Interval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSet_Interval.FormattingEnabled = True
         Me.cmbSet_Interval.Items.AddRange(New Object() {"0", "1000", "5000", "10000"})
-        Me.cmbSet_Interval.Location = New System.Drawing.Point(169, 45)
+        Me.cmbSet_Interval.Location = New System.Drawing.Point(182, 45)
         Me.cmbSet_Interval.Name = "cmbSet_Interval"
         Me.cmbSet_Interval.Size = New System.Drawing.Size(63, 20)
         Me.cmbSet_Interval.TabIndex = 2
@@ -394,9 +399,9 @@ Partial Class frmMain
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(29, 47)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(141, 15)
+        Me.Label1.Size = New System.Drawing.Size(155, 15)
         Me.Label1.TabIndex = 304
-        Me.Label1.Text = "周回の間隔(ミリ秒)："
+        Me.Label1.Text = "周回インターバル(ms)："
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label26
@@ -406,9 +411,9 @@ Partial Class frmMain
         Me.Label26.ForeColor = System.Drawing.Color.Black
         Me.Label26.Location = New System.Drawing.Point(31, 15)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(117, 15)
+        Me.Label26.Size = New System.Drawing.Size(124, 15)
         Me.Label26.TabIndex = 303
-        Me.Label26.Text = "ドローン台数(d)："
+        Me.Label26.Text = "ドローン台数(ｍ)："
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmbSet_d
@@ -418,7 +423,7 @@ Partial Class frmMain
         Me.cmbSet_d.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSet_d.FormattingEnabled = True
         Me.cmbSet_d.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
-        Me.cmbSet_d.Location = New System.Drawing.Point(152, 13)
+        Me.cmbSet_d.Location = New System.Drawing.Point(154, 13)
         Me.cmbSet_d.Name = "cmbSet_d"
         Me.cmbSet_d.Size = New System.Drawing.Size(36, 20)
         Me.cmbSet_d.TabIndex = 1
@@ -428,7 +433,7 @@ Partial Class frmMain
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage8)
-        Me.TabControl1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.TabControl1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -456,7 +461,7 @@ Partial Class frmMain
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(361, 443)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Iniファイル"
+        Me.TabPage2.Text = "INIファイル"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'pnlPath
@@ -496,7 +501,7 @@ Partial Class frmMain
         Me.btnIniGet.Name = "btnIniGet"
         Me.btnIniGet.Size = New System.Drawing.Size(84, 26)
         Me.btnIniGet.TabIndex = 91
-        Me.btnIniGet.Text = "Iniﾌｧｲﾙ読込"
+        Me.btnIniGet.Text = "INIﾌｧｲﾙ読込"
         Me.btnIniGet.UseVisualStyleBackColor = False
         '
         'btnIniSave
@@ -506,7 +511,7 @@ Partial Class frmMain
         Me.btnIniSave.Name = "btnIniSave"
         Me.btnIniSave.Size = New System.Drawing.Size(84, 26)
         Me.btnIniSave.TabIndex = 92
-        Me.btnIniSave.Text = "Iniﾌｧｲﾙ保存"
+        Me.btnIniSave.Text = "INIﾌｧｲﾙ保存"
         Me.btnIniSave.UseVisualStyleBackColor = False
         '
         'txtIniPath
@@ -529,9 +534,9 @@ Partial Class frmMain
         Me.Label3.ForeColor = System.Drawing.Color.Black
         Me.Label3.Location = New System.Drawing.Point(19, 359)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(112, 15)
+        Me.Label3.Size = New System.Drawing.Size(116, 15)
         Me.Label3.TabIndex = 314
-        Me.Label3.Text = "iniファイルPath："
+        Me.Label3.Text = "INIファイルPath："
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label25
@@ -561,6 +566,7 @@ Partial Class frmMain
         '
         'TabPage3
         '
+        Me.TabPage3.BackColor = System.Drawing.Color.Transparent
         Me.TabPage3.Controls.Add(Me.txtZ_d1)
         Me.TabPage3.Controls.Add(Me.txtY_d1)
         Me.TabPage3.Controls.Add(Me.txtX_d1)
@@ -573,7 +579,6 @@ Partial Class frmMain
         Me.TabPage3.Size = New System.Drawing.Size(297, 96)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "d1"
-        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'txtZ_d1
         '
@@ -968,9 +973,9 @@ Partial Class frmMain
         Me.Label8.ForeColor = System.Drawing.Color.Black
         Me.Label8.Location = New System.Drawing.Point(15, 215)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(166, 15)
+        Me.Label8.Size = New System.Drawing.Size(115, 15)
         Me.Label8.TabIndex = 309
-        Me.Label8.Text = "プロジェクトフォルダPath："
+        Me.Label8.Text = "PJフォルダPath："
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtGnuPath
@@ -991,9 +996,9 @@ Partial Class frmMain
         Me.Label5.ForeColor = System.Drawing.Color.Black
         Me.Label5.Location = New System.Drawing.Point(17, 285)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(111, 15)
+        Me.Label5.Size = New System.Drawing.Size(138, 15)
         Me.Label5.TabIndex = 307
-        Me.Label5.Text = "Gnuplot Path："
+        Me.Label5.Text = "GnuターミナルPath："
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtPjName
@@ -1012,9 +1017,9 @@ Partial Class frmMain
         Me.Label4.ForeColor = System.Drawing.Color.Black
         Me.Label4.Location = New System.Drawing.Point(18, 7)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(102, 15)
+        Me.Label4.Size = New System.Drawing.Size(51, 15)
         Me.Label4.TabIndex = 303
-        Me.Label4.Text = "プロジェクト名："
+        Me.Label4.Text = "PJ名："
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'TabPage8
@@ -1065,7 +1070,7 @@ Partial Class frmMain
         Me.btnIniGet2.Name = "btnIniGet2"
         Me.btnIniGet2.Size = New System.Drawing.Size(84, 26)
         Me.btnIniGet2.TabIndex = 91
-        Me.btnIniGet2.Text = "Iniﾌｧｲﾙ読込"
+        Me.btnIniGet2.Text = "INIﾌｧｲﾙ読込"
         Me.btnIniGet2.UseVisualStyleBackColor = False
         '
         'btnIniSave2
@@ -1075,7 +1080,7 @@ Partial Class frmMain
         Me.btnIniSave2.Name = "btnIniSave2"
         Me.btnIniSave2.Size = New System.Drawing.Size(84, 26)
         Me.btnIniSave2.TabIndex = 92
-        Me.btnIniSave2.Text = "Iniﾌｧｲﾙ保存"
+        Me.btnIniSave2.Text = "INIﾌｧｲﾙ保存"
         Me.btnIniSave2.UseVisualStyleBackColor = False
         '
         'txtCom5
@@ -1108,7 +1113,7 @@ Partial Class frmMain
         Me.txtCom4.Name = "txtCom4"
         Me.txtCom4.Size = New System.Drawing.Size(298, 36)
         Me.txtCom4.TabIndex = 64
-        Me.txtCom4.Text = "ファイルをロードする=>load 'gnu_test.txt'"
+        Me.txtCom4.Text = "プロット用スクリプトファイルをロードする=>load 'gnu_test.txt'"
         '
         'Label29
         '

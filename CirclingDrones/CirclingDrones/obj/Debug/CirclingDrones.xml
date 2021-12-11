@@ -194,7 +194,7 @@ CirclingDrones
 </member>
 <member name="M:CirclingDrones.mduFile.subSetIni">
  <summary>
- Iniファイルを読込する
+ INIファイルを読込する
  </summary>
  <remarks></remarks>
  <author>RKA</author>
@@ -202,7 +202,7 @@ CirclingDrones
 </member>
 <member name="M:CirclingDrones.mduFile.subPutIni">
  <summary>
- Iniファイルを保存する
+ INIファイルを保存する
  </summary>
  <remarks></remarks>
  <author>RKA</author>

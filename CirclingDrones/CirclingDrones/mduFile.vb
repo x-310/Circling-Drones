@@ -268,7 +268,7 @@ Error_Rtn:
     End Function
 
     ''' <summary>
-    ''' Iniファイルを読込する
+    ''' INIファイルを読込する
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
@@ -282,7 +282,7 @@ Error_Rtn:
         Dim sBuf As String = New String(" ", 1024) 'Spaceが1024文字
         Dim sFileName As String
 
-        'iniファイルのパスはカレントフォルダ固定
+        'INIファイルのパスはカレントフォルダ固定
         pIniPath = ""
         pIniPath = System.IO.Directory.GetCurrentDirectory()
 
@@ -299,7 +299,7 @@ Error_Rtn:
         iRET = GetPrivateProfileString(pcSec_Set, pcKey_13, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pPjPath = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
-        frmMain.txtIniPath.Text = pIniPath      'iniファイルパス
+        frmMain.txtIniPath.Text = pIniPath      'INIファイルパス
         frmMain.txtPjName.Text = pPjName        'プロジェクト名
         frmMain.txtGnuPath.Text = pGnuPath      'gnuプロットパス
         frmMain.txtPjPath.Text = pPjPath        'pjフォルダパス
@@ -398,7 +398,7 @@ Error_Rtn:
     End Sub
 
     ''' <summary>
-    ''' Iniファイルを保存する
+    ''' INIファイルを保存する
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>

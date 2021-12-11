@@ -14,7 +14,7 @@ Module mduMain
     Public Const pSetup As String = "DoNothing"                     'setupファイル名
     Public Const p3d_pot_test_plus As String = "3d_pot_test_plus"   '3d_pot_test_plusファイル名
 
-    'Iniファイル用
+    'INIファイル用
     Public Const pcIniFileName As String = "RKA_con.ini"
     Public Const pcSec_Set As String = "Set"
     Public Const pcKey_11 As String = "PjName"
@@ -81,8 +81,8 @@ Module mduMain
     Public pOkNg_No As Integer      'OKorNG表示No
     Public pOkNg() As M_OkNg_Def    'OKorNG表示色設定
     '
-    'Iniファイル用
-    Public pIniPath As String       'iniファイルパス
+    'INIファイル用
+    Public pIniPath As String       'INIファイルパス
     Public pPjName As String        'プロジェクト名
     Public pGnuPath As String       'gnuプロットパス
     Public pPjPath As String        'pjフォルダパス

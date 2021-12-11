@@ -19,7 +19,7 @@ Module mduCommon
         frmMain.txtNow_n.Text = ""      '現在周目
         frmMain.txtLogDisp.Text = ""    '画面ログ出力クリア
 
-        frmMain.txtIniPath.Text = ""     'iniファイルパス
+        frmMain.txtIniPath.Text = ""     'INIファイルパス
         frmMain.txtPjName.Text = ""      'プロジェクト名
         frmMain.txtGnuPath.Text = ""     'gnuプロットパス
         frmMain.txtPjPath.Text = ""      'pjフォルダパス
@@ -52,9 +52,12 @@ Module mduCommon
         'タブのサイズを固定する
         frmMain.TabControl1.SizeMode = TabSizeMode.Fixed
         frmMain.TabControl1.ItemSize = New Size(100, 30)
+        frmMain.TabControl2.SizeMode = TabSizeMode.Fixed
+        frmMain.TabControl2.ItemSize = New Size(60, 30)
 
         'TabControlをオーナードローする
         frmMain.TabControl1.DrawMode = TabDrawMode.OwnerDrawFixed
+        frmMain.TabControl2.DrawMode = TabDrawMode.OwnerDrawFixed
 Error_Exit:
         Exit Sub
 Error_Rtn:
@@ -91,11 +94,16 @@ Error_Rtn:
     Public Sub subBtnOnoff(ByVal bFlg As Boolean)
         On Error GoTo Error_Rtn
 
-        frmMain.cmbSet_v.Enabled = bFlg '周回
-        frmMain.btnStart.Enabled = bFlg 'オート・スタート
+        frmMain.cmbSet_v.Enabled = bFlg     '周回
+        frmMain.btnStart.Enabled = bFlg     'オート・スタート
 
-        frmMain.pnlSet.Enabled = bFlg   '設定エリア
-        frmMain.pnlPath.Enabled = bFlg  'Pathエリア
+        frmMain.pnlSet.Enabled = bFlg       '設定エリア
+        frmMain.pnlPath.Enabled = bFlg      'Pathエリア
+
+        frmMain.btnIniGet.Enabled = bFlg    'INIファイル読込
+        frmMain.btnIniSave.Enabled = bFlg   'INIファイル保存
+        frmMain.btnIniGet2.Enabled = bFlg   'INIファイル読込
+        frmMain.btnIniSave2.Enabled = bFlg  'INIファイル保存
 Error_Exit:
         Exit Sub
 Error_Rtn:

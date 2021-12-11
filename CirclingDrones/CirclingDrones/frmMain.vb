@@ -24,7 +24,7 @@ Public Class frmMain
         '画面コントロール初期化
         Call subCtlReset()
 
-        'Iniファイル読込み
+        'INIファイル読込み
         Call subSetIni()
 Error_Exit:
         Exit Sub
@@ -158,6 +158,50 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
+    '   実行フォルダボタン押下後処理
+    '*******************************************************
+    Private Sub btnExe_Click(sender As Object, e As EventArgs) Handles btnExe.Click
+
+        On Error GoTo Error_Rtn
+
+        'exeフォルダを開く
+        System.Diagnostics.Process.Start(CurDir())
+Error_Exit:
+        Exit Sub
+Error_Rtn:
+        GoTo Error_Exit
+    End Sub
+
+    '*******************************************************
+    '   PJフォルダボタン押下後処理
+    '*******************************************************
+    Private Sub btnPj_Click(sender As Object, e As EventArgs) Handles btnPj.Click
+        On Error GoTo Error_Rtn
+
+        'pjフォルダを開く
+        System.Diagnostics.Process.Start(txtPjPath.Text)
+Error_Exit:
+        Exit Sub
+Error_Rtn:
+        GoTo Error_Exit
+    End Sub
+
+    '*******************************************************
+    '   INIファイルボタン押下後処理
+    '*******************************************************
+    Private Sub btnIni_Click_1(sender As Object, e As EventArgs) Handles btnIni.Click
+        On Error GoTo Error_Rtn
+
+        'INIファイルを起動
+        Dim p As System.Diagnostics.Process =
+            System.Diagnostics.Process.Start(pIniPath + "\" + "RKA_con.ini")
+Error_Exit:
+        Exit Sub
+Error_Rtn:
+        GoTo Error_Exit
+    End Sub
+
+    '*******************************************************
     '   gnuプロットボタン押下後処理
     '*******************************************************
     Private Sub btmGnu_Click(sender As Object, e As EventArgs) Handles btmGnu.Click
@@ -185,20 +229,99 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   iniファイル読込ボタン押下後処理
+    '   タブコントロール1選択処理
+    '*******************************************************
+    Private Sub TabControl1_DrawItem(sender As Object, e As DrawItemEventArgs) Handles TabControl1.DrawItem
+        '対象のTabControlを取得
+        Dim tab As TabControl = CType(sender, TabControl)
+        'タブページのテキストを取得
+        Dim txt As String = tab.TabPages(e.Index).Text
+        'タブのテキストと背景を描画するためのブラシを決定する
+        Dim foreBrush, backBrush As Brush
+
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            '選択されているタブのテキストを赤、背景を青とする
+            foreBrush = Brushes.White
+            backBrush = Brushes.DarkBlue
+        Else
+            '選択されていないタブのテキストは灰色、背景を白とする
+            If (e.Index = 0) Then
+                foreBrush = Brushes.Gray
+                backBrush = Brushes.GhostWhite
+            ElseIf (e.Index = 1) Then
+                foreBrush = Brushes.Gray
+                backBrush = Brushes.GhostWhite
+            Else
+                foreBrush = Brushes.Gray
+                backBrush = Brushes.GhostWhite
+            End If
+        End If
+
+        'StringFormatを作成
+        Dim sf As New StringFormat
+        '中央に表示する
+        sf.Alignment = StringAlignment.Center
+        sf.LineAlignment = StringAlignment.Center
+
+        '背景の描画
+        e.Graphics.FillRectangle(backBrush, e.Bounds)
+        'Textの描画
+        e.Graphics.DrawString(txt, e.Font, foreBrush, RectangleF.op_Implicit(e.Bounds), sf)
+    End Sub
+
+    '*******************************************************
+    '   タブコントロール2選択処理
+    '*******************************************************
+    Private Sub TabControl2_DrawItem(sender As Object, e As DrawItemEventArgs) Handles TabControl2.DrawItem
+        '対象のTabControlを取得
+        Dim tab As TabControl = CType(sender, TabControl)
+        'タブページのテキストを取得
+        Dim txt As String = tab.TabPages(e.Index).Text
+        'タブのテキストと背景を描画するためのブラシを決定する
+        Dim foreBrush, backBrush As Brush
+
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            '選択されているタブのテキストを赤、背景を青とする
+            foreBrush = Brushes.White
+            backBrush = Brushes.DarkBlue
+        Else
+            '選択されていないタブのテキストは灰色、背景を白とする
+            If (e.Index = 0) Then
+                foreBrush = Brushes.Gray
+                backBrush = Brushes.GhostWhite
+            Else
+                foreBrush = Brushes.Gray
+                backBrush = Brushes.GhostWhite
+            End If
+        End If
+
+        'StringFormatを作成
+        Dim sf As New StringFormat
+        '中央に表示する
+        sf.Alignment = StringAlignment.Center
+        sf.LineAlignment = StringAlignment.Center
+
+        '背景の描画
+        e.Graphics.FillRectangle(backBrush, e.Bounds)
+        'Textの描画
+        e.Graphics.DrawString(txt, e.Font, foreBrush, RectangleF.op_Implicit(e.Bounds), sf)
+    End Sub
+
+    '*******************************************************
+    '   INIファイル読込ボタン押下後処理
     '*******************************************************
 
     Private Sub btnIniGet_Click(sender As Object, e As EventArgs) Handles btnIniGet.Click
         On Error GoTo Error_Rtn
 
-        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'iniファイル名
+        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名
 
         If fncFileCheck(sFileName) Then
             Call subSetIni()
 
             fncMsgBox("読込しました")
         Else
-            fncErrors("iniファイルのパスを確認して下さい")
+            fncErrors("INIファイルのパスを確認して下さい")
         End If
 Error_Exit:
         Exit Sub
@@ -207,12 +330,12 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   iniファイル保存ボタン押下後処理
+    '   INIファイル保存ボタン押下後処理
     '*******************************************************
     Private Sub btnIniSave_Click(sender As Object, e As EventArgs) Handles btnIniSave.Click
         On Error GoTo Error_Rtn
 
-        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'iniファイル名
+        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名
 
         If fncFileCheck(sFileName) Then
             Call subPutIni()
@@ -220,7 +343,7 @@ Error_Rtn:
 
             fncMsgBox("保存しました")
         Else
-            fncErrors("iniファイルのパスを確認して下さい")
+            fncErrors("INIファイルのパスを確認して下さい")
         End If
 Error_Exit:
         Exit Sub
@@ -229,19 +352,19 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   iniファイル読込ボタン押下後処理
+    '   INIファイル読込ボタン押下後処理
     '*******************************************************
     Private Sub btnIniGet2_Click(sender As Object, e As EventArgs) Handles btnIniGet2.Click
         On Error GoTo Error_Rtn
 
-        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'iniファイル名
+        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名
 
         If fncFileCheck(sFileName) Then
             Call subSetIni()
 
             fncMsgBox("読込しました")
         Else
-            fncErrors("iniファイルのパスを確認して下さい")
+            fncErrors("INIファイルのパスを確認して下さい")
         End If
 Error_Exit:
         Exit Sub
@@ -250,12 +373,12 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   iniファイル保存ボタン押下後処理
+    '   INIファイル保存ボタン押下後処理
     '*******************************************************
     Private Sub btnIniSave2_Click(sender As Object, e As EventArgs) Handles btnIniSave2.Click
         On Error GoTo Error_Rtn
 
-        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'iniファイル名
+        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名
 
         If fncFileCheck(sFileName) Then
             Call subPutIni()
@@ -263,23 +386,8 @@ Error_Rtn:
 
             fncMsgBox("保存しました")
         Else
-            fncErrors("iniファイルのパスを確認して下さい")
+            fncErrors("INIファイルのパスを確認して下さい")
         End If
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
-    End Sub
-
-    '*******************************************************
-    '   iniファイルボタン押下後処理
-    '*******************************************************
-    Private Sub btnIni_Click_1(sender As Object, e As EventArgs) Handles btnIni.Click
-        On Error GoTo Error_Rtn
-
-        'iniファイルを起動
-        Dim p As System.Diagnostics.Process =
-            System.Diagnostics.Process.Start(pIniPath + "\" + "RKA_con.ini")
 Error_Exit:
         Exit Sub
 Error_Rtn:
@@ -298,75 +406,5 @@ Error_Exit:
         Exit Sub
 Error_Rtn:
         GoTo Error_Exit
-    End Sub
-
-    '*******************************************************
-    '   pjフォルダ開くボタン押下後処理
-    '*******************************************************
-    Private Sub btnPj_Click(sender As Object, e As EventArgs) Handles btnPj.Click
-        On Error GoTo Error_Rtn
-
-        'pjフォルダを開く
-        System.Diagnostics.Process.Start(txtPjPath.Text)
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
-    End Sub
-
-    '*******************************************************
-    '   exeフォルダ開くボタン押下後処理
-    '*******************************************************
-    Private Sub btnExe_Click(sender As Object, e As EventArgs) Handles btnExe.Click
-
-        On Error GoTo Error_Rtn
-
-        'exeフォルダを開く
-        System.Diagnostics.Process.Start(CurDir())
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
-    End Sub
-
-    '*******************************************************
-    '   タブコントロール選択処理
-    '*******************************************************
-    Private Sub TabControl1_DrawItem(sender As Object, e As DrawItemEventArgs) Handles TabControl1.DrawItem
-        '対象のTabControlを取得
-        Dim tab As TabControl = CType(sender, TabControl)
-        'タブページのテキストを取得
-        Dim txt As String = tab.TabPages(e.Index).Text
-        'タブのテキストと背景を描画するためのブラシを決定する
-        Dim foreBrush, backBrush As Brush
-
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            '選択されているタブのテキストを赤、背景を青とする
-            foreBrush = Brushes.Black
-            backBrush = Brushes.Orange
-        Else
-            '選択されていないタブのテキストは灰色、背景を白とする
-            If (e.Index = 0) Then
-                foreBrush = Brushes.Gray
-                backBrush = Brushes.Honeydew
-            ElseIf (e.Index = 1) Then
-                foreBrush = Brushes.Gray
-                backBrush = Brushes.LightCyan
-            Else
-                foreBrush = Brushes.Gray
-                backBrush = Brushes.LightYellow
-            End If
-        End If
-
-        'StringFormatを作成
-        Dim sf As New StringFormat
-        '中央に表示する
-        sf.Alignment = StringAlignment.Center
-        sf.LineAlignment = StringAlignment.Center
-
-        '背景の描画
-        e.Graphics.FillRectangle(backBrush, e.Bounds)
-        'Textの描画
-        e.Graphics.DrawString(txt, e.Font, foreBrush, RectangleF.op_Implicit(e.Bounds), sf)
     End Sub
 End Class
