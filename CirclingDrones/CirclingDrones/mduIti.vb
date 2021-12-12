@@ -90,7 +90,7 @@ Module mduIti
                 oFileWrite.Close()
 
                 Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\new_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d1 & "," & pY_d1 & "," & pZ_d1
+                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
                 oFileWrite2.WriteLine(sData)
                 'クローズ
                 oFileWrite2.Dispose()
@@ -102,7 +102,7 @@ Module mduIti
                 pIti(m, n).sTakasa = pZ_d2
 
                 Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d2_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d2 & "," & pY_d2 & "," & pZ_d2
+                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
                 oFileWrite.WriteLine(sData)
                 'クローズ
                 oFileWrite.Dispose()
@@ -121,7 +121,7 @@ Module mduIti
                 pIti(m, n).sTakasa = pZ_d3
 
                 Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d3_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d3 & "," & pY_d3 & "," & pZ_d3
+                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
                 oFileWrite.WriteLine(sData)
                 'クローズ
                 oFileWrite.Dispose()
@@ -147,7 +147,7 @@ Module mduIti
                 oFileWrite.Close()
 
                 Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\new_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d4 & "," & pY_d4 & "," & pZ_d4
+                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
                 oFileWrite2.WriteLine(sData)
                 'クローズ
                 oFileWrite2.Dispose()
@@ -166,7 +166,7 @@ Module mduIti
                 oFileWrite.Close()
 
                 Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\new_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d5 & "," & pY_d5 & "," & pZ_d5
+                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
                 oFileWrite2.WriteLine(sData)
                 'クローズ
                 oFileWrite2.Dispose()
