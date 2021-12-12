@@ -1,9 +1,10 @@
 ﻿'*******************************************************
-'      画面表示用モジュール
+'      画面用モジュール
 '*******************************************************
 Imports System.ComponentModel
 
 Public Class frmMain
+
     Dim sw As New System.Diagnostics.Stopwatch()    'ストップウォッチ
     Dim n As Integer                                '周回カウント
 
@@ -46,6 +47,9 @@ Error_Rtn:
 
         '画面設定情報を取得
         Call subSetGamen()
+
+        'INIファイル読込み
+        Call subSetIni()
 
         '画面ボタン制御
         Call subBtnOnoff(False)
@@ -354,7 +358,7 @@ Error_Rtn:
     '*******************************************************
     '   INIファイル読込ボタン押下後処理
     '*******************************************************
-    Private Sub btnIniGet2_Click(sender As Object, e As EventArgs) Handles btnIniGet2.Click
+    Private Sub btnIniGet2_Click(sender As Object, e As EventArgs) Handles btnIniGet3.Click
         On Error GoTo Error_Rtn
 
         Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名
@@ -375,7 +379,7 @@ Error_Rtn:
     '*******************************************************
     '   INIファイル保存ボタン押下後処理
     '*******************************************************
-    Private Sub btnIniSave2_Click(sender As Object, e As EventArgs) Handles btnIniSave2.Click
+    Private Sub btnIniSave2_Click(sender As Object, e As EventArgs) Handles btnIniSave3.Click
         On Error GoTo Error_Rtn
 
         Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名
@@ -406,5 +410,62 @@ Error_Exit:
         Exit Sub
 Error_Rtn:
         GoTo Error_Exit
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        '130.CSVファイルを配列にセットする
+        Dim arrCsv()() As String = ReadCsv("130.1K2490GD2route_grid.csv", False, False)
+        Dim iRow As Integer = 0
+
+        ReDim Preserve p130(-1)
+        If arrCsv.Length > 0 Then
+            For iRow = 0 To arrCsv.Length - 1
+                ReDim Preserve p130(iRow)       'p130 に新規行を追加
+                If iRow = 0 Then
+                    p130(iRow).sX = arrCsv(iRow)(0).ToString
+                    p130(iRow).sY = arrCsv(iRow)(1).ToString
+                    p130(iRow).sZ = arrCsv(iRow)(2).ToString
+                Else
+                    p130(iRow).sX = arrCsv(iRow)(0).ToString
+                    p130(iRow).sY = arrCsv(iRow)(1).ToString
+                    p130(iRow).sZ = arrCsv(iRow)(2).ToString
+                    p130(iRow).sAA = arrCsv(iRow)(3).ToString
+                End If
+            Next
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim iRow As Integer = 0
+
+        fncFile2Grid(pc130_Grid)
+
+
+        Dim iA1 As Integer = 0
+        Dim iA2 As Integer = 0
+        Dim iB1 As Integer = 0
+        Dim iB2 As Integer = 0
+        Dim iC1 As Integer = 0
+        Dim iC2 As Integer = 0
+
+        For iRow = 0 To p130.Length - 1
+            If iRow = 0 Then
+                iA1 = CInt(p130(1).sX)
+                iA2 = CInt(p130(0).sX)
+                iB1 = CInt(p130(1).sY)
+                iB2 = CInt(p130(0).sY)
+                iC1 = CInt(p130(1).sZ)
+                iC2 = CInt(p130(0).sZ)
+            Else
+                iA1 = CInt(p130(iRow).sX)
+                iA2 = CInt(p130(iRow - 1).sX)
+                iB1 = CInt(p130(iRow).sY)
+                iB2 = CInt(p130(iRow - 1).sY)
+                iC1 = CInt(p130(iRow).sZ)
+                iC2 = CInt(p130(iRow - 1).sZ)
+            End If
+            p130(iRow).dCal1 = Math.Sqrt((iA2 - iA1) ^ 2 + (iB2 - iB1) ^ 2 + (iC2 - iC1) ^ 2)
+            p130(iRow).dCal2 = CInt(txtVT.Text)
+        Next
     End Sub
 End Class

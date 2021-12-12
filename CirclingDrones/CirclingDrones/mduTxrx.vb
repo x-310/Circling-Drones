@@ -3,6 +3,7 @@
 '*******************************************************
 Module mduTxrx
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' プロジェクト名.txrxファイルを作成する
     ''' </summary>
@@ -10,6 +11,7 @@ Module mduTxrx
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncMem2txrx() As Boolean
         On Error GoTo Error_Rtn
         fncMem2txrx = False
@@ -100,6 +102,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' タグの項目の下にキー値を追加する
     ''' </summary>
@@ -111,6 +114,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncTagKeyAdd(ByVal sBlockData As String, ByVal sTagName As String, ByVal iAddCnt As Integer, ByVal sValue() As String) As String
         On Error GoTo Error_Rtn
         fncTagKeyAdd = ""
@@ -191,6 +195,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' タグの項目でスペース以降の値を更新する
     ''' </summary>
@@ -201,6 +206,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncTagKeyUpdate(ByVal sBlockData As String, ByVal sTagName As String, sValue As String) As String
         On Error GoTo Error_Rtn
         fncTagKeyUpdate = ""
@@ -273,8 +279,9 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
-    ''' Itiファイルからtxrx用配列を作成する
+    ''' Iti用配列からtxrxファイルを作成する
     ''' </summary>
     ''' <param name="m">ドローン</param>
     ''' <param name="n">周回</param>
@@ -282,6 +289,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncItiFile2Txrx(ByVal m As Integer, ByVal n As Integer) As Boolean
         On Error GoTo Error_Rtn
         fncItiFile2Txrx = False
@@ -366,6 +374,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' プロジェクト名.txrxファイルを削除する
     ''' </summary>
@@ -373,6 +382,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncFileDelete_pj_txrx() As Boolean
         fncFileDelete_pj_txrx = False
 
@@ -388,6 +398,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' txrxファイルを削除する
     ''' </summary>
@@ -395,6 +406,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncFileDelete_txrx() As Boolean
         fncFileDelete_txrx = False
 

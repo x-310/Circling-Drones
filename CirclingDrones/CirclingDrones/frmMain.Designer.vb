@@ -100,8 +100,8 @@ Partial Class frmMain
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.btnIniGet2 = New System.Windows.Forms.Button()
-        Me.btnIniSave2 = New System.Windows.Forms.Button()
+        Me.btnIniGet3 = New System.Windows.Forms.Button()
+        Me.btnIniSave3 = New System.Windows.Forms.Button()
         Me.txtCom5 = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.txtCom4 = New System.Windows.Forms.TextBox()
@@ -112,6 +112,19 @@ Partial Class frmMain
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtCom1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btnIniGet2 = New System.Windows.Forms.Button()
+        Me.btnIniSave2 = New System.Windows.Forms.Button()
+        Me.txtVT = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.txtV = New System.Windows.Forms.TextBox()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.txtT = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -129,6 +142,9 @@ Partial Class frmMain
         Me.TabPage8.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.TabPage9.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlBtn
@@ -431,6 +447,7 @@ Partial Class frmMain
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage9)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -964,7 +981,7 @@ Partial Class frmMain
         Me.txtPjPath.Name = "txtPjPath"
         Me.txtPjPath.Size = New System.Drawing.Size(305, 39)
         Me.txtPjPath.TabIndex = 68
-        Me.txtPjPath.Text = "D:\"
+        Me.txtPjPath.Text = "D:\GIT\Circling-Drones\b2"
         '
         'Label8
         '
@@ -1055,33 +1072,33 @@ Partial Class frmMain
         'Panel3
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel3.Controls.Add(Me.btnIniGet2)
-        Me.Panel3.Controls.Add(Me.btnIniSave2)
+        Me.Panel3.Controls.Add(Me.btnIniGet3)
+        Me.Panel3.Controls.Add(Me.btnIniSave3)
         Me.Panel3.Location = New System.Drawing.Point(233, 7)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(97, 65)
         Me.Panel3.TabIndex = 314
         Me.Panel3.TabStop = True
         '
-        'btnIniGet2
+        'btnIniGet3
         '
-        Me.btnIniGet2.BackColor = System.Drawing.Color.Azure
-        Me.btnIniGet2.Location = New System.Drawing.Point(4, 3)
-        Me.btnIniGet2.Name = "btnIniGet2"
-        Me.btnIniGet2.Size = New System.Drawing.Size(84, 26)
-        Me.btnIniGet2.TabIndex = 91
-        Me.btnIniGet2.Text = "INIﾌｧｲﾙ読込"
-        Me.btnIniGet2.UseVisualStyleBackColor = False
+        Me.btnIniGet3.BackColor = System.Drawing.Color.Azure
+        Me.btnIniGet3.Location = New System.Drawing.Point(4, 3)
+        Me.btnIniGet3.Name = "btnIniGet3"
+        Me.btnIniGet3.Size = New System.Drawing.Size(84, 26)
+        Me.btnIniGet3.TabIndex = 91
+        Me.btnIniGet3.Text = "INIﾌｧｲﾙ読込"
+        Me.btnIniGet3.UseVisualStyleBackColor = False
         '
-        'btnIniSave2
+        'btnIniSave3
         '
-        Me.btnIniSave2.BackColor = System.Drawing.Color.LightGoldenrodYellow
-        Me.btnIniSave2.Location = New System.Drawing.Point(4, 31)
-        Me.btnIniSave2.Name = "btnIniSave2"
-        Me.btnIniSave2.Size = New System.Drawing.Size(84, 26)
-        Me.btnIniSave2.TabIndex = 92
-        Me.btnIniSave2.Text = "INIﾌｧｲﾙ保存"
-        Me.btnIniSave2.UseVisualStyleBackColor = False
+        Me.btnIniSave3.BackColor = System.Drawing.Color.LightGoldenrodYellow
+        Me.btnIniSave3.Location = New System.Drawing.Point(4, 31)
+        Me.btnIniSave3.Name = "btnIniSave3"
+        Me.btnIniSave3.Size = New System.Drawing.Size(84, 26)
+        Me.btnIniSave3.TabIndex = 92
+        Me.btnIniSave3.Text = "INIﾌｧｲﾙ保存"
+        Me.btnIniSave3.UseVisualStyleBackColor = False
         '
         'txtCom5
         '
@@ -1193,6 +1210,148 @@ Partial Class frmMain
         Me.Label9.Text = "コマンド1："
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'TabPage9
+        '
+        Me.TabPage9.Controls.Add(Me.Panel4)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage9.Name = "TabPage9"
+        Me.TabPage9.Size = New System.Drawing.Size(361, 443)
+        Me.TabPage9.TabIndex = 3
+        Me.TabPage9.Text = "経路計算"
+        Me.TabPage9.UseVisualStyleBackColor = True
+        '
+        'Panel4
+        '
+        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel4.Controls.Add(Me.Button2)
+        Me.Panel4.Controls.Add(Me.Button1)
+        Me.Panel4.Controls.Add(Me.txtT)
+        Me.Panel4.Controls.Add(Me.Label33)
+        Me.Panel4.Controls.Add(Me.Panel5)
+        Me.Panel4.Controls.Add(Me.txtVT)
+        Me.Panel4.Controls.Add(Me.Label32)
+        Me.Panel4.Controls.Add(Me.txtV)
+        Me.Panel4.Controls.Add(Me.Label51)
+        Me.Panel4.Location = New System.Drawing.Point(9, 6)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(343, 431)
+        Me.Panel4.TabIndex = 40
+        '
+        'Panel5
+        '
+        Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel5.Controls.Add(Me.btnIniGet2)
+        Me.Panel5.Controls.Add(Me.btnIniSave2)
+        Me.Panel5.Location = New System.Drawing.Point(233, 7)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(97, 65)
+        Me.Panel5.TabIndex = 44
+        Me.Panel5.TabStop = True
+        '
+        'btnIniGet2
+        '
+        Me.btnIniGet2.BackColor = System.Drawing.Color.Azure
+        Me.btnIniGet2.Location = New System.Drawing.Point(4, 3)
+        Me.btnIniGet2.Name = "btnIniGet2"
+        Me.btnIniGet2.Size = New System.Drawing.Size(84, 26)
+        Me.btnIniGet2.TabIndex = 45
+        Me.btnIniGet2.Text = "INIﾌｧｲﾙ読込"
+        Me.btnIniGet2.UseVisualStyleBackColor = False
+        '
+        'btnIniSave2
+        '
+        Me.btnIniSave2.BackColor = System.Drawing.Color.LightGoldenrodYellow
+        Me.btnIniSave2.Location = New System.Drawing.Point(4, 31)
+        Me.btnIniSave2.Name = "btnIniSave2"
+        Me.btnIniSave2.Size = New System.Drawing.Size(84, 26)
+        Me.btnIniSave2.TabIndex = 46
+        Me.btnIniSave2.Text = "INIﾌｧｲﾙ保存"
+        Me.btnIniSave2.UseVisualStyleBackColor = False
+        '
+        'txtVT
+        '
+        Me.txtVT.BackColor = System.Drawing.Color.LightGray
+        Me.txtVT.Location = New System.Drawing.Point(27, 143)
+        Me.txtVT.MaxLength = 100
+        Me.txtVT.Name = "txtVT"
+        Me.txtVT.ReadOnly = True
+        Me.txtVT.Size = New System.Drawing.Size(190, 19)
+        Me.txtVT.TabIndex = 43
+        Me.txtVT.TabStop = False
+        Me.txtVT.Text = "8"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label32.ForeColor = System.Drawing.Color.Black
+        Me.Label32.Location = New System.Drawing.Point(24, 125)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(119, 15)
+        Me.Label32.TabIndex = 314
+        Me.Label32.Text = "飛距離FD(v*t)："
+        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtV
+        '
+        Me.txtV.Location = New System.Drawing.Point(26, 41)
+        Me.txtV.MaxLength = 100
+        Me.txtV.Name = "txtV"
+        Me.txtV.Size = New System.Drawing.Size(186, 19)
+        Me.txtV.TabIndex = 41
+        Me.txtV.Text = "8"
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label51.ForeColor = System.Drawing.Color.Black
+        Me.Label51.Location = New System.Drawing.Point(24, 23)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(117, 15)
+        Me.Label51.TabIndex = 303
+        Me.Label51.Text = "ドローン速度(v)："
+        Me.Label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtT
+        '
+        Me.txtT.Location = New System.Drawing.Point(27, 90)
+        Me.txtT.MaxLength = 100
+        Me.txtT.Name = "txtT"
+        Me.txtT.Size = New System.Drawing.Size(186, 19)
+        Me.txtT.TabIndex = 42
+        Me.txtT.Text = "１"
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.Black
+        Me.Label33.Location = New System.Drawing.Point(23, 72)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(146, 15)
+        Me.Label33.TabIndex = 316
+        Me.Label33.Text = "周回毎経過時間(t)："
+        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(26, 330)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(280, 39)
+        Me.Button1.TabIndex = 317
+        Me.Button1.Text = "[単体テスト]：130.CSVファイルを配列にセットする"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(26, 375)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(280, 39)
+        Me.Button2.TabIndex = 318
+        Me.Button2.Text = "[単体テスト]：経路計算する"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1229,6 +1388,10 @@ Partial Class frmMain
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
+        Me.TabPage9.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1317,9 +1480,22 @@ Partial Class frmMain
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents btnIniGet2 As Button
-    Friend WithEvents btnIniSave2 As Button
+    Friend WithEvents btnIniGet3 As Button
+    Friend WithEvents btnIniSave3 As Button
     Friend WithEvents Label31 As Label
     Public WithEvents txtNG As TextBox
     Public WithEvents txtStopFlg As TextBox
+    Friend WithEvents TabPage9 As TabPage
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents btnIniGet2 As Button
+    Friend WithEvents btnIniSave2 As Button
+    Public WithEvents txtVT As TextBox
+    Friend WithEvents Label32 As Label
+    Public WithEvents txtV As TextBox
+    Friend WithEvents Label51 As Label
+    Public WithEvents txtT As TextBox
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

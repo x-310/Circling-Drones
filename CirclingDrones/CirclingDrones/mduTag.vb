@@ -1,9 +1,12 @@
 ﻿'*******************************************************
-'	タグ用定義(テンプレート)
-'	nVerticesの初期値：0、最後は改行すること
+'	タグ作成用モジュール
 '*******************************************************
 Module mduTag
-	'pointsタグテンプレート
+
+	'*******************************************************
+	'	pointsタグテンプレート
+	'	nVerticesの初期値：0、最後は改行すること
+	'*******************************************************
 	Public Const pcTag_points As String =
 "begin_<points> Untitled Tx Points
 project_id 1
@@ -59,7 +62,10 @@ end_<points>
 	'end_<points>
 	'"
 
-	'routeタグテンプレート
+	'*******************************************************
+	'	routeタグテンプレート
+	'	nVerticesの初期値：0、最後は改行すること
+	'*******************************************************
 	Public Const pcTag_route As String =
 "begin_<route> Untitled Rx Route
 project_id 2
@@ -106,7 +112,10 @@ powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
 end_<route>
 "
 
-	'gridタグテンプレート
+	'*******************************************************
+	'	gridタグテンプレート
+	'	nVerticesの初期値：0、最後は改行すること
+	'*******************************************************
 	Public Const pcTag_grid As String =
 "begin_<grid> Dense Pine 50m Rx Grid
 project_id 6
@@ -161,8 +170,7 @@ end_<grid>
 	Public pTag_grid As String           'gridタグ
 
 	'*******************************************************
-	'	サンプルデータ
-	'	test3_wet_foli.txrx
+	'	サンプルデータ(test3_wet_foli.txrx)
 	'*******************************************************
 	'begin_<points> Untitled Tx Points
 	'	project_id 1

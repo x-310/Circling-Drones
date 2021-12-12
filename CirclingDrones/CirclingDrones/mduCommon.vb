@@ -1,13 +1,18 @@
 ﻿'*******************************************************
 '      共通関数用モジュール
 '*******************************************************
+Imports Microsoft.VisualBasic.FileIO
+
 Module mduCommon
+
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' 画面コントロールを初期化する
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Sub subCtlReset()
         On Error GoTo Error_Rtn
 
@@ -19,10 +24,14 @@ Module mduCommon
         frmMain.txtNow_n.Text = ""      '現在周目
         frmMain.txtLogDisp.Text = ""    '画面ログ出力クリア
 
-        frmMain.txtIniPath.Text = ""     'INIファイルパス
-        frmMain.txtPjName.Text = ""      'プロジェクト名
-        frmMain.txtGnuPath.Text = ""     'gnuプロットパス
-        frmMain.txtPjPath.Text = ""      'pjフォルダパス
+        frmMain.txtV.Text = ""          'ドローン速度
+        frmMain.txtT.Text = ""          '周回毎経過時間
+        frmMain.txtVT.Text = ""         '飛距離FD
+
+        frmMain.txtIniPath.Text = ""    'INIファイルパス
+        frmMain.txtPjName.Text = ""     'プロジェクト名
+        frmMain.txtGnuPath.Text = ""    'gnuプロットパス
+        frmMain.txtPjPath.Text = ""     'pjフォルダパス
 
         frmMain.txtX_d1.Text = ""        'X設定値
         frmMain.txtY_d1.Text = ""        'Y設定値
@@ -51,7 +60,7 @@ Module mduCommon
 
         'タブのサイズを固定する
         frmMain.TabControl1.SizeMode = TabSizeMode.Fixed
-        frmMain.TabControl1.ItemSize = New Size(100, 30)
+        frmMain.TabControl1.ItemSize = New Size(90, 30)
         frmMain.TabControl2.SizeMode = TabSizeMode.Fixed
         frmMain.TabControl2.ItemSize = New Size(60, 30)
 
@@ -64,6 +73,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' インターバルを設定する
     ''' </summary>
@@ -71,6 +81,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Sub subiInterval(ByVal iInterval As Integer)
         On Error GoTo Error_Rtn
 
@@ -84,6 +95,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' 画面ボタンを制御する
     ''' </summary>
@@ -91,6 +103,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history> 
+    ''' -----------------------------------------------------------------------------
     Public Sub subBtnOnoff(ByVal bFlg As Boolean)
         On Error GoTo Error_Rtn
 
@@ -102,14 +115,15 @@ Error_Rtn:
 
         frmMain.btnIniGet.Enabled = bFlg    'INIファイル読込
         frmMain.btnIniSave.Enabled = bFlg   'INIファイル保存
-        frmMain.btnIniGet2.Enabled = bFlg   'INIファイル読込
-        frmMain.btnIniSave2.Enabled = bFlg  'INIファイル保存
+        frmMain.btnIniGet3.Enabled = bFlg   'INIファイル読込
+        frmMain.btnIniSave3.Enabled = bFlg  'INIファイル保存
 Error_Exit:
         Exit Sub
 Error_Rtn:
         GoTo Error_Exit
     End Sub
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' 画面ログ「OK/NG」用配列を設定する
     ''' </summary>
@@ -117,6 +131,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history> 
+    ''' -----------------------------------------------------------------------------
     Public Sub subOkNg_Color(ByVal iColor As Integer)
         On Error GoTo Error_Rtn
 
@@ -130,6 +145,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' 画面ログ「OK/NG」の表示色をを出力する
     ''' </summary>
@@ -138,6 +154,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>   
+    ''' -----------------------------------------------------------------------------
     Public Sub subLogOutput_Color(ByVal iLen As Integer, ByVal iColor As Integer)
         On Error GoTo Error_Rtn
 
@@ -162,6 +179,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' 画面ログを出力する
     ''' </summary>
@@ -169,6 +187,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Sub subLogOutput(ByVal sMessage As String)
         On Error GoTo Error_Rtn
 
@@ -179,12 +198,14 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' 画面設定情報を取得する
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Sub subSetGamen()
         On Error GoTo Error_Rtn
 
@@ -211,12 +232,14 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' テキストボックスのカーソルを制御する
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Sub subSetRow()
         On Error GoTo Error_Rtn
 
@@ -234,6 +257,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' メッセージボックスを表示する
     ''' </summary>
@@ -242,6 +266,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncMsgBox(ByVal sName) As Boolean
         On Error GoTo Error_Rtn
         fncMsgBox = False
@@ -256,6 +281,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' エラーメッセージを表示する
     ''' </summary>
@@ -264,6 +290,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncErrors(ByVal sName) As Boolean
         On Error GoTo Error_Rtn
         fncErrors = False
@@ -283,6 +310,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' プロセスを終了する
     ''' </summary>
@@ -290,6 +318,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Sub subKillProc(ByVal sName As String)
         On Error Resume Next
 
@@ -301,4 +330,75 @@ Error_Rtn:
             p.Kill()
         Next
     End Sub
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' CSVファイルの読込処理
+    ''' </summary>
+    ''' <param name="astrFileName">ファイル名</param>
+    ''' <param name="ablnTab">区切りの指定(True:タブ区切り, False:カンマ区切り)</param>
+    ''' <param name="ablnQuote">引用符フラグ(True:引用符で囲まれている, False:囲まれていない)</param>
+    ''' <returns>読込結果の文字列の2次元配列</returns>
+    ''' -----------------------------------------------------------------------------
+    Public Function ReadCsv(ByVal astrFileName As String,
+                         ByVal ablnTab As Boolean,
+                         ByVal ablnQuote As Boolean) As String()()
+        ReadCsv = Nothing
+        'ファイルStreamReader
+        Dim parser As Microsoft.VisualBasic.FileIO.TextFieldParser = Nothing
+        Try
+            'Shift-JISエンコードで変換できない場合は「?」文字の設定
+            Dim encFallBack As System.Text.DecoderReplacementFallback = New System.Text.DecoderReplacementFallback("?")
+            Dim enc As System.Text.Encoding =
+            System.Text.Encoding.GetEncoding("shift_jis", System.Text.EncoderFallback.ReplacementFallback, encFallBack)
+
+            'TextFieldParserクラス
+            parser = New TextFieldParser(astrFileName, enc)
+
+            '区切りの指定
+            parser.TextFieldType = FieldType.Delimited
+            If ablnTab = False Then
+                'カンマ区切り
+                parser.SetDelimiters(",")
+            Else
+                'タブ区切り
+                parser.SetDelimiters(vbTab)
+            End If
+
+            If ablnQuote = True Then
+                'フィールドが引用符で囲まれているか
+                parser.HasFieldsEnclosedInQuotes = True
+            End If
+
+            'フィールドの空白トリム設定
+            parser.TrimWhiteSpace = False
+
+            Dim strArr()() As String = Nothing
+            Dim nLine As Integer = 0
+            'ファイルの終端までループ
+            While Not parser.EndOfData
+                'フィールドを読込
+                Dim strDataArr As String() = parser.ReadFields()
+
+                '戻り値領域の拡張
+                ReDim Preserve strArr(nLine)
+
+                '退避
+                strArr(nLine) = strDataArr
+                nLine += 1
+            End While
+
+            '正常終了
+            Return strArr
+
+        Catch ex As Exception
+            'エラー
+            MsgBox(ex.Message)
+        Finally
+            '閉じる
+            If parser IsNot Nothing Then
+                parser.Close()
+            End If
+        End Try
+    End Function
 End Module

@@ -22,6 +22,7 @@ Module mduFile
               ByVal lpString As String,
               ByVal lpFileName As String) As Integer
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' P2mファイルを取込みする
     ''' </summary>
@@ -30,9 +31,10 @@ Module mduFile
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
-    Public Function fncReadP2m(ByVal sFileName As String) As Boolean
+    ''' -----------------------------------------------------------------------------
+    Public Function fncFile2P2m(ByVal sFileName As String) As Boolean
         On Error GoTo Error_Rtn
-        fncReadP2m = False
+        fncFile2P2m = False
 
         ' StreamReader の新しいインスタンスを生成する
         Dim oReader As New System.IO.StreamReader(sFileName, System.Text.Encoding.Default)  'ファイル読込用
@@ -95,13 +97,14 @@ Module mduFile
         oReader.Close()
         oReader.Dispose()
 
-        fncReadP2m = True
+        fncFile2P2m = True
 Error_Exit:
         Exit Function
 Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' Power.txtを作成する
     ''' </summary>
@@ -110,6 +113,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncMem2Power(ByVal sPath As String) As Boolean
         On Error GoTo Error_Rtn
         fncMem2Power = False
@@ -141,6 +145,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' ドローン毎の周回用ファイルを削除する
     ''' </summary>
@@ -148,6 +153,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncFileDelete_d() As Boolean
         fncFileDelete_d = False
 
@@ -163,6 +169,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' 出力ファイルをリネームして指定フォルダにコピーする
     ''' </summary>
@@ -172,39 +179,41 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
-    Public Function fncExtOutRename(ByVal m As Integer, ByVal n As Integer) As Boolean
+    ''' -----------------------------------------------------------------------------
+    Public Function fnc130Rename(ByVal m As Integer, ByVal n As Integer) As Boolean
         On Error GoTo Error_Rtn
-        fncExtOutRename = False
+        fnc130Rename = False
 
         Dim iErrCnt As Integer = 0  'エラーカウント
         Dim sFile As String = ""    'ファイル名
 
         '出力元ファイル存在チェック
-        If fncFileCheck(pcExt_Out_Grid) AndAlso
-            fncFileCheck(pcExt_Out_Meter) Then
+        If fncFileCheck(pc130_Grid) AndAlso
+            fncFileCheck(pc130_Meter) Then
             'リネームして指定フォルダにコピー
-            sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Grid
-            If fncFileCopy(pcExt_Out_Grid, sFile) = False Then
+            sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pc130_Grid
+            If fncFileCopy(pc130_Grid, sFile) = False Then
                 'コピーエラー
                 iErrCnt = iErrCnt + 1
             End If
 
             'リネームして指定フォルダにコピー
-            sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pcExt_Out_Meter
-            If fncFileCopy(pcExt_Out_Meter, sFile) = False Then
+            sFile = pPjPath & "\" & "d" & m & "_v" & n & "_" & pc130_Meter
+            If fncFileCopy(pc130_Meter, sFile) = False Then
                 'コピーエラー
                 iErrCnt = iErrCnt + 1
             End If
         End If
 
         If iErrCnt <> 0 Then GoTo Error_Exit
-        fncExtOutRename = True
+        fnc130Rename = True
 Error_Exit:
         Exit Function
 Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' ファイルの存在をチェックする
     ''' </summary>
@@ -213,6 +222,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncFileCheck(ByVal sFileName As String) As Boolean
         On Error GoTo Error_Rtn
         fncFileCheck = False
@@ -224,6 +234,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' ファイルを削除する
     ''' </summary>
@@ -232,6 +243,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncFileDel(ByVal sFileName As String) As Boolean
         On Error GoTo Error_Rtn
         fncFileDel = False
@@ -245,6 +257,7 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' ファイルを上書きコピーする
     ''' </summary>
@@ -254,6 +267,7 @@ Error_Rtn:
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Function fncFileCopy(ByVal sFileName1 As String, ByVal sFileName2 As String) As Boolean
         On Error GoTo Error_Rtn
         fncFileCopy = False
@@ -267,12 +281,14 @@ Error_Rtn:
         GoTo Error_Exit
     End Function
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' INIファイルを読込する
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Sub subSetIni()
         On Error GoTo Error_Rtn
 
@@ -286,6 +302,19 @@ Error_Rtn:
         pIniPath = ""
         pIniPath = System.IO.Directory.GetCurrentDirectory()
 
+        'v：ドローン速度
+        pV = ""
+        iRET = GetPrivateProfileString(pcSec_Route, pcKey_v, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
+        pV = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
+
+        't：周回毎経過時間
+        pT = ""
+        iRET = GetPrivateProfileString(pcSec_Route, pcKey_t, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
+        pT = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
+
+        'vt：飛距離FD
+        pVT = CInt(pV) * CInt(pT)
+
         'PjName
         pPjName = ""
         iRET = GetPrivateProfileString(pcSec_Set, pcKey_11, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
@@ -298,6 +327,10 @@ Error_Rtn:
         pPjPath = ""
         iRET = GetPrivateProfileString(pcSec_Set, pcKey_13, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pPjPath = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
+
+        frmMain.txtV.Text = pV                  'ドローン速度
+        frmMain.txtT.Text = pT                  '周回毎経過時間
+        frmMain.txtVT.Text = pVT                '飛距離FD
 
         frmMain.txtIniPath.Text = pIniPath      'INIファイルパス
         frmMain.txtPjName.Text = pPjName        'プロジェクト名
@@ -394,19 +427,25 @@ Error_Rtn:
 Error_Exit:
         Exit Sub
 Error_Rtn:
+        fncMsgBox("INIファイルを確認して下さい")
         GoTo Error_Exit
     End Sub
 
+    ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' INIファイルを保存する
     ''' </summary>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
+    ''' -----------------------------------------------------------------------------
     Public Sub subPutIni()
         On Error GoTo Error_Rtn
 
         Dim iRET As Integer = 0 'リターン値
+
+        iRET = WritePrivateProfileString(pcSec_Route, pcKey_v, frmMain.txtV.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Route, pcKey_t, frmMain.txtT.Text, pIniPath & "\" & pcIniFileName)
 
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_11, frmMain.txtPjName.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_12, frmMain.txtGnuPath.Text, pIniPath & "\" & pcIniFileName)
