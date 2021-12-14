@@ -5,16 +5,16 @@ Module mduTxrx
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
-    ''' プロジェクト名.txrxファイルを作成する
+    ''' タグデータを(仮)作成する
     ''' </summary>
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncMem2txrx() As Boolean
+    Public Function fncTagCreate() As Boolean
         On Error GoTo Error_Rtn
-        fncMem2txrx = False
+        fncTagCreate = False
 
         Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
 
@@ -24,12 +24,6 @@ Module mduTxrx
         Dim sValue_route() As String                    'route用nVerticesデータ用配列
         Dim inVertices_grid As Integer = 0              'grid用nVertices作成個数
         Dim sValue_grid() As String                     'grid用nVerticesデータ用配列
-
-        'ファイル存在チェック
-        If fncFileCheck(sFile) Then
-            '存在すればファイル削除
-            fncFileDel(sFile)
-        End If
 
         'データ用配列初期化
         ReDim Preserve sValue_points(-1)
@@ -75,7 +69,28 @@ Module mduTxrx
         pTag_grid = fncTagKeyUpdate(pTag_grid, "nVertices", CInt(inVertices_grid))
         pTag_grid = pTag_grid & vbCrLf
         pTag_grid = fncTagKeyAdd(pTag_grid, "nVertices", inVertices_grid, sValue_grid)
-        '**********************************************
+
+        fncTagCreate = True
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' プロジェクト名.txrxファイルを作成する
+    ''' </summary>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncMem2txrx() As Boolean
+        On Error GoTo Error_Rtn
+        fncMem2txrx = False
+
+        Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
 
         'txrxファイル作成
         Dim oFileWrite As New System.IO.StreamWriter(sFile, True, System.Text.Encoding.UTF8)
@@ -96,6 +111,30 @@ Module mduTxrx
         oFileWrite.Close()
 
         fncMem2txrx = True
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' プロジェクト名.Txrxファイルを周回用dv.Txrxファイルにコピーする
+    ''' </summary>
+    ''' <param name="m">ドローン</param>
+    ''' <param name="n">周回</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncCopyTxrx(ByVal m As Integer, ByVal n As Integer) As Boolean
+        On Error GoTo Error_Rtn
+        fncCopyTxrx = False
+
+        fncFileCopy(pPjPath & "\" & pPjName & ".txrx", pPjPath & "\d" & m & "_v" & n & "_" & pPjName & ".txrx")
+
+        fncCopyTxrx = True
 Error_Exit:
         Exit Function
 Error_Rtn:
@@ -281,7 +320,7 @@ Error_Rtn:
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
-    ''' Iti用配列からtxrxファイルを作成する
+    ''' Iti用配列からtxrx用配列を作成する
     ''' </summary>
     ''' <param name="m">ドローン</param>
     ''' <param name="n">周回</param>
@@ -290,9 +329,9 @@ Error_Rtn:
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncItiFile2Txrx(ByVal m As Integer, ByVal n As Integer) As Boolean
+    Public Function fncIti2Txrx(ByVal m As Integer, ByVal n As Integer) As Boolean
         On Error GoTo Error_Rtn
-        fncItiFile2Txrx = False
+        fncIti2Txrx = False
 
         Dim iLoop As Integer        'ドローンループ
         Dim iRow As Integer = 0     '行No
@@ -312,16 +351,6 @@ Error_Rtn:
                     pTxrx(iRow).sKeido = pIti(id, iv).sKeido
                     pTxrx(iRow).sTakasa = pIti(id, iv).sTakasa
 
-                    'txrxファイル作成
-                    Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\" & pPjName & ".txrx", True, System.Text.Encoding.UTF8)
-                    oFileWrite.WriteLine("d" & id & "v" & iv)
-                    oFileWrite.WriteLine(pIti(id, iv).sIdo)
-                    oFileWrite.WriteLine(pIti(id, iv).sKeido)
-                    oFileWrite.WriteLine(pIti(id, iv).sTakasa)
-                    'クローズ
-                    oFileWrite.Dispose()
-                    oFileWrite.Close()
-
                     iRow = iRow + 1
                 End If
             Next
@@ -338,36 +367,13 @@ Error_Rtn:
                     pTxrx(iRow).sKeido = pIti(id, iv).sKeido
                     pTxrx(iRow).sTakasa = pIti(id, iv).sTakasa
 
-                    'txrxファイル作成
-                    Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\" & pPjName & ".txrx", True, System.Text.Encoding.UTF8)
-                    oFileWrite.WriteLine("d" & id & "v" & iv)
-                    oFileWrite.WriteLine(pIti(id, iv).sIdo)
-                    oFileWrite.WriteLine(pIti(id, iv).sKeido)
-                    oFileWrite.WriteLine(pIti(id, iv).sTakasa)
-                    'クローズ
-                    oFileWrite.Dispose()
-                    oFileWrite.Close()
-
-                    ''dm_vn_txrxファイル作成
-                    'Dim oFileWrite_2 As New System.IO.StreamWriter(pPjPath & "\" & "d" & m & "_v" & n & ".txrx", True, System.Text.Encoding.UTF8)
-                    'oFileWrite_2.WriteLine("d" & id & "v" & iv)
-                    'oFileWrite_2.WriteLine(pIti(id, iv).sIdo)
-                    'oFileWrite_2.WriteLine(pIti(id, iv).sKeido)
-                    'oFileWrite_2.WriteLine(pIti(id, iv).sTakasa)
-                    ''クローズ
-                    'oFileWrite_2.Dispose()
-                    'oFileWrite_2.Close()
-
                     If (pSet_d - 1) = (iRow + 1) Then Exit For
                     iRow = iRow + 1
                 End If
             Next
         End If
 
-        'コピー
-        fncFileCopy(pPjPath & "\" & pPjName & ".txrx", pPjPath & "\d" & m & "_v" & n & "_" & pPjName & ".txrx")
-
-        fncItiFile2Txrx = True
+        fncIti2Txrx = True
 Error_Exit:
         Exit Function
 Error_Rtn:

@@ -14,34 +14,30 @@ Module mduMain
     Public Sub subPreProc()
         On Error GoTo Error_Rtn
 
+        Call subLogOutput("")
+        Call subLogOutput("*** 前処理 ***")
+
         '周回用ファイルを削除する
         If fncFileDelete_d() Then
-            Call subLogOutput("> " & "ドローン毎の周回用ファイルを削除=>OK")
+            Call subLogOutput("> " & "周回用ファイル(d*.*)削除=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> " & "ドローン毎の周回用ファイルを削除=>NG")
+            Call subLogOutput("> " & "周回用ファイル(d*.*)削除=>NG")
             Call subOkNg_Color(1)
         End If
 
-        'Itiファイルを作成する
+        '***************************************************
+
         For m = 1 To pSet_d
+            'Itiファイルを作成する
             If fncItiFile(m, 0) Then
-                Call subLogOutput("> " & "d" & m & "_Itiファイルの作成=>OK")
+                Call subLogOutput("> " & "d" & m & "_Itiファイル作成=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> " & "d" & m & "_Itiファイルの作成=>OK")
+                Call subLogOutput("> " & "d" & m & "_Itiファイル作成=>NG")
                 Call subOkNg_Color(1)
             End If
         Next
-
-        'txrxファイルを削除する
-        If fncFileDelete_txrx() Then
-            Call subLogOutput("> " & "Txrxファイルを削除=>OK")
-            Call subOkNg_Color(0)
-        Else
-            Call subLogOutput("> " & "Txrxファイルを削除=>NG")
-            Call subOkNg_Color(1)
-        End If
 Error_Exit:
         Exit Sub
 Error_Rtn:
@@ -62,11 +58,14 @@ Error_Rtn:
         Dim sSetup As String = pSetup & ".exe"                          'setupファイル
         Dim s3d_pot_test_plus As String = p3d_pot_test_plus & ".exe"    'p3d_pot_test_plusファイル
 
+        Call subLogOutput("")
         Call subLogOutput("*** 周回処理(d" & m & "v" & n & ") ***")
 
+        '***************************************************
+
         'プロジェクト名.setup 起動
-        System.Diagnostics.Process.Start(sSetup, pPjName & ".setup 起動")
-        Call subLogOutput("> " & pPjName & ".setup 起動")
+        System.Diagnostics.Process.Start(sSetup, pPjName & ".setup起動")
+        Call subLogOutput("> " & pPjName & ".setup起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
 
@@ -88,20 +87,24 @@ Error_Rtn:
             Call subOkNg_Color(1)
         End If
 
+        '***************************************************
+
         '3d_pot_test_plus.exe 起動
         System.Diagnostics.Process.Start(s3d_pot_test_plus)
-        Call subLogOutput("> 3d_pot_test_plus.exe 起動")
+        Call subLogOutput("> 3d_pot_test_plus.exe起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
 
         '出力ファイル リネーム
         If fnc130Rename(m, n) Then
-            Call subLogOutput("> 出力ファイル リネーム=>OK")
+            Call subLogOutput("> 出力ファイル・リネーム=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> 出力ファイル リネーム=>NG")
+            Call subLogOutput("> 出力ファイル・リネーム=>NG")
             Call subOkNg_Color(1)
         End If
+
+        '***************************************************
 
         '周回の間隔
         Call subLogOutput("> 周回の間隔")
@@ -123,28 +126,42 @@ Error_Rtn:
     Public Sub subAfterProc(ByVal m As Integer, ByVal n As Integer)
         On Error GoTo Error_Rtn
 
+        Call subLogOutput("")
         Call subLogOutput("*** 後処理(d" & m & "v" & n & ") ***")
+
+        '***************************************************
 
         'プロジェクト名.txrxファイルを削除
         If fncFileDelete_pj_txrx() Then
-            Call subLogOutput("> " & "Txrxファイルを削除=>OK")
+            Call subLogOutput("> " & "Txrxファイル削除=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> " & "Txrxファイルを削除=>NG")
+            Call subLogOutput("> " & "Txrxファイル削除=>NG")
             Call subOkNg_Color(1)
         End If
 
-        '130.CSVファイルを配列にセット
-        If fncFile2Grid(pc130_Grid) Then
-            Call subLogOutput("> 130.CSVファイルを配列にセット=>OK")
+        'New_Itiファイルを削除
+        If fncFileDel(pPjPath & "\New_Iti.csv") Then
+            Call subLogOutput("> " & "New_Itiファイル削除=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> 130.CSVファイルを配列にセット=>NG")
+            Call subLogOutput("> " & "New_Itiファイル削除=>NG")
+            Call subOkNg_Color(1)
+        End If
+
+        '***************************************************
+
+        '130.CSVファイルを配列にセット
+        If fncFile2Grid(pc130_Grid) Then
+            Call subLogOutput("> 130xxx.CSVファイル取込み=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> 130xxx.CSVファイル取込み=>NG")
             Call subOkNg_Color(1)
         End If
 
         '経路計算する
-        If fncItiCalc() Then
+        If fncItiCalc(m, n) Then
             Call subLogOutput("> 経路計算=>OK")
             Call subOkNg_Color(0)
         Else
@@ -152,39 +169,59 @@ Error_Rtn:
             Call subOkNg_Color(1)
         End If
 
-        'new_itiファイルを削除
-        If fncFileDel(pPjPath & "\new_iti.csv") Then
-            Call subLogOutput("> " & "Txrxファイルを削除=>OK")
-            Call subOkNg_Color(0)
-        Else
-            Call subLogOutput("> " & "Txrxファイルを削除=>NG")
-            Call subOkNg_Color(1)
-        End If
-
         'Itiファイルを作成する
         If fncItiFile(m, n) Then
-            Call subLogOutput("> " & "d" & m & "_Itiファイルの作成=>OK")
+            Call subLogOutput("> " & "d" & m & "_Itiファイル作成=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> " & "d" & m & "_Itiファイルの作成=>NG")
+            Call subLogOutput("> " & "d" & m & "_Itiファイル作成=>NG")
             Call subOkNg_Color(1)
         End If
 
-        'Itiファイルからtxrx用配列を作成
-        If fncItiFile2Txrx(m, n) Then
-            Call subLogOutput("> Itiファイルからtxrx用配列作成=>OK")
+        'New_Itiファイルを作成する
+        If fncNewItiFile(m, n) Then
+            Call subLogOutput("> " & "New_Itiファイル作成=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> Itiファイルからtxrx用配列作成=>NG")
+            Call subLogOutput("> " & "New_Itiファイル作成=>NG")
             Call subOkNg_Color(1)
         End If
 
-        'プロジェクト名.txrxファイルを作成
+        '***************************************************
+
+        'Iti用配列からtxrx用配列を作成する
+        If fncIti2Txrx(m, n) Then
+            Call subLogOutput("> Iti用配列からtxrx用配列作成する=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> Iti用配列からtxrx用配列作成する=>NG")
+            Call subOkNg_Color(1)
+        End If
+
+        'タグデータを(仮)作成する
+        If fncTagCreate() Then
+            Call subLogOutput("> タグデータ(仮)作成=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> タグデータ(仮)作成=>NG")
+            Call subOkNg_Color(1)
+        End If
+
+        'プロジェクト名.txrxファイルを作成する
         If fncMem2txrx() Then
-            Call subLogOutput("> txrxファイル 作成=>OK")
+            Call subLogOutput(">プロジェクト名.txrxファイル作成=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> txrxファイル 作成=>NG")
+            Call subLogOutput("> プロジェクト名.txrxファイル作成=>NG")
+            Call subOkNg_Color(1)
+        End If
+
+        'プロジェクト名.Txrxファイルを周回用.Txrxファイルにコピーする
+        If fncCopyTxrx(m, n) Then
+            Call subLogOutput("> 周回用.Txrxファイルにコピー=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> 周回用.Txrxファイルにコピー=>NG")
             Call subOkNg_Color(1)
         End If
 Error_Exit:

@@ -5,6 +5,123 @@ Module mduIti
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
+    ''' 経路計算する
+    ''' </summary>
+    ''' <param name="m">ドローン</param>
+    ''' <param name="n">周回</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncItiCalc(ByVal m As Integer, ByVal n As Integer) As Boolean
+        On Error GoTo Error_Rtn
+        fncItiCalc = False
+
+        Dim iRow As Integer = 0
+        Dim iA1, iA2 As Integer
+        Dim iB1, iB2 As Integer
+        Dim iC1, iC2 As Integer
+        Dim dE, dF As Double
+        Dim dX, dY, dZ As Double
+        Dim iX, iY, iZ As Integer
+
+        'n=0の場合、画面設定値から取込む
+        If n = 0 Then
+            Select Case m
+                Case 1
+                    pX_d1 = frmMain.txtX_d1.Text
+                    pY_d1 = frmMain.txtY_d1.Text
+                    pZ_d1 = frmMain.txtZ_d1.Text
+                Case 2
+                    pX_d2 = frmMain.txtX_d2.Text
+                    pY_d2 = frmMain.txtY_d2.Text
+                    pZ_d2 = frmMain.txtZ_d2.Text
+                Case 3
+                    pX_d3 = frmMain.txtX_d3.Text
+                    pY_d3 = frmMain.txtY_d3.Text
+                    pZ_d3 = frmMain.txtZ_d3.Text
+                Case 4
+                    pX_d4 = frmMain.txtX_d4.Text
+                    pY_d4 = frmMain.txtY_d4.Text
+                    pZ_d4 = frmMain.txtZ_d4.Text
+                Case 5
+                    pX_d5 = frmMain.txtX_d5.Text
+                    pY_d5 = frmMain.txtY_d5.Text
+                    pZ_d5 = frmMain.txtZ_d5.Text
+            End Select
+        Else
+            For iRow = 1 To p130.Length - 1
+                iA1 = CInt(p130(iRow - 1).sX)
+                iA2 = CInt(p130(iRow).sX)
+                iB1 = CInt(p130(iRow - 1).sY)
+                iB2 = CInt(p130(iRow).sY)
+                iC1 = CInt(p130(iRow - 1).sZ)
+                iC2 = CInt(p130(iRow).sZ)
+                dE = p130(iRow).dCal1
+                dF = p130(iRow - 1).dCal2
+
+                iX = CInt(p130(iRow).sX)
+                iY = CInt(p130(iRow).sY)
+                iZ = CInt(p130(iRow).sZ)
+
+                dX = 0.0 : dY = 0.0 : dZ = 0.0
+                If dE > dF Then
+                    dX = dF / dE * (iA2 - iA1) + iA1
+                    dY = dF / dE * (iB2 - iB1) + iB1
+                    dZ = dF / dE * (iC2 - iC1) + iC1
+                    Exit For
+                End If
+            Next
+
+            '四捨五入
+            iX = Math.Round(dX, MidpointRounding.AwayFromZero)
+            iY = Math.Round(dY, MidpointRounding.AwayFromZero)
+            iZ = Math.Round(dZ, MidpointRounding.AwayFromZero)
+
+            Select Case m
+                Case 1
+                    If dE > dF Then
+                        pX_d1 = iX
+                        pY_d1 = iY
+                        pZ_d1 = iZ
+                    End If
+                Case 2
+                    If dE > dF Then
+                        pX_d2 = iX
+                        pY_d2 = iY
+                        pZ_d2 = iZ
+                    End If
+                Case 3
+                    If dE > dF Then
+                        pX_d3 = iX
+                        pY_d3 = iY
+                        pZ_d3 = iZ
+                    End If
+                Case 4
+                    If dE > dF Then
+                        pX_d4 = iX
+                        pY_d4 = iY
+                        pZ_d4 = iZ
+                    End If
+                Case 5
+                    If dE > dF Then
+                        pX_d5 = iX
+                        pY_d5 = iY
+                        pZ_d5 = iZ
+                    End If
+            End Select
+        End If
+
+        fncItiCalc = True
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
     ''' Itiファイルを作成する
     ''' </summary>
     ''' <param name="m">ドローン</param>
@@ -19,60 +136,7 @@ Module mduIti
         fncItiFile = False
 
         Dim sData As String = ""            'ファイル書込み用データ
-        Dim iA1 As Integer = 0
-        Dim iA2 As Integer = 0
-        Dim iB1 As Integer = 0
-        Dim iB2 As Integer = 0
-        Dim iC1 As Integer = 0
-        Dim iC2 As Integer = 0
-        Dim dE As Double = 0.0
-        Dim dF As Double = 0.0
-
         ReDim Preserve pIti(pcMax_d, n)     '位置情報
-
-        'n=0の場合、画面設定値から取込む
-        If n <> 0 Then
-            iA1 = CInt(p130(n - 1).sX)
-            iA2 = CInt(p130(n).sX)
-            iB1 = CInt(p130(n - 1).sY)
-            iB2 = CInt(p130(n).sY)
-            iC1 = CInt(p130(n - 1).sZ)
-            iC2 = CInt(p130(n).sZ)
-            dE = p130(n).dCal1
-            dF = p130(n - 1).dCal2
-            Select Case m
-                Case 1
-                    If dE > dF Then
-                        pX_d1 = dF / dE * (iA2 - iA1) + iA1
-                        pY_d1 = dF / dE * (iB2 - iB1) + iB1
-                        pZ_d1 = dF / dE * (iC2 - iC1) + iC1
-                    End If
-                Case 2
-                    If dE > dF Then
-                        pX_d2 = dF / dE * (iA2 - iA1) + iA1
-                        pY_d2 = dF / dE * (iB2 - iB1) + iB1
-                        pZ_d2 = dF / dE * (iC2 - iC1) + iC1
-                    End If
-                Case 3
-                    If dE > dF Then
-                        pX_d3 = dF / dE * (iA2 - iA1) + iA1
-                        pY_d3 = dF / dE * (iB2 - iB1) + iB1
-                        pZ_d3 = dF / dE * (iC2 - iC1) + iC1
-                    End If
-                Case 4
-                    If dE > dF Then
-                        pX_d4 = dF / dE * (iA2 - iA1) + iA1
-                        pY_d4 = dF / dE * (iB2 - iB1) + iB1
-                        pZ_d4 = dF / dE * (iC2 - iC1) + iC1
-                    End If
-                Case 5
-                    If dE > dF Then
-                        pX_d5 = dF / dE * (iA2 - iA1) + iA1
-                        pY_d5 = dF / dE * (iB2 - iB1) + iB1
-                        pZ_d5 = dF / dE * (iC2 - iC1) + iC1
-                    End If
-            End Select
-        End If
 
         'm=1～、n=0～
         Select Case m
@@ -88,13 +152,6 @@ Module mduIti
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
-
-                Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\new_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
-                oFileWrite2.WriteLine(sData)
-                'クローズ
-                oFileWrite2.Dispose()
-                oFileWrite2.Close()
             Case 2
                 'm=2
                 pIti(m, n).sIdo = pX_d2
@@ -102,18 +159,11 @@ Module mduIti
                 pIti(m, n).sTakasa = pZ_d2
 
                 Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d2_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
+                sData = pX_d2 & "," & pY_d2 & "," & pZ_d2
                 oFileWrite.WriteLine(sData)
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
-
-                Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\new_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d2 & "," & pY_d2 & "," & pZ_d2
-                oFileWrite2.WriteLine(sData)
-                'クローズ
-                oFileWrite2.Dispose()
-                oFileWrite2.Close()
             Case 3
                 'm=3
                 pIti(m, n).sIdo = pX_d3
@@ -121,18 +171,11 @@ Module mduIti
                 pIti(m, n).sTakasa = pZ_d3
 
                 Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d3_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
+                sData = pX_d3 & "," & pY_d3 & "," & pZ_d3
                 oFileWrite.WriteLine(sData)
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
-
-                Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\new_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d3 & "," & pY_d3 & "," & pZ_d3
-                oFileWrite2.WriteLine(sData)
-                'クローズ
-                oFileWrite2.Dispose()
-                oFileWrite2.Close()
             Case 4
                 'm=4
                 pIti(m, n).sIdo = pX_d4
@@ -145,13 +188,6 @@ Module mduIti
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
-
-                Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\new_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
-                oFileWrite2.WriteLine(sData)
-                'クローズ
-                oFileWrite2.Dispose()
-                oFileWrite2.Close()
             Case 5
                 'm=5
                 pIti(m, n).sIdo = pX_d5
@@ -164,16 +200,44 @@ Module mduIti
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
-
-                Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\new_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
-                oFileWrite2.WriteLine(sData)
-                'クローズ
-                oFileWrite2.Dispose()
-                oFileWrite2.Close()
         End Select
 
         fncItiFile = True
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' New_Itiファイルを作成する
+    ''' </summary>
+    ''' <param name="m">ドローン</param>
+    ''' <param name="n">周回</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncNewItiFile(ByVal m As Integer, ByVal n As Integer) As Boolean
+        On Error GoTo Error_Rtn
+        fncNewItiFile = False
+
+        Dim sData As String = ""            'ファイル書込み用データ
+
+        Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\New_Iti.csv", True, System.Text.Encoding.UTF8)
+        If n = 0 Then
+            sData = p130(0).sX & "," & p130(0).sY & "," & p130(0).sZ
+        Else
+            sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
+        End If
+        oFileWrite.WriteLine(sData)
+        'クローズ
+        oFileWrite.Dispose()
+        oFileWrite.Close()
+
+        fncNewItiFile = True
 Error_Exit:
         Exit Function
 Error_Rtn:

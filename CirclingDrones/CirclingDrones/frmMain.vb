@@ -62,14 +62,13 @@ Error_Rtn:
         'プロセス削除
         Call subKillProc(pSetup)
 
-        Call subLogOutput("*** 前処理 ***")
         ReDim Preserve pOrder_d(-1)         'ドローン順番用配列
         ReDim Preserve pIti(pcMax_d, -1)     '位置情報
         ReDim Preserve pTxrx(-1)            'Txrx用配列
         ReDim pOkNg(-1)                     'OKorNG表示色設定
         pOkNg_No = 0                        'OKorNG表示No
 
-        '前処理
+        '*** 前処理 *** 
         Call subPreProc()
 
         'ドローン毎周回処理
@@ -87,20 +86,23 @@ Error_Rtn:
                 ReDim Preserve pOrder_d(iRow)
                 pOrder_d(iRow) = "d" & txtNow_m.Text & "v" & CInt(n).ToString("00")
 
-                '周回処理
+                '*** 周回処理 *** 
                 Call subProc(CInt(txtNow_m.Text), CInt(txtNow_n.Text))
 
-                '後処理
+                '*** 後処理 *** 
                 Call subAfterProc(CInt(txtNow_m.Text), CInt(txtNow_n.Text))
 
                 '緯度・経度・高さ情報を画面ログに出力する
+                Call subLogOutput("")
                 Call subLogOutput("*** 緯度,経度,高さ(pIti) ***")
                 Call subLogOutput("d" & m & "," &
                                   "v" & n & "," &
                                   pIti(m, n).sIdo & "," &
                                   pIti(m, n).sKeido & "," &
                                   pIti(m, n).sTakasa)
+
                 'Txrx情報を画面ログに出力する
+                Call subLogOutput("")
                 Call subLogOutput("*** ドローン情報,緯度,経度,高さ(pTxrx) ***")
                 For iLoop = 0 To pTxrx.Length - 1
                     Call subLogOutput(pTxrx(iLoop).sdv & "," &
@@ -130,11 +132,13 @@ Error_Rtn:
         Call subLogOutput("エンド--> " + sStopTime)
 
         sTime = CLng(sw.ElapsedMilliseconds)
+        Call subLogOutput("")
         Call subLogOutput("-------------------")
         Call subLogOutput("経過時間(ms)> " & sTime)
         Call subLogOutput("-------------------")
 
         'ドローン順を表示する
+        Call subLogOutput("")
         Call subLogOutput("*** ドローン順番(pOrder_d) ***")
         For iLoop = 0 To pOrder_d.Length - 1
             Call subLogOutput(iLoop + 1 & "." & pOrder_d(iLoop))
