@@ -84,7 +84,7 @@ Error_Rtn:
 
                 'ドローン順番
                 ReDim Preserve pOrder_d(iRow)
-                pOrder_d(iRow) = "d" & txtNow_m.Text & "v" & CInt(n).ToString("00")
+                pOrder_d(iRow) = "d" & txtNow_m.Text & "v" & CInt(n).ToString("0000")
 
                 '*** 周回処理 *** 
                 Call subProc(CInt(txtNow_m.Text), CInt(txtNow_n.Text))
@@ -92,24 +92,9 @@ Error_Rtn:
                 '*** 後処理 *** 
                 Call subAfterProc(CInt(txtNow_m.Text), CInt(txtNow_n.Text))
 
-                '緯度・経度・高さ情報を画面ログに出力する
-                Call subLogOutput("")
-                Call subLogOutput("*** 緯度,経度,高さ(pIti) ***")
-                Call subLogOutput("d" & m & "," &
-                                  "v" & n & "," &
-                                  pIti(m, n).sIdo & "," &
-                                  pIti(m, n).sKeido & "," &
-                                  pIti(m, n).sTakasa)
+                '*** Logファイル出力処理 ***
+                Call subLogFile(CInt(txtNow_m.Text), CInt(txtNow_n.Text))
 
-                'Txrx情報を画面ログに出力する
-                Call subLogOutput("")
-                Call subLogOutput("*** ドローン情報,緯度,経度,高さ(pTxrx) ***")
-                For iLoop = 0 To pTxrx.Length - 1
-                    Call subLogOutput(pTxrx(iLoop).sdv & "," &
-                                      pTxrx(iLoop).sIdo & "," &
-                                      pTxrx(iLoop).sKeido & "," &
-                                      pTxrx(iLoop).sTakasa)
-                Next
                 iRow = iRow + 1 '行No
             Next
 
@@ -129,8 +114,10 @@ Error_Rtn:
         ' 計測停止
         sw.Stop()
         sStopTime = DateTime.Now
+        Call subLogOutput("")
         Call subLogOutput("エンド--> " + sStopTime)
 
+        '経過時間
         sTime = CLng(sw.ElapsedMilliseconds)
         Call subLogOutput("")
         Call subLogOutput("-------------------")
@@ -144,14 +131,12 @@ Error_Rtn:
             Call subLogOutput(iLoop + 1 & "." & pOrder_d(iLoop))
         Next
 
-        '画面ログ出力（0：緑色、1：赤色）
+        'NGカウント表示
         Dim iCnt As Integer = 0
         For iLoop = 0 To pOkNg_No - 1
             Call subLogOutput_Color(pOkNg(iLoop).iLen, pOkNg(iLoop).iColor)
             If pOkNg(iLoop).iColor = 1 Then iCnt = iCnt + 1
         Next
-
-        'NGカウント表示
         txtNG.Text = CInt(iCnt)
 
         'テキストボックスのカーソル制御
@@ -416,60 +401,13 @@ Error_Rtn:
         GoTo Error_Exit
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        '130.CSVファイルを配列にセットする
-        Dim arrCsv()() As String = ReadCsv("130.1K2490GD2route_grid.csv", False, False)
-        Dim iRow As Integer = 0
+    '*******************************************************
+    '   経路計算テスト
+    '*******************************************************
+    Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
+        '経路計算テスト
+        Call subTest()
 
-        ReDim Preserve p130(-1)
-        If arrCsv.Length > 0 Then
-            For iRow = 0 To arrCsv.Length - 1
-                ReDim Preserve p130(iRow)       'p130 に新規行を追加
-                If iRow = 0 Then
-                    p130(iRow).sX = arrCsv(iRow)(0).ToString
-                    p130(iRow).sY = arrCsv(iRow)(1).ToString
-                    p130(iRow).sZ = arrCsv(iRow)(2).ToString
-                Else
-                    p130(iRow).sX = arrCsv(iRow)(0).ToString
-                    p130(iRow).sY = arrCsv(iRow)(1).ToString
-                    p130(iRow).sZ = arrCsv(iRow)(2).ToString
-                    p130(iRow).sAA = arrCsv(iRow)(3).ToString
-                End If
-            Next
-        End If
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim iRow As Integer = 0
-
-        fncFile2Grid(pc130_Grid)
-
-
-        Dim iA1 As Integer = 0
-        Dim iA2 As Integer = 0
-        Dim iB1 As Integer = 0
-        Dim iB2 As Integer = 0
-        Dim iC1 As Integer = 0
-        Dim iC2 As Integer = 0
-
-        For iRow = 0 To p130.Length - 1
-            If iRow = 0 Then
-                iA1 = CInt(p130(1).sX)
-                iA2 = CInt(p130(0).sX)
-                iB1 = CInt(p130(1).sY)
-                iB2 = CInt(p130(0).sY)
-                iC1 = CInt(p130(1).sZ)
-                iC2 = CInt(p130(0).sZ)
-            Else
-                iA1 = CInt(p130(iRow).sX)
-                iA2 = CInt(p130(iRow - 1).sX)
-                iB1 = CInt(p130(iRow).sY)
-                iB2 = CInt(p130(iRow - 1).sY)
-                iC1 = CInt(p130(iRow).sZ)
-                iC2 = CInt(p130(iRow - 1).sZ)
-            End If
-            p130(iRow).dCal1 = Math.Sqrt((iA2 - iA1) ^ 2 + (iB2 - iB1) ^ 2 + (iC2 - iC1) ^ 2)
-            p130(iRow).dCal2 = CInt(txtVT.Text)
-        Next
+        Call fncMsgBox("終了")
     End Sub
 End Class

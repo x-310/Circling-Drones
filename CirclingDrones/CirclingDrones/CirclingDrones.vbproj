@@ -106,6 +106,7 @@
     <Compile Include="mduMain.vb" />
     <Compile Include="mduIti.vb" />
     <Compile Include="mduTag.vb" />
+    <Compile Include="mduTest.vb" />
     <Compile Include="mduTxrx.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

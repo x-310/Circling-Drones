@@ -178,17 +178,6 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduFile.fncFileDelete_d">
- -----------------------------------------------------------------------------
- <summary>
- ドローン毎の周回用ファイルを削除する
- </summary>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
 <member name="M:CirclingDrones.mduFile.fnc130Rename(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
@@ -220,6 +209,28 @@ CirclingDrones
  ファイルを削除する
  </summary>
  <param name="sFileName">削除ファイル名</param>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduFile.fncFileDel_d">
+ -----------------------------------------------------------------------------
+ <summary>
+ ドローン毎の周回用ファイルを削除する
+ </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduFile.fncFileDel_log">
+ -----------------------------------------------------------------------------
+ <summary>
+ Logファイルを削除する
+ </summary>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
@@ -289,6 +300,40 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduMain.subLogFile(System.Int32,System.Int32)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Logファイル出力処理
+ </summary>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduIti.fncItiCalc(System.Int32,System.Int32)">
+ -----------------------------------------------------------------------------
+ <summary>
+ 経路計算する
+ </summary>
+ <param name="m">ドローン</param>
+ <param name="n">周回</param>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduIti.fnc130Calc">
+ -----------------------------------------------------------------------------
+ <summary>
+ 130配列から飛距離計算する
+ </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduIti.fncItiFile(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
@@ -302,11 +347,13 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduIti.fncItiCalc">
+<member name="M:CirclingDrones.mduIti.fncNewItiFile(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
- 経路計算する
+ New_Itiファイルを作成する
  </summary>
+ <param name="m">ドローン</param>
+ <param name="n">周回</param>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
@@ -325,11 +372,45 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduTest.subTest">
+ -----------------------------------------------------------------------------
+ <summary>
+ 経路計算テスト
+ </summary>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduTxrx.fncTagCreate">
+ -----------------------------------------------------------------------------
+ <summary>
+ タグデータを(仮)作成する
+ </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduTxrx.fncMem2txrx">
  -----------------------------------------------------------------------------
  <summary>
  プロジェクト名.txrxファイルを作成する
  </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduTxrx.fncCopyTxrx(System.Int32,System.Int32)">
+ -----------------------------------------------------------------------------
+ <summary>
+ プロジェクト名.Txrxファイルを周回用dv.Txrxファイルにコピーする
+ </summary>
+ <param name="m">ドローン</param>
+ <param name="n">周回</param>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
@@ -365,10 +446,10 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduTxrx.fncItiFile2Txrx(System.Int32,System.Int32)">
+<member name="M:CirclingDrones.mduTxrx.fncIti2Txrx(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
- Iti用配列からtxrxファイルを作成する
+ Iti用配列からtxrx用配列を作成する
  </summary>
  <param name="m">ドローン</param>
  <param name="n">周回</param>

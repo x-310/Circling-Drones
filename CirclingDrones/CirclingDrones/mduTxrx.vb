@@ -356,9 +356,9 @@ Error_Rtn:
             Next
         Else
             'ドローン最新順
-            For iLoop = pOrder_d.Length - 1 To 1 Step -1
+            For iLoop = pSet_d To 1 Step -1
                 id = pOrder_d(iLoop).Substring(1, 1)
-                iv = pOrder_d(iLoop).Substring(3, 2)
+                iv = pOrder_d(iLoop).Substring(3, 4)
                 If id <> m Then
                     ReDim Preserve pTxrx(iRow)             'pTxrx に新規行を追加
 

@@ -178,17 +178,6 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduFile.fncFileDelete_d">
- -----------------------------------------------------------------------------
- <summary>
- ドローン毎の周回用ファイルを削除する
- </summary>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
 <member name="M:CirclingDrones.mduFile.fnc130Rename(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
@@ -221,6 +210,16 @@ CirclingDrones
  </summary>
  <param name="sFileName">削除ファイル名</param>
  <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduFile.subFileDel_w(System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ ワイルドカードでファイルを削除する
+ </summary>
  <remarks></remarks>
  <author>RKA</author>
  <history></history>
@@ -289,6 +288,16 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduMain.subLogFile(System.Int32,System.Int32)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Logファイル出力処理
+ </summary>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduIti.fncItiCalc(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
@@ -296,6 +305,17 @@ CirclingDrones
  </summary>
  <param name="m">ドローン</param>
  <param name="n">周回</param>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduIti.fnc130Calc">
+ -----------------------------------------------------------------------------
+ <summary>
+ 130配列から飛距離計算する
+ </summary>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
@@ -328,17 +348,6 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduIti.fncItiCalc">
- -----------------------------------------------------------------------------
- <summary>
- 経路計算する
- </summary>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
 <member name="M:CirclingDrones.mduIti.fncFile2Grid(System.String)">
  -----------------------------------------------------------------------------
  <summary>
@@ -346,6 +355,16 @@ CirclingDrones
  </summary>
  <param name="sFileName">130Gridファイルのパス</param>
  <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduTest.subTest">
+ -----------------------------------------------------------------------------
+ <summary>
+ 経路計算テスト
+ </summary>
  <remarks></remarks>
  <author>RKA</author>
  <history></history>

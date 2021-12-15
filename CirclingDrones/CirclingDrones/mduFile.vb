@@ -119,11 +119,8 @@ Error_Rtn:
         fncMem2Power = False
 
         Dim iRow As Integer '行ループ
-        'ファイル存在チェック
-        If fncFileCheck(sPath & "\Power.txt") Then
-            '存在すればファイル削除
-            fncFileDel(sPath & "\Power.txt")
-        End If
+        '存在すればファイル削除
+        fncFileDel(sPath & "\Power.txt")
 
         If pP2m.Length >= 1 Then
             'Power.txtファイル作成
@@ -139,30 +136,6 @@ Error_Rtn:
 
             fncMem2Power = True
         End If
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
-    End Function
-
-    ''' -----------------------------------------------------------------------------
-    ''' <summary>
-    ''' ドローン毎の周回用ファイルを削除する
-    ''' </summary>
-    ''' <returns>True:OK False:NG</returns>
-    ''' <remarks></remarks>
-    ''' <author>RKA</author>
-    ''' <history></history>
-    ''' -----------------------------------------------------------------------------
-    Public Function fncFileDelete_d() As Boolean
-        fncFileDelete_d = False
-
-        Dim sFile As String = ""    'ファイル名
-
-        sFile = pPjPath & "\" & "d*.*"
-        fncFileDel(sFile)
-
-        fncFileDelete_d = True
 Error_Exit:
         Exit Function
 Error_Rtn:
@@ -228,6 +201,7 @@ Error_Rtn:
         fncFileCheck = False
 
         fncFileCheck = System.IO.File.Exists(sFileName)
+
 Error_Exit:
         Exit Function
 Error_Rtn:
@@ -248,7 +222,10 @@ Error_Rtn:
         On Error GoTo Error_Rtn
         fncFileDel = False
 
-        FileSystem.Kill(sFileName)
+        'ファイル存在チェック
+        If fncFileCheck(sFileName) Then
+            FileSystem.Kill(sFileName)
+        End If
 
         fncFileDel = True
 Error_Exit:
@@ -256,6 +233,23 @@ Error_Exit:
 Error_Rtn:
         GoTo Error_Exit
     End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' ワイルドカードでファイルを削除する
+    ''' </summary>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Sub subFileDel_w(ByVal sFileName As String)
+
+        FileSystem.Kill(sFileName)
+Error_Exit:
+        Exit Sub
+Error_Rtn:
+        GoTo Error_Exit
+    End Sub
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>

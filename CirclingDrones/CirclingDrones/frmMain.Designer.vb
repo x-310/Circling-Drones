@@ -49,8 +49,7 @@ Partial Class frmMain
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnTest = New System.Windows.Forms.Button()
         Me.txtT = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
@@ -483,8 +482,7 @@ Partial Class frmMain
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel4.Controls.Add(Me.Button2)
-        Me.Panel4.Controls.Add(Me.Button1)
+        Me.Panel4.Controls.Add(Me.btnTest)
         Me.Panel4.Controls.Add(Me.txtT)
         Me.Panel4.Controls.Add(Me.Label33)
         Me.Panel4.Controls.Add(Me.Panel5)
@@ -497,23 +495,16 @@ Partial Class frmMain
         Me.Panel4.Size = New System.Drawing.Size(343, 500)
         Me.Panel4.TabIndex = 40
         '
-        'Button2
+        'btnTest
         '
-        Me.Button2.Location = New System.Drawing.Point(26, 441)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(297, 39)
-        Me.Button2.TabIndex = 318
-        Me.Button2.Text = "[単体テスト]：経路計算する"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(26, 396)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(297, 39)
-        Me.Button1.TabIndex = 317
-        Me.Button1.Text = "[単体テスト]：130.CSVファイルを配列にセットする"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnTest.BackColor = System.Drawing.SystemColors.GrayText
+        Me.btnTest.ForeColor = System.Drawing.Color.White
+        Me.btnTest.Location = New System.Drawing.Point(26, 445)
+        Me.btnTest.Name = "btnTest"
+        Me.btnTest.Size = New System.Drawing.Size(284, 39)
+        Me.btnTest.TabIndex = 317
+        Me.btnTest.Text = "経路計算テスト"
+        Me.btnTest.UseVisualStyleBackColor = False
         '
         'txtT
         '
@@ -1496,6 +1487,5 @@ Partial Class frmMain
     Friend WithEvents Label51 As Label
     Public WithEvents txtT As TextBox
     Friend WithEvents Label33 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnTest As Button
 End Class
