@@ -82,6 +82,9 @@ Module mduConst
         Dim sAA As String       'AA
         Dim dCal1 As Double     '計算結果1
         Dim dCal2 As Double     '計算結果2
+        Dim iX As Integer       'X
+        Dim iY As Integer       'Y
+        Dim iZ As Integer       'Z
     End Structure
 
     '経路計算用

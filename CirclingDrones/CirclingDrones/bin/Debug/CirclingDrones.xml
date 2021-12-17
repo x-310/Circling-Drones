@@ -298,6 +298,17 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduIti.fnc130Calc">
+ -----------------------------------------------------------------------------
+ <summary>
+ 130配列から飛距離計算する
+ </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduIti.fncItiCalc(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
@@ -305,17 +316,6 @@ CirclingDrones
  </summary>
  <param name="m">ドローン</param>
  <param name="n">周回</param>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
-<member name="M:CirclingDrones.mduIti.fnc130Calc">
- -----------------------------------------------------------------------------
- <summary>
- 130配列から飛距離計算する
- </summary>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>

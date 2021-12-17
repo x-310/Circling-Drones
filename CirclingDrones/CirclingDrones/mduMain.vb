@@ -35,16 +35,9 @@ Module mduMain
         End If
         '***************************************************
 
+        ReDim Preserve p130(-1)
         'Itiファイルを作成する
         For m = 1 To pSet_d
-            '経路計算(n=0)
-            If fncItiCalc(m, 0) Then
-                Call subLogOutput("> 経路計算(n=0)=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> 経路計算(n=0)=>NG")
-                Call subOkNg_Color(1)
-            End If
 
             '130.CSVファイルから130配列にセット
             If fncFile2Grid(pc130_Grid) Then
@@ -62,6 +55,15 @@ Module mduMain
                 Call subOkNg_Color(0)
             Else
                 Call subLogOutput("> " & "130配列から飛距離計算=>NG")
+                Call subOkNg_Color(1)
+            End If
+
+            '経路計算(n=0)
+            If fncItiCalc(m, 0) Then
+                Call subLogOutput("> 経路計算(n=0)=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> 経路計算(n=0)=>NG")
                 Call subOkNg_Color(1)
             End If
 
@@ -187,15 +189,6 @@ Error_Rtn:
 
         '***************************************************
 
-        '経路計算する
-        If fncItiCalc(m, n) Then
-            Call subLogOutput("> 経路計算=>OK")
-            Call subOkNg_Color(0)
-        Else
-            Call subLogOutput("> 経路計算=>NG")
-            Call subOkNg_Color(1)
-        End If
-
         '130.CSVファイルを配列にセット
         If fncFile2Grid(pc130_Grid) Then
             Call subLogOutput("> 130xxx.CSVファイル取込み=>OK")
@@ -211,6 +204,15 @@ Error_Rtn:
             Call subOkNg_Color(0)
         Else
             Call subLogOutput("> 130xxx.CSVファイル取込み=>NG")
+            Call subOkNg_Color(1)
+        End If
+
+        '経路計算する
+        If fncItiCalc(m, n) Then
+            Call subLogOutput("> 経路計算=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> 経路計算=>NG")
             Call subOkNg_Color(1)
         End If
 
@@ -305,7 +307,10 @@ Error_Rtn:
                     p130(iLoop).sZ & "," &
                     p130(iLoop).sAA & "," &
                     p130(iLoop).dCal1 & "," &
-                    p130(iLoop).dCal2
+                    p130(iLoop).dCal2 & "," &
+                    p130(iLoop).iX & "," &
+                    p130(iLoop).iY & "," &
+                    p130(iLoop).iZ
             oFileWrite.WriteLine(sData)
         Next
 

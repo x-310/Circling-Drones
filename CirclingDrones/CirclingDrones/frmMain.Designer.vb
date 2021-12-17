@@ -589,7 +589,7 @@ Partial Class frmMain
         Me.txtV.Name = "txtV"
         Me.txtV.Size = New System.Drawing.Size(186, 19)
         Me.txtV.TabIndex = 41
-        Me.txtV.Text = "8"
+        Me.txtV.Text = "10"
         '
         'Label51
         '

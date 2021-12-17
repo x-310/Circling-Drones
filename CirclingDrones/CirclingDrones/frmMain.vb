@@ -323,31 +323,10 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
-    '   INIファイル保存ボタン押下後処理
-    '*******************************************************
-    Private Sub btnIniSave_Click(sender As Object, e As EventArgs) Handles btnIniSave.Click
-        On Error GoTo Error_Rtn
-
-        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名
-
-        If fncFileCheck(sFileName) Then
-            Call subPutIni()
-            Call subSetIni()
-
-            fncMsgBox("保存しました")
-        Else
-            fncErrors("INIファイルのパスを確認して下さい")
-        End If
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
-    End Sub
-
-    '*******************************************************
     '   INIファイル読込ボタン押下後処理
     '*******************************************************
-    Private Sub btnIniGet2_Click(sender As Object, e As EventArgs) Handles btnIniGet3.Click
+
+    Private Sub btnIniGet2_Click_1(sender As Object, e As EventArgs) Handles btnIniGet2.Click
         On Error GoTo Error_Rtn
 
         Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名
@@ -368,7 +347,29 @@ Error_Rtn:
     '*******************************************************
     '   INIファイル保存ボタン押下後処理
     '*******************************************************
-    Private Sub btnIniSave2_Click(sender As Object, e As EventArgs) Handles btnIniSave3.Click
+    Private Sub btnIniSave2_Click_1(sender As Object, e As EventArgs) Handles btnIniSave2.Click
+        On Error GoTo Error_Rtn
+
+        Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名
+
+        If fncFileCheck(sFileName) Then
+            Call subPutIni()
+            Call subSetIni()
+
+            fncMsgBox("保存しました")
+        Else
+            fncErrors("INIファイルのパスを確認して下さい")
+        End If
+Error_Exit:
+        Exit Sub
+Error_Rtn:
+        GoTo Error_Exit
+    End Sub
+
+    '*******************************************************
+    '   INIファイル保存ボタン押下後処理
+    '*******************************************************
+    Private Sub btnIniSave_Click(sender As Object, e As EventArgs) Handles btnIniSave.Click
         On Error GoTo Error_Rtn
 
         Dim sFileName As String = txtIniPath.Text & "\" & pcIniFileName 'INIファイル名

@@ -5,6 +5,60 @@ Module mduIti
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
+    ''' 130配列から飛距離計算する
+    ''' </summary>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fnc130Calc() As Boolean
+        On Error GoTo Error_Rtn
+        fnc130Calc = False
+
+        Dim iA1 As Integer = 0
+        Dim iA2 As Integer = 0
+        Dim iB1 As Integer = 0
+        Dim iB2 As Integer = 0
+        Dim iC1 As Integer = 0
+        Dim iC2 As Integer = 0
+        Dim dE As Double = 0.0
+        Dim dF As Double = 0.0
+
+        For iRow = 0 To p130.Length - 1
+            If iRow = 0 Then
+                iA1 = CInt(p130(0).sX)
+                iA2 = CInt(p130(0).sX)
+                iB1 = CInt(p130(0).sY)
+                iB2 = CInt(p130(0).sY)
+                iC1 = CInt(p130(0).sZ)
+                iC2 = CInt(p130(0).sZ)
+                dE = 0.0
+                dF = CInt(frmMain.txtVT.Text)
+            Else
+                iA1 = CInt(p130(iRow - 1).sX)
+                iA2 = CInt(p130(iRow).sX)
+                iB1 = CInt(p130(iRow - 1).sY)
+                iB2 = CInt(p130(iRow).sY)
+                iC1 = CInt(p130(iRow - 1).sZ)
+                iC2 = CInt(p130(iRow).sZ)
+                dE = Math.Sqrt((iA2 - iA1) ^ 2 + (iB2 - iB1) ^ 2 + (iC2 - iC1) ^ 2)
+                dF = p130(iRow - 1).dCal2 - dE
+            End If
+
+            p130(iRow).dCal1 = dE
+            p130(iRow).dCal2 = dF
+        Next
+
+        fnc130Calc = True
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
     ''' 経路計算する
     ''' </summary>
     ''' <param name="m">ドローン</param>
@@ -26,30 +80,23 @@ Module mduIti
         Dim dX, dY, dZ As Double
         Dim iX, iY, iZ As Integer
 
+        iX = 0 : iY = 0 : iZ = 0
+        dX = 0.0 : dY = 0.0 : dZ = 0.0
+
+        pX_d1 = 0 : pY_d1 = 0 : pZ_d1 = 0
+        pX_d2 = 0 : pY_d2 = 0 : pZ_d2 = 0
+        pX_d3 = 0 : pY_d3 = 0 : pZ_d3 = 0
+        pX_d4 = 0 : pY_d4 = 0 : pZ_d4 = 0
+        pX_d5 = 0 : pY_d5 = 0 : pZ_d5 = 0
         'n=0の場合、画面設定値から取込む
         If n = 0 Then
-            Select Case m
-                Case 1
-                    pX_d1 = frmMain.txtX_d1.Text
-                    pY_d1 = frmMain.txtY_d1.Text
-                    pZ_d1 = frmMain.txtZ_d1.Text
-                Case 2
-                    pX_d2 = frmMain.txtX_d2.Text
-                    pY_d2 = frmMain.txtY_d2.Text
-                    pZ_d2 = frmMain.txtZ_d2.Text
-                Case 3
-                    pX_d3 = frmMain.txtX_d3.Text
-                    pY_d3 = frmMain.txtY_d3.Text
-                    pZ_d3 = frmMain.txtZ_d3.Text
-                Case 4
-                    pX_d4 = frmMain.txtX_d4.Text
-                    pY_d4 = frmMain.txtY_d4.Text
-                    pZ_d4 = frmMain.txtZ_d4.Text
-                Case 5
-                    pX_d5 = frmMain.txtX_d5.Text
-                    pY_d5 = frmMain.txtY_d5.Text
-                    pZ_d5 = frmMain.txtZ_d5.Text
-            End Select
+            ReDim Preserve p130(0)
+
+            p130(0).dCal1 = 0.0
+            p130(0).dCal2 = CDbl(frmMain.txtV.Text)
+            p130(0).iX = 0
+            p130(0).iY = 0
+            p130(0).iZ = 0
         Else
             For iRow = 1 To p130.Length - 1
                 iA1 = CInt(p130(iRow - 1).sX)
@@ -61,110 +108,51 @@ Module mduIti
                 dE = p130(iRow).dCal1
                 dF = p130(iRow - 1).dCal2
 
-                iX = CInt(p130(iRow).sX)
-                iY = CInt(p130(iRow).sY)
-                iZ = CInt(p130(iRow).sZ)
+                dX = dF / dE * (iA2 - iA1) + iA1
+                dY = dF / dE * (iB2 - iB1) + iB1
+                dZ = dF / dE * (iC2 - iC1) + iC1
 
-                dX = 0.0 : dY = 0.0 : dZ = 0.0
-                If dE > dF Then
-                    dX = dF / dE * (iA2 - iA1) + iA1
-                    dY = dF / dE * (iB2 - iB1) + iB1
-                    dZ = dF / dE * (iC2 - iC1) + iC1
-                    Exit For
-                End If
-            Next
+                '四捨五入
+                iX = Math.Round(dX, MidpointRounding.AwayFromZero)
+                iY = Math.Round(dY, MidpointRounding.AwayFromZero)
+                iZ = Math.Round(dZ, MidpointRounding.AwayFromZero)
 
-            '四捨五入
-            iX = Math.Round(dX, MidpointRounding.AwayFromZero)
-            iY = Math.Round(dY, MidpointRounding.AwayFromZero)
-            iZ = Math.Round(dZ, MidpointRounding.AwayFromZero)
+                p130(iRow).iX = iX
+                p130(iRow).iY = iY
+                p130(iRow).iZ = iZ
 
-            Select Case m
-                Case 1
-                    If dE > dF Then
+                Select Case m
+                    Case 1
                         pX_d1 = iX
                         pY_d1 = iY
                         pZ_d1 = iZ
-                    End If
-                Case 2
-                    If dE > dF Then
+                    Case 2
                         pX_d2 = iX
                         pY_d2 = iY
                         pZ_d2 = iZ
-                    End If
-                Case 3
-                    If dE > dF Then
+                    Case 3
                         pX_d3 = iX
                         pY_d3 = iY
                         pZ_d3 = iZ
-                    End If
-                Case 4
-                    If dE > dF Then
+                    Case 4
                         pX_d4 = iX
                         pY_d4 = iY
                         pZ_d4 = iZ
-                    End If
-                Case 5
-                    If dE > dF Then
+                    Case 5
                         pX_d5 = iX
                         pY_d5 = iY
                         pZ_d5 = iZ
-                    End If
-            End Select
+                End Select
+
+                If dF < dE Then
+                    Exit For
+                Else
+                    p130(iRow).dCal2 = dF - dE
+                End If
+            Next
         End If
 
         fncItiCalc = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
-    End Function
-
-    ''' -----------------------------------------------------------------------------
-    ''' <summary>
-    ''' 130配列から飛距離計算する
-    ''' </summary>
-    ''' <returns>True:OK False:NG</returns>
-    ''' <remarks></remarks>
-    ''' <author>RKA</author>
-    ''' <history></history>
-    ''' -----------------------------------------------------------------------------
-    Public Function fnc130Calc() As Boolean
-        On Error GoTo Error_Rtn
-        fnc130Calc = False
-
-        Dim iA1 As Integer = 0
-        Dim iA2 As Integer = 0
-        Dim iB1 As Integer = 0
-        Dim iB2 As Integer = 0
-        Dim iC1 As Integer = 0
-        Dim iC2 As Integer = 0
-
-        For iRow = 0 To p130.Length - 1
-            If iRow = 0 Then
-                iA1 = CInt(p130(1).sX)
-                iA2 = CInt(p130(0).sX)
-                iB1 = CInt(p130(1).sY)
-                iB2 = CInt(p130(0).sY)
-                iC1 = CInt(p130(1).sZ)
-                iC2 = CInt(p130(0).sZ)
-            Else
-                iA1 = CInt(p130(iRow).sX)
-                iA2 = CInt(p130(iRow - 1).sX)
-                iB1 = CInt(p130(iRow).sY)
-                iB2 = CInt(p130(iRow - 1).sY)
-                iC1 = CInt(p130(iRow).sZ)
-                iC2 = CInt(p130(iRow - 1).sZ)
-            End If
-            p130(iRow).dCal1 = Math.Sqrt((iA2 - iA1) ^ 2 + (iB2 - iB1) ^ 2 + (iC2 - iC1) ^ 2)
-            If iRow = 0 Then
-                p130(iRow).dCal2 = CInt(frmMain.txtVT.Text)
-            Else
-                p130(iRow).dCal2 = p130(iRow).dCal1 - p130(iRow).dCal2
-            End If
-        Next
-
-        fnc130Calc = True
 Error_Exit:
         Exit Function
 Error_Rtn:
@@ -313,7 +301,6 @@ Error_Rtn:
         Dim arrCsv()() As String = ReadCsv(sFileName, False, False)
         Dim iRow As Integer = 0
 
-        ReDim Preserve p130(-1)
         If arrCsv.Length > 0 Then
             For iRow = 0 To arrCsv.Length - 1
                 ReDim Preserve p130(iRow)       'p130 に新規行を追加
