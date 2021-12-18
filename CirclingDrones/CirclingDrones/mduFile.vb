@@ -24,7 +24,7 @@ Module mduFile
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
-    ''' P2mファイルを取込みする
+    ''' P2mファイルを配列にセット
     ''' </summary>
     ''' <param name="sFileName">P2mファイルのパス</param>
     ''' <returns>True:OK False:NG</returns>
@@ -144,7 +144,7 @@ Error_Rtn:
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
-    ''' 出力ファイルをリネームして指定フォルダにコピーする
+    ''' 履歴用130ファイルにコピー
     ''' </summary>
     ''' <param name="m">ドローン</param>
     ''' <param name="n">周回</param>
@@ -153,9 +153,9 @@ Error_Rtn:
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fnc130Rename(ByVal m As Integer, ByVal n As Integer) As Boolean
+    Public Function fncCopy130(ByVal m As Integer, ByVal n As Integer) As Boolean
         On Error GoTo Error_Rtn
-        fnc130Rename = False
+        fncCopy130 = False
 
         Dim iErrCnt As Integer = 0  'エラーカウント
         Dim sFile As String = ""    'ファイル名
@@ -179,7 +179,7 @@ Error_Rtn:
         End If
 
         If iErrCnt <> 0 Then GoTo Error_Exit
-        fnc130Rename = True
+        fncCopy130 = True
 Error_Exit:
         Exit Function
 Error_Rtn:

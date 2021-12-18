@@ -267,9 +267,9 @@ Error_Rtn:
 
         Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\New_Iti.csv", True, System.Text.Encoding.UTF8)
         If n = 0 Then
-            sData = p130(0).sX & "," & p130(0).sY & "," & p130(0).sZ
+            sData = pIti(m, 0).sIdo & "," & pIti(m, 0).sKeido & "," & pIti(m, 0).sTakasa
         Else
-            sData = p130(n - 1).sX & "," & p130(n - 1).sY & "," & p130(n - 1).sZ
+            sData = pIti(m, n).sIdo & "," & pIti(m, n).sKeido & "," & pIti(m, n).sTakasa
         End If
         oFileWrite.WriteLine(sData)
         'クローズ
@@ -285,7 +285,7 @@ Error_Rtn:
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
-    ''' 130.CSVファイルを配列にセットする
+    ''' 130ファイルを配列にセットする
     ''' </summary>
     ''' <param name="sFileName">130Gridファイルのパス</param>
     ''' <returns>True:OK False:NG</returns>

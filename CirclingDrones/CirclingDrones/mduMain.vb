@@ -17,12 +17,12 @@ Module mduMain
         Call subLogOutput("")
         Call subLogOutput("*** 前処理 ***")
 
-        'Logファイルを削除する
+        'Logファイルを削除
         Call subFileDel_w(pPjPath & "\*.log")
         Call subLogOutput("> " & "Logファイル(*.log)削除=>OK")
         Call subOkNg_Color(0)
 
-        '周回用ファイルを削除する
+        '履歴用ファイルを削除
         Call subFileDel_w(pPjPath & "\d*.*")
         Call subLogOutput("> " & "周回用ファイル(d*.*)削除=>OK")
         Call subOkNg_Color(0)
@@ -38,41 +38,41 @@ Module mduMain
         ReDim Preserve p130(-1)
         'Itiファイルを作成する
         For m = 1 To pSet_d
-
+            Call subLogOutput("> [d" & m & "_v0]")
             '130.CSVファイルから130配列にセット
             If fncFile2Grid(pc130_Grid) Then
                 'fncMsgBox("130xxx.CSVファイル取込み=>OK")
-                Call subLogOutput("> " & "130.CSVファイルから130配列にセット=>OK")
+                Call subLogOutput("> 　" & "130.CSVファイルから130配列にセット=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> " & "130.CSVファイルから130配列にセット=>NG")
+                Call subLogOutput("> 　" & "130.CSVファイルから130配列にセット=>NG")
                 Call subOkNg_Color(1)
             End If
 
             '130配列から飛距離計算
             If fnc130Calc() Then
-                Call subLogOutput("> " & "130配列から飛距離計算=>OK")
+                Call subLogOutput("> 　" & "130配列から飛距離計算=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> " & "130配列から飛距離計算=>NG")
+                Call subLogOutput("> 　" & "130配列から飛距離計算=>NG")
                 Call subOkNg_Color(1)
             End If
 
             '経路計算(n=0)
             If fncItiCalc(m, 0) Then
-                Call subLogOutput("> 経路計算(n=0)=>OK")
+                Call subLogOutput("> 　経路計算(n=0)=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> 経路計算(n=0)=>NG")
+                Call subLogOutput("> 　経路計算(n=0)=>NG")
                 Call subOkNg_Color(1)
             End If
 
             'Itiファイル(n=0)を作成
             If fncItiFile(m, 0) Then
-                Call subLogOutput("> " & "Itiファイル(n=0)作成=>OK")
+                Call subLogOutput("> 　" & "Itiファイル(n=0)作成=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> " & "Itiファイル(n=0)作成=>NG")
+                Call subLogOutput("> 　" & "Itiファイル(n=0)作成=>NG")
                 Call subOkNg_Color(1)
             End If
         Next
@@ -101,18 +101,18 @@ Error_Rtn:
 
         '***************************************************
 
-        'プロジェクト名.setup 起動
+        'setup 起動
         System.Diagnostics.Process.Start(sSetup, pPjName & ".setup起動")
         Call subLogOutput("> " & pPjName & ".setup起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
 
-        'プロジェクト名.p2m取込み
+        'P2mファイルを配列にセット
         If fncFile2P2m(pPjPath + "\" & pPjName & ".p2m") Then
-            Call subLogOutput("> " & pPjName & ".p2mファイル取込み=>OK")
+            Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> " & pPjName & ".p2mファイル取込み=>NG")
+            Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>NG")
             Call subOkNg_Color(1)
         End If
 
@@ -133,12 +133,12 @@ Error_Rtn:
         Call subOkNg_Color(2)
         Call subiInterval(500)
 
-        '出力ファイル リネーム
-        If fnc130Rename(m, n) Then
-            Call subLogOutput("> 出力ファイル・リネーム=>OK")
+        '履歴用130ファイルにコピー
+        If fncCopy130(m, n) Then
+            Call subLogOutput("> 履歴用130ファイルにコピー=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> 出力ファイル・リネーム=>NG")
+            Call subLogOutput("> 履歴用130ファイルにコピー=>NG")
             Call subOkNg_Color(1)
         End If
 
@@ -169,7 +169,7 @@ Error_Rtn:
 
         '***************************************************
 
-        'プロジェクト名.txrxファイルを削除
+        'txrxファイルを削除
         If fncFileDelete_pj_txrx() Then
             Call subLogOutput("> " & "Txrxファイル削除=>OK")
             Call subOkNg_Color(0)
@@ -189,12 +189,12 @@ Error_Rtn:
 
         '***************************************************
 
-        '130.CSVファイルを配列にセット
+        '130ファイルを配列にセット
         If fncFile2Grid(pc130_Grid) Then
-            Call subLogOutput("> 130xxx.CSVファイル取込み=>OK")
+            Call subLogOutput("> 130ファイル取込み=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> 130xxx.CSVファイル取込み=>NG")
+            Call subLogOutput("> 130ファイル取込み=>NG")
             Call subOkNg_Color(1)
         End If
 
@@ -245,30 +245,30 @@ Error_Rtn:
             Call subOkNg_Color(1)
         End If
 
-        'タグデータを(仮)作成する
+        'タグデータを作成する
         If fncTagCreate() Then
-            Call subLogOutput("> タグデータ(仮)作成=>OK")
+            Call subLogOutput("> タグデータ作成=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> タグデータ(仮)作成=>NG")
+            Call subLogOutput("> タグデータ作成=>NG")
             Call subOkNg_Color(1)
         End If
 
         'プロジェクト名.txrxファイルを作成する
         If fncMem2txrx() Then
-            Call subLogOutput(">プロジェクト名.txrxファイル作成=>OK")
+            Call subLogOutput(">txrxファイル作成=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> プロジェクト名.txrxファイル作成=>NG")
+            Call subLogOutput("> txrxファイル作成=>NG")
             Call subOkNg_Color(1)
         End If
 
-        'プロジェクト名.Txrxファイルを周回用.Txrxファイルにコピーする
+        '履歴用Txrxファイルにコピーする
         If fncCopyTxrx(m, n) Then
-            Call subLogOutput("> 周回用.Txrxファイルにコピー=>OK")
+            Call subLogOutput("> 履歴用Txrxファイルにコピー=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> 周回用.Txrxファイルにコピー=>NG")
+            Call subLogOutput("> 履歴用Txrxファイルにコピー=>NG")
             Call subOkNg_Color(1)
         End If
 Error_Exit:
