@@ -28,4 +28,3 @@ D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.
 D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.exe
 D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.xml
 D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.pdb
-D:\GIT\Circling-Drones\CirclingDrones\CirclingDrones\obj\Release\CirclingDrones.vbproj.AssemblyReference.cache

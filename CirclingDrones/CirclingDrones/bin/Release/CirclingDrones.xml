@@ -157,7 +157,7 @@ CirclingDrones
 <member name="M:CirclingDrones.mduFile.fncFile2P2m(System.String)">
  -----------------------------------------------------------------------------
  <summary>
- P2mファイルを取込みする
+ P2mファイルを配列にセット
  </summary>
  <param name="sFileName">P2mファイルのパス</param>
  <returns>True:OK False:NG</returns>
@@ -178,10 +178,10 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduFile.fnc130Rename(System.Int32,System.Int32)">
+<member name="M:CirclingDrones.mduFile.fncCopy130(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
- 出力ファイルをリネームして指定フォルダにコピーする
+ 履歴用130ファイルにコピー
  </summary>
  <param name="m">ドローン</param>
  <param name="n">周回</param>
@@ -215,23 +215,11 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduFile.fncFileDel_d">
+<member name="M:CirclingDrones.mduFile.subFileDel_w(System.String)">
  -----------------------------------------------------------------------------
  <summary>
- ドローン毎の周回用ファイルを削除する
+ ワイルドカードでファイルを削除する
  </summary>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
-<member name="M:CirclingDrones.mduFile.fncFileDel_log">
- -----------------------------------------------------------------------------
- <summary>
- Logファイルを削除する
- </summary>
- <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
  <history></history>
@@ -310,6 +298,17 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduIti.fnc130Calc">
+ -----------------------------------------------------------------------------
+ <summary>
+ 130配列から飛距離計算する
+ </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduIti.fncItiCalc(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
@@ -317,17 +316,6 @@ CirclingDrones
  </summary>
  <param name="m">ドローン</param>
  <param name="n">周回</param>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
-<member name="M:CirclingDrones.mduIti.fnc130Calc">
- -----------------------------------------------------------------------------
- <summary>
- 130配列から飛距離計算する
- </summary>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
@@ -363,7 +351,7 @@ CirclingDrones
 <member name="M:CirclingDrones.mduIti.fncFile2Grid(System.String)">
  -----------------------------------------------------------------------------
  <summary>
- 130.CSVファイルを配列にセットする
+ 130ファイルを配列にセットする
  </summary>
  <param name="sFileName">130Gridファイルのパス</param>
  <returns>True:OK False:NG</returns>
@@ -385,7 +373,7 @@ CirclingDrones
 <member name="M:CirclingDrones.mduTxrx.fncTagCreate">
  -----------------------------------------------------------------------------
  <summary>
- タグデータを(仮)作成する
+ タグデータを作成する
  </summary>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
@@ -407,7 +395,7 @@ CirclingDrones
 <member name="M:CirclingDrones.mduTxrx.fncCopyTxrx(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
- プロジェクト名.Txrxファイルを周回用dv.Txrxファイルにコピーする
+ 履歴用Txrxファイルにコピーする
  </summary>
  <param name="m">ドローン</param>
  <param name="n">周回</param>

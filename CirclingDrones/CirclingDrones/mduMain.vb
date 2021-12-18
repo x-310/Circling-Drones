@@ -254,7 +254,7 @@ Error_Rtn:
             Call subOkNg_Color(1)
         End If
 
-        'プロジェクト名.txrxファイルを作成する
+        'txrxファイルを作成する
         If fncMem2txrx() Then
             Call subLogOutput(">txrxファイル作成=>OK")
             Call subOkNg_Color(0)
