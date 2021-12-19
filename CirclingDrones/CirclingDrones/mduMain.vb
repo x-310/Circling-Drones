@@ -37,7 +37,7 @@ Module mduMain
 
         ReDim Preserve p130(-1)
         'Itiファイルを作成する
-        For m = 1 To pSet_d
+        For m = pSet_d To 1 Step -1
             Call subLogOutput("> [d" & m & "_v0]")
             '130.CSVファイルから130配列にセット
             If fncFile2Grid(pc130_Grid) Then
@@ -75,6 +75,15 @@ Module mduMain
                 Call subLogOutput("> 　" & "Itiファイル(n=0)作成=>NG")
                 Call subOkNg_Color(1)
             End If
+
+            'New_Itiファイルを作成する
+            If fncNewItiFile(m, 0) Then
+                Call subLogOutput("> 　" & "New_Itiファイル作成=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> 　" & "New_Itiファイル作成=>NG")
+                Call subOkNg_Color(1)
+            End If
         Next
 Error_Exit:
         Exit Sub
@@ -101,9 +110,9 @@ Error_Rtn:
 
         '***************************************************
 
-        'setup 起動
-        System.Diagnostics.Process.Start(sSetup, pPjName & ".setup起動")
-        Call subLogOutput("> " & pPjName & ".setup起動")
+        'DoCalcProc.exe 起動
+        System.Diagnostics.Process.Start(sSetup, pPjName & "DoCalcProc.exe起動")
+        Call subLogOutput("> DoCalcProc.exe起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
 
@@ -191,19 +200,19 @@ Error_Rtn:
 
         '130ファイルを配列にセット
         If fncFile2Grid(pc130_Grid) Then
-            Call subLogOutput("> 130ファイル取込み=>OK")
+            Call subLogOutput("> 130ファイルを配列にセット=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> 130ファイル取込み=>NG")
+            Call subLogOutput("> 130ファイルを配列にセット=>NG")
             Call subOkNg_Color(1)
         End If
 
         '130配列から飛距離計算する
         If fnc130Calc() Then
-            Call subLogOutput("> 130xxx.CSVファイル取込み=>OK")
+            Call subLogOutput("> 130配列から飛距離計算=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> 130xxx.CSVファイル取込み=>NG")
+            Call subLogOutput("> 130配列から飛距離計算=>NG")
             Call subOkNg_Color(1)
         End If
 
@@ -256,7 +265,7 @@ Error_Rtn:
 
         'txrxファイルを作成する
         If fncMem2txrx() Then
-            Call subLogOutput(">txrxファイル作成=>OK")
+            Call subLogOutput("> txrxファイル作成=>OK")
             Call subOkNg_Color(0)
         Else
             Call subLogOutput("> txrxファイル作成=>NG")
