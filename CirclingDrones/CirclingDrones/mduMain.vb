@@ -103,17 +103,24 @@ Error_Rtn:
     Public Sub subProc(ByVal m As Integer, ByVal n As Integer)
         On Error GoTo Error_Rtn
 
-        Dim sSetup As String = pSetup & ".exe"                          'setupファイル
-        Dim s3d_pot_test_plus As String = "3d_pot_test_plus.exe"              'p3d_pot_plusファイル
+        Dim sExeFile As String = ""
+        Dim s3d_pot_test_plus As String = pc3d_pot_test_plus & ".exe"
+
+        'ワイヤレスインサイト
+        If pcFileFlg = 0 Then
+            sExeFile = pcDoNothing & ".exe"
+        Else
+            sExeFile = pcDoCalcProc & ".exe"
+        End If
 
         Call subLogOutput("")
         Call subLogOutput("*** 周回処理 [d" & m & "_v" & n & "] ***")
 
         '***************************************************
 
-        'DoCalcProc.exe 起動
-        System.Diagnostics.Process.Start(sSetup, pPjName & "DoCalcProc.exe起動")
-        Call subLogOutput("> DoCalcProc.exe起動")
+        'ワイヤレスインサイト
+        System.Diagnostics.Process.Start(sExeFile)
+        Call subLogOutput("> ワイヤレスインサイト起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
 
@@ -138,8 +145,8 @@ Error_Rtn:
         '***************************************************
 
         '3d_pot_test_plus.exe 起動
-        System.Diagnostics.Process.Start(s3d_pot_test_plus)
-        Call subLogOutput("> 3d_pot_test_plus.exe起動")
+        System.Diagnostics.Process.Start(pc3d_pot_test_plus & ".exe")
+        Call subLogOutput(">  " & pc3d_pot_test_plus & ".exe起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
 

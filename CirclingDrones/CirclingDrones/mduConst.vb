@@ -6,14 +6,19 @@ Module mduConst
     '*******************************************************
     '      定数定義
     '*******************************************************
+    'ファイル切替用
+    '=========================================
+    Public Const pcFileFlg As Integer = 0                           '1:ワイヤレスインサイトがある環境
+    '=========================================
     '画面用
     Public Const pcAppName As String = "Circling Drones"            'アプリ名
     Public Const pcMax_d As Integer = 5                             'ドローン台数の最大値
     Public Const pcMax_v As Integer = 1000                          '周回の最大値
 
     'モジュール用
-    Public Const pSetup As String = "DoNothing"                     'setupファイル名
-    Public Const p3d_pot_test_plus As String = "3d_pot_test_plus"   '3d_pot_test_plusファイル名
+    Public Const pcDoNothing As String = "DoNothing"                'DoNothingファイル名
+    Public Const pcDoCalcProc As String = "DoCalcProc"              'DoCalcProcファイル名
+    Public Const pc3d_pot_test_plus As String = "3d_pot_test_plus"  '3d_pot_test_plusファイル名
 
     'INIファイル用
     Public Const pcIniFileName As String = "RKA_con.ini"

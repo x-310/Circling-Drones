@@ -14,10 +14,18 @@ Public Class frmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         On Error GoTo Error_Rtn
 
-        Dim sSetup As String = pSetup & ".exe"
-        Dim s3d_pot_test_plus As String = p3d_pot_test_plus & ".exe"
+        Dim sExeFile As String = "" 'ワイヤレスインサイト
+        Dim s3d_pot_test_plus As String = pc3d_pot_test_plus & ".exe"
 
-        If fncFileCheck(sSetup) = False Or fncFileCheck(s3d_pot_test_plus) = False Then
+        'ワイヤレスインサイト
+        If pcFileFlg = 0 Then
+            sExeFile = pcDoNothing & ".exe"
+        Else
+            sExeFile = pcDoCalcProc & ".exe"
+        End If
+
+        '3d_pot_test_plus
+        If fncFileCheck(sExeFile) = False Or fncFileCheck(s3d_pot_test_plus) = False Then
             fncMsgBox("実行ファイルを確認して下さい")
             End
         End If
@@ -44,6 +52,15 @@ Error_Rtn:
         Dim sTime As String         '経過時間
         Dim m As Integer            'ドローン毎ループ
         Dim iRow As Integer         '行No
+        Dim sExeFile As String = "" 'ワイヤレスインサイト
+        Dim s3d_pot_test_plus As String = pc3d_pot_test_plus
+
+        'ワイヤレスインサイト
+        If pcFileFlg = 0 Then
+            sExeFile = pcDoNothing
+        Else
+            sExeFile = pcDoCalcProc
+        End If
 
         '画面設定情報を取得
         Call subSetGamen()
@@ -60,7 +77,7 @@ Error_Rtn:
         Call subLogOutput("スタート--> " + sStartTime)
 
         'プロセス削除
-        Call subKillProc(pSetup)
+        Call subKillProc(sExeFile)
 
         ReDim Preserve pOrder_d(-1)         'ドローン順番用配列
         ReDim Preserve pIti(pcMax_d, -1)     '位置情報
@@ -104,7 +121,7 @@ Error_Rtn:
                 txtStopFlg.Text = "1"
 
                 'プロセス削除
-                Call subKillProc(pSetup)
+                Call subKillProc(sExeFile)
             Else
                 '周回カウントアップ
                 n = n + 1
@@ -394,8 +411,19 @@ Error_Rtn:
     Private Sub frmMain_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         On Error GoTo Error_Rtn
 
+        Dim sExeFile As String = "" 'ワイヤレスインサイト
+        Dim s3d_pot_test_plus As String = pc3d_pot_test_plus
+
+        'ワイヤレスインサイト
+        If pcFileFlg = 0 Then
+            sExeFile = pcDoNothing
+        Else
+            sExeFile = pcDoCalcProc
+        End If
+
         'プロセス削除
-        Call subKillProc(pSetup)
+        Call subKillProc(sExeFile)
+        Call subKillProc(s3d_pot_test_plus)
 Error_Exit:
         Exit Sub
 Error_Rtn:
