@@ -18,7 +18,7 @@ Public Class frmMain
         Dim s3d_pot_test_plus As String = pc3d_pot_test_plus & ".exe"
 
         'ワイヤレスインサイト
-        If pcFileFlg = 0 Then
+        If pFileFlg = 0 Then
             sExeFile = pcDoNothing & ".exe"
         Else
             sExeFile = pcDoCalcProc & ".exe"
@@ -58,7 +58,7 @@ Error_Rtn:
         Dim s3d_pot_test_plus As String = pc3d_pot_test_plus
 
         'ワイヤレスインサイト
-        If pcFileFlg = 0 Then
+        If pFileFlg = 0 Then
             sExeFile = pcDoNothing
         Else
             sExeFile = pcDoCalcProc
@@ -417,7 +417,7 @@ Error_Rtn:
         Dim s3d_pot_test_plus As String = pc3d_pot_test_plus
 
         'ワイヤレスインサイト
-        If pcFileFlg = 0 Then
+        If pFileFlg = 0 Then
             sExeFile = pcDoNothing
         Else
             sExeFile = pcDoCalcProc
@@ -436,9 +436,16 @@ Error_Rtn:
     '   経路計算テスト
     '*******************************************************
     Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
-        '経路計算テスト
-        Call subTest()
+        Dim result As DialogResult = MessageBox.Show("経路計算のテストを行いますか？",
+                                             "経路計算テスト",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Exclamation,
+                                             MessageBoxDefaultButton.Button2)
+        If result = DialogResult.Yes Then
+            '経路計算テスト
+            Call subTest()
 
-        Call fncMsgBox("終了")
+            Call fncMsgBox("終了")
+        End If
     End Sub
 End Class

@@ -107,7 +107,7 @@ Error_Rtn:
         Dim s3d_pot_test_plus As String = pc3d_pot_test_plus & ".exe"
 
         'ワイヤレスインサイト
-        If pcFileFlg = 0 Then
+        If pFileFlg = 0 Then
             sExeFile = pcDoNothing & ".exe"
         Else
             sExeFile = pcDoCalcProc & ".exe"

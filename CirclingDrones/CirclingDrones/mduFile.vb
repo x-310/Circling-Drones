@@ -108,7 +108,6 @@ Error_Rtn:
     ''' <summary>
     ''' Power.txtを作成する
     ''' </summary>
-    ''' <param name="sPath">Power.txtのパス</param>
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
@@ -309,6 +308,11 @@ Error_Rtn:
         'vt：飛距離FD
         pVT = CInt(pV) * CInt(pT)
 
+        'ファイル切替
+        pFileFlg = 0
+        iRET = GetPrivateProfileString(pcSec_FileFlg, pcKey_sw, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
+        pFileFlg = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
+
         'PjName
         pPjName = ""
         iRET = GetPrivateProfileString(pcSec_Set, pcKey_11, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
@@ -325,6 +329,8 @@ Error_Rtn:
         frmMain.txtV.Text = pV                  'ドローン速度
         frmMain.txtT.Text = pT                  '周回毎経過時間
         frmMain.txtVT.Text = pVT                '飛距離FD
+
+        frmMain.cmbFileFlg.Text = pFileFlg      'ファイル切替フラグ
 
         frmMain.txtIniPath.Text = pIniPath      'INIファイルパス
         frmMain.txtPjName.Text = pPjName        'プロジェクト名
@@ -440,6 +446,8 @@ Error_Rtn:
 
         iRET = WritePrivateProfileString(pcSec_Route, pcKey_v, frmMain.txtV.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Route, pcKey_t, frmMain.txtT.Text, pIniPath & "\" & pcIniFileName)
+
+        iRET = WritePrivateProfileString(pcSec_FileFlg, pcKey_sw, frmMain.cmbFileFlg.Text, pIniPath & "\" & pcIniFileName)
 
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_11, frmMain.txtPjName.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_12, frmMain.txtGnuPath.Text, pIniPath & "\" & pcIniFileName)

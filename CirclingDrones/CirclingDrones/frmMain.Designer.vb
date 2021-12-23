@@ -41,10 +41,10 @@ Partial Class frmMain
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbSet_v = New System.Windows.Forms.ComboBox()
         Me.pnlSet = New System.Windows.Forms.Panel()
+        Me.cmbSet_d = New System.Windows.Forms.ComboBox()
         Me.cmbSet_Interval = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.cmbSet_d = New System.Windows.Forms.ComboBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
@@ -124,6 +124,10 @@ Partial Class frmMain
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtCom1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.cmbFileFlg = New System.Windows.Forms.ComboBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -395,6 +399,18 @@ Partial Class frmMain
         Me.pnlSet.Size = New System.Drawing.Size(343, 81)
         Me.pnlSet.TabIndex = 0
         '
+        'cmbSet_d
+        '
+        Me.cmbSet_d.BackColor = System.Drawing.SystemColors.Menu
+        Me.cmbSet_d.DisplayMember = "1"
+        Me.cmbSet_d.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSet_d.FormattingEnabled = True
+        Me.cmbSet_d.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
+        Me.cmbSet_d.Location = New System.Drawing.Point(154, 13)
+        Me.cmbSet_d.Name = "cmbSet_d"
+        Me.cmbSet_d.Size = New System.Drawing.Size(36, 20)
+        Me.cmbSet_d.TabIndex = 1
+        '
         'cmbSet_Interval
         '
         Me.cmbSet_Interval.BackColor = System.Drawing.SystemColors.Menu
@@ -430,18 +446,6 @@ Partial Class frmMain
         Me.Label26.TabIndex = 303
         Me.Label26.Text = "ドローン台数(ｍ)："
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'cmbSet_d
-        '
-        Me.cmbSet_d.BackColor = System.Drawing.SystemColors.Menu
-        Me.cmbSet_d.DisplayMember = "1"
-        Me.cmbSet_d.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSet_d.FormattingEnabled = True
-        Me.cmbSet_d.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
-        Me.cmbSet_d.Location = New System.Drawing.Point(154, 13)
-        Me.cmbSet_d.Name = "cmbSet_d"
-        Me.cmbSet_d.Size = New System.Drawing.Size(36, 20)
-        Me.cmbSet_d.TabIndex = 1
         '
         'TabControl1
         '
@@ -482,6 +486,10 @@ Partial Class frmMain
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel4.Controls.Add(Me.Label36)
+        Me.Panel4.Controls.Add(Me.Label35)
+        Me.Panel4.Controls.Add(Me.cmbFileFlg)
+        Me.Panel4.Controls.Add(Me.Label34)
         Me.Panel4.Controls.Add(Me.btnTest)
         Me.Panel4.Controls.Add(Me.txtT)
         Me.Panel4.Controls.Add(Me.Label33)
@@ -1343,6 +1351,54 @@ Partial Class frmMain
         Me.Label9.Text = "コマンド1："
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label34.ForeColor = System.Drawing.Color.Black
+        Me.Label34.Location = New System.Drawing.Point(24, 354)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(94, 15)
+        Me.Label34.TabIndex = 318
+        Me.Label34.Text = "ファイル切替："
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cmbFileFlg
+        '
+        Me.cmbFileFlg.BackColor = System.Drawing.SystemColors.Menu
+        Me.cmbFileFlg.DisplayMember = "1"
+        Me.cmbFileFlg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbFileFlg.FormattingEnabled = True
+        Me.cmbFileFlg.Items.AddRange(New Object() {"0", "1"})
+        Me.cmbFileFlg.Location = New System.Drawing.Point(117, 350)
+        Me.cmbFileFlg.Name = "cmbFileFlg"
+        Me.cmbFileFlg.Size = New System.Drawing.Size(37, 20)
+        Me.cmbFileFlg.TabIndex = 319
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.Black
+        Me.Label35.Location = New System.Drawing.Point(36, 373)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(202, 15)
+        Me.Label35.TabIndex = 320
+        Me.Label35.Text = "0：ワイヤレスインサイトがない環境"
+        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label36.ForeColor = System.Drawing.Color.Black
+        Me.Label36.Location = New System.Drawing.Point(37, 393)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(200, 15)
+        Me.Label36.TabIndex = 321
+        Me.Label36.Text = "1：ワイヤレスインサイトがある環境"
+        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1488,4 +1544,8 @@ Partial Class frmMain
     Public WithEvents txtT As TextBox
     Friend WithEvents Label33 As Label
     Friend WithEvents btnTest As Button
+    Friend WithEvents cmbFileFlg As ComboBox
+    Friend WithEvents Label34 As Label
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Label35 As Label
 End Class

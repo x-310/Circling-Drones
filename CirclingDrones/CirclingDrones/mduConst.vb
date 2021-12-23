@@ -6,10 +6,7 @@ Module mduConst
     '*******************************************************
     '      定数定義
     '*******************************************************
-    'ファイル切替用
-    '=========================================
-    Public Const pcFileFlg As Integer = 0                           '1:ワイヤレスインサイトがある環境
-    '=========================================
+
     '画面用
     Public Const pcAppName As String = "Circling Drones"            'アプリ名
     Public Const pcMax_d As Integer = 5                             'ドローン台数の最大値
@@ -26,6 +23,8 @@ Module mduConst
     Public Const pcSec_Route As String = "Route"
     Public Const pcKey_v As String = "V"
     Public Const pcKey_t As String = "T"
+    Public Const pcSec_FileFlg As String = "FileFlg"
+    Public Const pcKey_sw As String = "SW"
 
     Public Const pcSec_Set As String = "Set"
     Public Const pcKey_11 As String = "PjName"
@@ -98,6 +97,12 @@ Module mduConst
     Public pP2m() As M_P2m_Def      'P2m情報
     Public pTxrx() As M_Txrx_Def    'Txrx情報
     Public p130() As M_130_Def      '経路計算情報
+
+    'ファイル切替用
+    '=========================================
+    '0:ワイヤレスインサイトがない環境
+    Public pFileFlg As Integer
+    '=========================================
 
     '画面用
     Public pSet_d As Integer        'ドローン設定台数

@@ -19,8 +19,8 @@ terrain
 end_<reference>
 spacing 5.00000
 nVertices 2
-0 0 13
-5 5 15
+11 12 13
+67 50 50
 end_<location>
 pattern_show_arrow no
 pattern_show_as_sphere no

@@ -171,7 +171,6 @@ CirclingDrones
  <summary>
  Power.txtを作成する
  </summary>
- <param name="sPath">Power.txtのパス</param>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
