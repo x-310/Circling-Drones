@@ -114,17 +114,17 @@ Error_Rtn:
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncMem2Power(ByVal sPath As String) As Boolean
+    Public Function fncMem2Power() As Boolean
         On Error GoTo Error_Rtn
         fncMem2Power = False
 
         Dim iRow As Integer '行ループ
         '存在すればファイル削除
-        fncFileDel(sPath & "\Power.txt")
+        fncFileDel(pExePath & "\Power.txt")
 
         If pP2m.Length >= 1 Then
             'Power.txtファイル作成
-            Dim oFileWrite As New System.IO.StreamWriter(sPath & "\Power.txt", True, System.Text.Encoding.UTF8)
+            Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power.txt", True, System.Text.Encoding.UTF8)
 
             For iRow = 0 To pP2m.Length - 1
                 oFileWrite.WriteLine(pP2m(iRow).sPower)

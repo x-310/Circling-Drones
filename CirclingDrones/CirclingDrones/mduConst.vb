@@ -115,6 +115,7 @@ Module mduConst
     Public pPjName As String        'プロジェクト名
     Public pGnuPath As String       'gnuプロットパス
     Public pPjPath As String        'pjフォルダパス
+    Public pExePath As String       'exeフォルダパス
 
     Public pX_d1 As String          'd1のX設定値
     Public pY_d1 As String          'd1のY設定値

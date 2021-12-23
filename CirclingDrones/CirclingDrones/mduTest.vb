@@ -22,7 +22,7 @@ Module mduTest
 
         '***************************************************
         'New_Itiファイルを削除
-        If fncFileDel(pPjPath & "\New_Iti.csv") Then
+        If fncFileDel(pExePath & "\New_Iti.csv") Then
             'fncMsgBox("New_Itiファイル削除=>OK")
         Else
             fncErrors("New_Itiファイル削除=>NG")

@@ -35,6 +35,8 @@ Public Class frmMain
 
         'INIファイル読込み
         Call subSetIni()
+
+        pExePath = System.Environment.CurrentDirectory
 Error_Exit:
         Exit Sub
 Error_Rtn:

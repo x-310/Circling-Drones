@@ -336,7 +336,7 @@ Error_Rtn:
 
         Dim sData As String = ""            'ファイル書込み用データ
 
-        Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\New_Iti.csv", True, System.Text.Encoding.UTF8)
+        Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\New_Iti.csv", True, System.Text.Encoding.UTF8)
         If n = 0 Then
             sData = pIti(m, 0).sIdo & "," & pIti(m, 0).sKeido & "," & pIti(m, 0).sTakasa
         Else

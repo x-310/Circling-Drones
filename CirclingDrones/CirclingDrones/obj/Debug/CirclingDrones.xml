@@ -166,7 +166,7 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduFile.fncMem2Power(System.String)">
+<member name="M:CirclingDrones.mduFile.fncMem2Power">
  -----------------------------------------------------------------------------
  <summary>
  Power.txtを作成する

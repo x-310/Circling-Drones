@@ -28,7 +28,7 @@ Module mduMain
         Call subOkNg_Color(0)
 
         'New_Itiファイルを削除
-        If fncFileDel(pPjPath & "\New_Iti.csv") Then
+        If fncFileDel(pExePath & "\New_Iti.csv") Then
             'fncMsgBox("New_Itiファイル削除=>OK")
         Else
             fncErrors("New_Itiファイル削除=>NG")
@@ -134,7 +134,7 @@ Error_Rtn:
         End If
 
         'power.txt作成
-        If fncMem2Power(pPjPath) Then
+        If fncMem2Power() Then
             Call subLogOutput("> power.txt作成=>OK")
             Call subOkNg_Color(0)
         Else
@@ -196,7 +196,7 @@ Error_Rtn:
         End If
 
         'New_Itiファイルを削除
-        If fncFileDel(pPjPath & "\New_Iti.csv") Then
+        If fncFileDel(pExePath & "\New_Iti.csv") Then
             Call subLogOutput("> " & "New_Itiファイル削除=>OK")
             Call subOkNg_Color(0)
         Else
