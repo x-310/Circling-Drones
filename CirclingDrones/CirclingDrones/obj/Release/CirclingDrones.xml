@@ -370,7 +370,7 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduTxrx.fncTagCreate">
+<member name="M:CirclingDrones.mduTxrx.fncTagCreate(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
  タグデータを作成する
@@ -381,7 +381,7 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduTxrx.fncMem2txrx">
+<member name="M:CirclingDrones.mduTxrx.fncMem2txrx(System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
  プロジェクト名.txrxファイルを作成する

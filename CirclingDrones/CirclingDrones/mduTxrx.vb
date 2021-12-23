@@ -12,63 +12,33 @@ Module mduTxrx
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncTagCreate() As Boolean
+    Public Function fncTagCreate(ByVal m As Integer, ByVal n As Integer) As Boolean
         On Error GoTo Error_Rtn
         fncTagCreate = False
 
         Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
+        Dim iLoop As Integer = 0
+        Dim iCnt As Integer = 0
 
-        Dim inVertices_points As Integer = 0            'points用nVertices作成個数
-        Dim sValue_points() As String                   'points用nVerticesデータ用配列
-        Dim inVertices_route As Integer = 0             'route用nVertices作成個数
-        Dim sValue_route() As String                    'route用nVerticesデータ用配列
-        Dim inVertices_grid As Integer = 0              'grid用nVertices作成個数
-        Dim sValue_grid() As String                     'grid用nVerticesデータ用配列
+        Dim sValue_route(1) As String                   'route用nVerticesデータ用配列
+        Dim sValue_grid As String                       'grid用nVerticesデータ用配列
 
-        'データ用配列初期化
-        ReDim Preserve sValue_points(-1)
-        ReDim Preserve sValue_route(-1)
-        ReDim Preserve sValue_grid(-1)
-
-        '**********(仮)nVerticesデータ作成 **********
-        'points
-        inVertices_points = 1
-        ReDim Preserve sValue_points(inVertices_points - 1)
-        sValue_points(0) = "1111.247570000000000 111.187590000000000 1.000000000000000"
-        '配列を更新
-        pTag_points = fncTagKeyUpdate(pcTag_points, "begin_<points>", "*** Points ***")
-        pTag_points = pTag_points & vbCrLf
-        pTag_points = fncTagKeyUpdate(pTag_points, "nVertices", CInt(inVertices_points))
-        pTag_points = pTag_points & vbCrLf
-        pTag_points = fncTagKeyAdd(pTag_points, "nVertices", inVertices_points, sValue_points)
         '**********************************************
-        'route
-        inVertices_route = 3
-        ReDim Preserve sValue_route(inVertices_route - 1)
-        sValue_route(0) = "1111.247570000000000 111.187590000000000 1.000000000000000"
-        sValue_route(1) = "2222.247570000000000 222.187590000000000 2.000000000000000"
-        sValue_route(2) = "3333.247570000000000 333.187590000000000 3.000000000000000"
         '配列を更新
-        pTag_route = fncTagKeyUpdate(pcTag_route, "begin_<route>", "*** route ***")
-        pTag_route = pTag_route & vbCrLf
-        pTag_route = fncTagKeyUpdate(pTag_route, "nVertices", CInt(inVertices_route))
-        pTag_route = pTag_route & vbCrLf
-        pTag_route = fncTagKeyAdd(pTag_route, "nVertices", inVertices_route, sValue_route)
-        '**********************************************
-        'grid
-        inVertices_grid = 5
-        ReDim Preserve sValue_grid(inVertices_grid - 1)
-        sValue_grid(0) = "1111.247570000000000 111.187590000000000 1.000000000000000"
-        sValue_grid(1) = "2222.247570000000000 222.187590000000000 2.000000000000000"
-        sValue_grid(2) = "3333.247570000000000 333.187590000000000 3.000000000000000"
-        sValue_grid(3) = "4444.247570000000000 444.187590000000000 4.000000000000000"
-        sValue_grid(4) = "5555.247570000000000 555.187590000000000 5.000000000000000"
-        '配列を更新
-        pTag_grid = fncTagKeyUpdate(pcTag_grid, "begin_<grid>", "*** grid ***")
-        pTag_grid = pTag_grid & vbCrLf
-        pTag_grid = fncTagKeyUpdate(pTag_grid, "nVertices", CInt(inVertices_grid))
-        pTag_grid = pTag_grid & vbCrLf
-        pTag_grid = fncTagKeyAdd(pTag_grid, "nVertices", inVertices_grid, sValue_grid)
+        For iLoop = 1 To pSet_d
+            If iLoop <> m Then
+                'routeタグ
+                sValue_route(0) = pIti(m, n - 1).sIdo & " " & pIti(m, n - 1).sKeido & " " & pIti(m, n - 1).sTakasa
+                sValue_route(1) = pIti(m, n).sIdo & " " & pIti(m, n).sKeido & " " & pIti(m, n).sTakasa
+
+                pTag_route(iCnt) = fncTagKeyUpdate(pcTag_route, "begin_<route>", "d" & m & " Route")
+                pTag_route(iCnt) = pTag_route(iCnt) & vbCrLf
+                pTag_route(iCnt) = fncTagKeyUpdate(pTag_route(iCnt), "project_id", m)
+                pTag_route(iCnt) = pTag_route(iCnt) & vbCrLf
+                pTag_route(iCnt) = fncTagKeyAdd(pTag_route(iCnt), "nVertices", 2, sValue_route)
+                iCnt = iCnt + 1
+            End If
+        Next
 
         fncTagCreate = True
 Error_Exit:
@@ -86,25 +56,28 @@ Error_Rtn:
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncMem2txrx() As Boolean
+    Public Function fncMem2txrx(ByVal m As Integer) As Boolean
         On Error GoTo Error_Rtn
         fncMem2txrx = False
 
         Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
+        Dim iLoop As Integer
 
         'txrxファイル作成
         Dim oFileWrite As New System.IO.StreamWriter(sFile, True, System.Text.Encoding.UTF8)
 
-        'pointsタグ
-        oFileWrite.WriteLine(pTag_points)
-
         'routeタグ
-        oFileWrite.WriteLine(pTag_route)
-        oFileWrite.WriteLine(pTag_route)
-        oFileWrite.WriteLine(pTag_route)
+        Dim iCnt As Integer = 0
+        For iLoop = 1 To pSet_d
+            If iLoop <> m Then
+                'routeタグ
+                oFileWrite.WriteLine(pTag_route(iCnt))
+                'gridタグ
+                oFileWrite.WriteLine(pcTag_grid)
 
-        'gridタグ
-        oFileWrite.WriteLine(pTag_grid)
+                iCnt = iCnt + 1
+            End If
+        Next
 
         'クローズ
         oFileWrite.Dispose()

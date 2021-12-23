@@ -386,10 +386,10 @@ Partial Class frmMain
         'pnlSet
         '
         Me.pnlSet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pnlSet.Controls.Add(Me.cmbSet_d)
         Me.pnlSet.Controls.Add(Me.cmbSet_Interval)
         Me.pnlSet.Controls.Add(Me.Label1)
         Me.pnlSet.Controls.Add(Me.Label26)
-        Me.pnlSet.Controls.Add(Me.cmbSet_d)
         Me.pnlSet.Location = New System.Drawing.Point(9, 6)
         Me.pnlSet.Name = "pnlSet"
         Me.pnlSet.Size = New System.Drawing.Size(343, 81)

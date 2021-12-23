@@ -35,6 +35,7 @@ Module mduMain
         End If
         '***************************************************
 
+        ReDim Preserve pTag_route(pSet_d - 1)
         ReDim Preserve p130(-1)
         'Itiファイルを作成する
         For m = pSet_d To 1 Step -1
@@ -103,7 +104,7 @@ Error_Rtn:
         On Error GoTo Error_Rtn
 
         Dim sSetup As String = pSetup & ".exe"                          'setupファイル
-        Dim s3d_pot_test_plus As String = p3d_pot_test_plus & ".exe"    'p3d_pot_test_plusファイル
+        Dim s3d_pot_test_plus As String = "3d_pot_test_plus.exe"              'p3d_pot_plusファイル
 
         Call subLogOutput("")
         Call subLogOutput("*** 周回処理 [d" & m & "_v" & n & "] ***")
@@ -255,7 +256,7 @@ Error_Rtn:
         End If
 
         'タグデータを作成する
-        If fncTagCreate() Then
+        If fncTagCreate(m, n) Then
             Call subLogOutput("> タグデータ作成=>OK")
             Call subOkNg_Color(0)
         Else
@@ -264,7 +265,7 @@ Error_Rtn:
         End If
 
         'txrxファイルを作成する
-        If fncMem2txrx() Then
+        If fncMem2txrx(m) Then
             Call subLogOutput("> txrxファイル作成=>OK")
             Call subOkNg_Color(0)
         Else
