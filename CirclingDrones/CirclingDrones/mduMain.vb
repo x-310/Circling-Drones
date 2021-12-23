@@ -110,7 +110,9 @@ Error_Rtn:
         If pFileFlg = 0 Then
             sExeFile = pcDoNothing & ".exe"
         Else
-            sExeFile = pcDoCalcProc & ".exe"
+            sExeFile = pcCalcPropPath
+            sExeFile = sExeFile + " --project=" + pPjPath + "\" & pPjName + ".setup"
+            sExeFile = sExeFile + " --calc-mode=ChangeAntennas"
         End If
 
         Call subLogOutput("")

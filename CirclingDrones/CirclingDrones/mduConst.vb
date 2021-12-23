@@ -14,7 +14,12 @@ Module mduConst
 
     'モジュール用
     Public Const pcDoNothing As String = "DoNothing"                'DoNothingファイル名
-    Public Const pcDoCalcProc As String = "DoCalcProc"              'DoCalcProcファイル名
+    Public Const pcCalcProp As String = "CalcProp"                   'CalcPropファイル名
+    Public Const pcCalcPropPath As String = "'C:\Program Files\Remcom\Wireless InSite 3.0.0.1\bin\calc\calcprop.exe'"
+    Public Const pcCalcPropParam1 As String = " --project="
+    '" --project=D:\GIT\Circling-Drones\b2\b2.setup"
+    Public Const pcCalcPropParam2 As String = " --calc-mode=ChangeAntennas"
+
     Public Const pc3d_pot_test_plus As String = "3d_pot_test_plus"  '3d_pot_test_plusファイル名
 
     'INIファイル用

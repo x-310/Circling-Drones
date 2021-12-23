@@ -21,7 +21,7 @@ Public Class frmMain
         If pFileFlg = 0 Then
             sExeFile = pcDoNothing & ".exe"
         Else
-            sExeFile = pcDoCalcProc & ".exe"
+            sExeFile = pcCalcProp & ".exe"
         End If
 
         '3d_pot_test_plus
@@ -61,7 +61,7 @@ Error_Rtn:
         If pFileFlg = 0 Then
             sExeFile = pcDoNothing
         Else
-            sExeFile = pcDoCalcProc
+            sExeFile = pcCalcProp
         End If
 
         '画面設定情報を取得
@@ -420,7 +420,7 @@ Error_Rtn:
         If pFileFlg = 0 Then
             sExeFile = pcDoNothing
         Else
-            sExeFile = pcDoCalcProc
+            sExeFile = pcCalcProp
         End If
 
         'プロセス削除

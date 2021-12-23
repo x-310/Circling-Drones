@@ -1,0 +1,18 @@
+%wipath%       |C:\Program Files\Remcom\Wireless InSite 3.0.0.1\bin\calc\calcprop |calcprop.exeの場所
+%project_path% |D:\WirelessInSite\projects\RKA_b2                                 |setupファイルの場所
+%stpath%       |なんちゃら.setup                                                  |setupファイルの名前
+%mode%         |ChangeAntennas                                                    |固定でいい
+%m%            |                                                                  |ドローン番号(ログ用)
+%n%            |                                                                  |何周目？    (ログ用)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+cd %project_path%
+"%wipath%"  --project=%stpath% --calc-mode=%mode% >  d%m%_v%n%_wilog.txt
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+"'C:\Program Files\Remcom\Wireless InSite 3.0.0.1\bin\calc\calcprop.exe'  --project=D:\GIT\Circling-Drones\b2\b2.setup --calc-mode=ChangeAntennas"
+
+
