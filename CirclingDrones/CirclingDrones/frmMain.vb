@@ -252,7 +252,7 @@ Error_Rtn:
         Dim foreBrush, backBrush As Brush
 
         If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            '選択されているタブのテキストを赤、背景を青とする
+            '選択されているタブのテキストを白、背景を青とする
             foreBrush = Brushes.White
             backBrush = Brushes.DarkBlue
         Else
@@ -261,44 +261,6 @@ Error_Rtn:
                 foreBrush = Brushes.Gray
                 backBrush = Brushes.GhostWhite
             ElseIf (e.Index = 1) Then
-                foreBrush = Brushes.Gray
-                backBrush = Brushes.GhostWhite
-            Else
-                foreBrush = Brushes.Gray
-                backBrush = Brushes.GhostWhite
-            End If
-        End If
-
-        'StringFormatを作成
-        Dim sf As New StringFormat
-        '中央に表示する
-        sf.Alignment = StringAlignment.Center
-        sf.LineAlignment = StringAlignment.Center
-
-        '背景の描画
-        e.Graphics.FillRectangle(backBrush, e.Bounds)
-        'Textの描画
-        e.Graphics.DrawString(txt, e.Font, foreBrush, RectangleF.op_Implicit(e.Bounds), sf)
-    End Sub
-
-    '*******************************************************
-    '   タブコントロール2選択処理
-    '*******************************************************
-    Private Sub TabControl2_DrawItem(sender As Object, e As DrawItemEventArgs) Handles TabControl2.DrawItem
-        '対象のTabControlを取得
-        Dim tab As TabControl = CType(sender, TabControl)
-        'タブページのテキストを取得
-        Dim txt As String = tab.TabPages(e.Index).Text
-        'タブのテキストと背景を描画するためのブラシを決定する
-        Dim foreBrush, backBrush As Brush
-
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            '選択されているタブのテキストを赤、背景を青とする
-            foreBrush = Brushes.White
-            backBrush = Brushes.DarkBlue
-        Else
-            '選択されていないタブのテキストは灰色、背景を白とする
-            If (e.Index = 0) Then
                 foreBrush = Brushes.Gray
                 backBrush = Brushes.GhostWhite
             Else
@@ -433,9 +395,39 @@ Error_Rtn:
     End Sub
 
     '*******************************************************
+    '   起動確認
+    '*******************************************************
+    Private Sub btnKidou_Click(sender As Object, e As EventArgs) Handles btnKidou.Click
+        On Error GoTo Error_Rtn
+
+        Dim sFile As String
+
+        If cmbFileFlg.Text = "0" Then
+            sFile = txtExe1.Text
+        Else
+            sFile = txtExe2.Text
+        End If
+        'ファイルを開いて終了まで待機する
+        Dim p As System.Diagnostics.Process =
+                System.Diagnostics.Process.Start(sFile)
+        p.WaitForExit()
+
+        MessageBox.Show("終了しました。" &
+                vbLf & "終了コード:" & p.ExitCode.ToString() &
+                vbLf & "終了時間:" & p.ExitTime.ToString())
+Error_Exit:
+        Exit Sub
+Error_Rtn:
+        fncErrors("異常終了")
+        GoTo Error_Exit
+    End Sub
+
+    '*******************************************************
     '   経路計算テスト
     '*******************************************************
     Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
+        On Error GoTo Error_Rtn
+
         Dim result As DialogResult = MessageBox.Show("経路計算のテストを行いますか？",
                                              "経路計算テスト",
                                              MessageBoxButtons.YesNo,
@@ -447,5 +439,52 @@ Error_Rtn:
 
             Call fncMsgBox("終了")
         End If
+Error_Exit:
+        Exit Sub
+Error_Rtn:
+        fncErrors("異常終了")
+        GoTo Error_Exit
+    End Sub
+
+    Private Sub btnTxrx_Click(sender As Object, e As EventArgs) Handles btnTxrx.Click
+        On Error GoTo Error_Rtn
+
+        Dim m As Integer = 2
+        Dim n As Integer = 1
+
+        pSet_d = 2
+
+        ReDim Preserve pIti(pcMax_d, 1)     '位置情報
+        ReDim Preserve pTag_route(pSet_d - 1)
+
+        pIti(1, 0).sIdo = "11"
+        pIti(1, 0).sKeido = "12"
+        pIti(1, 0).sTakasa = "13"
+        pIti(1, 1).sIdo = "14"
+        pIti(1, 1).sKeido = "15"
+        pIti(1, 1).sTakasa = "16"
+        pIti(2, 0).sIdo = "21"
+        pIti(2, 0).sKeido = "22"
+        pIti(2, 0).sTakasa = "23"
+        pIti(2, 1).sIdo = "24"
+        pIti(2, 1).sKeido = "25"
+        pIti(2, 1).sTakasa = "26"
+
+        'txrxファイルを削除
+        fncFileDelete_pj_txrx()
+
+        'Iti用配列からtxrx用配列を作成する
+        fncIti2Txrx(m, n)
+        'タグデータを作成する
+        fncTagCreate(m, n)
+        'txrxファイルを作成する
+        fncMem2txrx(m)
+
+        Call fncMsgBox("作成しました")
+Error_Exit:
+        Exit Sub
+Error_Rtn:
+        fncErrors("異常終了")
+        GoTo Error_Exit
     End Sub
 End Class

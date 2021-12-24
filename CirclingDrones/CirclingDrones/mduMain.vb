@@ -35,8 +35,8 @@ Module mduMain
         End If
         '***************************************************
 
-        ReDim Preserve pTag_route(pSet_d - 1)
         ReDim Preserve p130(-1)
+        ReDim Preserve pTag_route(pSet_d - 1)
         'Itiファイルを作成する
         For m = pSet_d To 1 Step -1
             Call subLogOutput("> [d" & m & "_v0]")
@@ -106,23 +106,20 @@ Error_Rtn:
         Dim sExeFile As String = ""
         Dim s3d_pot_test_plus As String = pc3d_pot_test_plus & ".exe"
 
-        'ワイヤレスインサイト
-        If pFileFlg = 0 Then
-            sExeFile = pcDoNothing & ".exe"
-        Else
-            sExeFile = pcCalcPropPath
-            sExeFile = sExeFile + " --project=" + pPjPath + "\" & pPjName + ".setup"
-            sExeFile = sExeFile + " --calc-mode=ChangeAntennas"
-        End If
-
         Call subLogOutput("")
         Call subLogOutput("*** 周回処理 [d" & m & "_v" & n & "] ***")
 
         '***************************************************
 
-        'ワイヤレスインサイト
+        'DoNothing / CalcProp起動
+        If pFileFlg = 0 Then
+            sExeFile = frmMain.txtExe1.Text
+        Else
+            sExeFile = frmMain.txtExe2.Text
+        End If
+
         System.Diagnostics.Process.Start(sExeFile)
-        Call subLogOutput("> ワイヤレスインサイト起動")
+        Call subLogOutput("> DoNothing / CalcProp起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
 

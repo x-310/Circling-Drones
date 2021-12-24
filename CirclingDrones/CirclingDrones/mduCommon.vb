@@ -61,12 +61,9 @@ Module mduCommon
         'タブのサイズを固定する
         frmMain.TabControl1.SizeMode = TabSizeMode.Fixed
         frmMain.TabControl1.ItemSize = New Size(90, 30)
-        frmMain.TabControl2.SizeMode = TabSizeMode.Fixed
-        frmMain.TabControl2.ItemSize = New Size(60, 30)
 
         'TabControlをオーナードローする
         frmMain.TabControl1.DrawMode = TabDrawMode.OwnerDrawFixed
-        frmMain.TabControl2.DrawMode = TabDrawMode.OwnerDrawFixed
 Error_Exit:
         Exit Sub
 Error_Rtn:

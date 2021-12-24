@@ -49,6 +49,8 @@ Partial Class frmMain
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.btnTxrx = New System.Windows.Forms.Button()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.btnTest = New System.Windows.Forms.Button()
         Me.txtT = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
@@ -59,14 +61,6 @@ Partial Class frmMain
         Me.Label32 = New System.Windows.Forms.Label()
         Me.txtV = New System.Windows.Forms.TextBox()
         Me.Label51 = New System.Windows.Forms.Label()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.pnlPath = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnIniGet = New System.Windows.Forms.Button()
-        Me.btnIniSave = New System.Windows.Forms.Button()
-        Me.txtIniPath = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.txtZ_d1 = New System.Windows.Forms.TextBox()
@@ -103,6 +97,21 @@ Partial Class frmMain
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.pnlPath = New System.Windows.Forms.Panel()
+        Me.txtExe2 = New System.Windows.Forms.TextBox()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.txtExe1 = New System.Windows.Forms.TextBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.btnKidou = New System.Windows.Forms.Button()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.cmbFileFlg = New System.Windows.Forms.ComboBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnIniGet = New System.Windows.Forms.Button()
+        Me.btnIniSave = New System.Windows.Forms.Button()
+        Me.txtIniPath = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.txtPjPath = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtGnuPath = New System.Windows.Forms.TextBox()
@@ -124,10 +133,6 @@ Partial Class frmMain
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtCom1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.cmbFileFlg = New System.Windows.Forms.ComboBox()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -136,15 +141,15 @@ Partial Class frmMain
         Me.TabPage9.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.pnlPath.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.TabPage6.SuspendLayout()
         Me.TabPage7.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.pnlPath.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -486,10 +491,8 @@ Partial Class frmMain
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel4.Controls.Add(Me.Label36)
-        Me.Panel4.Controls.Add(Me.Label35)
-        Me.Panel4.Controls.Add(Me.cmbFileFlg)
-        Me.Panel4.Controls.Add(Me.Label34)
+        Me.Panel4.Controls.Add(Me.btnTxrx)
+        Me.Panel4.Controls.Add(Me.Label25)
         Me.Panel4.Controls.Add(Me.btnTest)
         Me.Panel4.Controls.Add(Me.txtT)
         Me.Panel4.Controls.Add(Me.Label33)
@@ -498,29 +501,53 @@ Partial Class frmMain
         Me.Panel4.Controls.Add(Me.Label32)
         Me.Panel4.Controls.Add(Me.txtV)
         Me.Panel4.Controls.Add(Me.Label51)
+        Me.Panel4.Controls.Add(Me.TabControl2)
         Me.Panel4.Location = New System.Drawing.Point(9, 6)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(343, 500)
         Me.Panel4.TabIndex = 40
         '
+        'btnTxrx
+        '
+        Me.btnTxrx.BackColor = System.Drawing.SystemColors.GrayText
+        Me.btnTxrx.ForeColor = System.Drawing.Color.White
+        Me.btnTxrx.Location = New System.Drawing.Point(27, 450)
+        Me.btnTxrx.Name = "btnTxrx"
+        Me.btnTxrx.Size = New System.Drawing.Size(284, 39)
+        Me.btnTxrx.TabIndex = 46
+        Me.btnTxrx.Text = "txrxファイル作成"
+        Me.btnTxrx.UseVisualStyleBackColor = False
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.Black
+        Me.Label25.Location = New System.Drawing.Point(18, 33)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(189, 15)
+        Me.Label25.TabIndex = 324
+        Me.Label25.Text = "ドローン位置情報(初期値)："
+        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'btnTest
         '
         Me.btnTest.BackColor = System.Drawing.SystemColors.GrayText
         Me.btnTest.ForeColor = System.Drawing.Color.White
-        Me.btnTest.Location = New System.Drawing.Point(26, 445)
+        Me.btnTest.Location = New System.Drawing.Point(26, 405)
         Me.btnTest.Name = "btnTest"
         Me.btnTest.Size = New System.Drawing.Size(284, 39)
-        Me.btnTest.TabIndex = 317
+        Me.btnTest.TabIndex = 45
         Me.btnTest.Text = "経路計算テスト"
         Me.btnTest.UseVisualStyleBackColor = False
         '
         'txtT
         '
-        Me.txtT.Location = New System.Drawing.Point(27, 118)
+        Me.txtT.Location = New System.Drawing.Point(27, 278)
         Me.txtT.MaxLength = 100
         Me.txtT.Name = "txtT"
         Me.txtT.Size = New System.Drawing.Size(186, 19)
-        Me.txtT.TabIndex = 42
+        Me.txtT.TabIndex = 43
         Me.txtT.Text = "１"
         '
         'Label33
@@ -528,7 +555,7 @@ Partial Class frmMain
         Me.Label33.AutoSize = True
         Me.Label33.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label33.ForeColor = System.Drawing.Color.Black
-        Me.Label33.Location = New System.Drawing.Point(23, 100)
+        Me.Label33.Location = New System.Drawing.Point(23, 260)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(146, 15)
         Me.Label33.TabIndex = 316
@@ -543,7 +570,7 @@ Partial Class frmMain
         Me.Panel5.Location = New System.Drawing.Point(233, 7)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(97, 65)
-        Me.Panel5.TabIndex = 44
+        Me.Panel5.TabIndex = 47
         Me.Panel5.TabStop = True
         '
         'btnIniGet2
@@ -552,7 +579,7 @@ Partial Class frmMain
         Me.btnIniGet2.Location = New System.Drawing.Point(4, 3)
         Me.btnIniGet2.Name = "btnIniGet2"
         Me.btnIniGet2.Size = New System.Drawing.Size(84, 26)
-        Me.btnIniGet2.TabIndex = 45
+        Me.btnIniGet2.TabIndex = 48
         Me.btnIniGet2.Text = "INIﾌｧｲﾙ読込"
         Me.btnIniGet2.UseVisualStyleBackColor = False
         '
@@ -562,19 +589,19 @@ Partial Class frmMain
         Me.btnIniSave2.Location = New System.Drawing.Point(4, 31)
         Me.btnIniSave2.Name = "btnIniSave2"
         Me.btnIniSave2.Size = New System.Drawing.Size(84, 26)
-        Me.btnIniSave2.TabIndex = 46
+        Me.btnIniSave2.TabIndex = 49
         Me.btnIniSave2.Text = "INIﾌｧｲﾙ保存"
         Me.btnIniSave2.UseVisualStyleBackColor = False
         '
         'txtVT
         '
         Me.txtVT.BackColor = System.Drawing.Color.LightGray
-        Me.txtVT.Location = New System.Drawing.Point(27, 187)
+        Me.txtVT.Location = New System.Drawing.Point(27, 341)
         Me.txtVT.MaxLength = 100
         Me.txtVT.Name = "txtVT"
         Me.txtVT.ReadOnly = True
         Me.txtVT.Size = New System.Drawing.Size(190, 19)
-        Me.txtVT.TabIndex = 43
+        Me.txtVT.TabIndex = 44
         Me.txtVT.TabStop = False
         Me.txtVT.Text = "8"
         '
@@ -583,7 +610,7 @@ Partial Class frmMain
         Me.Label32.AutoSize = True
         Me.Label32.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label32.ForeColor = System.Drawing.Color.Black
-        Me.Label32.Location = New System.Drawing.Point(24, 169)
+        Me.Label32.Location = New System.Drawing.Point(24, 323)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(119, 15)
         Me.Label32.TabIndex = 314
@@ -592,11 +619,11 @@ Partial Class frmMain
         '
         'txtV
         '
-        Me.txtV.Location = New System.Drawing.Point(26, 53)
+        Me.txtV.Location = New System.Drawing.Point(26, 219)
         Me.txtV.MaxLength = 100
         Me.txtV.Name = "txtV"
         Me.txtV.Size = New System.Drawing.Size(186, 19)
-        Me.txtV.TabIndex = 41
+        Me.txtV.TabIndex = 42
         Me.txtV.Text = "10"
         '
         'Label51
@@ -604,110 +631,12 @@ Partial Class frmMain
         Me.Label51.AutoSize = True
         Me.Label51.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label51.ForeColor = System.Drawing.Color.Black
-        Me.Label51.Location = New System.Drawing.Point(24, 35)
+        Me.Label51.Location = New System.Drawing.Point(24, 201)
         Me.Label51.Name = "Label51"
         Me.Label51.Size = New System.Drawing.Size(117, 15)
         Me.Label51.TabIndex = 303
         Me.Label51.Text = "ドローン速度(v)："
         Me.Label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.pnlPath)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(361, 520)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "INIファイル"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'pnlPath
-        '
-        Me.pnlPath.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pnlPath.Controls.Add(Me.Panel2)
-        Me.pnlPath.Controls.Add(Me.txtIniPath)
-        Me.pnlPath.Controls.Add(Me.Label3)
-        Me.pnlPath.Controls.Add(Me.Label25)
-        Me.pnlPath.Controls.Add(Me.TabControl2)
-        Me.pnlPath.Controls.Add(Me.txtPjPath)
-        Me.pnlPath.Controls.Add(Me.Label8)
-        Me.pnlPath.Controls.Add(Me.txtGnuPath)
-        Me.pnlPath.Controls.Add(Me.Label5)
-        Me.pnlPath.Controls.Add(Me.txtPjName)
-        Me.pnlPath.Controls.Add(Me.Label4)
-        Me.pnlPath.Location = New System.Drawing.Point(9, 6)
-        Me.pnlPath.Name = "pnlPath"
-        Me.pnlPath.Size = New System.Drawing.Size(343, 498)
-        Me.pnlPath.TabIndex = 50
-        '
-        'Panel2
-        '
-        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel2.Controls.Add(Me.btnIniGet)
-        Me.Panel2.Controls.Add(Me.btnIniSave)
-        Me.Panel2.Location = New System.Drawing.Point(233, 7)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(97, 65)
-        Me.Panel2.TabIndex = 90
-        Me.Panel2.TabStop = True
-        '
-        'btnIniGet
-        '
-        Me.btnIniGet.BackColor = System.Drawing.Color.Azure
-        Me.btnIniGet.Location = New System.Drawing.Point(4, 3)
-        Me.btnIniGet.Name = "btnIniGet"
-        Me.btnIniGet.Size = New System.Drawing.Size(84, 26)
-        Me.btnIniGet.TabIndex = 91
-        Me.btnIniGet.Text = "INIﾌｧｲﾙ読込"
-        Me.btnIniGet.UseVisualStyleBackColor = False
-        '
-        'btnIniSave
-        '
-        Me.btnIniSave.BackColor = System.Drawing.Color.LightGoldenrodYellow
-        Me.btnIniSave.Location = New System.Drawing.Point(4, 31)
-        Me.btnIniSave.Name = "btnIniSave"
-        Me.btnIniSave.Size = New System.Drawing.Size(84, 26)
-        Me.btnIniSave.TabIndex = 92
-        Me.btnIniSave.Text = "INIﾌｧｲﾙ保存"
-        Me.btnIniSave.UseVisualStyleBackColor = False
-        '
-        'txtIniPath
-        '
-        Me.txtIniPath.BackColor = System.Drawing.Color.LightGray
-        Me.txtIniPath.Location = New System.Drawing.Point(18, 432)
-        Me.txtIniPath.MaxLength = 100
-        Me.txtIniPath.Multiline = True
-        Me.txtIniPath.Name = "txtIniPath"
-        Me.txtIniPath.ReadOnly = True
-        Me.txtIniPath.Size = New System.Drawing.Size(305, 39)
-        Me.txtIniPath.TabIndex = 313
-        Me.txtIniPath.TabStop = False
-        Me.txtIniPath.Text = "C:\"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(19, 414)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(116, 15)
-        Me.Label3.TabIndex = 314
-        Me.Label3.Text = "INIファイルPath："
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.Black
-        Me.Label25.Location = New System.Drawing.Point(19, 88)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(189, 15)
-        Me.Label25.TabIndex = 312
-        Me.Label25.Text = "ドローン位置情報(初期値)："
-        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'TabControl2
         '
@@ -716,11 +645,11 @@ Partial Class frmMain
         Me.TabControl2.Controls.Add(Me.TabPage5)
         Me.TabControl2.Controls.Add(Me.TabPage6)
         Me.TabControl2.Controls.Add(Me.TabPage7)
-        Me.TabControl2.Location = New System.Drawing.Point(18, 109)
+        Me.TabControl2.Location = New System.Drawing.Point(17, 57)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
         Me.TabControl2.Size = New System.Drawing.Size(305, 122)
-        Me.TabControl2.TabIndex = 52
+        Me.TabControl2.TabIndex = 41
         '
         'TabPage3
         '
@@ -1114,14 +1043,196 @@ Partial Class frmMain
         Me.Label24.Text = "X："
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.pnlPath)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(361, 520)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "INIファイル"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'pnlPath
+        '
+        Me.pnlPath.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pnlPath.Controls.Add(Me.txtExe2)
+        Me.pnlPath.Controls.Add(Me.Label38)
+        Me.pnlPath.Controls.Add(Me.txtExe1)
+        Me.pnlPath.Controls.Add(Me.Label37)
+        Me.pnlPath.Controls.Add(Me.btnKidou)
+        Me.pnlPath.Controls.Add(Me.Label35)
+        Me.pnlPath.Controls.Add(Me.cmbFileFlg)
+        Me.pnlPath.Controls.Add(Me.Label34)
+        Me.pnlPath.Controls.Add(Me.Panel2)
+        Me.pnlPath.Controls.Add(Me.txtIniPath)
+        Me.pnlPath.Controls.Add(Me.Label3)
+        Me.pnlPath.Controls.Add(Me.txtPjPath)
+        Me.pnlPath.Controls.Add(Me.Label8)
+        Me.pnlPath.Controls.Add(Me.txtGnuPath)
+        Me.pnlPath.Controls.Add(Me.Label5)
+        Me.pnlPath.Controls.Add(Me.txtPjName)
+        Me.pnlPath.Controls.Add(Me.Label4)
+        Me.pnlPath.Location = New System.Drawing.Point(9, 6)
+        Me.pnlPath.Name = "pnlPath"
+        Me.pnlPath.Size = New System.Drawing.Size(343, 498)
+        Me.pnlPath.TabIndex = 50
+        '
+        'txtExe2
+        '
+        Me.txtExe2.Location = New System.Drawing.Point(20, 353)
+        Me.txtExe2.MaxLength = 100
+        Me.txtExe2.Multiline = True
+        Me.txtExe2.Name = "txtExe2"
+        Me.txtExe2.Size = New System.Drawing.Size(305, 48)
+        Me.txtExe2.TabIndex = 57
+        Me.txtExe2.Text = "C:\Program Files\Remcom\Wireless InSite 3.0.0.1\bin\calc\calcprop.exe --project=D" &
+    ":\GIT\Circling-Drones\b2\b2.setup --calc-mode=ChangeAntenna"
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label38.ForeColor = System.Drawing.Color.Black
+        Me.Label38.Location = New System.Drawing.Point(21, 335)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(150, 15)
+        Me.Label38.TabIndex = 331
+        Me.Label38.Text = "CalcProp.exe Path："
+        Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtExe1
+        '
+        Me.txtExe1.Location = New System.Drawing.Point(18, 304)
+        Me.txtExe1.MaxLength = 100
+        Me.txtExe1.Multiline = True
+        Me.txtExe1.Name = "txtExe1"
+        Me.txtExe1.Size = New System.Drawing.Size(305, 23)
+        Me.txtExe1.TabIndex = 56
+        Me.txtExe1.Text = "DoNothing.exe"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label37.ForeColor = System.Drawing.Color.Black
+        Me.Label37.Location = New System.Drawing.Point(19, 286)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(161, 15)
+        Me.Label37.TabIndex = 329
+        Me.Label37.Text = "DoNothing.exe Path："
+        Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'btnKidou
+        '
+        Me.btnKidou.Location = New System.Drawing.Point(162, 241)
+        Me.btnKidou.Name = "btnKidou"
+        Me.btnKidou.Size = New System.Drawing.Size(75, 23)
+        Me.btnKidou.TabIndex = 55
+        Me.btnKidou.Text = "起動確認"
+        Me.btnKidou.UseVisualStyleBackColor = True
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.Black
+        Me.Label35.Location = New System.Drawing.Point(112, 266)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(152, 13)
+        Me.Label35.TabIndex = 325
+        Me.Label35.Text = "0：DoNothing  1：CalcProp"
+        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cmbFileFlg
+        '
+        Me.cmbFileFlg.BackColor = System.Drawing.SystemColors.Menu
+        Me.cmbFileFlg.DisplayMember = "1"
+        Me.cmbFileFlg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbFileFlg.FormattingEnabled = True
+        Me.cmbFileFlg.Items.AddRange(New Object() {"0", "1"})
+        Me.cmbFileFlg.Location = New System.Drawing.Point(110, 243)
+        Me.cmbFileFlg.Name = "cmbFileFlg"
+        Me.cmbFileFlg.Size = New System.Drawing.Size(37, 20)
+        Me.cmbFileFlg.TabIndex = 54
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label34.ForeColor = System.Drawing.Color.Black
+        Me.Label34.Location = New System.Drawing.Point(17, 247)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(94, 15)
+        Me.Label34.TabIndex = 323
+        Me.Label34.Text = "ファイル切替："
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Panel2
+        '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel2.Controls.Add(Me.btnIniGet)
+        Me.Panel2.Controls.Add(Me.btnIniSave)
+        Me.Panel2.Location = New System.Drawing.Point(233, 7)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(97, 65)
+        Me.Panel2.TabIndex = 59
+        Me.Panel2.TabStop = True
+        '
+        'btnIniGet
+        '
+        Me.btnIniGet.BackColor = System.Drawing.Color.Azure
+        Me.btnIniGet.Location = New System.Drawing.Point(4, 3)
+        Me.btnIniGet.Name = "btnIniGet"
+        Me.btnIniGet.Size = New System.Drawing.Size(84, 26)
+        Me.btnIniGet.TabIndex = 60
+        Me.btnIniGet.Text = "INIﾌｧｲﾙ読込"
+        Me.btnIniGet.UseVisualStyleBackColor = False
+        '
+        'btnIniSave
+        '
+        Me.btnIniSave.BackColor = System.Drawing.Color.LightGoldenrodYellow
+        Me.btnIniSave.Location = New System.Drawing.Point(4, 31)
+        Me.btnIniSave.Name = "btnIniSave"
+        Me.btnIniSave.Size = New System.Drawing.Size(84, 26)
+        Me.btnIniSave.TabIndex = 61
+        Me.btnIniSave.Text = "INIﾌｧｲﾙ保存"
+        Me.btnIniSave.UseVisualStyleBackColor = False
+        '
+        'txtIniPath
+        '
+        Me.txtIniPath.BackColor = System.Drawing.Color.LightGray
+        Me.txtIniPath.Location = New System.Drawing.Point(18, 432)
+        Me.txtIniPath.MaxLength = 100
+        Me.txtIniPath.Multiline = True
+        Me.txtIniPath.Name = "txtIniPath"
+        Me.txtIniPath.ReadOnly = True
+        Me.txtIniPath.Size = New System.Drawing.Size(305, 39)
+        Me.txtIniPath.TabIndex = 58
+        Me.txtIniPath.TabStop = False
+        Me.txtIniPath.Text = "C:\"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Location = New System.Drawing.Point(19, 414)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(116, 15)
+        Me.Label3.TabIndex = 314
+        Me.Label3.Text = "INIファイルPath："
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'txtPjPath
         '
-        Me.txtPjPath.Location = New System.Drawing.Point(18, 270)
+        Me.txtPjPath.Location = New System.Drawing.Point(18, 102)
         Me.txtPjPath.MaxLength = 100
         Me.txtPjPath.Multiline = True
         Me.txtPjPath.Name = "txtPjPath"
         Me.txtPjPath.Size = New System.Drawing.Size(305, 39)
-        Me.txtPjPath.TabIndex = 68
+        Me.txtPjPath.TabIndex = 52
         Me.txtPjPath.Text = "D:\GIT\Circling-Drones\b2"
         '
         'Label8
@@ -1129,21 +1240,21 @@ Partial Class frmMain
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(15, 250)
+        Me.Label8.Location = New System.Drawing.Point(15, 82)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(115, 15)
+        Me.Label8.Size = New System.Drawing.Size(121, 15)
         Me.Label8.TabIndex = 309
-        Me.Label8.Text = "PJフォルダPath："
+        Me.Label8.Text = "PJフォルダ Path："
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtGnuPath
         '
-        Me.txtGnuPath.Location = New System.Drawing.Point(20, 351)
+        Me.txtGnuPath.Location = New System.Drawing.Point(20, 180)
         Me.txtGnuPath.MaxLength = 100
         Me.txtGnuPath.Multiline = True
         Me.txtGnuPath.Name = "txtGnuPath"
         Me.txtGnuPath.Size = New System.Drawing.Size(305, 37)
-        Me.txtGnuPath.TabIndex = 69
+        Me.txtGnuPath.TabIndex = 53
         Me.txtGnuPath.Text = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\gnuplot\gnuplot 5.4 patchlev" &
     "el 2"
         '
@@ -1152,11 +1263,11 @@ Partial Class frmMain
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(17, 333)
+        Me.Label5.Location = New System.Drawing.Point(17, 162)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(138, 15)
+        Me.Label5.Size = New System.Drawing.Size(144, 15)
         Me.Label5.TabIndex = 307
-        Me.Label5.Text = "GnuターミナルPath："
+        Me.Label5.Text = "Gnuターミナル Path："
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtPjName
@@ -1351,54 +1462,6 @@ Partial Class frmMain
         Me.Label9.Text = "コマンド1："
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label34.ForeColor = System.Drawing.Color.Black
-        Me.Label34.Location = New System.Drawing.Point(24, 354)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(94, 15)
-        Me.Label34.TabIndex = 318
-        Me.Label34.Text = "ファイル切替："
-        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'cmbFileFlg
-        '
-        Me.cmbFileFlg.BackColor = System.Drawing.SystemColors.Menu
-        Me.cmbFileFlg.DisplayMember = "1"
-        Me.cmbFileFlg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbFileFlg.FormattingEnabled = True
-        Me.cmbFileFlg.Items.AddRange(New Object() {"0", "1"})
-        Me.cmbFileFlg.Location = New System.Drawing.Point(117, 350)
-        Me.cmbFileFlg.Name = "cmbFileFlg"
-        Me.cmbFileFlg.Size = New System.Drawing.Size(37, 20)
-        Me.cmbFileFlg.TabIndex = 319
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label35.ForeColor = System.Drawing.Color.Black
-        Me.Label35.Location = New System.Drawing.Point(36, 373)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(202, 15)
-        Me.Label35.TabIndex = 320
-        Me.Label35.Text = "0：ワイヤレスインサイトがない環境"
-        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label36.ForeColor = System.Drawing.Color.Black
-        Me.Label36.Location = New System.Drawing.Point(37, 393)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(200, 15)
-        Me.Label36.TabIndex = 321
-        Me.Label36.Text = "1：ワイヤレスインサイトがある環境"
-        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1420,10 +1483,6 @@ Partial Class frmMain
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.Panel5.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.pnlPath.ResumeLayout(False)
-        Me.pnlPath.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
@@ -1435,6 +1494,10 @@ Partial Class frmMain
         Me.TabPage6.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.pnlPath.ResumeLayout(False)
+        Me.pnlPath.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
         Me.TabPage8.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -1471,47 +1534,10 @@ Partial Class frmMain
     Public WithEvents txtPjPath As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents btnPj As Button
-    Friend WithEvents TabControl2 As TabControl
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents TabPage4 As TabPage
-    Friend WithEvents TabPage5 As TabPage
-    Friend WithEvents TabPage6 As TabPage
-    Friend WithEvents TabPage7 As TabPage
-    Public WithEvents txtZ_d1 As TextBox
-    Public WithEvents txtY_d1 As TextBox
-    Public WithEvents txtX_d1 As TextBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label12 As Label
-    Public WithEvents txtZ_d2 As TextBox
-    Public WithEvents txtY_d2 As TextBox
-    Public WithEvents txtX_d2 As TextBox
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label15 As Label
-    Public WithEvents txtZ_d3 As TextBox
-    Public WithEvents txtY_d3 As TextBox
-    Public WithEvents txtX_d3 As TextBox
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label18 As Label
-    Public WithEvents txtZ_d4 As TextBox
-    Public WithEvents txtY_d4 As TextBox
-    Public WithEvents txtX_d4 As TextBox
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label20 As Label
-    Friend WithEvents Label21 As Label
-    Public WithEvents txtZ_d5 As TextBox
-    Public WithEvents txtY_d5 As TextBox
-    Public WithEvents txtX_d5 As TextBox
-    Friend WithEvents Label22 As Label
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Label24 As Label
     Friend WithEvents btnExe As Button
     Friend WithEvents txtLogDisp As RichTextBox
     Friend WithEvents TabPage8 As TabPage
     Friend WithEvents btnIni As Button
-    Friend WithEvents Label25 As Label
     Public WithEvents txtIniPath As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel1 As Panel
@@ -1544,8 +1570,50 @@ Partial Class frmMain
     Public WithEvents txtT As TextBox
     Friend WithEvents Label33 As Label
     Friend WithEvents btnTest As Button
+    Friend WithEvents Label25 As Label
+    Friend WithEvents TabPage3 As TabPage
+    Public WithEvents txtZ_d1 As TextBox
+    Public WithEvents txtY_d1 As TextBox
+    Public WithEvents txtX_d1 As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents TabPage4 As TabPage
+    Public WithEvents txtZ_d2 As TextBox
+    Public WithEvents txtY_d2 As TextBox
+    Public WithEvents txtX_d2 As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents TabPage5 As TabPage
+    Public WithEvents txtZ_d3 As TextBox
+    Public WithEvents txtY_d3 As TextBox
+    Public WithEvents txtX_d3 As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents TabPage6 As TabPage
+    Public WithEvents txtZ_d4 As TextBox
+    Public WithEvents txtY_d4 As TextBox
+    Public WithEvents txtX_d4 As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents TabPage7 As TabPage
+    Public WithEvents txtZ_d5 As TextBox
+    Public WithEvents txtY_d5 As TextBox
+    Public WithEvents txtX_d5 As TextBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label24 As Label
+    Friend WithEvents btnKidou As Button
+    Friend WithEvents Label35 As Label
     Friend WithEvents cmbFileFlg As ComboBox
     Friend WithEvents Label34 As Label
-    Friend WithEvents Label36 As Label
-    Friend WithEvents Label35 As Label
+    Public WithEvents txtExe2 As TextBox
+    Friend WithEvents Label38 As Label
+    Public WithEvents txtExe1 As TextBox
+    Friend WithEvents Label37 As Label
+    Friend WithEvents btnTxrx As Button
+    Friend WithEvents TabControl2 As TabControl
 End Class

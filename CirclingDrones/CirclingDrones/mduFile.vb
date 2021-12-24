@@ -312,6 +312,14 @@ Error_Rtn:
         pFileFlg = 0
         iRET = GetPrivateProfileString(pcSec_FileFlg, pcKey_sw, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pFileFlg = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
+        'Exe1_Path
+        pExe1_Path = ""
+        iRET = GetPrivateProfileString(pcSec_FileFlg, pcKey_Exe1, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
+        pExe1_Path = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
+        'Exe2_Path
+        pExe2_Path = ""
+        iRET = GetPrivateProfileString(pcSec_FileFlg, pcKey_Exe2, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
+        pExe2_Path = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
         'PjName
         pPjName = ""
@@ -448,6 +456,8 @@ Error_Rtn:
         iRET = WritePrivateProfileString(pcSec_Route, pcKey_t, frmMain.txtT.Text, pIniPath & "\" & pcIniFileName)
 
         iRET = WritePrivateProfileString(pcSec_FileFlg, pcKey_sw, frmMain.cmbFileFlg.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_FileFlg, pcKey_Exe1, frmMain.txtExe1.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_FileFlg, pcKey_Exe2, frmMain.txtExe2.Text, pIniPath & "\" & pcIniFileName)
 
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_11, frmMain.txtPjName.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_12, frmMain.txtGnuPath.Text, pIniPath & "\" & pcIniFileName)
