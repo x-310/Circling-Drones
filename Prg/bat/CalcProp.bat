@@ -1,0 +1,1 @@
+C:\Program Files\Remcom\Wireless InSite 3.0.0.1\bin\calc\calcprop.exe --project=D:\GIT\Circling-Drones\b2\b2.setup --calc-mode=ChangeAntenna
