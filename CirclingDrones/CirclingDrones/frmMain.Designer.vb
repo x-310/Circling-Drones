@@ -1082,7 +1082,7 @@ Partial Class frmMain
         'txtExe2
         '
         Me.txtExe2.Location = New System.Drawing.Point(20, 353)
-        Me.txtExe2.MaxLength = 100
+        Me.txtExe2.MaxLength = 1000
         Me.txtExe2.Multiline = True
         Me.txtExe2.Name = "txtExe2"
         Me.txtExe2.Size = New System.Drawing.Size(305, 48)
@@ -1250,7 +1250,7 @@ Partial Class frmMain
         'txtGnuPath
         '
         Me.txtGnuPath.Location = New System.Drawing.Point(20, 180)
-        Me.txtGnuPath.MaxLength = 100
+        Me.txtGnuPath.MaxLength = 1000
         Me.txtGnuPath.Multiline = True
         Me.txtGnuPath.Name = "txtGnuPath"
         Me.txtGnuPath.Size = New System.Drawing.Size(305, 37)

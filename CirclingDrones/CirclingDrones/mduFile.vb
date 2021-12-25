@@ -339,6 +339,8 @@ Error_Rtn:
         frmMain.txtVT.Text = pVT                '飛距離FD
 
         frmMain.cmbFileFlg.Text = pFileFlg      'ファイル切替フラグ
+        frmMain.txtExe1.Text = pExe1_Path       'Exe1_Path
+        frmMain.txtExe2.Text = pExe2_Path       'Exe2_Path
 
         frmMain.txtIniPath.Text = pIniPath      'INIファイルパス
         frmMain.txtPjName.Text = pPjName        'プロジェクト名
