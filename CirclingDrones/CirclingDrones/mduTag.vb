@@ -24,6 +24,7 @@ Module mduTag
 "begin_<route> d0 Route
 project_id 0
 inactive
+invisible
 vertical_line no
 CVxLength 10.00000
 CVyLength 10.00000
@@ -40,16 +41,16 @@ latitude 36.402900000000002
 visible no
 terrain
 end_<reference>
-spacing 5.00000
+spacing 1.50000
 nVertices 2
 end_<location>
 pattern_show_arrow no
 pattern_show_as_sphere no
 generate_p2p no
-use_apg_acceleration yes
-is_transmitter no
-is_receiver yes
-begin_<receiver>
+use_apg_acceleration no
+is_transmitter yes
+is_receiver no
+begin_<transmitter>
 begin_<pattern> 
 antenna 1
 waveform -1
@@ -57,12 +58,9 @@ rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr> 
-bounding_box
-end_<sbr>
-NoiseFigure 3.00000
-end_<receiver>
-powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+power 30.00000
+end_<transmitter>
+powerDistribution Uniform 10.00000 10.00000 inactive
 end_<route>
 "
 

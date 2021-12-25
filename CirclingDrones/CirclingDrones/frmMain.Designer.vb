@@ -133,6 +133,9 @@ Partial Class frmMain
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtCom1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtExe22 = New System.Windows.Forms.TextBox()
+        Me.txtP2mFile = New System.Windows.Forms.TextBox()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -1057,6 +1060,9 @@ Partial Class frmMain
         'pnlPath
         '
         Me.pnlPath.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pnlPath.Controls.Add(Me.txtP2mFile)
+        Me.pnlPath.Controls.Add(Me.Label36)
+        Me.pnlPath.Controls.Add(Me.txtExe22)
         Me.pnlPath.Controls.Add(Me.txtExe2)
         Me.pnlPath.Controls.Add(Me.Label38)
         Me.pnlPath.Controls.Add(Me.txtExe1)
@@ -1081,35 +1087,34 @@ Partial Class frmMain
         '
         'txtExe2
         '
-        Me.txtExe2.Location = New System.Drawing.Point(20, 353)
+        Me.txtExe2.Location = New System.Drawing.Point(20, 347)
         Me.txtExe2.MaxLength = 1000
         Me.txtExe2.Multiline = True
         Me.txtExe2.Name = "txtExe2"
-        Me.txtExe2.Size = New System.Drawing.Size(305, 48)
-        Me.txtExe2.TabIndex = 57
-        Me.txtExe2.Text = "C:\Program Files\Remcom\Wireless InSite 3.0.0.1\bin\calc\calcprop.exe --project=D" &
-    ":\GIT\Circling-Drones\b2\b2.setup --calc-mode=ChangeAntenna"
+        Me.txtExe2.Size = New System.Drawing.Size(305, 34)
+        Me.txtExe2.TabIndex = 58
+        Me.txtExe2.Text = "C:\Program Files\Remcom\Wireless InSite 3.0.0.1\bin\calc\calcprop.exe "
         '
         'Label38
         '
         Me.Label38.AutoSize = True
         Me.Label38.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label38.ForeColor = System.Drawing.Color.Black
-        Me.Label38.Location = New System.Drawing.Point(21, 335)
+        Me.Label38.Location = New System.Drawing.Point(21, 329)
         Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(150, 15)
+        Me.Label38.Size = New System.Drawing.Size(228, 15)
         Me.Label38.TabIndex = 331
-        Me.Label38.Text = "CalcProp.exe Path："
+        Me.Label38.Text = "CalcProp.exe Path（引数付き）："
         Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtExe1
         '
-        Me.txtExe1.Location = New System.Drawing.Point(18, 304)
-        Me.txtExe1.MaxLength = 100
+        Me.txtExe1.Location = New System.Drawing.Point(18, 297)
+        Me.txtExe1.MaxLength = 1000
         Me.txtExe1.Multiline = True
         Me.txtExe1.Name = "txtExe1"
-        Me.txtExe1.Size = New System.Drawing.Size(305, 23)
-        Me.txtExe1.TabIndex = 56
+        Me.txtExe1.Size = New System.Drawing.Size(305, 22)
+        Me.txtExe1.TabIndex = 57
         Me.txtExe1.Text = "DoNothing.exe"
         '
         'Label37
@@ -1117,7 +1122,7 @@ Partial Class frmMain
         Me.Label37.AutoSize = True
         Me.Label37.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label37.ForeColor = System.Drawing.Color.Black
-        Me.Label37.Location = New System.Drawing.Point(19, 286)
+        Me.Label37.Location = New System.Drawing.Point(19, 279)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(161, 15)
         Me.Label37.TabIndex = 329
@@ -1126,10 +1131,10 @@ Partial Class frmMain
         '
         'btnKidou
         '
-        Me.btnKidou.Location = New System.Drawing.Point(162, 241)
+        Me.btnKidou.Location = New System.Drawing.Point(162, 234)
         Me.btnKidou.Name = "btnKidou"
         Me.btnKidou.Size = New System.Drawing.Size(75, 23)
-        Me.btnKidou.TabIndex = 55
+        Me.btnKidou.TabIndex = 56
         Me.btnKidou.Text = "起動確認"
         Me.btnKidou.UseVisualStyleBackColor = True
         '
@@ -1137,8 +1142,8 @@ Partial Class frmMain
         '
         Me.Label35.AutoSize = True
         Me.Label35.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label35.ForeColor = System.Drawing.Color.Black
-        Me.Label35.Location = New System.Drawing.Point(112, 266)
+        Me.Label35.ForeColor = System.Drawing.Color.Red
+        Me.Label35.Location = New System.Drawing.Point(112, 259)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(152, 13)
         Me.Label35.TabIndex = 325
@@ -1152,17 +1157,17 @@ Partial Class frmMain
         Me.cmbFileFlg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbFileFlg.FormattingEnabled = True
         Me.cmbFileFlg.Items.AddRange(New Object() {"0", "1"})
-        Me.cmbFileFlg.Location = New System.Drawing.Point(110, 243)
+        Me.cmbFileFlg.Location = New System.Drawing.Point(110, 236)
         Me.cmbFileFlg.Name = "cmbFileFlg"
         Me.cmbFileFlg.Size = New System.Drawing.Size(37, 20)
-        Me.cmbFileFlg.TabIndex = 54
+        Me.cmbFileFlg.TabIndex = 55
         '
         'Label34
         '
         Me.Label34.AutoSize = True
         Me.Label34.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label34.ForeColor = System.Drawing.Color.Black
-        Me.Label34.Location = New System.Drawing.Point(17, 247)
+        Me.Label34.Location = New System.Drawing.Point(17, 240)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(94, 15)
         Me.Label34.TabIndex = 323
@@ -1177,7 +1182,7 @@ Partial Class frmMain
         Me.Panel2.Location = New System.Drawing.Point(233, 7)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(97, 65)
-        Me.Panel2.TabIndex = 59
+        Me.Panel2.TabIndex = 61
         Me.Panel2.TabStop = True
         '
         'btnIniGet
@@ -1186,7 +1191,7 @@ Partial Class frmMain
         Me.btnIniGet.Location = New System.Drawing.Point(4, 3)
         Me.btnIniGet.Name = "btnIniGet"
         Me.btnIniGet.Size = New System.Drawing.Size(84, 26)
-        Me.btnIniGet.TabIndex = 60
+        Me.btnIniGet.TabIndex = 62
         Me.btnIniGet.Text = "INIﾌｧｲﾙ読込"
         Me.btnIniGet.UseVisualStyleBackColor = False
         '
@@ -1196,20 +1201,20 @@ Partial Class frmMain
         Me.btnIniSave.Location = New System.Drawing.Point(4, 31)
         Me.btnIniSave.Name = "btnIniSave"
         Me.btnIniSave.Size = New System.Drawing.Size(84, 26)
-        Me.btnIniSave.TabIndex = 61
+        Me.btnIniSave.TabIndex = 63
         Me.btnIniSave.Text = "INIﾌｧｲﾙ保存"
         Me.btnIniSave.UseVisualStyleBackColor = False
         '
         'txtIniPath
         '
         Me.txtIniPath.BackColor = System.Drawing.Color.LightGray
-        Me.txtIniPath.Location = New System.Drawing.Point(18, 432)
+        Me.txtIniPath.Location = New System.Drawing.Point(18, 451)
         Me.txtIniPath.MaxLength = 100
         Me.txtIniPath.Multiline = True
         Me.txtIniPath.Name = "txtIniPath"
         Me.txtIniPath.ReadOnly = True
-        Me.txtIniPath.Size = New System.Drawing.Size(305, 39)
-        Me.txtIniPath.TabIndex = 58
+        Me.txtIniPath.Size = New System.Drawing.Size(305, 34)
+        Me.txtIniPath.TabIndex = 60
         Me.txtIniPath.TabStop = False
         Me.txtIniPath.Text = "C:\"
         '
@@ -1218,7 +1223,7 @@ Partial Class frmMain
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(19, 414)
+        Me.Label3.Location = New System.Drawing.Point(19, 433)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(116, 15)
         Me.Label3.TabIndex = 314
@@ -1227,12 +1232,12 @@ Partial Class frmMain
         '
         'txtPjPath
         '
-        Me.txtPjPath.Location = New System.Drawing.Point(18, 102)
+        Me.txtPjPath.Location = New System.Drawing.Point(18, 128)
         Me.txtPjPath.MaxLength = 100
         Me.txtPjPath.Multiline = True
         Me.txtPjPath.Name = "txtPjPath"
-        Me.txtPjPath.Size = New System.Drawing.Size(305, 39)
-        Me.txtPjPath.TabIndex = 52
+        Me.txtPjPath.Size = New System.Drawing.Size(305, 34)
+        Me.txtPjPath.TabIndex = 53
         Me.txtPjPath.Text = "D:\GIT\Circling-Drones\b2"
         '
         'Label8
@@ -1240,21 +1245,21 @@ Partial Class frmMain
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(15, 82)
+        Me.Label8.Location = New System.Drawing.Point(19, 110)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(121, 15)
+        Me.Label8.Size = New System.Drawing.Size(181, 15)
         Me.Label8.TabIndex = 309
-        Me.Label8.Text = "PJフォルダ Path："
+        Me.Label8.Text = "プロジェクト・フォルダ Path："
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtGnuPath
         '
-        Me.txtGnuPath.Location = New System.Drawing.Point(20, 180)
+        Me.txtGnuPath.Location = New System.Drawing.Point(20, 187)
         Me.txtGnuPath.MaxLength = 1000
         Me.txtGnuPath.Multiline = True
         Me.txtGnuPath.Name = "txtGnuPath"
-        Me.txtGnuPath.Size = New System.Drawing.Size(305, 37)
-        Me.txtGnuPath.TabIndex = 53
+        Me.txtGnuPath.Size = New System.Drawing.Size(305, 34)
+        Me.txtGnuPath.TabIndex = 54
         Me.txtGnuPath.Text = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\gnuplot\gnuplot 5.4 patchlev" &
     "el 2"
         '
@@ -1263,7 +1268,7 @@ Partial Class frmMain
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(17, 162)
+        Me.Label5.Location = New System.Drawing.Point(17, 169)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(144, 15)
         Me.Label5.TabIndex = 307
@@ -1272,7 +1277,7 @@ Partial Class frmMain
         '
         'txtPjName
         '
-        Me.txtPjName.Location = New System.Drawing.Point(22, 44)
+        Me.txtPjName.Location = New System.Drawing.Point(18, 32)
         Me.txtPjName.MaxLength = 100
         Me.txtPjName.Name = "txtPjName"
         Me.txtPjName.Size = New System.Drawing.Size(186, 19)
@@ -1284,11 +1289,11 @@ Partial Class frmMain
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(18, 26)
+        Me.Label4.Location = New System.Drawing.Point(19, 15)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(51, 15)
+        Me.Label4.Size = New System.Drawing.Size(102, 15)
         Me.Label4.TabIndex = 303
-        Me.Label4.Text = "PJ名："
+        Me.Label4.Text = "プロジェクト名："
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'TabPage8
@@ -1462,6 +1467,38 @@ Partial Class frmMain
         Me.Label9.Text = "コマンド1："
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'txtExe22
+        '
+        Me.txtExe22.Location = New System.Drawing.Point(20, 386)
+        Me.txtExe22.MaxLength = 1000
+        Me.txtExe22.Multiline = True
+        Me.txtExe22.Name = "txtExe22"
+        Me.txtExe22.Size = New System.Drawing.Size(305, 34)
+        Me.txtExe22.TabIndex = 59
+        Me.txtExe22.Text = "--project=D:\GIT\Circling-Drones\b2\b2.setup --calc-mode=ChangeAntenna"
+        '
+        'txtP2mFile
+        '
+        Me.txtP2mFile.Location = New System.Drawing.Point(18, 76)
+        Me.txtP2mFile.MaxLength = 100
+        Me.txtP2mFile.Multiline = True
+        Me.txtP2mFile.Name = "txtP2mFile"
+        Me.txtP2mFile.Size = New System.Drawing.Size(305, 23)
+        Me.txtP2mFile.TabIndex = 52
+        Me.txtP2mFile.Text = "\studyarea\b2.p2m"
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label36.ForeColor = System.Drawing.Color.Black
+        Me.Label36.Location = New System.Drawing.Point(16, 57)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(212, 15)
+        Me.Label36.TabIndex = 334
+        Me.Label36.Text = "p2mファイル(\サブフォルダ付き)："
+        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1616,4 +1653,7 @@ Partial Class frmMain
     Friend WithEvents Label37 As Label
     Friend WithEvents btnTxrx As Button
     Friend WithEvents TabControl2 As TabControl
+    Public WithEvents txtP2mFile As TextBox
+    Friend WithEvents Label36 As Label
+    Public WithEvents txtExe22 As TextBox
 End Class

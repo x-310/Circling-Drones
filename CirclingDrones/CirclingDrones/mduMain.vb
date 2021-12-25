@@ -118,13 +118,31 @@ Error_Rtn:
             sExeFile = frmMain.txtExe2.Text
         End If
 
-        System.Diagnostics.Process.Start(sExeFile)
+
+        Dim sFile As String
+        Dim sFile2 As String
+
+        If frmMain.cmbFileFlg.Text = "0" Then
+            sFile = frmMain.txtExe1.Text
+            'ファイルを開いて終了まで待機する
+            Dim p As System.Diagnostics.Process =
+                    System.Diagnostics.Process.Start(sFile)
+            p.WaitForExit()
+        Else
+            sFile = frmMain.txtExe2.Text
+            sFile2 = frmMain.txtExe22.Text
+            'ファイルを開いて終了まで待機する
+            Dim p2 As System.Diagnostics.Process =
+                    System.Diagnostics.Process.Start(sFile, sFile2)
+            p2.WaitForExit()
+        End If
+
         Call subLogOutput("> DoNothing / CalcProp起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
 
         'P2mファイルを配列にセット
-        If fncFile2P2m(pPjPath + "\" & pPjName & ".p2m") Then
+        If fncFile2P2m(pPjPath + pP2mFile) Then
             Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>OK")
             Call subOkNg_Color(0)
         Else

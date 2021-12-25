@@ -401,20 +401,24 @@ Error_Rtn:
         On Error GoTo Error_Rtn
 
         Dim sFile As String
+        Dim sFile2 As String
 
         If cmbFileFlg.Text = "0" Then
             sFile = txtExe1.Text
+            'ファイルを開いて終了まで待機する
+            Dim p As System.Diagnostics.Process =
+                    System.Diagnostics.Process.Start(sFile)
+            p.WaitForExit()
         Else
             sFile = txtExe2.Text
+            sFile2 = txtExe22.Text
+            'ファイルを開いて終了まで待機する
+            Dim p2 As System.Diagnostics.Process =
+                    System.Diagnostics.Process.Start(sFile, sFile2)
+            p2.WaitForExit()
         End If
-        'ファイルを開いて終了まで待機する
-        Dim p As System.Diagnostics.Process =
-                System.Diagnostics.Process.Start(sFile)
-        p.WaitForExit()
 
-        MessageBox.Show("終了しました。" &
-                vbLf & "終了コード:" & p.ExitCode.ToString() &
-                vbLf & "終了時間:" & p.ExitTime.ToString())
+        MessageBox.Show("終了しました")
 Error_Exit:
         Exit Sub
 Error_Rtn:

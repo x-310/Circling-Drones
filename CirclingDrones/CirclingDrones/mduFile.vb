@@ -320,6 +320,10 @@ Error_Rtn:
         pExe2_Path = ""
         iRET = GetPrivateProfileString(pcSec_FileFlg, pcKey_Exe2, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pExe2_Path = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
+        'Exe22
+        pExe22 = ""
+        iRET = GetPrivateProfileString(pcSec_FileFlg, pcKey_Exe22, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
+        pExe22 = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
         'PjName
         pPjName = ""
@@ -333,6 +337,10 @@ Error_Rtn:
         pPjPath = ""
         iRET = GetPrivateProfileString(pcSec_Set, pcKey_13, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pPjPath = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
+        'p2mFile
+        pP2mFile = ""
+        iRET = GetPrivateProfileString(pcSec_Set, pcKey_14, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
+        pP2mFile = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
         frmMain.txtV.Text = pV                  'ドローン速度
         frmMain.txtT.Text = pT                  '周回毎経過時間
@@ -341,11 +349,13 @@ Error_Rtn:
         frmMain.cmbFileFlg.Text = pFileFlg      'ファイル切替フラグ
         frmMain.txtExe1.Text = pExe1_Path       'Exe1_Path
         frmMain.txtExe2.Text = pExe2_Path       'Exe2_Path
+        frmMain.txtExe22.Text = pExe22          'Exe22
 
         frmMain.txtIniPath.Text = pIniPath      'INIファイルパス
         frmMain.txtPjName.Text = pPjName        'プロジェクト名
         frmMain.txtGnuPath.Text = pGnuPath      'gnuプロットパス
         frmMain.txtPjPath.Text = pPjPath        'pjフォルダパス
+        frmMain.txtP2mfile.Text = pP2mFile      'プロジェクト名
 
         Dim iCnt As Integer 'ドローンループ
         Dim sSec As String  'セクション名
@@ -460,10 +470,12 @@ Error_Rtn:
         iRET = WritePrivateProfileString(pcSec_FileFlg, pcKey_sw, frmMain.cmbFileFlg.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_FileFlg, pcKey_Exe1, frmMain.txtExe1.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_FileFlg, pcKey_Exe2, frmMain.txtExe2.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_FileFlg, pcKey_Exe22, frmMain.txtExe22.Text, pIniPath & "\" & pcIniFileName)
 
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_11, frmMain.txtPjName.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_12, frmMain.txtGnuPath.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_13, frmMain.txtPjPath.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Set, pcKey_14, frmMain.txtP2mFile.Text, pIniPath & "\" & pcIniFileName)
 
         iRET = WritePrivateProfileString(pcSec_d1, pcKey_X, frmMain.txtX_d1.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_d1, pcKey_Y, frmMain.txtY_d1.Text, pIniPath & "\" & pcIniFileName)

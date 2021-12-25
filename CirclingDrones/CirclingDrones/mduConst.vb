@@ -15,11 +15,6 @@ Module mduConst
     'モジュール用
     Public Const pcDoNothing As String = "DoNothing"                'DoNothingファイル名
     Public Const pcCalcProp As String = "CalcProp"                   'CalcPropファイル名
-    Public Const pcCalcPropPath As String = "C:\Program Files\Remcom\Wireless InSite 3.0.0.1\bin\calc\calcprop.exe"
-    Public Const pcCalcPropParam1 As String = " --project="
-    '" --project=D:\GIT\Circling-Drones\b2\b2.setup"
-    Public Const pcCalcPropParam2 As String = " --calc-mode=ChangeAntennas"
-
     Public Const pc3d_pot_test_plus As String = "3d_pot_test_plus"  '3d_pot_test_plusファイル名
 
     'INIファイル用
@@ -32,11 +27,13 @@ Module mduConst
     Public Const pcKey_sw As String = "SW"
     Public Const pcKey_Exe1 As String = "Exe1_Path"
     Public Const pcKey_Exe2 As String = "Exe2_Path"
+    Public Const pcKey_Exe22 As String = "Exe22"
 
     Public Const pcSec_Set As String = "Set"
     Public Const pcKey_11 As String = "PjName"
     Public Const pcKey_12 As String = "GnuPath"
     Public Const pcKey_13 As String = "PjPath"
+    Public Const pcKey_14 As String = "P2mFile"
 
     Public Const pcSec_d1 As String = "d1"
     Public Const pcSec_d2 As String = "d2"
@@ -125,11 +122,13 @@ Module mduConst
 
     Public pIniPath As String       'INIファイルパス
     Public pPjName As String        'プロジェクト名
+    Public pP2mFile As String       'p2mファイル名
     Public pGnuPath As String       'gnuプロットパス
     Public pPjPath As String        'pjフォルダパス
     Public pExePath As String       'exeフォルダパス
     Public pExe1_Path As String     'DoNothingパス
     Public pExe2_Path As String     'calcpropパス
+    Public pExe22 As String         'calcprop引数
 
     Public pX_d1 As String          'd1のX設定値
     Public pY_d1 As String          'd1のY設定値

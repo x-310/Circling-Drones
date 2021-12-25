@@ -1,6 +1,6 @@
-//гѓќгѓ†гѓіг‚·гѓЈгѓ«жі•гЃ§3ж¬Ўе…ѓгЃ®зµЊи·Їг‚’ж±‚г‚Ѓг‚‹гѓ—гѓ­г‚°гѓ©гѓ 
-//2020/10/2гЂЂеј±гЃ„еЏ—дїЎж©џй›»еЉ›г‚’йЃїгЃ‘гЃ¦гЃ„гЃЏзµЊи·Їг‚’ж±‚г‚Ѓг‚‹
-//2020/2/ йЂљдїЎдёЌиѓЅеЏ—дїЎиµ·й›»еЉ›гЃ®ж–ҐеЉ›еЊ–
+//ѓ|ѓeѓ“ѓVѓѓѓ‹–@‚Е3ЋџЊі‚МЊoH‚р‹Ѓ‚Я‚йѓvѓЌѓOѓ‰ѓЂ
+//2020/10/2Ѓ@Ћг‚ўЋуђM‹@“d—Н‚р”р‚Ї‚Д‚ў‚­ЊoH‚р‹Ѓ‚Я‚й
+//2020/2/ ’КђM•s”\ЋуђM‹N“d—Н‚МђЛ—Н‰»
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -13,24 +13,24 @@
 
 using namespace std;
 
-//й‡ЌгЃї
-#define D 800 //з›®жЁ™дЅЌзЅ®гЂЂе€ќжњџ800
-#define R 50  //еЏ—дїЎй›»еЉ›гЂЂе€ќжњџ50
-#define O 0.0002 //йЂљдїЎдёЌиѓЅгЃЄеЏ—дїЎй›»еЉ›еє§жЁ™
-//й–ѕеЂ¤
-#define shikiichi_min -249 //еЏ—дїЎй›»еЉ›гЃ®гѓќгѓ†гѓіг‚·гѓЈгѓ«з”ЁгЂЃдё‹гЃ®й–ѕеЂ¤гЂЃdBm
-#define shikiichi_max -60  //дёЉгЃ®й–ѕеЂ¤ dBm
-#define RAP 5		   //з›®жЁ™дЅЌзЅ®гЃ®гѓќгѓ†гѓіг‚·гѓЈгѓ«г‚’еЏЌи»ўгЃ—гЃ¦иЎЊгЃ†е›ћж•°
+//Џd‚Э
+#define D 800 //–Ъ•W€К’uЃ@Џ‰Љъ800
+#define R 50  //ЋуђM“d—НЃ@Џ‰Љъ50
+#define O 0.0002 //’КђM•s”\‚ИЋуђM“d—НЌА•W
+//и‡’l
+#define shikiichi_min -249 //ЋуђM“d—Н‚Мѓ|ѓeѓ“ѓVѓѓѓ‹—pЃA‰є‚Ми‡’lЃAdBm
+#define shikiichi_max -60  //Џг‚Ми‡’l dBm
+#define RAP 5		   //–Ъ•W€К’u‚Мѓ|ѓeѓ“ѓVѓѓѓ‹‚р”Ѕ“]‚µ‚ДЌs‚¤‰сђ”
 
-#define X_KINBOU 10 //д»иї‘гЃ®йЂљдїЎдёЌиѓЅеє§жЁ™г‚’ж¤њзџҐгЃ™г‚‹гЃЁгЃЌгЃ®зЇ„е›ІгЂЃзЏѕењЁењ°+-KINBOU
+#define X_KINBOU 10 //•t‹Я‚М’КђM•s”\ЌА•W‚рЊџ’m‚·‚й‚Ж‚«‚М”Н€НЃAЊ»ЌЭ’n+-KINBOU
 #define Y_KINBOU 10
 #define Z_KINBOU 1
-//ењ°е›іг‚µг‚¤г‚є дЅїгЃ†г‚·гѓџгѓҐгѓ¬гѓјг‚·гѓ§гѓізЇ„е›ІгЃ«еїњгЃгЃ¦е¤‰жЏ›гЃ—гЃ¦гЃЏгЃ гЃ•гЃ„
+//’nђ}ѓTѓCѓY Ћg‚¤ѓVѓ~ѓ…ѓЊЃ[ѓVѓ‡ѓ“”Н€Н‚Й‰ћ‚¶‚Д•ПЉ·‚µ‚Д‚­‚ѕ‚і‚ў
 #define MAPSIZE_X 94
 #define MAPSIZE_Y 52
 #define MAPSIZE_Z 9
 
-//е‡єз™єгЃЁе€°зќЂ[3] {x,y,z}
+//Џo”­‚Ж“ћ’…[3] {x,y,z}
 
 //int start[3] = {4,46,0};//
 int start[3] = {0,0,0};//
@@ -39,10 +39,10 @@ int goal[3] = {59,10,8};//
 double received_power[MAPSIZE_X][MAPSIZE_Y][MAPSIZE_Z];
 double true_height[MAPSIZE_X][MAPSIZE_Y];
 
-//еЏ—дїЎй›»еЉ›еЂ¤г‚’жЉњгЃЌе‡єгЃ—гЃџг‚‚гЃ®гЃ‹г‚‰еє§жЁ™г‚’гЃ¤гЃ‘гЃџtxtг‚’гЃ¤гЃЏг‚‹
+//ЋуђM“d—Н’l‚р”І‚«Џo‚µ‚Ѕ‚а‚М‚©‚зЌА•W‚р‚В‚Ї‚Ѕtxt‚р‚В‚­‚й
 
-string file1 = "130.1K2490GD2route_grid.csv"; //г‚°гѓЄгѓѓгѓ‰иЎЁиЁзµЊи·ЇгЃЊж›ёгЃ‹г‚ЊгЃџе‡єеЉ›гѓ•г‚Ўг‚¤гѓ«гЃ®еђЌе‰Ќ
-string file2 = "130.1K249GD2route_meter.csv";//гѓЎгѓјгѓ€гѓ«иЎЁиЁзµЊи·ЇгЃЊж›ёгЃ‹г‚ЊгЃџе‡єеЉ›гѓ•г‚Ўг‚¤гѓ«гЃ®еђЌе‰Ќ
+string file1 = "130.1K2490GD2route_grid.csv"; //ѓOѓЉѓbѓh•\‹LЊoH‚ЄЏ‘‚©‚к‚ЅЏo—Нѓtѓ@ѓCѓ‹‚М–ј‘O
+string file2 = "130.1K249GD2route_meter.csv";//ѓЃЃ[ѓgѓ‹•\‹LЊoH‚ЄЏ‘‚©‚к‚ЅЏo—Нѓtѓ@ѓCѓ‹‚М–ј‘O
 
  vector<string> split(string& input, char delimiter)
 	{
@@ -55,42 +55,46 @@ string file2 = "130.1K249GD2route_meter.csv";//гѓЎгѓјгѓ€гѓ«иЎЁиЁзµЊи·ЇгЃЊж›ёгЃ‹
     return result;
 	}
 
-//еЏ—дїЎй›»еЉ›еЂ¤г‚’жЉњгЃЌе‡єгЃ—гЃџгѓ•г‚Ўг‚¤гѓ«гЃ‹г‚‰еє§жЁ™г‚’гЃ¤гЃ‘гЃџгѓ•г‚Ўг‚¤гѓ«г‚’гЃ¤гЃЏг‚‹(powerгЃ®гЃї)=>(x,y,z,power)
- int input_WI_result(){
-	ifstream ifs("power.txt");//еЏ—дїЎиµ·й›»еЉ›гЃЊе…ҐгЃЈгЃџгѓ•г‚Ўг‚¤гѓ«
-	ifstream ifs_t("sabun.csv");//zеє§жЁ™г‚’гѓЎгѓјгѓ€гѓ«иЎЁиЁгЃ«е¤‰жЏ›гЃ™г‚‹гЃџг‚ЃгЃ®г‚‚гЃ®
-	ifstream ifs_i("New_Iti.csv");//дЅЌзЅ®жѓ…е ±гѓ•г‚Ўг‚¤гѓ«
-	//г‚Ёгѓ©гѓјж–‡
-	if(!ifs){
-		cout << "Could not input power.txt" << endl;
+//ЋуђM“d—Н’l‚р”І‚«Џo‚µ‚Ѕѓtѓ@ѓCѓ‹‚©‚зЌА•W‚р‚В‚Ї‚Ѕѓtѓ@ѓCѓ‹‚р‚В‚­‚й(power‚М‚Э)=>(x,y,z,power)
+int input_WI_result(){
+	ifstream ifs("power.txt");//ЋуђM‹N“d—Н‚Є“ь‚Б‚Ѕѓtѓ@ѓCѓ‹
+	ifstream ifs_t("sabun.csv");//zЌА•W‚рѓЃЃ[ѓgѓ‹•\‹L‚Й•ПЉ·‚·‚й‚Ѕ‚Я‚М‚а‚М
+	ifstream ifs_i("New_Iti.csv");//€К’uЏо•сѓtѓ@ѓCѓ‹
+	//ѓGѓ‰Ѓ[•¶
+	if(!ifs)
+	{
+		std::cout << "Could not input power.txt" << endl;
 		return -1;
 	}
-	if(!ifs_t){
-		cout << "Could not input sabun.csv" << endl;
+	if(!ifs_t)
+	{
+		std::cout << "Could not input sabun.csv" << endl;
 		return -1;
 	}
-	if(!ifs_i){
-		cout << "Could not input New_Iti.csv" << endl;
+	if(!ifs_i)
+	{
+		std::cout << "Could not input New_Iti.csv" << endl;
 		return -1;
 	}
 
-	//иЄ­г‚“гЃ гѓ•г‚Ўг‚¤гѓ«г‚’ж•°е€—гЃ«зЅ®гЃЌжЏ›гЃ€гЃ¦е‡єеЉ›
-	string str; //ж–‡е­—е€—г‚Їгѓ©г‚№
-	vector<double> input;//е‹•зљ„й…Ќе€—г‚Їгѓ©г‚№
+	//“З‚с‚ѕѓtѓ@ѓCѓ‹‚рђ”—с‚Й’u‚«Љ·‚¦‚ДЏo—Н
+	string str;				//•¶Ћљ—сѓNѓ‰ѓX
+	vector<double> input;	//“®“I”z—сѓNѓ‰ѓX
 
-	//г‚°гѓЄгѓѓгѓ‰гЃ®еђ„еЏ—дїЎй›»еЉ›
-	while(getline(ifs,str)){
+	//ѓOѓЉѓbѓh‚МЉeЋуђM“d—Н
+	while(getline(ifs,str))
+	{
 		input.push_back(atof(str.c_str()));
 	}
-	//е‡єеЉ›е…€гЃ®гѓ•г‚Ўг‚¤гѓ«
+	//Џo—Нђж‚Мѓtѓ@ѓCѓ‹
 	ofstream fout( "received_power.txt" );
 	if(!fout){
-		cout<<"creative_power.txt could not be open" << endl;
+		std::cout<<"creative_power.txt could not be open" << endl;
 		return -1;
 	}
-	else cout <<"received_power.txt opened." << endl;
+	else std::cout <<"received_power.txt opened." << endl;
 
-	//гѓЎгѓјгѓ€гѓ«иЎЁиЁгЃ®й«гЃ•
+	//ѓЃЃ[ѓgѓ‹•\‹L‚МЌ‚‚і
 	string str_t;
 	vector<double> terrain;
 
@@ -99,14 +103,15 @@ string file2 = "130.1K249GD2route_meter.csv";//гѓЎгѓјгѓ€гѓ«иЎЁиЁзµЊи·ЇгЃЊж›ёгЃ‹
 	}
 	ofstream fout_t("true_height.csv" );
 	if(!fout_t){
-		cout<<"creative true_height.csv could not be open" << endl;
+		std::cout<<"creative true_height.csv could not be open" << endl;
 		return -1;
 	}
-	else cout <<"true_height.csv opened." << endl;
+	else std::cout <<"true_height.csv opened." << endl;
  	
- 	//дЅЌзЅ®жѓ…е ±гѓ•г‚Ўг‚¤гѓ«
+ 	//€К’uЏо•сѓtѓ@ѓCѓ‹
     string line;
-    while (getline(ifs_i, line)) {
+    while (getline(ifs_i, line)) 
+	{
         
         vector<string> strvec = split(line, ',');
         
@@ -117,13 +122,20 @@ string file2 = "130.1K249GD2route_meter.csv";//гѓЎгѓјгѓ€гѓ«иЎЁиЁзµЊи·ЇгЃЊж›ёгЃ‹
 
 	/////////////////
 
-	//received_power[][][]гЃ«гЃ„г‚Њг‚‹
-	int s=0;
+	//received_power[][][]‚Й‚ў‚к‚й
+	int k;
+	int j;
+	int i;
+	int s = 0;
 	//cout << MAPSIZE_X << endl;
-	for(int k=0 ; k<MAPSIZE_Z ; k++){
-		for(int j=0 ; j<MAPSIZE_Y ; j++){
-			for(int i=0 ; i<MAPSIZE_X ; i++){
-				if(input[s]){
+	for(k=0 ; k<MAPSIZE_Z ; k++)
+	{
+		for(j=0 ; j<MAPSIZE_Y ; j++)
+		{
+			for(i=0 ; i<MAPSIZE_X ; i++)
+			{
+				if(input[s])
+				{
 					input[s]=input[s];
 					received_power[i][j][k]=input[s];
 					s++;
@@ -134,212 +146,216 @@ string file2 = "130.1K249GD2route_meter.csv";//гѓЎгѓјгѓ€гѓ«иЎЁиЁзµЊи·ЇгЃЊж›ёгЃ‹
 		}
 	}
 
-	//true_height[][]гЃ«гЃ„г‚Њг‚‹
-	int t=0;
+	//true_height[][]‚Й‚ў‚к‚й
+	int t = 0;
 	int tx;
 	int ty;
-		for(int j=0 ; j<MAPSIZE_Y ; j++){
-			for(int i=0 ; i<MAPSIZE_X ; i++){
-				if(terrain[t]){
-					terrain[t]=terrain[t];
-					true_height[i][j] = terrain[t];
-					t++;
-					//cout << true_height[i][j] << endl;
-					tx = i * 5;
-					ty = j * 5;
-					fout_t << tx << "," << ty << "," << true_height[i][j] << endl;
+	for(int j=0 ; j<MAPSIZE_Y ; j++)
+	{
+		for(int i=0 ; i<MAPSIZE_X ; i++)
+		{
+			if(terrain[t])
+			{
+				terrain[t]=terrain[t];
+				true_height[i][j] = terrain[t];
+				t++;
+				//cout << true_height[i][j] << endl;
+				tx = i * 5;
+				ty = j * 5;
+				fout_t << tx << "," << ty << "," << true_height[i][j] << endl;
 			}
 		}
 	}
-
-
 	fout.close();
 	fout_t.close();
 	return 0;
 }
 
-//гѓќгѓ†гѓіг‚·гѓЈгѓ«г‚’ж±‚г‚Ѓг‚‹
- double get_pot(int x,int y,int z,int loop){
-	//з›®жЁ™дЅЌзЅ®гЃ®еј•еЉ›гѓќгѓ†гѓіг‚·гѓЈгѓ«
+//ѓ|ѓeѓ“ѓVѓѓѓ‹‚р‹Ѓ‚Я‚й
+double get_pot(int x,int y,int z,int loop)
+{
+	//–Ъ•W€К’u‚М€ш—Нѓ|ѓeѓ“ѓVѓѓѓ‹
 	double n = (x-goal[0])*(x-goal[0])+(y-goal[1])*(y-goal[1])+(z-goal[2])*(z-goal[2]);
 	double pf_target = - loop  / sqrt(n);
 
-	//еЏ—дїЎиµ·й›»еЉ›гЃ®гѓќгѓ†гѓіг‚·гѓЈгѓ«
+	//ЋуђM‹N“d—Н‚Мѓ|ѓeѓ“ѓVѓѓѓ‹
 	double power = received_power[x][y][z];
-	//дёЉгЃ®й–ѕеЂ¤д»ҐдёЉгЃ®гЃЁгЃЌ
-	if(received_power[x][y][z] >= shikiichi_max){
+	//Џг‚Ми‡’l€ИЏг‚М‚Ж‚«
+	if(received_power[x][y][z] >= shikiichi_max)
+	{
 		power = shikiichi_max;
 	}
 
 	double pf_received_power = -atan(power - shikiichi_min);
 
-	double d;			//ж–ҐеЉ›дёЂж™‚дїќе­
-	double pf_uncomunication = 0;//гЃ“гЃ®й …гЃ®ж–ҐеЉ›гЃ®з·Џе’Њ
+	double d;			//ђЛ—Н€кЋћ•Ы‘¶
+	double pf_uncomunication = 0;//‚±‚МЌЂ‚МђЛ—Н‚М‘Ќa
 
-	//жЎ€1гЂЂе…ЁйЂљдїЎдёЌиѓЅеє§жЁ™гЃ‹г‚‰гЃ®ж–ҐеЉ›г‚’иЂѓж…®гЃ—гЃџж–ҐеЉ›й …
-	//зµЊи·ЇгЃ«й–ўдї‚гЃ—гЃЄгЃ„ж–ҐеЉ›г‚’иЂѓгЃ€гЃ¦гЃ—гЃѕгЃЈгЃ¦гЃ„гЃџг‚Љй‡ЌгЃїг‚’е¤§гЃЌгЃЏдё‹гЃ’гЃ¦г‚‚е±Ђж‰Ђи§Је›ћйЃїгЃ«еЉ№жћњгЃЊгЃ‚гЃѕг‚Љи¦‹г‚‰г‚ЊгЃЄгЃ‹гЃЈгЃџ
-	//for(int k=0;k<MAPSIZE_Z;k++){
-	//	for(int j=0;j<MAPSIZE_Y;j++){
-	//		for(int i=0;i<MAPSIZE_X;i++){
-	//				if(received_power[i][j][k] < shikiichi_min){
-	//					d = sqrt((x - i)*(x - i)+(y- j)*(y - j)+(z - k)*(z - k));
-	//					if(d == 0) continue;
-	//					pf_uncomunication += 1/d;
-	//					}
-	//				}
-	//			}
-	//		}
-
-	//жЎ€пј’гЂЃзЏѕењЁењ°гЃ‹г‚‰дёЂе®љгЃ®зЇ„е›Іе†…гЃ«гЃ‚г‚‹йЂљдїЎдёЌиѓЅеє§жЁ™гЃ‹г‚‰гЃ®ж–ҐеЉ›гЃ®гЃїиЂѓж…®
-	for(int a = -X_KINBOU; a<= X_KINBOU;a++){
-		for(int b = -Y_KINBOU; b<= Y_KINBOU;b++){
-			for(int c = -Z_KINBOU; c<= Z_KINBOU;c++){
-				//гѓћгѓѓгѓ—е¤–гЃ®еє§жЁ™гЃЇгѓ«гѓјгѓ—г‚№г‚­гѓѓгѓ—
+	//€Д‚QЃAЊ»ЌЭ’n‚©‚з€к’и‚М”Н€Н“а‚Й‚ ‚й’КђM•s”\ЌА•W‚©‚з‚МђЛ—Н‚М‚ЭЌl—¶
+	for(int a = -X_KINBOU; a<= X_KINBOU;a++)
+	{
+		for(int b = -Y_KINBOU; b<= Y_KINBOU;b++)
+		{
+			for(int c = -Z_KINBOU; c<= Z_KINBOU;c++)
+			{
+				//ѓ}ѓbѓvЉO‚МЌА•W‚Нѓ‹Ѓ[ѓvѓXѓLѓbѓv
 				if(x+a < 0 || y+b < 0 || z+c < 0) continue;
 				if(x+a >= MAPSIZE_X || y+b >= MAPSIZE_Y || z+c >= MAPSIZE_Z) continue;
-				//й–ѕеЂ¤д»Ґдё‹гЃ®гЃЁгЃЌж–ҐеЉ›иЁ€з®—
-				if(received_power[x+a][y+b][z+c] < shikiichi_min){
+				//и‡’l€И‰є‚М‚Ж‚«ђЛ—НЊvЋZ
+				if(received_power[x+a][y+b][z+c] < shikiichi_min)
+				{
 					d = sqrt((a*a)+(b*b)+(c*c));
 					pf_uncomunication += 1/d;
-					}
 				}
 			}
 		}
-	//a,b,cгѓ«гѓјгѓ—зµ‚дє†
+	}
+	//a,b,cѓ‹Ѓ[ѓvЏI—№
 
 
-	//гѓќгѓ†гѓіг‚·гѓЈгѓ«гЃ®е’Њ
+	//ѓ|ѓeѓ“ѓVѓѓѓ‹‚Мa
  	double pot = D * pf_target + R * pf_received_power + O * pf_uncomunication;
-	//дё‹гЃ®й–ѕеЂ¤д»Ґдё‹гЂЃйЂљдїЎдёЌиѓЅгЃ гЃЁиЂѓгЃ€г‚‰г‚Њг‚‹еє§жЁ™гЃ«еЇѕгЃ—гЃ¦
-	if(received_power[x][y][z] <= shikiichi_min){
+	//‰є‚Ми‡’l€И‰єЃA’КђM•s”\‚ѕ‚ЖЌl‚¦‚з‚к‚йЌА•W‚Й‘О‚µ‚Д
+	if(received_power[x][y][z] <= shikiichi_min)
+	{
 		pot = 250;
 	}
-
 	return pot;
 }
 
-//mainж–‡
-int main(void){
+//main•¶
+int main(void)
+{
 	input_WI_result();
 
 
-	ofstream fout(file1);//г‚°гѓЄгѓѓгѓ‰гЃ®еє§жЁ™гЃ§иЎЁгЃ•г‚Њг‚‹зµЊи·Ї
-	ofstream fout_t(file2);//е®џйљ›гЃ®еЂ¤(mиЎЁиЁ)гЃ§иЎЁгЃ•г‚Њг‚‹зµЊи·Ї
+	ofstream fout(file1);//ѓOѓЉѓbѓh‚МЌА•W‚Е•\‚і‚к‚йЊoH
+	ofstream fout_t(file2);//ЋАЌЫ‚М’l(m•\‹L)‚Е•\‚і‚к‚йЊoH
 
-	if(!fout){
+	if(!fout)
+	{
 		cout << file1 << " could not be opened." << endl;
 		return -1;
 	}
 	else cout << file1 << " opened." << endl;
 
-	if(!fout_t){
+	if(!fout_t)
+	{
 		cout << file2 << " could not be opened." << endl;
 		return -1;
 	}
 	else cout << file2  << " opened." << endl;
-	//е‡єз™єењ°з‚№
+	//Џo”­’n“_
 	int x = start[0];
 	int y = start[1];
 	int z = start[2];
-	int go_z = 10 + (z * 5); //ењ°иЎЁй«гЃ гЃ‘
+	int go_z = 10 + (z * 5); //’n•\Ќ‚‚ѕ‚Ї
 	//fout << x << "," << y << "," << z << endl;
-	//зµЊи·Ї
+	//ЊoH
 	int max = 100;
-	int path_x[max];
-	int path_y[max];
-	int path_z[max];
+	int path_x[100];
+	int path_y[100];
+	int path_z[100];
 
-	//е®џйљ›гЃ®и·ќй›ў
+	//ЋАЌЫ‚М‹——Ј
 	int tx = x * 5;
 	int ty = y * 5;
-	float tz; //ењ°иЎЁгЃ®иµ·дјЏ+ењ°иЎЁй«
+	float tz; //’n•\‚М‹N•љ+’n•\Ќ‚
 	fout << tx << "," << ty << "," << go_z << endl;
 
-	int px,py,pz;//ж¬ЎгЃ®еє§жЁ™дїќе­
-	int loop = 1;//еђЊгЃз®‡ж‰Ђг‚’йЂљгЃЈгЃџйљ›жќЎд»¶е¤‰ж›ґз”Ё
-	int count = 0;//еЃњж­ўз”Ё
-	int rap = 0;//жќЎд»¶г‚’е¤‰гЃ€гЃ¦иЎЊгЃ†е€¤е®љ
-	//int px2,py2,pz2;//з¬¬2еЂ™иЈњгЃ®еє§жЁ™дїќе­гЂЂдЅїз”ЁгЃ—гЃ¦гЃ„гЃЄгЃ„
-	for (int i = 0; i < max; i++){
-		if(x!=goal[0] || y!=goal[1] || z!=goal[2]){
+	int px,py,pz;//Ћџ‚МЌА•W•Ы‘¶
+	int loop = 1;//“Ї‚¶‰УЏЉ‚р’К‚Б‚ЅЌЫЏрЊЏ•ПЌX—p
+	int count = 0;//’вЋ~—p
+	int rap = 0;//ЏрЊЏ‚р•П‚¦‚ДЌs‚¤”»’и
+	//int px2,py2,pz2;//‘ж2Њу•в‚МЌА•W•Ы‘¶Ѓ@Ћg—p‚µ‚Д‚ў‚И‚ў
+	for (int i = 0; i < max; i++)
+	{
+		if(x!=goal[0] || y!=goal[1] || z!=goal[2])
+		{
 			double min = DBL_MAX;
 
-			bool p = 0, q = 0, r = 0; //йЂљгЃЈгЃџеє§жЁ™гЃ‹гЃ®гѓ•гѓ©г‚°
-			//26иї‘е‚ЌгЃ‹г‚‰йЃ©гЃ—гЃџзµЊи·Їг‚’ж±‚г‚Ѓг‚‹
+			bool p = 0, q = 0, r = 0; //’К‚Б‚ЅЌА•W‚©‚Мѓtѓ‰ѓO
+			//26‹Я–T‚©‚з“K‚µ‚ЅЊoH‚р‹Ѓ‚Я‚й
 			cout << "/ /" << x << " " << y << " " << z << endl ;
-			for(int a = -1; a <= 1; a++){
-				for(int b = -1; b <= 1; b++){
-					for(int c = -1; c <= 1; c++){
-						for(int w = 0; w < i; w++){
-							if((path_x[w] == x+a && path_y[w] == y+b && path_z[w] == z+c) || (x+a == start[0] && y+b == start[1] && z+c == start[2])) p=1;//path_ []гЃ«иЁйЊІгЃ•г‚ЊгЃџеє§жЁ™гЃЄг‚‰p=1
+			for(int a = -1; a <= 1; a++)
+			{
+				for(int b = -1; b <= 1; b++)
+				{
+					for(int c = -1; c <= 1; c++)
+					{
+						for(int w = 0; w < i; w++)
+						{
+							if((path_x[w] == x+a && path_y[w] == y+b && path_z[w] == z+c) || (x+a == start[0] && y+b == start[1] && z+c == start[2])) p=1;//path_ []‚Й‹L^‚і‚к‚ЅЌА•W‚И‚зp=1
 							else p = 0;
 						}
-						//гѓћгѓѓгѓ—е¤–гЃ®еє§жЁ™гЃЇгѓ«гѓјгѓ—г‚№г‚­гѓѓгѓ—
+						//ѓ}ѓbѓvЉO‚МЌА•W‚Нѓ‹Ѓ[ѓvѓXѓLѓbѓv
 						if(x+a < 0 || y+b < 0 || z+c < 0) continue;
 						if(x+a >= MAPSIZE_X || y+b >= MAPSIZE_Y || z+c >= MAPSIZE_Z) continue;
-						//20иї‘е‚ЌгЃ®еє§жЁ™гЃЁеЏ—дїЎиµ·й›»еЉ›гЂЃгѓќгѓ†гѓіг‚·гѓЈгѓ«
-						cout << x+a << " " << y+b << " " << z+c << " " << received_power[x+a][y+b][z+c] << " " << get_pot(x+a,y+b,z+c,loop) << endl;//еђ„иї‘е‚ЌгЃ®иЎЁз¤є
+						//20‹Я–T‚МЌА•W‚ЖЋуђM‹N“d—НЃAѓ|ѓeѓ“ѓVѓѓѓ‹
+						cout << x+a << " " << y+b << " " << z+c << " " << received_power[x+a][y+b][z+c] << " " << get_pot(x+a,y+b,z+c,loop) << endl;//Љe‹Я–T‚М•\Ћ¦
 
-
-							if(get_pot(x+a,y+b,z+c,loop) < min){ //жњЂдЅЋеЂ¤г‚’ж›ґж–°гЃ—гЃџг‚‰иЎЊгЃ†
-
-								min = get_pot(x+a,y+b,z+c,loop); // жњЂдЅЋеЂ¤г‚’ж–°гЃ—гЃЏгЃ™г‚‹
-								px = x+a; //ж¬ЎгЃ«зµЊи·Їг‚’иЂѓгЃ€г‚‹еє§жЁ™px,py,pz
-								py = y+b;
-								pz = z+c;
-								if(p==1) q = 1;   //p=1гЂЂйЂљгЃЈгЃџеє§жЁ™гЃЄг‚‰
-								else if(min==250) q= 1;
-								else q = 0;
-							}
+						//ЌЕ’б’l‚рЌXђV‚µ‚Ѕ‚зЌs‚¤
+						if(get_pot(x+a,y+b,z+c,loop) < min)
+						{ 
+							min = get_pot(x+a,y+b,z+c,loop); // ЌЕ’б’l‚рђV‚µ‚­‚·‚й
+							px = x+a; //Ћџ‚ЙЊoH‚рЌl‚¦‚йЌА•Wpx,py,pz
+							py = y+b;
+							pz = z+c;
+							if(p==1) q = 1;   //p=1Ѓ@’К‚Б‚ЅЌА•W‚И‚з
+							else if(min==250) q= 1;
+							else q = 0;
+						}
 					}
 				}
-			} //a,b,c е‡¦зђ†зµ‚дє†
+			} //a,b,c Џ€—ќЏI—№
 
-			if(q==1){
-			//loop = -1 ;
-				if(rap == 0){
+			if(q==1)
+			{
+				//loop = -1 ;
+				if(rap == 0)
+				{
 				rap = RAP;//
 				}
 			}else{
 			//loop = 1;
 			}
 
-			if(rap > 0){		//loop -1гЃЄг‚‰з›®жЁ™дЅЌзЅ®гѓќгѓ†гѓіг‚·гѓЈгѓ«г‚’еЏЌи»ўгЃ—гЃ¦еђЊгЃз®‡ж‰ЂгЃ§е†Ќеє¦иЎЊгЃ†
+			//loop -1‚И‚з–Ъ•W€К’uѓ|ѓeѓ“ѓVѓѓѓ‹‚р”Ѕ“]‚µ‚Д“Ї‚¶‰УЏЉ‚ЕЌД“xЌs‚¤
+			if(rap > 0)
+			{		
 				loop = -1;
 				rap = rap - 1;
-                                path_x[i] = x;
-                                path_y[i] = y;
-                                path_z[i] = z;
-                                tx = x * 5;
-                                ty = y * 5;
-                                tz = (z * 5) + 10 + true_height[x][y];
-                                go_z = 10 + (z * 5);
+                path_x[i] = x;
+                path_y[i] = y;
+                path_z[i] = z;
+                tx = x * 5;
+                ty = y * 5;
+                tz = (z * 5) + 10 + true_height[x][y];
+                go_z = 10 + (z * 5);
 				count = count + 1;
-				cout << " ж¬ЎгЃ®зµЊи·ЇгЃЇз›®жЁ™дЅЌзЅ®гЃ®гѓќгѓ†гѓіг‚·гѓЈгѓ«г‚’еЏЌи»ў " << endl;
-				}else{
+				cout << " Ћџ‚МЊoH‚Н–Ъ•W€К’u‚Мѓ|ѓeѓ“ѓVѓѓѓ‹‚р”Ѕ“] " << endl;
+			}
+			else
+			{
 				loop = 1;
 				x = px;
-	                        y = py;
-        	                z = pz;
-                	        path_x[i] = x;
-                      		path_y[i] = y;
-                        	path_z[i] = z;
-                        	tx = x * 5;
-                        	ty = y * 5;
-                        	tz = (z * 5) + 10 + true_height[x][y];
-                        	go_z = 10 + (z * 5);
+	            y = py;
+        	    z = pz;
+                path_x[i] = x;
+                path_y[i] = y;
+                path_z[i] = z;
+                tx = x * 5;
+                ty = y * 5;
+                tz = (z * 5) + 10 + true_height[x][y];
+                go_z = 10 + (z * 5);
 			}
 
-			if (count == 15){
+			if (count == 15)
+			{
 				i = max;
-				printf("гѓ«гѓјгѓ—зµ‚дє†");
-				}
+				printf("ѓ‹Ѓ[ѓvЏI—№");
+			}
 
-
-			//tz = true_height[x][y][z];
-			//cout << "//" << x << " " << y << " " << z << " " << received_power[x][y][z] << " " << endl;
-			//fout << x << "," << y << "," << z << "," << received_power[x][y][z] << endl;//csvгЃ«еЏ—дїЎй›»еЉ›еЂ¤г‚‚иј‰гЃ›г‚‹гЃЁгЃЌ
-			//fout << x << "," << y << "," << z << "," << endl;//csvгЃ«еє§жЁ™гЃ®гЃїж›ёгЃЏгЃЁгЃЌ
 			fout << tx << "," << ty << "," << go_z << "," << received_power[x][y][z] << endl;
 			fout_t << tx << "," << ty << "," << tz << "," << received_power[x][y][z] << endl;
 		}

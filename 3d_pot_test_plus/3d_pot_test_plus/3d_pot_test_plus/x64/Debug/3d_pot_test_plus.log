@@ -1,0 +1,120 @@
+﻿  3d_pot_test_plus.cpp
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(65,2): error C2059: 構文エラー: 'if'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(65,12): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(65,12): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(69,2): error C2059: 構文エラー: 'if'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(69,12): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(69,12): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(78,8): error C3927: '->': 後続の戻り値の型は、関数以外の宣言子の後に許可されていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(78,8): error C3484: 構文エラー: 戻り値の型の前に '->' が必要です
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(78,9): error C3613: '->' の後に戻り型が指定されていません ('int' と見なされます)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(78,18): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(78,3): error C2371: 'input': 再定義されています。異なる基本型です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(75): message : 'input' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(78,9): error C2146: 構文エラー: ';' が、識別子 'push_back' の前に必要です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(79,2): error C2059: 構文エラー: '}'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(79,2): error C2143: 構文エラー: ';' が '}' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(82,2): error C2059: 構文エラー: 'if'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(82,11): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(82,11): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(86,2): error C2059: 構文エラー: 'else'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(92,2): error C2059: 構文エラー: 'while'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(92,29): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(92,29): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(96,2): error C2059: 構文エラー: 'if'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(96,13): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(96,13): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(100,2): error C2059: 構文エラー: 'else'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(104,5): error C2059: 構文エラー: 'while'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(104,34): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(104,34): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,2): error C2059: 構文エラー: 'for'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,2): error C2143: 構文エラー: ')' が ';' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,17): error C2143: 構文エラー: ';' が '<' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,17): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,31): error C2143: 構文エラー: ';' が '++' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,31): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,30): error C2086: 'int k': 再定義されました。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117): message : 'k' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,33): error C2059: 構文エラー: ')'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,34): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(117,34): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,3): error C2059: 構文エラー: 'for'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,3): error C2143: 構文エラー: ')' が ';' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,18): error C2143: 構文エラー: ';' が '<' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,18): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,32): error C2143: 構文エラー: ';' が '++' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,32): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,31): error C2086: 'int j': 再定義されました。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134): message : 'j' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,34): error C2059: 構文エラー: ')'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,35): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(134,35): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(149,6): error C3927: '->': 後続の戻り値の型は、関数以外の宣言子の後に許可されていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(149,6): error C3484: 構文エラー: 戻り値の型の前に '->' が必要です
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(149,7): error C3613: '->' の後に戻り型が指定されていません ('int' と見なされます)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(149,12): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(149,7): error C2146: 構文エラー: ';' が、識別子 'close' の前に必要です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(150,8): error C3927: '->': 後続の戻り値の型は、関数以外の宣言子の後に許可されていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(150,8): error C3484: 構文エラー: 戻り値の型の前に '->' が必要です
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(150,9): error C3613: '->' の後に戻り型が指定されていません ('int' と見なされます)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(150,14): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(150,2): error C2371: 'fout_t': 再定義されています。異なる基本型です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(95): message : 'fout_t' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(150,9): error C2146: 構文エラー: ';' が、識別子 'close' の前に必要です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(151,2): error C2059: 構文エラー: 'return'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(152,1): error C2059: 構文エラー: '}'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(152,1): error C2143: 構文エラー: ';' が '}' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(157,23): error C2065: 'loop': 定義されていない識別子です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(157,36): error C2065: 'n': 定義されていない識別子です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(160,32): error C2065: 'x': 定義されていない識別子です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(160,35): error C2065: 'y': 定義されていない識別子です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(160,38): error C2065: 'z': 定義されていない識別子です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(162,11): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(162,3): error C2371: 'power': 再定義されています。異なる基本型です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(160): message : 'power' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(163,2): error C2059: 構文エラー: '}'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(163,2): error C2143: 構文エラー: ';' が '}' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,2): error C2059: 構文エラー: 'for'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,2): error C2143: 構文エラー: ')' が ';' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,26): error C2143: 構文エラー: ';' が '<=' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,26): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,39): error C2143: 構文エラー: ';' が '++' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,39): error C4430: 型指定子がありません - int と仮定しました。メモ: C++ は int を既定値としてサポートしていません
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,38): error C2086: 'int a': 再定義されました。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182): message : 'a' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,41): error C2059: 構文エラー: ')'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,42): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(182,42): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(194,3): error C2059: 構文エラー: '}'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(194,3): error C2143: 構文エラー: ';' が '}' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(199,46): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(199,46): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(203,2): error C2059: 構文エラー: 'return'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(204,1): error C2059: 構文エラー: '}'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(204,1): error C2143: 構文エラー: ';' が '}' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(210,11): error C2371: 'fout': 再定義されています。異なる基本型です。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(149): message : 'fout' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(211,11): error C2374: 'fout_t': 再定義されています。2 回以上初期化されています。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(95): message : 'fout_t' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(213,2): error C2059: 構文エラー: 'if'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(213,11): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(213,11): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(217,2): error C2059: 構文エラー: 'else'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(219,2): error C2059: 構文エラー: 'if'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(219,13): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(219,13): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(223,2): error C2059: 構文エラー: 'else'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(236,6): error C2086: 'int tx': 再定義されました。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(132): message : 'tx' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(237,6): error C2086: 'int ty': 再定義されました。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(133): message : 'ty' の宣言を確認してください
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(243,3): error C2059: 構文エラー: 'if'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(243,45): error C2143: 構文エラー: ';' が '{' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(243,45): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(311,12): error C2001: 定数が 2 行目に続いています。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(320,2): error C2059: 構文エラー: '}'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(320,2): error C2143: 構文エラー: ';' が '}' の前にありません。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(322,1): error C2059: 構文エラー: '}'
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(322,1): error C2143: 構文エラー: ';' が '}' の前にありません。
