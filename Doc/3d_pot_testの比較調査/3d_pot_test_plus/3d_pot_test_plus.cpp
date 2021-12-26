@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <cmath>
+#include <sstream>
 #include "float.h"
 
 using namespace std;
@@ -31,7 +32,8 @@ using namespace std;
 
 //出発と到着[3] {x,y,z}
 
-int start[3] = {4,46,0};//
+//int start[3] = {4,46,0};//
+int start[3] = {0,0,0};//
 int goal[3] = {59,10,8};//
 
 double received_power[MAPSIZE_X][MAPSIZE_Y][MAPSIZE_Z];
@@ -42,10 +44,22 @@ double true_height[MAPSIZE_X][MAPSIZE_Y];
 string file1 = "130.1K2490GD2route_grid.csv"; //グリッド表記経路が書かれた出力ファイルの名前
 string file2 = "130.1K249GD2route_meter.csv";//メートル表記経路が書かれた出力ファイルの名前
 
+ vector<string> split(string& input, char delimiter)
+	{
+    istringstream stream(input);
+    string field;
+    vector<string> result;
+    while (getline(stream, field, delimiter)) {
+        result.push_back(field);
+    }
+    return result;
+	}
+
 //受信電力値を抜き出したファイルから座標をつけたファイルをつくる(powerのみ)=>(x,y,z,power)
  int input_WI_result(){
 	ifstream ifs("power.txt");//受信起電力が入ったファイル
 	ifstream ifs_t("sabun.csv");//z座標をメートル表記に変換するためのもの
+	ifstream ifs_i("New_Iti.csv");//位置情報ファイル
 	//エラー文
 	if(!ifs){
 		cout << "Could not input power.txt" << endl;
@@ -53,6 +67,10 @@ string file2 = "130.1K249GD2route_meter.csv";//メートル表記経路が書か
 	}
 	if(!ifs_t){
 		cout << "Could not input sabun.csv" << endl;
+		return -1;
+	}
+	if(!ifs_i){
+		cout << "Could not input New_Iti.csv" << endl;
 		return -1;
 	}
 
@@ -85,6 +103,17 @@ string file2 = "130.1K249GD2route_meter.csv";//メートル表記経路が書か
 		return -1;
 	}
 	else cout <<"true_height.csv opened." << endl;
+ 	
+ 	//位置情報ファイル
+    string line;
+    while (getline(ifs_i, line)) {
+        
+        vector<string> strvec = split(line, ',');
+        
+    	start[0] = stoi(strvec.at(0));
+    	start[1] = stoi(strvec.at(1));
+    	start[2] = stoi(strvec.at(2));
+    }
 
 	/////////////////
 
