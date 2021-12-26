@@ -33,7 +33,7 @@ using namespace std;
 //出発と到着[3] {x,y,z}
 
 //int start[3] = {4,46,0};//
-int start[3] = {0,0,0};//
+int start[3];//
 int goal[3] = {59,10,8};//
 
 double received_power[MAPSIZE_X][MAPSIZE_Y][MAPSIZE_Z];
@@ -44,16 +44,16 @@ double true_height[MAPSIZE_X][MAPSIZE_Y];
 string file1 = "130.1K2490GD2route_grid.csv"; //グリッド表記経路が書かれた出力ファイルの名前
 string file2 = "130.1K249GD2route_meter.csv";//メートル表記経路が書かれた出力ファイルの名前
 
- vector<string> split(string& input, char delimiter)
-	{
-    istringstream stream(input);
-    string field;
-    vector<string> result;
-    while (getline(stream, field, delimiter)) {
-        result.push_back(field);
-    }
-    return result;
+vector<string> split(string& input, char delimiter)
+{
+	istringstream stream(input);
+	string field;
+	vector<string> result;
+	while (getline(stream, field, delimiter)) {
+		result.push_back(field);
 	}
+	return result;
+}
 
 //受信電力値を抜き出したファイルから座標をつけたファイルをつくる(powerのみ)=>(x,y,z,power)
  int input_WI_result(){
@@ -73,6 +73,7 @@ string file2 = "130.1K249GD2route_meter.csv";//メートル表記経路が書か
 		cout << "Could not input New_Iti.csv" << endl;
 		return -1;
 	}
+	cout<<"New_Iti.csv open" << endl;
 
 	//読んだファイルを数列に置き換えて出力
 	string str; //文字列クラス
@@ -104,16 +105,24 @@ string file2 = "130.1K249GD2route_meter.csv";//メートル表記経路が書か
 	}
 	else cout <<"true_height.csv opened." << endl;
  	
- 	//位置情報ファイル
-    string line;
-    while (getline(ifs_i, line)) {
-        
-        vector<string> strvec = split(line, ',');
-        
-    	start[0] = stoi(strvec.at(0));
-    	start[1] = stoi(strvec.at(1));
-    	start[2] = stoi(strvec.at(2));
-    }
+	//位置情報ファイル
+	string str_i;
+	vector<int> iti;
+	//int iCnt = 0;
+	while (getline(ifs_i, str_i)) {
+		iti.push_back(atoi(str_i.c_str()));
+
+		vector<string> strvec = split(str_i, ',');
+
+		for (int i = 0; i < strvec.size(); i++) {
+			//printf("%5d\n", stoi(strvec.at(i)));
+			start[i] = stoi(strvec.at(i));
+		}
+	}
+ 	
+	//start[0] = 4;
+	//start[1] = 46;
+	//start[2] = 0;
 
 	/////////////////
 

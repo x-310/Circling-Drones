@@ -1,0 +1,5 @@
+コンパイル
+cd D:\GIT\Circling-Drones\Doc\3d_pot_testの比較調査\3d_pot_test_plus
+d:
+> g++ -o 3d_pot_test_plus.exe 3d_pot_test_plus.cpp
+　

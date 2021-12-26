@@ -1,0 +1,4 @@
+﻿  get_csv_2.cpp
+D:\GIT\Circling-Drones\3d_pot_test_plus\get_csv\get_csv\get_csv\get_csv_2.cpp(44,21): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+D:\GIT\Circling-Drones\3d_pot_test_plus\get_csv\get_csv\get_csv\get_csv_2.cpp(52): warning C4715: 'input_WI_result': 値を返さないコントロール パスがあります。
+  get_csv.vcxproj -> D:\GIT\Circling-Drones\3d_pot_test_plus\get_csv\get_csv\Debug\get_csv.exe
