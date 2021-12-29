@@ -18,21 +18,27 @@ Module mduMain
         Call subLogOutput("*** 前処理 ***")
 
         'Logファイルを削除
-        Call subFileDel_w(pPjPath & "\*.log")
-        Call subLogOutput("> " & "Logファイル(*.log)削除=>OK")
+        Call subFileDel_w(pPjPath + "\*.log")
+        'Csvファイルを削除
+        Call subFileDel_w(pPjPath + "\*.csv")
+        'Txrxファイルを削除
+        Call subFileDel_w(pPjPath + "\*.txrx")
+        'p2mファイルを削除
+        'Call subFileDel_w(pPjPath + pP2mFile)
+        Call subLogOutput("> " & "ファイル(*.log,.csv,.txrx)削除=>OK")
         Call subOkNg_Color(0)
 
-        '履歴用ファイルを削除
-        Call subFileDel_w(pPjPath & "\d*.*")
-        Call subLogOutput("> " & "周回用ファイル(d*.*)削除=>OK")
-        Call subOkNg_Color(0)
+        ''履歴用ファイルを削除
+        'Call subFileDel_w(pPjPath & "\d*.*")
+        'Call subLogOutput("> " & "周回用ファイル(d*.*)削除=>OK")
+        'Call subOkNg_Color(0)
 
-        'New_Itiファイルを削除
-        If fncFileDel(pExePath & "\New_Iti.csv") Then
-            'fncMsgBox("New_Itiファイル削除=>OK")
-        Else
-            fncErrors("New_Itiファイル削除=>NG")
-        End If
+        ''New_Itiファイルを削除
+        'If fncFileDel(pExePath & "\New_Iti.csv") Then
+        '    'fncMsgBox("New_Itiファイル削除=>OK")
+        'Else
+        '    fncErrors("New_Itiファイル削除=>NG")
+        'End If
         '***************************************************
 
         ReDim Preserve p130(-1)
