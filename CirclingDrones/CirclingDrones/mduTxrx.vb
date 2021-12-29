@@ -64,7 +64,8 @@ Error_Rtn:
         Dim iLoop As Integer
 
         'txrxファイル作成
-        Dim oFileWrite As New System.IO.StreamWriter(sFile, True, System.Text.Encoding.UTF8)
+        Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
+        Dim oFileWrite As New System.IO.StreamWriter(sFile, False, enc)
 
         'routeタグ
         Dim iCnt As Integer = 0
