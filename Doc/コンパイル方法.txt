@@ -11,4 +11,3 @@ gccをインストールする
 
 コンパイル
 　g++ -o test1.exe test.cpp
-　
