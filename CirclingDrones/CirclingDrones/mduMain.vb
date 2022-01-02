@@ -285,32 +285,32 @@ Error_Rtn:
             Call subOkNg_Color(1)
         End If
 
-        ''タグデータを作成する
-        'If fncTagCreate(m, n) Then
-        '    Call subLogOutput("> タグデータ作成=>OK")
-        '    Call subOkNg_Color(0)
-        'Else
-        '    Call subLogOutput("> タグデータ作成=>NG")
-        '    Call subOkNg_Color(1)
-        'End If
-
-        ''txrxファイルを作成する
-        'If fncMem2txrx(m) Then
-        '    Call subLogOutput("> txrxファイル作成=>OK")
-        '    Call subOkNg_Color(0)
-        'Else
-        '    Call subLogOutput("> txrxファイル作成=>NG")
-        '    Call subOkNg_Color(1)
-        'End If
-
-        'txrxファイルを作成する(テスト用)
-        If fncMem2txrx_test() Then
-            Call subLogOutput("> txrxファイル作成(テスト用)=>OK")
+        'タグデータを作成する
+        If fncTagCreate(m, n) Then
+            Call subLogOutput("> タグデータ作成=>OK")
             Call subOkNg_Color(0)
         Else
-            Call subLogOutput("> txrxファイル作成(テスト用)=>NG")
+            Call subLogOutput("> タグデータ作成=>NG")
             Call subOkNg_Color(1)
         End If
+
+        'txrxファイルを作成する
+        If fncMem2txrx(m) Then
+            Call subLogOutput("> txrxファイル作成=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> txrxファイル作成=>NG")
+            Call subOkNg_Color(1)
+        End If
+
+        ''txrxファイルを作成する(テスト用)
+        'If fncMem2txrx_test() Then
+        '    Call subLogOutput("> txrxファイル作成(テスト用)=>OK")
+        '    Call subOkNg_Color(0)
+        'Else
+        '    Call subLogOutput("> txrxファイル作成(テスト用)=>NG")
+        '    Call subOkNg_Color(1)
+        'End If
 
         '履歴用Txrxファイルにコピーする
         If fncCopyTxrx(m, n) Then

@@ -203,8 +203,9 @@ end_<points>"
         Dim oFileWrite As New System.IO.StreamWriter(sFile, False, enc)
 
         'タグ
-        'タグ
-        oFileWrite.WriteLine(pcTag_test)
+        Dim pTag_Test As String = pcTag_test.Replace(vbLf, vbCrLf)
+
+        oFileWrite.WriteLine(pTag_Test)
 
         'クローズ
         oFileWrite.Dispose()

@@ -69,12 +69,16 @@ Error_Rtn:
 
         'routeタグ
         Dim iCnt As Integer = 0
+        Dim pTag_Grig As String = ""
         For iLoop = 1 To pSet_d
             If iLoop <> m Then
                 'routeタグ
                 oFileWrite.WriteLine(pTag_route(iCnt))
                 'gridタグ
-                oFileWrite.WriteLine(pcTag_grid)
+                pTag_Grig = pcTag_grid.Replace(vbLf, vbCrLf)
+
+                oFileWrite.WriteLine(pTag_Grig)
+                'oFileWrite.WriteLine(pcTag_grid)
 
                 iCnt = iCnt + 1
             End If
