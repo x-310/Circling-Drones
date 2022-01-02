@@ -369,6 +369,17 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduTest.fncMem2txrx_test">
+ -----------------------------------------------------------------------------
+ <summary>
+ プロジェクト名.txrxファイルを作成する
+ </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduTxrx.fncTagCreate(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
