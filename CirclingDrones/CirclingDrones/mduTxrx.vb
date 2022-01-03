@@ -31,12 +31,13 @@ Module mduTxrx
                 sValue_route(0) = pIti(m, n - 1).sIdo & " " & pIti(m, n - 1).sKeido & " " & pIti(m, n - 1).sTakasa
                 sValue_route(1) = pIti(m, n).sIdo & " " & pIti(m, n).sKeido & " " & pIti(m, n).sTakasa
 
-                pTag_route(iCnt) = fncTagKeyUpdate(pcTag_route, "begin_<route>", "d" & m & " Route")
-                pTag_route(iCnt) = pTag_route(iCnt) & vbCrLf
-                pTag_route(iCnt) = fncTagKeyUpdate(pTag_route(iCnt), "project_id", m)
-                pTag_route(iCnt) = pTag_route(iCnt) & vbCrLf
-                pTag_route(iCnt) = fncTagKeyAdd(pTag_route(iCnt), "nVertices", 2, sValue_route)
+                pTag_route(iCnt) = fncTagKeyAdd(pcTag_route, "nVertices", 2, sValue_route)
                 iCnt = iCnt + 1
+
+                'pTag_route(iCnt) = fncTagKeyUpdate(pcTag_route, "begin_<route>", "d" & m & " Route")
+                'pTag_route(iCnt) = pTag_route(iCnt) & vbCrLf
+                'pTag_route(iCnt) = fncTagKeyUpdate(pTag_route(iCnt), "project_id", m)
+                'pTag_route(iCnt) = pTag_route(iCnt) & vbCrLf
             End If
         Next
 
@@ -69,16 +70,15 @@ Error_Rtn:
 
         'routeタグ
         Dim iCnt As Integer = 0
-        Dim pTag_Grig As String = ""
+        Dim sTag_Route As String = ""
         For iLoop = 1 To pSet_d
             If iLoop <> m Then
-                'routeタグ
-                oFileWrite.WriteLine(pTag_route(iCnt))
                 'gridタグ
-                pTag_Grig = pcTag_grid.Replace(vbLf, vbCrLf)
+                oFileWrite.WriteLine(pTag_grid)
 
-                oFileWrite.WriteLine(pTag_Grig)
-                'oFileWrite.WriteLine(pcTag_grid)
+                'routeタグ
+                sTag_Route = pTag_route(iCnt)
+                oFileWrite.WriteLine(sTag_Route)
 
                 iCnt = iCnt + 1
             End If
@@ -290,6 +290,31 @@ Error_Rtn:
         End If
 
         fncTagKeyUpdate = sData
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' 行末をCrLfに更新する
+    ''' </summary>
+    ''' <param name="sBlockData">ブロックデータ</param>
+    ''' <returns>ブロックデータ</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncTagCrLf(ByVal sBlockData As String) As String
+        On Error GoTo Error_Rtn
+        fncTagCrLf = ""
+
+        Dim sData As String = ""        'ブロックデータ
+
+        sData = sBlockData.Replace(vbLf, vbCrLf)
+
+        fncTagCrLf = sData
 Error_Exit:
         Exit Function
 Error_Rtn:

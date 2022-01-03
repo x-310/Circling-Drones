@@ -444,6 +444,18 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduTxrx.fncTagCrLf(System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ 行末をCrLfに更新する
+ </summary>
+ <param name="sBlockData">ブロックデータ</param>
+ <returns>ブロックデータ</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduTxrx.fncIti2Txrx(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
