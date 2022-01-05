@@ -1,0 +1,320 @@
+begin_<grid> Untitled Rx Grid (3)
+project_id 13
+active
+vertical_line no
+CVxLength 10.00000
+CVyLength 10.00000
+CVzLength 10.00000
+AutoPatternScale
+ShowDescription yes
+CVsVisible no
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude 138.544999999999990
+latitude 36.402900000000002
+visible no
+terrain
+end_<reference>
+side1 1637.29858
+side2 1427.89490
+spacing 14.00000
+nVertices 1
+1002.624640000000000 1.571070000000000 50.000000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p no
+use_apg_acceleration yes
+is_transmitter no
+is_receiver yes
+begin_<receiver> 
+begin_<pattern> 
+antenna 1
+waveform -1
+rotation_x 0.00000
+rotation_y 0.00000
+rotation_z 0.00000
+end_<pattern>
+begin_<sbr> 
+bounding_box
+end_<sbr>
+NoiseFigure 3.00000
+end_<receiver>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<grid>
+begin_<route> Untitled Rx Route
+project_id 14
+active
+vertical_line no
+CVxLength 10.00000
+CVyLength 10.00000
+CVzLength 10.00000
+AutoPatternScale
+ShowDescription no
+CVsVisible no
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude 138.544999999999990
+latitude 36.402900000000002
+visible no
+terrain
+end_<reference>
+spacing 5.00000
+nVertices 5
+1534.180670000000000 663.379180000000020 50.000000000000000
+1353.565270000000100 556.761979999999990 50.000000000000000
+1224.901069999999900 718.291280000000030 50.000000000000000
+1412.162070000000100 777.594979999999960 50.000000000000000
+1534.126569999999900 663.095479999999950 50.000000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p no
+use_apg_acceleration yes
+is_transmitter no
+is_receiver yes
+begin_<receiver> 
+begin_<pattern> 
+antenna 1
+waveform -1
+rotation_x 0.00000
+rotation_y 0.00000
+rotation_z 0.00000
+end_<pattern>
+begin_<sbr> 
+bounding_box
+end_<sbr>
+NoiseFigure 3.00000
+end_<receiver>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<route>
+begin_<route> Untitled Rx Route (2)
+project_id 15
+active
+invisible
+vertical_line no
+CVxLength 10.00000
+CVyLength 10.00000
+CVzLength 10.00000
+AutoPatternScale
+ShowDescription no
+CVsVisible no
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude 138.544999999999990
+latitude 36.402900000000002
+visible no
+terrain
+end_<reference>
+spacing 1.50000
+nVertices 2
+1534.107670000000100 662.965360000000030 0.000000000000000
+1534.107670000000100 662.965360000000030 50.000000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p no
+use_apg_acceleration yes
+is_transmitter no
+is_receiver yes
+begin_<receiver> 
+begin_<pattern> 
+antenna 1
+waveform -1
+rotation_x 0.00000
+rotation_y 0.00000
+rotation_z 0.00000
+end_<pattern>
+begin_<sbr> 
+bounding_box
+end_<sbr>
+NoiseFigure 3.00000
+end_<receiver>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<route>
+begin_<route> Untitled Rx Route (3)
+project_id 16
+active
+vertical_line no
+CVxLength 10.00000
+CVyLength 10.00000
+CVzLength 10.00000
+AutoPatternScale
+ShowDescription no
+CVsVisible no
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude 138.544999999999990
+latitude 36.402900000000002
+visible no
+terrain
+end_<reference>
+spacing 5.00000
+nVertices 2
+1533.966320000000000 663.723719999999960 50.000000000000000
+1336.449720000000100 753.113219999999960 50.000000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p no
+use_apg_acceleration yes
+is_transmitter no
+is_receiver yes
+begin_<receiver> 
+begin_<pattern> 
+antenna 1
+waveform -1
+rotation_x 0.00000
+rotation_y 0.00000
+rotation_z 0.00000
+end_<pattern>
+begin_<sbr> 
+bounding_box
+end_<sbr>
+NoiseFigure 3.00000
+end_<receiver>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<route>
+begin_<route> Untitled Rx Route (4)
+project_id 17
+active
+invisible
+vertical_line no
+CVxLength 10.00000
+CVyLength 10.00000
+CVzLength 10.00000
+AutoPatternScale
+ShowDescription no
+CVsVisible no
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude 138.544999999999990
+latitude 36.402900000000002
+visible no
+terrain
+end_<reference>
+spacing 2.50000
+nVertices 2
+1533.641120000000000 663.521269999999960 0.000000000000000
+1533.641120000000000 663.521269999999960 50.000000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p no
+use_apg_acceleration yes
+is_transmitter no
+is_receiver yes
+begin_<receiver> 
+begin_<pattern> 
+antenna 1
+waveform -1
+rotation_x 0.00000
+rotation_y 0.00000
+rotation_z 0.00000
+end_<pattern>
+begin_<sbr> 
+bounding_box
+end_<sbr>
+NoiseFigure 3.00000
+end_<receiver>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<route>
+begin_<grid> Untitled Rx Grid
+project_id 18
+active
+invisible
+vertical_line no
+CVxLength 10.00000
+CVyLength 10.00000
+CVzLength 10.00000
+AutoPatternScale
+ShowDescription no
+CVsVisible no
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude 138.544999999999990
+latitude 36.402900000000002
+visible no
+terrain
+end_<reference>
+side1 467.08350
+side2 259.95938
+spacing 5.00000
+nVertices 1
+1079.332770000000000 537.803000000000000 50.000000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p no
+use_apg_acceleration yes
+is_transmitter no
+is_receiver yes
+begin_<receiver> 
+begin_<pattern> 
+antenna 1
+waveform -1
+rotation_x 0.00000
+rotation_y 0.00000
+rotation_z 0.00000
+end_<pattern>
+begin_<sbr> 
+bounding_box
+end_<sbr>
+NoiseFigure 3.00000
+end_<receiver>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<grid>
+begin_<route> another drone route tx
+project_id 19
+active
+vertical_line no
+CVxLength 10.00000
+CVyLength 10.00000
+CVzLength 10.00000
+AutoPatternScale
+ShowDescription yes
+CVsVisible no
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude 138.555298569435930
+latitude 36.412307004603001
+visible no
+terrain
+end_<reference>
+spacing 1.00000
+nVertices 2
+0.000000000000000 0.000000000000000 2.000000000000000
+143.362702316749160 -540.367077340984220 2.000000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p no
+use_apg_acceleration no
+is_transmitter yes
+is_receiver no
+begin_<transmitter> 
+begin_<pattern> 
+antenna 2
+waveform 0
+rotation_x 0.00000
+rotation_y 0.00000
+rotation_z 0.00000
+end_<pattern>
+power 30.00000
+end_<transmitter>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<route>
