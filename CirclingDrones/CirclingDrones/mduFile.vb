@@ -187,6 +187,65 @@ Error_Rtn:
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
+    ''' フォルダを削除する
+    ''' </summary>
+    ''' <param name="sDirName">削除フォルダ名(\は付けない)</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncDirDel(ByVal sDirName As String) As Boolean
+        On Error GoTo Error_Rtn
+        fncDirDel = False
+
+        If System.IO.Directory.Exists(sDirName) Then
+            'フォルダ削除
+            System.IO.Directory.Delete(sDirName, True)
+        End If
+
+        fncDirDel = True
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' フォルダをコピーする
+    ''' </summary>
+    ''' <param name="sDirName1">コピー元フォルダ名(\は付けない)</param>
+    ''' <param name="sDirName2">コピー先フォルダ名(\は付けない)</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncDirCopy(ByVal sDirName1 As String, ByVal sDirName2 As String) As Boolean
+        On Error GoTo Error_Rtn
+        fncDirCopy = False
+
+        'コピー先のディレクトリがないときは作る
+        If Not System.IO.Directory.Exists(sDirName2) Then
+            System.IO.Directory.CreateDirectory(sDirName2)
+            '属性もコピー
+            System.IO.File.SetAttributes(sDirName2,
+            System.IO.File.GetAttributes(sDirName1))
+        End If
+        'フォルダコピー
+        My.Computer.FileSystem.CopyDirectory(sDirName1, sDirName2,
+            FileIO.UIOption.AllDialogs, FileIO.UICancelOption.DoNothing)
+
+        fncDirCopy = True
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
     ''' ファイルの存在をチェックする
     ''' </summary>
     ''' <param name="sFileName">ファイル名</param>

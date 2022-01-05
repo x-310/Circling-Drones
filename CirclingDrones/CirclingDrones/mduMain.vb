@@ -28,18 +28,20 @@ Module mduMain
         Call subLogOutput("> " & "ファイル(*.log,.csv,.txrx)削除=>OK")
         Call subOkNg_Color(0)
 
-        ''履歴用ファイルを削除
-        'Call subFileDel_w(pPjPath & "\d*.*")
-        'Call subLogOutput("> " & "周回用ファイル(d*.*)削除=>OK")
-        'Call subOkNg_Color(0)
-
-        ''New_Itiファイルを削除
-        'If fncFileDel(pExePath & "\New_Iti.csv") Then
-        '    'fncMsgBox("New_Itiファイル削除=>OK")
-        'Else
-        '    fncErrors("New_Itiファイル削除=>NG")
-        'End If
-        '***************************************************
+        If frmMain.cmbDebug.Text = "ON" Then
+            '***************************************************
+            'DebugモードON
+            'b2\studyarea\Debug\dm_vn\サブフォルダを削除
+            Dim sDir As String = pPjPath + "\Debug"
+            If fncDirDel(sDir) Then
+                Call subLogOutput("> " & "Debugフォルダを削除=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> " & "Debugフォルダを削除=>NG")
+                Call subOkNg_Color(1)
+            End If
+            '***************************************************
+        End If
 
         ReDim Preserve p130(-1)
         ReDim Preserve pTag_route(pSet_d - 1)
@@ -124,9 +126,10 @@ Error_Rtn:
             sExeFile = frmMain.txtExe2.Text
         End If
 
-
         Dim sFile As String
         Dim sFile2 As String
+        Dim sDir1 As String
+        Dim sDir2 As String
 
         If frmMain.cmbFileFlg.Text = "0" Then
             sFile = frmMain.txtExe1.Text
@@ -146,6 +149,22 @@ Error_Rtn:
         Call subLogOutput("> DoNothing / CalcProp起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
+
+        If frmMain.cmbDebug.Text = "ON" Then
+            '***************************************************
+            'DebugモードON
+            'b2\studyareaフォルダをdm_vnサブフォルダにコピー
+            sDir1 = pPjPath & "\studyarea"
+            sDir2 = pPjPath & "\Debug\d" & m & "_v" & n
+            If fncDirCopy(sDir1, sDir2) Then
+                Call subLogOutput("> " & "Debugフォルダにコピー=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> " & "Debugフォルダにコピー=>NG")
+                Call subOkNg_Color(1)
+            End If
+            '***************************************************
+        End If
 
         'P2mファイルを配列にセット
         If fncFile2P2m(pPjPath + pP2mFile) Then
@@ -169,7 +188,7 @@ Error_Rtn:
 
         '3d_pot_test_plus.exe 起動
         System.Diagnostics.Process.Start(pc3d_pot_test_plus & ".exe")
-        Call subLogOutput(">  " & pc3d_pot_test_plus & ".exe起動")
+        Call subLogOutput("> " & pc3d_pot_test_plus & ".exe起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)
 

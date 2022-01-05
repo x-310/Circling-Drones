@@ -36,7 +36,11 @@ Public Class frmMain
         'INIファイル読込み
         Call subSetIni()
 
+        'exeパス
         pExePath = System.Environment.CurrentDirectory
+
+        'Debugフラグ
+        cmbDebug.Text = "OFF"
 Error_Exit:
         Exit Sub
 Error_Rtn:

@@ -190,6 +190,31 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduFile.fncDirDel(System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ フォルダを削除する
+ </summary>
+ <param name="sDirName">削除フォルダ名(\は付けない)</param>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduFile.fncDirCopy(System.String,System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ フォルダをコピーする
+ </summary>
+ <param name="sDirName1">コピー元フォルダ名(\は付けない)</param>
+ <param name="sDirName2">コピー先フォルダ名(\は付けない)</param>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduFile.fncFileCheck(System.String)">
  -----------------------------------------------------------------------------
  <summary>
@@ -369,6 +394,17 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduTest.fncMem2txrx_test">
+ -----------------------------------------------------------------------------
+ <summary>
+ プロジェクト名.txrxファイルを作成する
+ </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduTxrx.fncTagCreate(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
@@ -428,6 +464,18 @@ CirclingDrones
  <param name="sTagName">タグ名</param>
  <param name="sValue">変更データ</param>
  <returns>更新する項目データ</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduTxrx.fncTagCrLf(System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ 行末をCrLfに更新する
+ </summary>
+ <param name="sBlockData">ブロックデータ</param>
+ <returns>ブロックデータ</returns>
  <remarks></remarks>
  <author>RKA</author>
  <history></history>

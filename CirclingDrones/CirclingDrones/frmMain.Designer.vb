@@ -99,6 +99,9 @@ Partial Class frmMain
         Me.Label24 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.pnlPath = New System.Windows.Forms.Panel()
+        Me.txtP2mFile = New System.Windows.Forms.TextBox()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.txtExe22 = New System.Windows.Forms.TextBox()
         Me.txtExe2 = New System.Windows.Forms.TextBox()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.txtExe1 = New System.Windows.Forms.TextBox()
@@ -133,9 +136,8 @@ Partial Class frmMain
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtCom1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtExe22 = New System.Windows.Forms.TextBox()
-        Me.txtP2mFile = New System.Windows.Forms.TextBox()
-        Me.Label36 = New System.Windows.Forms.Label()
+        Me.cmbDebug = New System.Windows.Forms.ComboBox()
+        Me.Label39 = New System.Windows.Forms.Label()
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -398,6 +400,8 @@ Partial Class frmMain
         'pnlSet
         '
         Me.pnlSet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pnlSet.Controls.Add(Me.cmbDebug)
+        Me.pnlSet.Controls.Add(Me.Label39)
         Me.pnlSet.Controls.Add(Me.cmbSet_d)
         Me.pnlSet.Controls.Add(Me.cmbSet_Interval)
         Me.pnlSet.Controls.Add(Me.Label1)
@@ -1085,6 +1089,38 @@ Partial Class frmMain
         Me.pnlPath.Size = New System.Drawing.Size(343, 498)
         Me.pnlPath.TabIndex = 50
         '
+        'txtP2mFile
+        '
+        Me.txtP2mFile.Location = New System.Drawing.Point(18, 76)
+        Me.txtP2mFile.MaxLength = 100
+        Me.txtP2mFile.Multiline = True
+        Me.txtP2mFile.Name = "txtP2mFile"
+        Me.txtP2mFile.Size = New System.Drawing.Size(305, 23)
+        Me.txtP2mFile.TabIndex = 52
+        Me.txtP2mFile.Text = "\studyarea\b2.p2m"
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label36.ForeColor = System.Drawing.Color.Black
+        Me.Label36.Location = New System.Drawing.Point(16, 57)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(212, 15)
+        Me.Label36.TabIndex = 334
+        Me.Label36.Text = "p2mファイル(\サブフォルダ付き)："
+        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtExe22
+        '
+        Me.txtExe22.Location = New System.Drawing.Point(20, 386)
+        Me.txtExe22.MaxLength = 1000
+        Me.txtExe22.Multiline = True
+        Me.txtExe22.Name = "txtExe22"
+        Me.txtExe22.Size = New System.Drawing.Size(305, 34)
+        Me.txtExe22.TabIndex = 59
+        Me.txtExe22.Text = "--project=D:\GIT\Circling-Drones\b2\b2.setup --calc-mode=ChangeAntenna"
+        '
         'txtExe2
         '
         Me.txtExe2.Location = New System.Drawing.Point(20, 347)
@@ -1467,37 +1503,30 @@ Partial Class frmMain
         Me.Label9.Text = "コマンド1："
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'txtExe22
+        'cmbDebug
         '
-        Me.txtExe22.Location = New System.Drawing.Point(20, 386)
-        Me.txtExe22.MaxLength = 1000
-        Me.txtExe22.Multiline = True
-        Me.txtExe22.Name = "txtExe22"
-        Me.txtExe22.Size = New System.Drawing.Size(305, 34)
-        Me.txtExe22.TabIndex = 59
-        Me.txtExe22.Text = "--project=D:\GIT\Circling-Drones\b2\b2.setup --calc-mode=ChangeAntenna"
+        Me.cmbDebug.BackColor = System.Drawing.SystemColors.Menu
+        Me.cmbDebug.DisplayMember = "1"
+        Me.cmbDebug.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbDebug.ForeColor = System.Drawing.Color.Black
+        Me.cmbDebug.FormattingEnabled = True
+        Me.cmbDebug.Items.AddRange(New Object() {"OFF", "ON"})
+        Me.cmbDebug.Location = New System.Drawing.Point(280, 45)
+        Me.cmbDebug.Name = "cmbDebug"
+        Me.cmbDebug.Size = New System.Drawing.Size(48, 20)
+        Me.cmbDebug.TabIndex = 305
         '
-        'txtP2mFile
+        'Label39
         '
-        Me.txtP2mFile.Location = New System.Drawing.Point(18, 76)
-        Me.txtP2mFile.MaxLength = 100
-        Me.txtP2mFile.Multiline = True
-        Me.txtP2mFile.Name = "txtP2mFile"
-        Me.txtP2mFile.Size = New System.Drawing.Size(305, 23)
-        Me.txtP2mFile.TabIndex = 52
-        Me.txtP2mFile.Text = "\studyarea\b2.p2m"
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label36.ForeColor = System.Drawing.Color.Black
-        Me.Label36.Location = New System.Drawing.Point(16, 57)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(212, 15)
-        Me.Label36.TabIndex = 334
-        Me.Label36.Text = "p2mファイル(\サブフォルダ付き)："
-        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label39.AutoSize = True
+        Me.Label39.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label39.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label39.Location = New System.Drawing.Point(272, 27)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(61, 15)
+        Me.Label39.TabIndex = 306
+        Me.Label39.Text = "Debug："
+        Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'frmMain
         '
@@ -1656,4 +1685,6 @@ Partial Class frmMain
     Public WithEvents txtP2mFile As TextBox
     Friend WithEvents Label36 As Label
     Public WithEvents txtExe22 As TextBox
+    Friend WithEvents cmbDebug As ComboBox
+    Friend WithEvents Label39 As Label
 End Class
