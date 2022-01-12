@@ -128,6 +128,7 @@ Error_Rtn:
 
         Dim sFile As String
         Dim sFile2 As String
+        Dim sFile3 As String
         Dim sDir1 As String
         Dim sDir2 As String
 
@@ -193,6 +194,8 @@ Error_Rtn:
                 Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>NG")
                 Call subOkNg_Color(1)
             End If
+
+            Application.DoEvents()
         Next
 
         'power.txt作成
@@ -207,7 +210,12 @@ Error_Rtn:
         '***************************************************
 
         '3d_pot_test_plus.exe 起動
-        System.Diagnostics.Process.Start(pc3d_pot_test_plus & ".exe")
+        sFile3 = pc3d_pot_test_plus & ".exe"
+        'ファイルを開いて終了まで待機する
+        Dim p3 As System.Diagnostics.Process =
+                    System.Diagnostics.Process.Start(sFile3)
+        p3.WaitForExit()
+
         Call subLogOutput("> " & pc3d_pot_test_plus & ".exe起動")
         Call subOkNg_Color(2)
         Call subiInterval(500)

@@ -154,13 +154,50 @@ CirclingDrones
  <returns>読込結果の文字列の2次元配列</returns>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduFile.fncFile2P2m(System.String)">
+<member name="M:CirclingDrones.mduFile.fncFileSort(System.String[])">
  -----------------------------------------------------------------------------
  <summary>
  P2mファイルを配列にセット
  </summary>
  <param name="sFileName">P2mファイルのパス</param>
+ <returns>取得した行数</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduFile.fncGetDirName_P2m(System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ フォルダ内P2mファイル名を取得する
+ </summary>
+ <param name="sDirName">P2mファイルのパス</param>
  <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduFile.fncGetDir_P2m(System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ フォルダ内P2mファイル数を取得する
+ </summary>
+ <param name="sDirName">P2mファイルのパス</param>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduFile.fncFile2P2m(System.Int32,System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ P2mファイルを配列にセット
+ </summary>
+ <param name="iRowCnt">取得した行数</param>
+ <param name="sFileName">P2mファイルのパス</param>
+ <returns>取得した行数</returns>
  <remarks></remarks>
  <author>RKA</author>
  <history></history>

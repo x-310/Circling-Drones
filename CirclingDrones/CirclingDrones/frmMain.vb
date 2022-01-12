@@ -436,8 +436,8 @@ Error_Rtn:
     Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
         On Error GoTo Error_Rtn
 
-        Dim result As DialogResult = MessageBox.Show("経路計算のテストを行いますか？",
-                                             "経路計算テスト",
+        Dim result As DialogResult = MessageBox.Show("経路計算を行いますか？",
+                                             "テスト",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Exclamation,
                                              MessageBoxDefaultButton.Button2)
@@ -457,38 +457,45 @@ Error_Rtn:
     Private Sub btnTxrx_Click(sender As Object, e As EventArgs) Handles btnTxrx.Click
         On Error GoTo Error_Rtn
 
-        Dim m As Integer = 2
-        Dim n As Integer = 1
+        Dim result As DialogResult = MessageBox.Show("txrxファイルを作成しますか？",
+                                             "テスト",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Exclamation,
+                                             MessageBoxDefaultButton.Button2)
+        If result = DialogResult.Yes Then
+            Dim m As Integer = 2
+            Dim n As Integer = 1
 
-        pSet_d = 2
+            pSet_d = 2
 
-        ReDim Preserve pIti(pcMax_d, 1)     '位置情報
-        ReDim Preserve pTag_route(pSet_d - 1)
+            ReDim Preserve pIti(pcMax_d, 1)     '位置情報
+            ReDim Preserve pTag_route(pSet_d - 1)
 
-        pIti(1, 0).sIdo = "11"
-        pIti(1, 0).sKeido = "12"
-        pIti(1, 0).sTakasa = "13"
-        pIti(1, 1).sIdo = "14"
-        pIti(1, 1).sKeido = "15"
-        pIti(1, 1).sTakasa = "16"
-        pIti(2, 0).sIdo = "21"
-        pIti(2, 0).sKeido = "22"
-        pIti(2, 0).sTakasa = "23"
-        pIti(2, 1).sIdo = "24"
-        pIti(2, 1).sKeido = "25"
-        pIti(2, 1).sTakasa = "26"
+            pIti(1, 0).sIdo = "11"
+            pIti(1, 0).sKeido = "12"
+            pIti(1, 0).sTakasa = "13"
+            pIti(1, 1).sIdo = "14"
+            pIti(1, 1).sKeido = "15"
+            pIti(1, 1).sTakasa = "16"
+            pIti(2, 0).sIdo = "21"
+            pIti(2, 0).sKeido = "22"
+            pIti(2, 0).sTakasa = "23"
+            pIti(2, 1).sIdo = "24"
+            pIti(2, 1).sKeido = "25"
+            pIti(2, 1).sTakasa = "26"
 
-        'txrxファイルを削除
-        fncFileDelete_pj_txrx()
+            'txrxファイルを削除
+            fncFileDelete_pj_txrx()
 
-        'Iti用配列からtxrx用配列を作成する
-        fncIti2Txrx(m, n)
-        'タグデータを作成する
-        fncTagCreate(m, n)
-        'txrxファイルを作成する
-        fncMem2txrx(m)
+            'Iti用配列からtxrx用配列を作成する
+            fncIti2Txrx(m, n)
+            'タグデータを作成する
+            fncTagCreate(m, n)
+            'txrxファイルを作成する
+            fncMem2txrx(m)
 
-        Call fncMsgBox("作成しました")
+            Call fncMsgBox("終了")
+        End If
 Error_Exit:
         Exit Sub
 Error_Rtn:
@@ -501,39 +508,50 @@ Error_Rtn:
         Dim iLoop As Integer
         Dim iRowCnt As Integer = 0
 
-        ReDim Preserve pP2m(-1)
+        Dim result As DialogResult = MessageBox.Show("Powerファイルを作成しますか？",
+                                             "テスト",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Exclamation,
+                                             MessageBoxDefaultButton.Button2)
+        If result = DialogResult.Yes Then
+            ReDim Preserve pP2m(-1)
 
-        'P2mファイル数確認
-        If fncGetDir_P2m(pPjPath + pP2mDir) = pcP2mFileCnt Then
-            'P2mファイル名取得
-            sFileName = fncGetDirName_P2m(pPjPath + pP2mDir)
+            'P2mファイル数確認
+            If fncGetDir_P2m(pPjPath + pP2mDir) = pcP2mFileCnt Then
+                'P2mファイル名取得
+                sFileName = fncGetDirName_P2m(pPjPath + pP2mDir)
 
-            'P2mファイルをソート
-            sFileName = fncFileSort(sFileName)
-        Else
-            fncMsgBox("P2mファイル数エラー")
-            End
-        End If
+                'P2mファイルをソート
+                sFileName = fncFileSort(sFileName)
+            Else
+                fncMsgBox("P2mファイル数エラー")
+                End
+            End If
 
-        For iLoop = 0 To sFileName.Length - 1
-            'P2mファイルを配列にセット
-            iRowCnt = fncFile2P2m(iRowCnt, sFileName(iLoop))
-            If iRowCnt <> 0 Then
-                Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット:" & iLoop & "=>OK")
+            For iLoop = 0 To sFileName.Length - 1
+                'P2mファイルを配列にセット
+                iRowCnt = fncFile2P2m(iRowCnt, sFileName(iLoop))
+                If iRowCnt <> 0 Then
+                    Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット:" & iLoop & "=>OK")
+                    Call subOkNg_Color(0)
+                Else
+                    Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>NG")
+                    Call subOkNg_Color(1)
+                End If
+
+                Application.DoEvents()
+            Next
+
+            'power.txt作成
+            If fncMem2Power() Then
+                Call subLogOutput("> power.txt作成=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>NG")
+                Call subLogOutput("> power.txt作成=>NG")
                 Call subOkNg_Color(1)
             End If
-        Next
 
-        'power.txt作成
-        If fncMem2Power() Then
-            Call subLogOutput("> power.txt作成=>OK")
-            Call subOkNg_Color(0)
-        Else
-            Call subLogOutput("> power.txt作成=>NG")
-            Call subOkNg_Color(1)
+            Call fncMsgBox("終了")
         End If
     End Sub
 End Class
