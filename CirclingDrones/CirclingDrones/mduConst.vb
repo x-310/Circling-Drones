@@ -54,6 +54,7 @@ Module mduConst
     '経路計算用
     Public Const pc130_Grid As String = "130.1K2490GD2route_grid.csv"
     Public Const pc130_Meter As String = "130.1K249GD2route_meter.csv"
+    Public Const pcP2mFileCnt As Integer = 9
 
     '*******************************************************
     '      変数定義
@@ -122,7 +123,7 @@ Module mduConst
 
     Public pIniPath As String       'INIファイルパス
     Public pPjName As String        'プロジェクト名
-    Public pP2mFile As String       'p2mファイル名
+    Public pP2mDir As String        'p2m用フォルダ
     Public pGnuPath As String       'gnuプロットパス
     Public pPjPath As String        'pjフォルダパス
     Public pExePath As String       'exeフォルダパス

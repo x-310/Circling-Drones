@@ -495,4 +495,45 @@ Error_Rtn:
         fncErrors("異常終了")
         GoTo Error_Exit
     End Sub
+
+    Private Sub btnPower_Click(sender As Object, e As EventArgs) Handles btnPower.Click
+        Dim sFileName() As String
+        Dim iLoop As Integer
+        Dim iRowCnt As Integer = 0
+
+        ReDim Preserve pP2m(-1)
+
+        'P2mファイル数確認
+        If fncGetDir_P2m(pPjPath + pP2mDir) = pcP2mFileCnt Then
+            'P2mファイル名取得
+            sFileName = fncGetDirName_P2m(pPjPath + pP2mDir)
+
+            'P2mファイルをソート
+            sFileName = fncFileSort(sFileName)
+        Else
+            fncMsgBox("P2mファイル数エラー")
+            End
+        End If
+
+        For iLoop = 0 To sFileName.Length - 1
+            'P2mファイルを配列にセット
+            iRowCnt = fncFile2P2m(iRowCnt, sFileName(iLoop))
+            If iRowCnt <> 0 Then
+                Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット:" & iLoop & "=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>NG")
+                Call subOkNg_Color(1)
+            End If
+        Next
+
+        'power.txt作成
+        If fncMem2Power() Then
+            Call subLogOutput("> power.txt作成=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> power.txt作成=>NG")
+            Call subOkNg_Color(1)
+        End If
+    End Sub
 End Class

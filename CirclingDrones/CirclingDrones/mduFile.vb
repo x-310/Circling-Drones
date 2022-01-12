@@ -27,27 +27,182 @@ Module mduFile
     ''' P2mファイルを配列にセット
     ''' </summary>
     ''' <param name="sFileName">P2mファイルのパス</param>
+    ''' <returns>取得した行数</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncFileSort(ByVal sFileName() As String) As String()
+        On Error GoTo Error_Rtn
+
+        Dim sFileName_2() As String
+
+        ' StreamReader の新しいインスタンスを生成する
+        Dim oReader_1 As New System.IO.StreamReader(sFileName(0), System.Text.Encoding.Default)     'ファイル読込用
+        Dim oReader_2 As New System.IO.StreamReader(sFileName(1), System.Text.Encoding.Default)     'ファイル読込用
+        Dim oReader_3 As New System.IO.StreamReader(sFileName(2), System.Text.Encoding.Default)     'ファイル読込用
+        Dim oReader_4 As New System.IO.StreamReader(sFileName(3), System.Text.Encoding.Default)     'ファイル読込用
+        Dim oReader_5 As New System.IO.StreamReader(sFileName(4), System.Text.Encoding.Default)     'ファイル読込用
+        Dim oReader_6 As New System.IO.StreamReader(sFileName(5), System.Text.Encoding.Default)     'ファイル読込用
+        Dim oReader_7 As New System.IO.StreamReader(sFileName(6), System.Text.Encoding.Default)     'ファイル読込用
+        Dim oReader_8 As New System.IO.StreamReader(sFileName(7), System.Text.Encoding.Default)     'ファイル読込用
+        Dim oReader_9 As New System.IO.StreamReader(sFileName(8), System.Text.Encoding.Default)     'ファイル読込用
+        Dim sRowData_1 As String = ""                                                               '行データ
+        Dim sRowData_2 As String = ""                                                               '行データ
+        Dim sRowData_3 As String = ""                                                               '行データ
+        Dim sRowData_4 As String = ""                                                               '行データ
+        Dim sRowData_5 As String = ""                                                               '行データ
+        Dim sRowData_6 As String = ""                                                               '行データ
+        Dim sRowData_7 As String = ""                                                               '行データ
+        Dim sRowData_8 As String = ""                                                               '行データ
+        Dim sRowData_9 As String = ""                                                               '行データ
+        Dim iColData(9) As Integer                                                                  'カラムデータ
+        Dim iSort(9) As Integer                                                                  'カラムデータ
+        Dim iLoop As Integer
+
+        sFileName_2 = sFileName.Clone
+
+        sRowData_1 = oReader_1.ReadLine()   '1行を文字型配列に格納
+        sRowData_2 = oReader_2.ReadLine()   '1行を文字型配列に格納
+        sRowData_3 = oReader_3.ReadLine()   '1行を文字型配列に格納
+        sRowData_4 = oReader_4.ReadLine()   '1行を文字型配列に格納
+        sRowData_5 = oReader_5.ReadLine()   '1行を文字型配列に格納
+        sRowData_6 = oReader_6.ReadLine()   '1行を文字型配列に格納
+        sRowData_7 = oReader_7.ReadLine()   '1行を文字型配列に格納
+        sRowData_8 = oReader_8.ReadLine()   '1行を文字型配列に格納
+        sRowData_9 = oReader_9.ReadLine()   '1行を文字型配列に格納
+
+        iColData(0) = Mid(sRowData_1, sRowData_1.IndexOf("m") - 2, 3)
+        iColData(1) = Mid(sRowData_2, sRowData_1.IndexOf("m") - 2, 3)
+        iColData(2) = Mid(sRowData_3, sRowData_1.IndexOf("m") - 2, 3)
+        iColData(3) = Mid(sRowData_4, sRowData_1.IndexOf("m") - 2, 3)
+        iColData(4) = Mid(sRowData_5, sRowData_1.IndexOf("m") - 2, 3)
+        iColData(5) = Mid(sRowData_6, sRowData_1.IndexOf("m") - 2, 3)
+        iColData(6) = Mid(sRowData_7, sRowData_1.IndexOf("m") - 2, 3)
+        iColData(7) = Mid(sRowData_8, sRowData_1.IndexOf("m") - 2, 3)
+        iColData(8) = Mid(sRowData_9, sRowData_1.IndexOf("m") - 2, 3)
+
+        For iLoop = 0 To 8
+            If iColData(iLoop) = 10 Then
+                sFileName(0) = sFileName_2(iLoop)
+            ElseIf iColData(iLoop) = 15 Then
+                sFileName(1) = sFileName_2(iLoop)
+            ElseIf iColData(iLoop) = 20 Then
+                sFileName(2) = sFileName_2(iLoop)
+            ElseIf iColData(iLoop) = 25 Then
+                sFileName(3) = sFileName_2(iLoop)
+            ElseIf iColData(iLoop) = 30 Then
+                sFileName(4) = sFileName_2(iLoop)
+            ElseIf iColData(iLoop) = 35 Then
+                sFileName(5) = sFileName_2(iLoop)
+            ElseIf iColData(iLoop) = 40 Then
+                sFileName(6) = sFileName_2(iLoop)
+            ElseIf iColData(iLoop) = 45 Then
+                sFileName(7) = sFileName_2(iLoop)
+            ElseIf iColData(iLoop) = 50 Then
+                sFileName(8) = sFileName_2(iLoop)
+            End If
+        Next
+
+        oReader_1.Close()
+        oReader_1.Dispose()
+        oReader_2.Close()
+        oReader_2.Dispose()
+        oReader_3.Close()
+        oReader_3.Dispose()
+        oReader_4.Close()
+        oReader_4.Dispose()
+        oReader_5.Close()
+        oReader_5.Dispose()
+        oReader_6.Close()
+        oReader_6.Dispose()
+        oReader_7.Close()
+        oReader_7.Dispose()
+        oReader_8.Close()
+        oReader_8.Dispose()
+        oReader_9.Close()
+        oReader_9.Dispose()
+
+        fncFileSort = sFileName
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' フォルダ内P2mファイル名を取得する
+    ''' </summary>
+    ''' <param name="sDirName">P2mファイルのパス</param>
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncFile2P2m(ByVal sFileName As String) As Boolean
+    Public Function fncGetDirName_P2m(ByVal sDirName As String) As String()
         On Error GoTo Error_Rtn
-        fncFile2P2m = False
+
+        '"C:\test"以下のファイルをすべて取得する
+        Dim files As String() = System.IO.Directory.GetFiles(
+            sDirName, "*.p2m", System.IO.SearchOption.AllDirectories)
+
+        fncGetDirName_P2m = files
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' フォルダ内P2mファイル数を取得する
+    ''' </summary>
+    ''' <param name="sDirName">P2mファイルのパス</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncGetDir_P2m(ByVal sDirName As String) As Integer
+        On Error GoTo Error_Rtn
+
+        ' サブディレクトリのファイルはカウントしない場合
+        Dim fileCount As Integer = System.IO.Directory.GetFiles(sDirName, "*.p2m", System.IO.SearchOption.TopDirectoryOnly).Length
+
+        fncGetDir_P2m = fileCount
+Error_Exit:
+        Exit Function
+Error_Rtn:
+        GoTo Error_Exit
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' P2mファイルを配列にセット
+    ''' </summary>
+    ''' <param name="iRowCnt">取得した行数</param>
+    ''' <param name="sFileName">P2mファイルのパス</param>
+    ''' <returns>取得した行数</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncFile2P2m(ByVal iRowCnt As Integer, ByVal sFileName As String) As Integer
+        On Error GoTo Error_Rtn
+        fncFile2P2m = 0
 
         ' StreamReader の新しいインスタンスを生成する
         Dim oReader As New System.IO.StreamReader(sFileName, System.Text.Encoding.Default)  'ファイル読込用
         Dim sRowData As String = ""                                                         '行データ
         Dim sColData As String = ""                                                         'カラムデータ
-        Dim iRow As Integer = 0                                                             '行
+        Dim iRow As Integer = iRowCnt                                                             '行
         Dim iCol As Integer = 0                                                             '列
         Dim iColNo As Integer = 0                                                           '列No
         Dim iNowFlg As String = 0                                                           '現在行
         Dim iLastFlg As String = 0                                                          '最終行
 
         '行ループ
-        ReDim Preserve pP2m(-1)
         While (oReader.Peek() >= 0)
             ReDim Preserve pP2m(iRow)       'pP2m に新規行を追加
             sRowData = oReader.ReadLine()   '1行を文字型配列に格納
@@ -97,7 +252,7 @@ Module mduFile
         oReader.Close()
         oReader.Dispose()
 
-        fncFile2P2m = True
+        fncFile2P2m = iRow
 Error_Exit:
         Exit Function
 Error_Rtn:
@@ -396,10 +551,10 @@ Error_Rtn:
         pPjPath = ""
         iRET = GetPrivateProfileString(pcSec_Set, pcKey_13, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pPjPath = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
-        'p2mFile
-        pP2mFile = ""
+        'p2mDir
+        pP2mDir = ""
         iRET = GetPrivateProfileString(pcSec_Set, pcKey_14, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
-        pP2mFile = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
+        pP2mDir = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
         frmMain.txtV.Text = pV                  'ドローン速度
         frmMain.txtT.Text = pT                  '周回毎経過時間
@@ -414,7 +569,7 @@ Error_Rtn:
         frmMain.txtPjName.Text = pPjName        'プロジェクト名
         frmMain.txtGnuPath.Text = pGnuPath      'gnuプロットパス
         frmMain.txtPjPath.Text = pPjPath        'pjフォルダパス
-        frmMain.txtP2mfile.Text = pP2mFile      'プロジェクト名
+        frmMain.txtP2mDir.Text = pP2mDir        'プロジェクト名
 
         Dim iCnt As Integer 'ドローンループ
         Dim sSec As String  'セクション名
@@ -534,7 +689,7 @@ Error_Rtn:
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_11, frmMain.txtPjName.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_12, frmMain.txtGnuPath.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Set, pcKey_13, frmMain.txtPjPath.Text, pIniPath & "\" & pcIniFileName)
-        iRET = WritePrivateProfileString(pcSec_Set, pcKey_14, frmMain.txtP2mFile.Text, pIniPath & "\" & pcIniFileName)
+        iRET = WritePrivateProfileString(pcSec_Set, pcKey_14, frmMain.txtP2mDir.Text, pIniPath & "\" & pcIniFileName)
 
         iRET = WritePrivateProfileString(pcSec_d1, pcKey_X, frmMain.txtX_d1.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_d1, pcKey_Y, frmMain.txtY_d1.Text, pIniPath & "\" & pcIniFileName)
