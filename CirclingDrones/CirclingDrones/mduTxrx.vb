@@ -68,12 +68,11 @@ Module mduTxrx
         Dim sTag_Route As String = ""
         For iLoop = 1 To pSet_d
             If iLoop <> m Then
-                'gridタグ
-                oFileWrite.WriteLine(pTag_grid)
-
                 'routeタグ
                 sTag_Route = pTag_route(iCnt)
                 oFileWrite.WriteLine(sTag_Route)
+                'gridタグ
+                oFileWrite.WriteLine(pTag_grid)
 
                 iCnt = iCnt + 1
             End If

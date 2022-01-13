@@ -143,7 +143,6 @@ Module mduMain
 
         Call subLogOutput("> DoNothing / CalcProp起動")
         Call subOkNg_Color(2)
-        'Call subiInterval(500)
 
         If frmMain.cmbDebug.Text = "ON" Then
             '***************************************************
@@ -168,11 +167,16 @@ Module mduMain
         ReDim Preserve pP2m(-1)
 
         'P2mファイル数確認
-        If fncGetDir_P2m(pPjPath + pP2mDir) = pcP2mFileCnt Then
+        If fncGetDir_P2m(pPjPath + pP2mDir) >= pcP2mFileCnt Then
             'P2mファイル名取得
             sFileName = fncGetDirName_P2m(pPjPath + pP2mDir)
-            'P2mファイルをソート
-            sFileName = fncFileSort(sFileName)
+            If sFileName.Length = pcP2mFileCnt Then
+                'P2mファイルをソート
+                sFileName = fncFileSort(sFileName)
+            Else
+                fncMsgBox("P2mファイル数エラー")
+                End
+            End If
         Else
             fncMsgBox("P2mファイル数エラー")
             End
@@ -230,7 +234,6 @@ Module mduMain
 
         Call subLogOutput("> " & pc3d_pot_test_plus & ".exe起動")
         Call subOkNg_Color(2)
-        'Call subiInterval(500)
 
         '履歴用130ファイルにコピー
         If fncCopy130(m, n) Then

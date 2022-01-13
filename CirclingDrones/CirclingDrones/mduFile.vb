@@ -136,10 +136,25 @@ Module mduFile
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncGetDirName_P2m(ByVal sDirName As String) As String()
-        Dim files As String() = System.IO.Directory.GetFiles(
+        Dim sFiles2 As String() = System.IO.Directory.GetFiles(
             sDirName, "*.p2m", System.IO.SearchOption.AllDirectories)
 
-        fncGetDirName_P2m = files
+        Dim sFiles() As String
+        Dim iLoop As Integer
+        Dim iCnt As Integer = 0
+
+        ReDim Preserve sFiles(-1)
+
+        For iLoop = 0 To sFiles2.Length - 1
+            If sFiles2(iLoop).Contains("power") Then
+                ReDim Preserve sFiles(iCnt)
+                sFiles(iLoop) = sFiles2(iLoop)
+
+                iCnt = iCnt + 1
+            End If
+        Next
+
+        fncGetDirName_P2m = sFiles
 
     End Function
 
@@ -154,7 +169,9 @@ Module mduFile
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncGetDir_P2m(ByVal sDirName As String) As Integer
-        Dim fileCount As Integer = System.IO.Directory.GetFiles(sDirName, "*.p2m", System.IO.SearchOption.TopDirectoryOnly).Length
+        Dim fileCount As Integer = System.IO.Directory.GetFiles(sDirName,
+                                                                "*.p2m",
+                                                                System.IO.SearchOption.TopDirectoryOnly).Length
 
         fncGetDir_P2m = fileCount
 
