@@ -93,8 +93,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -113,15 +113,15 @@ end_<route>
 "use_apg_acceleration yes" & vbCrLf &
 "is_transmitter no" & vbCrLf &
 "is_receiver yes" & vbCrLf &
-"begin_<receiver>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<receiver> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 7" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &
 "rotation_y 0.00000" & vbCrLf &
 "rotation_z 0.00000" & vbCrLf &
 "end_<pattern>" & vbCrLf &
-"begin_<sbr>" & vbCrLf &
+"begin_<sbr> " & vbCrLf &
 "bounding_box" & vbCrLf &
 "end_<sbr>" & vbCrLf &
 "NoiseFigure 3.00000" & vbCrLf &
@@ -139,8 +139,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -159,15 +159,15 @@ end_<route>
 "use_apg_acceleration yes" & vbCrLf &
 "is_transmitter no" & vbCrLf &
 "is_receiver yes" & vbCrLf &
-"begin_<receiver>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<receiver> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 7" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &
 "rotation_y 0.00000" & vbCrLf &
 "rotation_z 0.00000" & vbCrLf &
 "end_<pattern>" & vbCrLf &
-"begin_<sbr>" & vbCrLf &
+"begin_<sbr> " & vbCrLf &
 "bounding_box" & vbCrLf &
 "end_<sbr>" & vbCrLf &
 "NoiseFigure 3.00000" & vbCrLf &
@@ -185,8 +185,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -205,15 +205,15 @@ end_<route>
 "use_apg_acceleration yes" & vbCrLf &
 "is_transmitter no" & vbCrLf &
 "is_receiver yes" & vbCrLf &
-"begin_<receiver>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<receiver> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 7" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &
 "rotation_y 0.00000" & vbCrLf &
 "rotation_z 0.00000" & vbCrLf &
 "end_<pattern>" & vbCrLf &
-"begin_<sbr>" & vbCrLf &
+"begin_<sbr> " & vbCrLf &
 "bounding_box" & vbCrLf &
 "end_<sbr>" & vbCrLf &
 "NoiseFigure 3.00000" & vbCrLf &
@@ -231,8 +231,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -251,15 +251,15 @@ end_<route>
 "use_apg_acceleration yes" & vbCrLf &
 "is_transmitter no" & vbCrLf &
 "is_receiver yes" & vbCrLf &
-"begin_<receiver>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<receiver> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 7" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &
 "rotation_y 0.00000" & vbCrLf &
 "rotation_z 0.00000" & vbCrLf &
 "end_<pattern>" & vbCrLf &
-"begin_<sbr>" & vbCrLf &
+"begin_<sbr> " & vbCrLf &
 "bounding_box" & vbCrLf &
 "end_<sbr>" & vbCrLf &
 "NoiseFigure 3.00000" & vbCrLf &
@@ -277,8 +277,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -297,15 +297,15 @@ end_<route>
 "use_apg_acceleration yes" & vbCrLf &
 "is_transmitter no" & vbCrLf &
 "is_receiver yes" & vbCrLf &
-"begin_<receiver>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<receiver> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 7" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &
 "rotation_y 0.00000" & vbCrLf &
 "rotation_z 0.00000" & vbCrLf &
 "end_<pattern>" & vbCrLf &
-"begin_<sbr>" & vbCrLf &
+"begin_<sbr> " & vbCrLf &
 "bounding_box" & vbCrLf &
 "end_<sbr>" & vbCrLf &
 "NoiseFigure 3.00000" & vbCrLf &
@@ -323,8 +323,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -343,15 +343,15 @@ end_<route>
 "use_apg_acceleration yes" & vbCrLf &
 "is_transmitter no" & vbCrLf &
 "is_receiver yes" & vbCrLf &
-"begin_<receiver>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<receiver> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 7" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &
 "rotation_y 0.00000" & vbCrLf &
 "rotation_z 0.00000" & vbCrLf &
 "end_<pattern>" & vbCrLf &
-"begin_<sbr>" & vbCrLf &
+"begin_<sbr> " & vbCrLf &
 "bounding_box" & vbCrLf &
 "end_<sbr>" & vbCrLf &
 "NoiseFigure 3.00000" & vbCrLf &
@@ -369,8 +369,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -389,15 +389,15 @@ end_<route>
 "use_apg_acceleration yes" & vbCrLf &
 "is_transmitter no" & vbCrLf &
 "is_receiver yes" & vbCrLf &
-"begin_<receiver>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<receiver> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 7" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &
 "rotation_y 0.00000" & vbCrLf &
 "rotation_z 0.00000" & vbCrLf &
 "end_<pattern>" & vbCrLf &
-"begin_<sbr>" & vbCrLf &
+"begin_<sbr> " & vbCrLf &
 "bounding_box" & vbCrLf &
 "end_<sbr>" & vbCrLf &
 "NoiseFigure 3.00000" & vbCrLf &
@@ -415,8 +415,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -435,15 +435,15 @@ end_<route>
 "use_apg_acceleration yes" & vbCrLf &
 "is_transmitter no" & vbCrLf &
 "is_receiver yes" & vbCrLf &
-"begin_<receiver>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<receiver> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 7" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &
 "rotation_y 0.00000" & vbCrLf &
 "rotation_z 0.00000" & vbCrLf &
 "end_<pattern>" & vbCrLf &
-"begin_<sbr>" & vbCrLf &
+"begin_<sbr> " & vbCrLf &
 "bounding_box" & vbCrLf &
 "end_<sbr>" & vbCrLf &
 "NoiseFigure 3.00000" & vbCrLf &
@@ -461,8 +461,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -481,15 +481,15 @@ end_<route>
 "use_apg_acceleration yes" & vbCrLf &
 "is_transmitter no" & vbCrLf &
 "is_receiver yes" & vbCrLf &
-"begin_<receiver>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<receiver> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 7" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &
 "rotation_y 0.00000" & vbCrLf &
 "rotation_z 0.00000" & vbCrLf &
 "end_<pattern>" & vbCrLf &
-"begin_<sbr>" & vbCrLf &
+"begin_<sbr> " & vbCrLf &
 "bounding_box" & vbCrLf &
 "end_<sbr>" & vbCrLf &
 "NoiseFigure 3.00000" & vbCrLf &
@@ -509,8 +509,8 @@ end_<route>
 "ShowDescription no" & vbCrLf &
 "CVsVisible no" & vbCrLf &
 "CVsThickness 3" & vbCrLf &
-"begin_<location>" & vbCrLf &
-"begin_<reference>" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
 "cartesian" & vbCrLf &
 "longitude 138.544999999999990" & vbCrLf &
 "latitude 36.402900000000002" & vbCrLf &
@@ -526,8 +526,8 @@ end_<route>
 "use_apg_acceleration no" & vbCrLf &
 "is_transmitter yes" & vbCrLf &
 "is_receiver no" & vbCrLf &
-"begin_<transmitter>" & vbCrLf &
-"begin_<pattern>" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
 "antenna 3" & vbCrLf &
 "waveform 3" & vbCrLf &
 "rotation_x 0.00000" & vbCrLf &

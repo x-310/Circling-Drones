@@ -19,8 +19,8 @@ terrain
 end_<reference>
 spacing 1000.00000
 nVertices 2
-11 12 13
-67 50 50
+11.000000000000000 12.000000000000000 13.000000000000000
+67.000000000000000 50.000000000000000 50.000000000000000
 end_<location>
 pattern_show_arrow no
 pattern_show_as_sphere no
@@ -64,8 +64,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -84,15 +84,15 @@ generate_p2p no
 use_apg_acceleration yes
 is_transmitter no
 is_receiver yes
-begin_<receiver>
-begin_<pattern>
+begin_<receiver> 
+begin_<pattern> 
 antenna 7
 waveform 3
 rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr>
+begin_<sbr> 
 bounding_box
 end_<sbr>
 NoiseFigure 3.00000
@@ -110,8 +110,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -130,15 +130,15 @@ generate_p2p no
 use_apg_acceleration yes
 is_transmitter no
 is_receiver yes
-begin_<receiver>
-begin_<pattern>
+begin_<receiver> 
+begin_<pattern> 
 antenna 7
 waveform 3
 rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr>
+begin_<sbr> 
 bounding_box
 end_<sbr>
 NoiseFigure 3.00000
@@ -156,8 +156,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -176,15 +176,15 @@ generate_p2p no
 use_apg_acceleration yes
 is_transmitter no
 is_receiver yes
-begin_<receiver>
-begin_<pattern>
+begin_<receiver> 
+begin_<pattern> 
 antenna 7
 waveform 3
 rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr>
+begin_<sbr> 
 bounding_box
 end_<sbr>
 NoiseFigure 3.00000
@@ -202,8 +202,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -222,15 +222,15 @@ generate_p2p no
 use_apg_acceleration yes
 is_transmitter no
 is_receiver yes
-begin_<receiver>
-begin_<pattern>
+begin_<receiver> 
+begin_<pattern> 
 antenna 7
 waveform 3
 rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr>
+begin_<sbr> 
 bounding_box
 end_<sbr>
 NoiseFigure 3.00000
@@ -248,8 +248,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -268,15 +268,15 @@ generate_p2p no
 use_apg_acceleration yes
 is_transmitter no
 is_receiver yes
-begin_<receiver>
-begin_<pattern>
+begin_<receiver> 
+begin_<pattern> 
 antenna 7
 waveform 3
 rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr>
+begin_<sbr> 
 bounding_box
 end_<sbr>
 NoiseFigure 3.00000
@@ -294,8 +294,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -314,15 +314,15 @@ generate_p2p no
 use_apg_acceleration yes
 is_transmitter no
 is_receiver yes
-begin_<receiver>
-begin_<pattern>
+begin_<receiver> 
+begin_<pattern> 
 antenna 7
 waveform 3
 rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr>
+begin_<sbr> 
 bounding_box
 end_<sbr>
 NoiseFigure 3.00000
@@ -340,8 +340,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -360,15 +360,15 @@ generate_p2p no
 use_apg_acceleration yes
 is_transmitter no
 is_receiver yes
-begin_<receiver>
-begin_<pattern>
+begin_<receiver> 
+begin_<pattern> 
 antenna 7
 waveform 3
 rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr>
+begin_<sbr> 
 bounding_box
 end_<sbr>
 NoiseFigure 3.00000
@@ -386,8 +386,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -406,15 +406,15 @@ generate_p2p no
 use_apg_acceleration yes
 is_transmitter no
 is_receiver yes
-begin_<receiver>
-begin_<pattern>
+begin_<receiver> 
+begin_<pattern> 
 antenna 7
 waveform 3
 rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr>
+begin_<sbr> 
 bounding_box
 end_<sbr>
 NoiseFigure 3.00000
@@ -432,8 +432,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -452,15 +452,15 @@ generate_p2p no
 use_apg_acceleration yes
 is_transmitter no
 is_receiver yes
-begin_<receiver>
-begin_<pattern>
+begin_<receiver> 
+begin_<pattern> 
 antenna 7
 waveform 3
 rotation_x 0.00000
 rotation_y 0.00000
 rotation_z 0.00000
 end_<pattern>
-begin_<sbr>
+begin_<sbr> 
 bounding_box
 end_<sbr>
 NoiseFigure 3.00000
@@ -480,8 +480,8 @@ AutoPatternScale
 ShowDescription no
 CVsVisible no
 CVsThickness 3
-begin_<location>
-begin_<reference>
+begin_<location> 
+begin_<reference> 
 cartesian
 longitude 138.544999999999990
 latitude 36.402900000000002
@@ -497,8 +497,8 @@ generate_p2p yes
 use_apg_acceleration no
 is_transmitter yes
 is_receiver no
-begin_<transmitter>
-begin_<pattern>
+begin_<transmitter> 
+begin_<pattern> 
 antenna 3
 waveform 3
 rotation_x 0.00000

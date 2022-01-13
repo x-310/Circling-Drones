@@ -26,8 +26,8 @@ Module mduTxrx
         For iLoop = 1 To pSet_d
             If iLoop <> m Then
                 'routeタグ
-                sValue_route(0) = pIti(m, n - 1).sIdo & " " & pIti(m, n - 1).sKeido & " " & pIti(m, n - 1).sTakasa
-                sValue_route(1) = pIti(m, n).sIdo & " " & pIti(m, n).sKeido & " " & pIti(m, n).sTakasa
+                sValue_route(0) = Format(CDbl(pIti(m, n - 1).sIdo), "#.000000000000000") & " " & Format(CDbl(pIti(m, n - 1).sKeido), "#.000000000000000") & " " & Format(CDbl(pIti(m, n - 1).sTakasa), "#.000000000000000")
+                sValue_route(1) = Format(CDbl(pIti(m, n).sIdo), "#.000000000000000") & " " & Format(CDbl(pIti(m, n).sKeido), "#.000000000000000") & " " & Format(CDbl(pIti(m, n).sTakasa), "#.000000000000000")
 
                 pTag_route(iCnt) = fncTagKeyAdd(pcTag_route, "nVertices", 2, sValue_route)
                 iCnt = iCnt + 1
