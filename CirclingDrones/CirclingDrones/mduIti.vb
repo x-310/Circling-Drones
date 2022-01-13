@@ -13,7 +13,7 @@ Module mduIti
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fnc130Calc() As Boolean
-        On Error GoTo Error_Rtn
+
         fnc130Calc = False
 
         Dim iA1 As Integer = 0
@@ -51,10 +51,7 @@ Module mduIti
         Next
 
         fnc130Calc = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -69,7 +66,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncItiCalc(ByVal m As Integer, ByVal n As Integer) As Boolean
-        On Error GoTo Error_Rtn
+
         fncItiCalc = False
 
         Dim iRow As Integer = 0
@@ -224,10 +221,7 @@ Error_Rtn:
         End If
 
         fncItiCalc = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -242,7 +236,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncItiFile(ByVal m As Integer, ByVal n As Integer) As Boolean
-        On Error GoTo Error_Rtn
+
         fncItiFile = False
 
         Dim sData As String = ""            'ファイル書込み用データ
@@ -313,10 +307,7 @@ Error_Rtn:
         End Select
 
         fncItiFile = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -331,7 +322,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncNewItiFile(ByVal m As Integer, ByVal n As Integer) As Boolean
-        On Error GoTo Error_Rtn
+
         fncNewItiFile = False
 
         Dim sData As String = ""            'ファイル書込み用データ
@@ -348,10 +339,7 @@ Error_Rtn:
         oFileWrite.Close()
 
         fncNewItiFile = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -365,7 +353,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncFile2Grid(ByVal sFileName As String) As Boolean
-        On Error GoTo Error_Rtn
+
         fncFile2Grid = False
 
         '130.CSVファイルを配列にセットする
@@ -389,9 +377,6 @@ Error_Rtn:
         End If
 
         fncFile2Grid = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 End Module

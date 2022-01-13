@@ -14,7 +14,6 @@ Module mduCommon
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subCtlReset()
-        On Error GoTo Error_Rtn
 
         frmMain.cmbSet_d.Text = "2"
         frmMain.cmbSet_Interval.Text = "1000"
@@ -64,10 +63,7 @@ Module mduCommon
 
         'TabControlをオーナードローする
         frmMain.TabControl1.DrawMode = TabDrawMode.OwnerDrawFixed
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -80,16 +76,11 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subiInterval(ByVal iInterval As Integer)
-        On Error GoTo Error_Rtn
-
 
         System.Threading.Thread.Sleep(iInterval)
         'イベント発生
         Application.DoEvents()
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -102,7 +93,6 @@ Error_Rtn:
     ''' <history></history> 
     ''' -----------------------------------------------------------------------------
     Public Sub subBtnOnoff(ByVal bFlg As Boolean)
-        On Error GoTo Error_Rtn
 
         frmMain.cmbSet_v.Enabled = bFlg     '周回
         frmMain.btnStart.Enabled = bFlg     'オート・スタート
@@ -114,10 +104,7 @@ Error_Rtn:
         frmMain.btnIniSave.Enabled = bFlg   'INIファイル保存
         frmMain.btnIniGet3.Enabled = bFlg   'INIファイル読込
         frmMain.btnIniSave3.Enabled = bFlg  'INIファイル保存
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -130,16 +117,12 @@ Error_Rtn:
     ''' <history></history> 
     ''' -----------------------------------------------------------------------------
     Public Sub subOkNg_Color(ByVal iColor As Integer)
-        On Error GoTo Error_Rtn
 
         ReDim Preserve pOkNg(pOkNg_No)                              'OKorNG表示色変更
         pOkNg(pOkNg_No).iLen = frmMain.txtLogDisp.Text.Length - 3   'OKorNG表示色設定
         pOkNg(pOkNg_No).iColor = iColor
         pOkNg_No = pOkNg_No + 1
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -153,7 +136,6 @@ Error_Rtn:
     ''' <history></history>   
     ''' -----------------------------------------------------------------------------
     Public Sub subLogOutput_Color(ByVal iLen As Integer, ByVal iColor As Integer)
-        On Error GoTo Error_Rtn
 
         'カレットを該当文字目に移動
         frmMain.txtLogDisp.Select(iLen, 0)
@@ -170,10 +152,7 @@ Error_Rtn:
             Case Else
                 frmMain.txtLogDisp.SelectionColor = Color.White
         End Select
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -186,13 +165,9 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subLogOutput(ByVal sMessage As String)
-        On Error GoTo Error_Rtn
 
         frmMain.txtLogDisp.Text = frmMain.txtLogDisp.Text + sMessage + Chr(13) + Chr(10)
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -204,7 +179,6 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subSetGamen()
-        On Error GoTo Error_Rtn
 
         'ドローン設定台数
         pSet_d = frmMain.cmbSet_d.Text
@@ -223,10 +197,7 @@ Error_Rtn:
 
         '画面ログ出力
         frmMain.txtLogDisp.Text = ""
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -238,7 +209,6 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subSetRow()
-        On Error GoTo Error_Rtn
 
         'カレット位置を末尾に移動
         frmMain.txtLogDisp.SelectionStart = frmMain.txtLogDisp.Text.Length
@@ -248,10 +218,7 @@ Error_Rtn:
 
         'カレット位置までスクロール
         frmMain.txtLogDisp.ScrollToCaret()
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -265,17 +232,14 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncMsgBox(ByVal sName) As Boolean
-        On Error GoTo Error_Rtn
+
         fncMsgBox = False
 
         Dim sMSG As String = sName
         MessageBox.Show(sMSG, pcAppName, MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         fncMsgBox = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -289,7 +253,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncErrors(ByVal sName) As Boolean
-        On Error GoTo Error_Rtn
+
         fncErrors = False
 
         Dim sMSG As String  'メッセージ文
@@ -301,10 +265,7 @@ Error_Rtn:
         End Select
 
         fncErrors = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -317,7 +278,6 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subKillProc(ByVal sName As String)
-        On Error Resume Next
 
         Dim ps As System.Diagnostics.Process() =
         System.Diagnostics.Process.GetProcessesByName(sName)
@@ -326,6 +286,7 @@ Error_Rtn:
             'プロセスを強制的に終了させる
             p.Kill()
         Next
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -340,6 +301,7 @@ Error_Rtn:
     Public Function ReadCsv(ByVal astrFileName As String,
                          ByVal ablnTab As Boolean,
                          ByVal ablnQuote As Boolean) As String()()
+
         ReadCsv = Nothing
         'ファイルStreamReader
         Dim parser As Microsoft.VisualBasic.FileIO.TextFieldParser = Nothing
@@ -397,5 +359,6 @@ Error_Rtn:
                 parser.Close()
             End If
         End Try
+
     End Function
 End Module

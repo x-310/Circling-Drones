@@ -12,7 +12,6 @@ Module mduMain
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subPreProc()
-        On Error GoTo Error_Rtn
 
         Call subLogOutput("")
         Call subLogOutput("*** 前処理 ***")
@@ -94,10 +93,7 @@ Module mduMain
                 Call subOkNg_Color(1)
             End If
         Next
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -109,8 +105,6 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subProc(ByVal m As Integer, ByVal n As Integer)
-        On Error GoTo Error_Rtn
-
         Dim sExeFile As String = ""
         Dim s3d_pot_test_plus As String = pc3d_pot_test_plus & ".exe"
 
@@ -149,7 +143,7 @@ Error_Rtn:
 
         Call subLogOutput("> DoNothing / CalcProp起動")
         Call subOkNg_Color(2)
-        Call subiInterval(500)
+        'Call subiInterval(500)
 
         If frmMain.cmbDebug.Text = "ON" Then
             '***************************************************
@@ -158,10 +152,10 @@ Error_Rtn:
             sDir1 = pPjPath & "\studyarea"
             sDir2 = pPjPath & "\Debug\d" & m & "_v" & n
             If fncDirCopy(sDir1, sDir2) Then
-                Call subLogOutput("> " & "Debugフォルダにコピー=>OK")
+                Call subLogOutput("> " & "studyareaﾌｫﾙﾀﾞをDebugﾌｫﾙﾀﾞにｺﾋﾟｰ=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> " & "Debugフォルダにコピー=>NG")
+                Call subLogOutput("> " & "studyareaﾌｫﾙﾀﾞをDebugﾌｫﾙﾀﾞにｺﾋﾟｰ=>NG")
                 Call subOkNg_Color(1)
             End If
             '***************************************************
@@ -207,6 +201,24 @@ Error_Rtn:
             Call subOkNg_Color(1)
         End If
 
+        If frmMain.cmbDebug.Text = "ON" Then
+            '***************************************************
+            'DebugモードON
+            'Prgフォルダをdm_vnサブフォルダにコピー
+            sDir1 = pExePath
+            sDir2 = pPjPath & "\Debug\d" & m & "_v" & n
+            If fncDirCopy(sDir1, sDir2) Then
+                Call subLogOutput("> " & "exeフォルダをDebugフォルダにコピー=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> " & "exeフォルダをDebugフォルダにコピー=>NG")
+                Call subOkNg_Color(1)
+            End If
+            '***************************************************
+        End If
+
+        Application.DoEvents()
+
         '***************************************************
 
         '3d_pot_test_plus.exe 起動
@@ -218,7 +230,7 @@ Error_Rtn:
 
         Call subLogOutput("> " & pc3d_pot_test_plus & ".exe起動")
         Call subOkNg_Color(2)
-        Call subiInterval(500)
+        'Call subiInterval(500)
 
         '履歴用130ファイルにコピー
         If fncCopy130(m, n) Then
@@ -229,15 +241,14 @@ Error_Rtn:
             Call subOkNg_Color(1)
         End If
 
+        Application.DoEvents()
+
         '***************************************************
 
         '周回の間隔
         Call subLogOutput("> 周回の間隔")
         Call subiInterval(pSet_Interval)
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -249,7 +260,6 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subAfterProc(ByVal m As Integer, ByVal n As Integer)
-        On Error GoTo Error_Rtn
 
         Call subLogOutput("")
         Call subLogOutput("*** 後処理 [d" & m & "_v" & n & "] ***")
@@ -294,6 +304,8 @@ Error_Rtn:
             Call subOkNg_Color(1)
         End If
 
+        Application.DoEvents()
+
         '経路計算する
         If fncItiCalc(m, n) Then
             Call subLogOutput("> 経路計算=>OK")
@@ -302,6 +314,8 @@ Error_Rtn:
             Call subLogOutput("> 経路計算=>NG")
             Call subOkNg_Color(1)
         End If
+
+        Application.DoEvents()
 
         'Itiファイルを作成する
         If fncItiFile(m, n) Then
@@ -367,10 +381,7 @@ Error_Rtn:
             Call subLogOutput("> 履歴用Txrxファイルにコピー=>NG")
             Call subOkNg_Color(1)
         End If
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -382,7 +393,6 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subLogFile(ByVal m As Integer, ByVal n As Integer)
-        On Error GoTo Error_Rtn
 
         Call subLogOutput("")
         Call subLogOutput("*** Logファイル出力処理 ***")
@@ -413,9 +423,6 @@ Error_Rtn:
         'クローズ
         oFileWrite.Dispose()
         oFileWrite.Close()
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 End Module

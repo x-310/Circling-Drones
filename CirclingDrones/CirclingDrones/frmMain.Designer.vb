@@ -22,6 +22,7 @@ Partial Class frmMain
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.pnlBtn = New System.Windows.Forms.Panel()
         Me.btnIni = New System.Windows.Forms.Button()
         Me.btnExe = New System.Windows.Forms.Button()
@@ -139,6 +140,7 @@ Partial Class frmMain
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtCom1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -429,13 +431,14 @@ Partial Class frmMain
         '
         Me.Label39.AutoSize = True
         Me.Label39.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label39.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label39.Location = New System.Drawing.Point(272, 27)
+        Me.Label39.ForeColor = System.Drawing.Color.Red
+        Me.Label39.Location = New System.Drawing.Point(272, 26)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(61, 15)
         Me.Label39.TabIndex = 306
         Me.Label39.Text = "Debug："
         Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.Label39, "Debug：ON" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "次のフォルダ内ファイルが「Debug」フォルダにコピーされる" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "・プロジェクト名￥studyareaフォルダ" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "・実行フォルダ")
         '
         'cmbSet_d
         '
@@ -1550,6 +1553,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.pnlBtn)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMain"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Circling Drones"
         Me.pnlBtn.ResumeLayout(False)
         Me.pnlCon.ResumeLayout(False)
@@ -1701,4 +1705,5 @@ Partial Class frmMain
     Friend WithEvents cmbDebug As ComboBox
     Friend WithEvents Label39 As Label
     Friend WithEvents btnPower As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

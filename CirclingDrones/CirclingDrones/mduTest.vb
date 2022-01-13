@@ -12,7 +12,6 @@ Module mduTest
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subTest()
-
         Dim m As Integer = 1
         Dim n As Integer = 1
         pSet_d = 1
@@ -91,7 +90,9 @@ Module mduTest
         Else
             fncErrors("New_Itiファイル作成=>NG")
         End If
+
     End Sub
+
     ''' -----------------------------------------------------------------------------
     ''' <summary>
     ''' プロジェクト名.txrxファイルを作成する
@@ -102,7 +103,7 @@ Module mduTest
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncMem2txrx_test() As Boolean
-        On Error GoTo Error_Rtn
+
         fncMem2txrx_test = False
         Const pcTag_test As String =
 "begin_<polygon> Untitled polygon receiver set
@@ -196,7 +197,6 @@ powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
 end_<points>"
 
         Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
-        Dim iLoop As Integer
 
         'txrxファイル作成
         Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
@@ -212,9 +212,6 @@ end_<points>"
         oFileWrite.Close()
 
         fncMem2txrx_test = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 End Module

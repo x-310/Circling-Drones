@@ -13,15 +13,13 @@ Module mduTxrx
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncTagCreate(ByVal m As Integer, ByVal n As Integer) As Boolean
-        On Error GoTo Error_Rtn
+
         fncTagCreate = False
 
         Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
         Dim iLoop As Integer = 0
         Dim iCnt As Integer = 0
-
         Dim sValue_route(1) As String                   'route用nVerticesデータ用配列
-        Dim sValue_grid As String                       'grid用nVerticesデータ用配列
 
         '**********************************************
         '配列を更新
@@ -42,10 +40,7 @@ Module mduTxrx
         Next
 
         fncTagCreate = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -58,7 +53,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncMem2txrx(ByVal m As Integer) As Boolean
-        On Error GoTo Error_Rtn
+
         fncMem2txrx = False
 
         Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
@@ -89,10 +84,7 @@ Error_Rtn:
         oFileWrite.Close()
 
         fncMem2txrx = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -107,16 +99,13 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncCopyTxrx(ByVal m As Integer, ByVal n As Integer) As Boolean
-        On Error GoTo Error_Rtn
+
         fncCopyTxrx = False
 
         fncFileCopy(pPjPath & "\" & pPjName & ".txrx", pPjPath & "\d" & m & "_v" & n & "_" & pPjName & ".txrx")
 
         fncCopyTxrx = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -133,7 +122,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncTagKeyAdd(ByVal sBlockData As String, ByVal sTagName As String, ByVal iAddCnt As Integer, ByVal sValue() As String) As String
-        On Error GoTo Error_Rtn
+
         fncTagKeyAdd = ""
 
         Dim sRowData As String = ""     '行データ
@@ -145,71 +134,66 @@ Error_Rtn:
         Dim jRowCnt As Integer = 0      '行カウント
         Dim iAddFlg As Integer = 0      '追加フラグ
 
-        If iAddCnt > sValue.Length Then
-            GoTo Error_Exit
-        End If
-
-        If sBlockData.Length >= 1 Then
-            For iLOOP = 1 To sBlockData.Length
-                If Mid(sBlockData, iLOOP, 1) = vbLf Then
-                    '行カウント
-                    iRowCnt = iRowCnt + 1
-                End If
-            Next
-
-            For iLOOP = 1 To sBlockData.Length
-                '行データ取得
-                If Mid(sBlockData, iLOOP, 1) = vbLf Or Mid(sBlockData, iLOOP, 1) = vbCr Then
-                    If sRowData.Contains(sTagName) Then
-                        '行データに該当タグがある
-                        sData = sData & sRowData & vbCrLf
+        If iAddCnt <= sValue.Length Then
+            If sBlockData.Length >= 1 Then
+                For iLOOP = 1 To sBlockData.Length
+                    If Mid(sBlockData, iLOOP, 1) = vbLf Then
                         '行カウント
-                        jRowCnt = jRowCnt + 1
-                        '追加フラグ
-                        iAddFlg = 1
+                        iRowCnt = iRowCnt + 1
+                    End If
+                Next
 
-                        '行データクリア
-                        sRowData = ""
-                    Else
-                        If iAddFlg = 1 Then
-                            For jLOOP = 0 To iAddCnt - 1
-                                '行追加
-                                sData = sData & sValue(jLOOP) & vbCrLf
-                                '行カウント
-                                jRowCnt = jRowCnt + 1
-                            Next
-                            '追加フラグ
-                            iAddFlg = 0
-                        End If
-
-                        '行データに該当タグはない
-                        If sRowData <> "" Then
+                For iLOOP = 1 To sBlockData.Length
+                    '行データ取得
+                    If Mid(sBlockData, iLOOP, 1) = vbLf Or Mid(sBlockData, iLOOP, 1) = vbCr Then
+                        If sRowData.Contains(sTagName) Then
+                            '行データに該当タグがある
+                            sData = sData & sRowData & vbCrLf
                             '行カウント
                             jRowCnt = jRowCnt + 1
+                            '追加フラグ
+                            iAddFlg = 1
 
-                            'ブロックデータにセットする
-                            If jRowCnt >= (iRowCnt + iAddCnt) Then
-                                '最終行は改行しない
-                                sData = sData & sRowData
-                            Else
-                                sData = sData & sRowData & vbCrLf
-                            End If
                             '行データクリア
                             sRowData = ""
+                        Else
+                            If iAddFlg = 1 Then
+                                For jLOOP = 0 To iAddCnt - 1
+                                    '行追加
+                                    sData = sData & sValue(jLOOP) & vbCrLf
+                                    '行カウント
+                                    jRowCnt = jRowCnt + 1
+                                Next
+                                '追加フラグ
+                                iAddFlg = 0
+                            End If
+
+                            '行データに該当タグはない
+                            If sRowData <> "" Then
+                                '行カウント
+                                jRowCnt = jRowCnt + 1
+
+                                'ブロックデータにセットする
+                                If jRowCnt >= (iRowCnt + iAddCnt) Then
+                                    '最終行は改行しない
+                                    sData = sData & sRowData
+                                Else
+                                    sData = sData & sRowData & vbCrLf
+                                End If
+                                '行データクリア
+                                sRowData = ""
+                            End If
                         End If
+                    Else
+                        '行データ
+                        sRowData = sRowData & Mid(sBlockData, iLOOP, 1)
                     End If
-                Else
-                    '行データ
-                    sRowData = sRowData & Mid(sBlockData, iLOOP, 1)
-                End If
-            Next
+                Next
+            End If
         End If
 
         fncTagKeyAdd = sData
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -225,7 +209,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncTagKeyUpdate(ByVal sBlockData As String, ByVal sTagName As String, sValue As String) As String
-        On Error GoTo Error_Rtn
+
         fncTagKeyUpdate = ""
 
         Dim sRowData As String = ""     '行データ
@@ -290,10 +274,7 @@ Error_Rtn:
         End If
 
         fncTagKeyUpdate = sData
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -307,7 +288,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncTagCrLf(ByVal sBlockData As String) As String
-        On Error GoTo Error_Rtn
+
         fncTagCrLf = ""
 
         Dim sData As String = ""        'ブロックデータ
@@ -315,10 +296,7 @@ Error_Rtn:
         sData = sBlockData.Replace(vbLf, vbCrLf)
 
         fncTagCrLf = sData
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -333,7 +311,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncIti2Txrx(ByVal m As Integer, ByVal n As Integer) As Boolean
-        On Error GoTo Error_Rtn
+
         fncIti2Txrx = False
 
         Dim iLoop As Integer        'ドローンループ
@@ -377,10 +355,7 @@ Error_Rtn:
         End If
 
         fncIti2Txrx = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -393,6 +368,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncFileDelete_pj_txrx() As Boolean
+
         fncFileDelete_pj_txrx = False
 
         Dim sFile As String = ""    'ファイル名
@@ -401,10 +377,7 @@ Error_Rtn:
         fncFileDel(sFile)
 
         fncFileDelete_pj_txrx = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -417,6 +390,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncFileDelete_txrx() As Boolean
+
         fncFileDelete_txrx = False
 
         Dim sFile As String = ""    'ファイル名
@@ -425,9 +399,6 @@ Error_Rtn:
         fncFileDel(sFile)
 
         fncFileDelete_txrx = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 End Module

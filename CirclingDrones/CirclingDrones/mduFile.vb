@@ -33,8 +33,6 @@ Module mduFile
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncFileSort(ByVal sFileName() As String) As String()
-        On Error GoTo Error_Rtn
-
         Dim sFileName_2() As String
 
         ' StreamReader の新しいインスタンスを生成する
@@ -124,10 +122,7 @@ Module mduFile
         oReader_9.Dispose()
 
         fncFileSort = sFileName
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -141,17 +136,11 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncGetDirName_P2m(ByVal sDirName As String) As String()
-        On Error GoTo Error_Rtn
-
-        '"C:\test"以下のファイルをすべて取得する
         Dim files As String() = System.IO.Directory.GetFiles(
             sDirName, "*.p2m", System.IO.SearchOption.AllDirectories)
 
         fncGetDirName_P2m = files
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -165,16 +154,10 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncGetDir_P2m(ByVal sDirName As String) As Integer
-        On Error GoTo Error_Rtn
-
-        ' サブディレクトリのファイルはカウントしない場合
         Dim fileCount As Integer = System.IO.Directory.GetFiles(sDirName, "*.p2m", System.IO.SearchOption.TopDirectoryOnly).Length
 
         fncGetDir_P2m = fileCount
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -189,7 +172,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncFile2P2m(ByVal iRowCnt As Integer, ByVal sFileName As String) As Integer
-        On Error GoTo Error_Rtn
+
         fncFile2P2m = 0
 
         ' StreamReader の新しいインスタンスを生成する
@@ -253,10 +236,7 @@ Error_Rtn:
         oReader.Dispose()
 
         fncFile2P2m = iRow
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -269,7 +249,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncMem2Power() As Boolean
-        On Error GoTo Error_Rtn
+
         fncMem2Power = False
 
         Dim iRow As Integer '行ループ
@@ -290,10 +270,7 @@ Error_Rtn:
 
             fncMem2Power = True
         End If
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -308,7 +285,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncCopy130(ByVal m As Integer, ByVal n As Integer) As Boolean
-        On Error GoTo Error_Rtn
+
         fncCopy130 = False
 
         Dim iErrCnt As Integer = 0  'エラーカウント
@@ -332,12 +309,10 @@ Error_Rtn:
             End If
         End If
 
-        If iErrCnt <> 0 Then GoTo Error_Exit
-        fncCopy130 = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+        If iErrCnt = 0 Then
+            fncCopy130 = True
+        End If
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -351,7 +326,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncDirDel(ByVal sDirName As String) As Boolean
-        On Error GoTo Error_Rtn
+
         fncDirDel = False
 
         If System.IO.Directory.Exists(sDirName) Then
@@ -360,10 +335,7 @@ Error_Rtn:
         End If
 
         fncDirDel = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -378,7 +350,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncDirCopy(ByVal sDirName1 As String, ByVal sDirName2 As String) As Boolean
-        On Error GoTo Error_Rtn
+
         fncDirCopy = False
 
         'コピー先のディレクトリがないときは作る
@@ -393,10 +365,7 @@ Error_Rtn:
             FileIO.UIOption.AllDialogs, FileIO.UICancelOption.DoNothing)
 
         fncDirCopy = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -410,15 +379,11 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncFileCheck(ByVal sFileName As String) As Boolean
-        On Error GoTo Error_Rtn
+
         fncFileCheck = False
 
         fncFileCheck = System.IO.File.Exists(sFileName)
 
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -432,7 +397,7 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncFileDel(ByVal sFileName As String) As Boolean
-        On Error GoTo Error_Rtn
+
         fncFileDel = False
 
         'ファイル存在チェック
@@ -441,10 +406,7 @@ Error_Rtn:
         End If
 
         fncFileDel = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -456,12 +418,10 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subFileDel_w(ByVal sFileName As String)
+        On Error Resume Next
 
         FileSystem.Kill(sFileName)
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -476,16 +436,13 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Function fncFileCopy(ByVal sFileName1 As String, ByVal sFileName2 As String) As Boolean
-        On Error GoTo Error_Rtn
+
         fncFileCopy = False
 
         System.IO.File.Copy(sFileName1, sFileName2, True)
 
         fncFileCopy = True
-Error_Exit:
-        Exit Function
-Error_Rtn:
-        GoTo Error_Exit
+
     End Function
 
     ''' -----------------------------------------------------------------------------
@@ -497,13 +454,9 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subSetIni()
-        On Error GoTo Error_Rtn
-
         Const DEF_STR As String = vbNullString  'Null設定
-
         Dim iRET As Integer = 0
         Dim sBuf As String = New String(" ", 1024) 'Spaceが1024文字
-        Dim sFileName As String
 
         'INIファイルのパスはカレントフォルダ固定
         pIniPath = ""
@@ -658,11 +611,7 @@ Error_Rtn:
         frmMain.txtCom3.Text = pCommand(2)            'コマンド
         frmMain.txtCom4.Text = pCommand(3)            'コマンド
         frmMain.txtCom5.Text = pCommand(4)            'コマンド
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        fncMsgBox("INIファイルを確認して下さい")
-        GoTo Error_Exit
+
     End Sub
 
     ''' -----------------------------------------------------------------------------
@@ -674,8 +623,6 @@ Error_Rtn:
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subPutIni()
-        On Error GoTo Error_Rtn
-
         Dim iRET As Integer = 0 'リターン値
 
         iRET = WritePrivateProfileString(pcSec_Route, pcKey_v, frmMain.txtV.Text, pIniPath & "\" & pcIniFileName)
@@ -712,9 +659,6 @@ Error_Rtn:
         iRET = WritePrivateProfileString(pcSec_Command, pcKey_3, frmMain.txtCom3.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Command, pcKey_4, frmMain.txtCom4.Text, pIniPath & "\" & pcIniFileName)
         iRET = WritePrivateProfileString(pcSec_Command, pcKey_5, frmMain.txtCom5.Text, pIniPath & "\" & pcIniFileName)
-Error_Exit:
-        Exit Sub
-Error_Rtn:
-        GoTo Error_Exit
+
     End Sub
 End Module
