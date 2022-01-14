@@ -82,461 +82,461 @@ end_<route>
 	'	固定値、最後は改行すること
 	'*******************************************************
 	Public pTag_grid As String =
-"begin_<grid> Dense Pine 50m Rx Grid" & vbCrLf &
-"project_id 6" & vbCrLf &
-"active" & vbCrLf &
-"vertical_line no" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible no" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"side1 467.07999" & vbCrLf &
-"side2 259.95999" & vbCrLf &
-"spacing 5.00000" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1079.332770000000000 537.803000000000000 50.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow no" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p no" & vbCrLf &
-"use_apg_acceleration yes" & vbCrLf &
-"is_transmitter no" & vbCrLf &
-"is_receiver yes" & vbCrLf &
-"begin_<receiver> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 7" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y 0.00000" & vbCrLf &
-"rotation_z 0.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"begin_<sbr> " & vbCrLf &
-"bounding_box" & vbCrLf &
-"end_<sbr>" & vbCrLf &
-"NoiseFigure 3.00000" & vbCrLf &
-"end_<receiver>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>" & vbCrLf &
-"begin_<grid> Dense Pine 15m Rx Grid" & vbCrLf &
-"project_id 9" & vbCrLf &
-"active" & vbCrLf &
-"vertical_line no" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible no" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"side1 467.07999" & vbCrLf &
-"side2 259.95999" & vbCrLf &
-"spacing 5.00000" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1079.332770000000000 537.803000000000000 15.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow no" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p no" & vbCrLf &
-"use_apg_acceleration yes" & vbCrLf &
-"is_transmitter no" & vbCrLf &
-"is_receiver yes" & vbCrLf &
-"begin_<receiver> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 7" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y 0.00000" & vbCrLf &
-"rotation_z 0.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"begin_<sbr> " & vbCrLf &
-"bounding_box" & vbCrLf &
-"end_<sbr>" & vbCrLf &
-"NoiseFigure 3.00000" & vbCrLf &
-"end_<receiver>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>" & vbCrLf &
-"begin_<grid> Dense Pine 20m Rx Grid" & vbCrLf &
-"project_id 10" & vbCrLf &
-"active" & vbCrLf &
-"vertical_line no" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible no" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"side1 467.07999" & vbCrLf &
-"side2 259.95999" & vbCrLf &
-"spacing 5.00000" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1079.332770000000000 537.803000000000000 20.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow no" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p no" & vbCrLf &
-"use_apg_acceleration yes" & vbCrLf &
-"is_transmitter no" & vbCrLf &
-"is_receiver yes" & vbCrLf &
-"begin_<receiver> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 7" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y 0.00000" & vbCrLf &
-"rotation_z 0.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"begin_<sbr> " & vbCrLf &
-"bounding_box" & vbCrLf &
-"end_<sbr>" & vbCrLf &
-"NoiseFigure 3.00000" & vbCrLf &
-"end_<receiver>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>" & vbCrLf &
-"begin_<grid> Dense Pine 25m Rx Grid" & vbCrLf &
-"project_id 11" & vbCrLf &
-"active" & vbCrLf &
-"vertical_line no" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible no" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"side1 467.07999" & vbCrLf &
-"side2 259.95999" & vbCrLf &
-"spacing 5.00000" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1079.332770000000000 537.803000000000000 25.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow no" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p no" & vbCrLf &
-"use_apg_acceleration yes" & vbCrLf &
-"is_transmitter no" & vbCrLf &
-"is_receiver yes" & vbCrLf &
-"begin_<receiver> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 7" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y 0.00000" & vbCrLf &
-"rotation_z 0.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"begin_<sbr> " & vbCrLf &
-"bounding_box" & vbCrLf &
-"end_<sbr>" & vbCrLf &
-"NoiseFigure 3.00000" & vbCrLf &
-"end_<receiver>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>" & vbCrLf &
-"begin_<grid> Dense Pine 30m Rx Grid" & vbCrLf &
-"project_id 12" & vbCrLf &
-"active" & vbCrLf &
-"vertical_line no" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible no" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"side1 467.07999" & vbCrLf &
-"side2 259.95999" & vbCrLf &
-"spacing 5.00000" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1079.332770000000000 537.803000000000000 30.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow no" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p no" & vbCrLf &
-"use_apg_acceleration yes" & vbCrLf &
-"is_transmitter no" & vbCrLf &
-"is_receiver yes" & vbCrLf &
-"begin_<receiver> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 7" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y 0.00000" & vbCrLf &
-"rotation_z 0.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"begin_<sbr> " & vbCrLf &
-"bounding_box" & vbCrLf &
-"end_<sbr>" & vbCrLf &
-"NoiseFigure 3.00000" & vbCrLf &
-"end_<receiver>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>" & vbCrLf &
-"begin_<grid> Dense Pine 35m Rx Grid" & vbCrLf &
-"project_id 13" & vbCrLf &
-"active" & vbCrLf &
-"vertical_line no" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible no" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"side1 467.07999" & vbCrLf &
-"side2 259.95999" & vbCrLf &
-"spacing 5.00000" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1079.332770000000000 537.803000000000000 35.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow no" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p no" & vbCrLf &
-"use_apg_acceleration yes" & vbCrLf &
-"is_transmitter no" & vbCrLf &
-"is_receiver yes" & vbCrLf &
-"begin_<receiver> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 7" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y 0.00000" & vbCrLf &
-"rotation_z 0.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"begin_<sbr> " & vbCrLf &
-"bounding_box" & vbCrLf &
-"end_<sbr>" & vbCrLf &
-"NoiseFigure 3.00000" & vbCrLf &
-"end_<receiver>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>" & vbCrLf &
-"begin_<grid> Dense Pine 40m Rx Grid" & vbCrLf &
-"project_id 14" & vbCrLf &
-"active" & vbCrLf &
-"vertical_line no" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible no" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"side1 467.07999" & vbCrLf &
-"side2 259.95999" & vbCrLf &
-"spacing 5.00000" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1079.332770000000000 537.803000000000000 40.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow no" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p no" & vbCrLf &
-"use_apg_acceleration yes" & vbCrLf &
-"is_transmitter no" & vbCrLf &
-"is_receiver yes" & vbCrLf &
-"begin_<receiver> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 7" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y 0.00000" & vbCrLf &
-"rotation_z 0.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"begin_<sbr> " & vbCrLf &
-"bounding_box" & vbCrLf &
-"end_<sbr>" & vbCrLf &
-"NoiseFigure 3.00000" & vbCrLf &
-"end_<receiver>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>" & vbCrLf &
-"begin_<grid> Dense Pine 45m Rx Grid" & vbCrLf &
-"project_id 15" & vbCrLf &
-"active" & vbCrLf &
-"vertical_line no" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible no" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"side1 467.07999" & vbCrLf &
-"side2 259.95999" & vbCrLf &
-"spacing 5.00000" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1079.332770000000000 537.803000000000000 45.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow no" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p no" & vbCrLf &
-"use_apg_acceleration yes" & vbCrLf &
-"is_transmitter no" & vbCrLf &
-"is_receiver yes" & vbCrLf &
-"begin_<receiver> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 7" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y 0.00000" & vbCrLf &
-"rotation_z 0.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"begin_<sbr> " & vbCrLf &
-"bounding_box" & vbCrLf &
-"end_<sbr>" & vbCrLf &
-"NoiseFigure 3.00000" & vbCrLf &
-"end_<receiver>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>" & vbCrLf &
-"begin_<grid> Dense Pine 10m Rx Grid" & vbCrLf &
-"project_id 23" & vbCrLf &
-"active" & vbCrLf &
-"vertical_line no" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible no" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"side1 467.07999" & vbCrLf &
-"side2 259.95999" & vbCrLf &
-"spacing 5.00000" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1079.332770000000000 537.803000000000000 10.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow no" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p no" & vbCrLf &
-"use_apg_acceleration yes" & vbCrLf &
-"is_transmitter no" & vbCrLf &
-"is_receiver yes" & vbCrLf &
-"begin_<receiver> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 7" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y 0.00000" & vbCrLf &
-"rotation_z 0.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"begin_<sbr> " & vbCrLf &
-"bounding_box" & vbCrLf &
-"end_<sbr>" & vbCrLf &
-"NoiseFigure 3.00000" & vbCrLf &
-"end_<receiver>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>" & vbCrLf &
-"begin_<points> Tx Points 10 shokusei 3" & vbCrLf &
-"project_id 41" & vbCrLf &
-"inactive" & vbCrLf &
-"invisible" & vbCrLf &
-"vertical_line yes" & vbCrLf &
-"cube_size 25.00000" & vbCrLf &
-"CVxLength 10.00000" & vbCrLf &
-"CVyLength 10.00000" & vbCrLf &
-"CVzLength 10.00000" & vbCrLf &
-"AutoPatternScale" & vbCrLf &
-"ShowDescription no" & vbCrLf &
-"CVsVisible no" & vbCrLf &
-"CVsThickness 3" & vbCrLf &
-"begin_<location> " & vbCrLf &
-"begin_<reference> " & vbCrLf &
-"cartesian" & vbCrLf &
-"longitude 138.544999999999990" & vbCrLf &
-"latitude 36.402900000000002" & vbCrLf &
-"visible yes" & vbCrLf &
-"terrain" & vbCrLf &
-"end_<reference>" & vbCrLf &
-"nVertices 1" & vbCrLf &
-"1450.247570000000000 561.187590000000000 1.000000000000000" & vbCrLf &
-"end_<location>" & vbCrLf &
-"pattern_show_arrow yes" & vbCrLf &
-"pattern_show_as_sphere no" & vbCrLf &
-"generate_p2p yes" & vbCrLf &
-"use_apg_acceleration no" & vbCrLf &
-"is_transmitter yes" & vbCrLf &
-"is_receiver no" & vbCrLf &
-"begin_<transmitter> " & vbCrLf &
-"begin_<pattern> " & vbCrLf &
-"antenna 3" & vbCrLf &
-"waveform 3" & vbCrLf &
-"rotation_x 0.00000" & vbCrLf &
-"rotation_y -50.00000" & vbCrLf &
-"rotation_z 90.00000" & vbCrLf &
-"end_<pattern>" & vbCrLf &
-"power 30.00000" & vbCrLf &
-"end_<transmitter>" & vbCrLf &
-"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"begin_<grid> Dense Pine 50m Rx Grid" & vbLf &
+"project_id 6" & vbLf &
+"active" & vbLf &
+"vertical_line no" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible no" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"side1 467.07999" & vbLf &
+"side2 259.95999" & vbLf &
+"spacing 5.00000" & vbLf &
+"nVertices 1" & vbLf &
+"1079.332770000000000 537.803000000000000 50.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow no" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p no" & vbLf &
+"use_apg_acceleration yes" & vbLf &
+"is_transmitter no" & vbLf &
+"is_receiver yes" & vbLf &
+"begin_<receiver> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 7" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y 0.00000" & vbLf &
+"rotation_z 0.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"begin_<sbr> " & vbLf &
+"bounding_box" & vbLf &
+"end_<sbr>" & vbLf &
+"NoiseFigure 3.00000" & vbLf &
+"end_<receiver>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
+"end_<grid>" & vbLf &
+"begin_<grid> Dense Pine 15m Rx Grid" & vbLf &
+"project_id 9" & vbLf &
+"active" & vbLf &
+"vertical_line no" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible no" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"side1 467.07999" & vbLf &
+"side2 259.95999" & vbLf &
+"spacing 5.00000" & vbLf &
+"nVertices 1" & vbLf &
+"1079.332770000000000 537.803000000000000 15.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow no" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p no" & vbLf &
+"use_apg_acceleration yes" & vbLf &
+"is_transmitter no" & vbLf &
+"is_receiver yes" & vbLf &
+"begin_<receiver> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 7" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y 0.00000" & vbLf &
+"rotation_z 0.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"begin_<sbr> " & vbLf &
+"bounding_box" & vbLf &
+"end_<sbr>" & vbLf &
+"NoiseFigure 3.00000" & vbLf &
+"end_<receiver>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
+"end_<grid>" & vbLf &
+"begin_<grid> Dense Pine 20m Rx Grid" & vbLf &
+"project_id 10" & vbLf &
+"active" & vbLf &
+"vertical_line no" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible no" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"side1 467.07999" & vbLf &
+"side2 259.95999" & vbLf &
+"spacing 5.00000" & vbLf &
+"nVertices 1" & vbLf &
+"1079.332770000000000 537.803000000000000 20.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow no" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p no" & vbLf &
+"use_apg_acceleration yes" & vbLf &
+"is_transmitter no" & vbLf &
+"is_receiver yes" & vbLf &
+"begin_<receiver> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 7" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y 0.00000" & vbLf &
+"rotation_z 0.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"begin_<sbr> " & vbLf &
+"bounding_box" & vbLf &
+"end_<sbr>" & vbLf &
+"NoiseFigure 3.00000" & vbLf &
+"end_<receiver>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
+"end_<grid>" & vbLf &
+"begin_<grid> Dense Pine 25m Rx Grid" & vbLf &
+"project_id 11" & vbLf &
+"active" & vbLf &
+"vertical_line no" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible no" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"side1 467.07999" & vbLf &
+"side2 259.95999" & vbLf &
+"spacing 5.00000" & vbLf &
+"nVertices 1" & vbLf &
+"1079.332770000000000 537.803000000000000 25.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow no" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p no" & vbLf &
+"use_apg_acceleration yes" & vbLf &
+"is_transmitter no" & vbLf &
+"is_receiver yes" & vbLf &
+"begin_<receiver> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 7" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y 0.00000" & vbLf &
+"rotation_z 0.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"begin_<sbr> " & vbLf &
+"bounding_box" & vbLf &
+"end_<sbr>" & vbLf &
+"NoiseFigure 3.00000" & vbLf &
+"end_<receiver>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
+"end_<grid>" & vbLf &
+"begin_<grid> Dense Pine 30m Rx Grid" & vbLf &
+"project_id 12" & vbLf &
+"active" & vbLf &
+"vertical_line no" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible no" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"side1 467.07999" & vbLf &
+"side2 259.95999" & vbLf &
+"spacing 5.00000" & vbLf &
+"nVertices 1" & vbLf &
+"1079.332770000000000 537.803000000000000 30.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow no" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p no" & vbLf &
+"use_apg_acceleration yes" & vbLf &
+"is_transmitter no" & vbLf &
+"is_receiver yes" & vbLf &
+"begin_<receiver> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 7" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y 0.00000" & vbLf &
+"rotation_z 0.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"begin_<sbr> " & vbLf &
+"bounding_box" & vbLf &
+"end_<sbr>" & vbLf &
+"NoiseFigure 3.00000" & vbLf &
+"end_<receiver>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
+"end_<grid>" & vbLf &
+"begin_<grid> Dense Pine 35m Rx Grid" & vbLf &
+"project_id 13" & vbLf &
+"active" & vbLf &
+"vertical_line no" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible no" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"side1 467.07999" & vbLf &
+"side2 259.95999" & vbLf &
+"spacing 5.00000" & vbLf &
+"nVertices 1" & vbLf &
+"1079.332770000000000 537.803000000000000 35.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow no" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p no" & vbLf &
+"use_apg_acceleration yes" & vbLf &
+"is_transmitter no" & vbLf &
+"is_receiver yes" & vbLf &
+"begin_<receiver> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 7" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y 0.00000" & vbLf &
+"rotation_z 0.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"begin_<sbr> " & vbLf &
+"bounding_box" & vbLf &
+"end_<sbr>" & vbLf &
+"NoiseFigure 3.00000" & vbLf &
+"end_<receiver>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
+"end_<grid>" & vbLf &
+"begin_<grid> Dense Pine 40m Rx Grid" & vbLf &
+"project_id 14" & vbLf &
+"active" & vbLf &
+"vertical_line no" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible no" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"side1 467.07999" & vbLf &
+"side2 259.95999" & vbLf &
+"spacing 5.00000" & vbLf &
+"nVertices 1" & vbLf &
+"1079.332770000000000 537.803000000000000 40.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow no" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p no" & vbLf &
+"use_apg_acceleration yes" & vbLf &
+"is_transmitter no" & vbLf &
+"is_receiver yes" & vbLf &
+"begin_<receiver> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 7" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y 0.00000" & vbLf &
+"rotation_z 0.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"begin_<sbr> " & vbLf &
+"bounding_box" & vbLf &
+"end_<sbr>" & vbLf &
+"NoiseFigure 3.00000" & vbLf &
+"end_<receiver>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
+"end_<grid>" & vbLf &
+"begin_<grid> Dense Pine 45m Rx Grid" & vbLf &
+"project_id 15" & vbLf &
+"active" & vbLf &
+"vertical_line no" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible no" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"side1 467.07999" & vbLf &
+"side2 259.95999" & vbLf &
+"spacing 5.00000" & vbLf &
+"nVertices 1" & vbLf &
+"1079.332770000000000 537.803000000000000 45.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow no" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p no" & vbLf &
+"use_apg_acceleration yes" & vbLf &
+"is_transmitter no" & vbLf &
+"is_receiver yes" & vbLf &
+"begin_<receiver> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 7" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y 0.00000" & vbLf &
+"rotation_z 0.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"begin_<sbr> " & vbLf &
+"bounding_box" & vbLf &
+"end_<sbr>" & vbLf &
+"NoiseFigure 3.00000" & vbLf &
+"end_<receiver>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
+"end_<grid>" & vbLf &
+"begin_<grid> Dense Pine 10m Rx Grid" & vbLf &
+"project_id 23" & vbLf &
+"active" & vbLf &
+"vertical_line no" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible no" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"side1 467.07999" & vbLf &
+"side2 259.95999" & vbLf &
+"spacing 5.00000" & vbLf &
+"nVertices 1" & vbLf &
+"1079.332770000000000 537.803000000000000 10.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow no" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p no" & vbLf &
+"use_apg_acceleration yes" & vbLf &
+"is_transmitter no" & vbLf &
+"is_receiver yes" & vbLf &
+"begin_<receiver> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 7" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y 0.00000" & vbLf &
+"rotation_z 0.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"begin_<sbr> " & vbLf &
+"bounding_box" & vbLf &
+"end_<sbr>" & vbLf &
+"NoiseFigure 3.00000" & vbLf &
+"end_<receiver>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
+"end_<grid>" & vbLf &
+"begin_<points> Tx Points 10 shokusei 3" & vbLf &
+"project_id 41" & vbLf &
+"inactive" & vbLf &
+"invisible" & vbLf &
+"vertical_line yes" & vbLf &
+"cube_size 25.00000" & vbLf &
+"CVxLength 10.00000" & vbLf &
+"CVyLength 10.00000" & vbLf &
+"CVzLength 10.00000" & vbLf &
+"AutoPatternScale" & vbLf &
+"ShowDescription no" & vbLf &
+"CVsVisible no" & vbLf &
+"CVsThickness 3" & vbLf &
+"begin_<location> " & vbLf &
+"begin_<reference> " & vbLf &
+"cartesian" & vbLf &
+"longitude 138.544999999999990" & vbLf &
+"latitude 36.402900000000002" & vbLf &
+"visible yes" & vbLf &
+"terrain" & vbLf &
+"end_<reference>" & vbLf &
+"nVertices 1" & vbLf &
+"1450.247570000000000 561.187590000000000 1.000000000000000" & vbLf &
+"end_<location>" & vbLf &
+"pattern_show_arrow yes" & vbLf &
+"pattern_show_as_sphere no" & vbLf &
+"generate_p2p yes" & vbLf &
+"use_apg_acceleration no" & vbLf &
+"is_transmitter yes" & vbLf &
+"is_receiver no" & vbLf &
+"begin_<transmitter> " & vbLf &
+"begin_<pattern> " & vbLf &
+"antenna 3" & vbLf &
+"waveform 3" & vbLf &
+"rotation_x 0.00000" & vbLf &
+"rotation_y -50.00000" & vbLf &
+"rotation_z 90.00000" & vbLf &
+"end_<pattern>" & vbLf &
+"power 30.00000" & vbLf &
+"end_<transmitter>" & vbLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbLf &
 "end_<points>"
 
 End Module
