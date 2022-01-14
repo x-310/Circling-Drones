@@ -30,7 +30,7 @@ Module mduTxrx
                 sValue_route(1) = Format(CDbl(pIti(m, n).sIdo), "#.000000000000000") & " " & Format(CDbl(pIti(m, n).sKeido), "#.000000000000000") & " " & Format(CDbl(pIti(m, n).sTakasa), "#.000000000000000")
 
                 pTag_route(iCnt) = fncTagKeyAdd(pcTag_route, "nVertices", 2, sValue_route)
-                pTag_route(iCnt) = fncTagLf(pTag_route(iCnt))
+                'pTag_route(iCnt) = fncTagCrLf(pTag_route(iCnt))
                 iCnt = iCnt + 1
 
                 'pTag_route(iCnt) = fncTagKeyUpdate(pcTag_route, "begin_<route>", "d" & m & " Route")
@@ -61,7 +61,9 @@ Module mduTxrx
         Dim iLoop As Integer
 
         'txrxファイル作成
-        Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
+        'Dim oFileWrite As New System.IO.StreamWriter(sFile, False, System.Text.Encoding.GetEncoding("shift_jis"))
+        'Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
+        Dim enc As System.Text.Encoding = System.Text.Encoding.GetEncoding("shift_jis")
         Dim oFileWrite As New System.IO.StreamWriter(sFile, False, enc)
 
         'routeタグ
@@ -279,7 +281,7 @@ Module mduTxrx
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
-    ''' 行末をLfに更新する
+    ''' 行末をCrLfに更新する
     ''' </summary>
     ''' <param name="sBlockData">ブロックデータ</param>
     ''' <returns>ブロックデータ</returns>
@@ -287,15 +289,15 @@ Module mduTxrx
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncTagLf(ByVal sBlockData As String) As String
+    Public Function fncTagCrLf(ByVal sBlockData As String) As String
 
-        fncTagLf = ""
+        fncTagCrLf = ""
 
         Dim sData As String = ""        'ブロックデータ
 
-        sData = sBlockData.Replace(vbCrLf, vbLf)
+        sData = sBlockData.Replace(vbLf, vbCrLf)
 
-        fncTagLf = sData
+        fncTagCrLf = sData
 
     End Function
 

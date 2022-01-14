@@ -506,10 +506,10 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduTxrx.fncTagLf(System.String)">
+<member name="M:CirclingDrones.mduTxrx.fncTagCrLf(System.String)">
  -----------------------------------------------------------------------------
  <summary>
- 行末をLfに更新する
+ 行末をCrLfに更新する
  </summary>
  <param name="sBlockData">ブロックデータ</param>
  <returns>ブロックデータ</returns>
