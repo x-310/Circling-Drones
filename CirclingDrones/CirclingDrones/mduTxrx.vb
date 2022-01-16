@@ -26,17 +26,15 @@ Module mduTxrx
         For iLoop = 1 To pSet_d
             If iLoop <> m Then
                 'routeタグ
-                sValue_route(0) = Format(CDbl(pIti(m, n - 1).sIdo), "#.000000000000000") & " " & Format(CDbl(pIti(m, n - 1).sKeido), "#.000000000000000") & " " & Format(CDbl(pIti(m, n - 1).sTakasa), "#.000000000000000")
-                sValue_route(1) = Format(CDbl(pIti(m, n).sIdo), "#.000000000000000") & " " & Format(CDbl(pIti(m, n).sKeido), "#.000000000000000") & " " & Format(CDbl(pIti(m, n).sTakasa), "#.000000000000000")
+                sValue_route(0) = CDbl(pIti(iLoop, n - 1).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sTakasa).ToString("0.000000000000000")
+                sValue_route(1) = CDbl(pIti(iLoop, n).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n).sTakasa).ToString("0.000000000000000")
 
                 pTag_route(iCnt) = fncTagKeyAdd(pcTag_route, "nVertices", 2, sValue_route)
-                'pTag_route(iCnt) = fncTagCrLf(pTag_route(iCnt))
-                iCnt = iCnt + 1
+                pTag_route(iCnt) = fncTagKeyUpdate(pTag_route(iCnt), "begin_<route> another drone tx", "another drone tx " & iCnt)
 
-                'pTag_route(iCnt) = fncTagKeyUpdate(pcTag_route, "begin_<route>", "d" & m & " Route")
-                'pTag_route(iCnt) = pTag_route(iCnt) & vbCrLf
-                'pTag_route(iCnt) = fncTagKeyUpdate(pTag_route(iCnt), "project_id", m)
-                'pTag_route(iCnt) = pTag_route(iCnt) & vbCrLf
+                'pTag_route(iCnt) = fncTagCrLf(pTag_route(iCnt))
+
+                iCnt = iCnt + 1
             End If
         Next
 
@@ -58,7 +56,6 @@ Module mduTxrx
         fncMem2txrx = False
 
         Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
-        Dim iLoop As Integer
 
         'txrxファイル作成
         'Dim oFileWrite As New System.IO.StreamWriter(sFile, False, System.Text.Encoding.GetEncoding("shift_jis"))
@@ -69,17 +66,39 @@ Module mduTxrx
         'routeタグ
         Dim iCnt As Integer = 0
         Dim sTag_Route As String = ""
-        For iLoop = 1 To pSet_d
-            If iLoop <> m Then
-                'routeタグ
-                sTag_Route = pTag_route(iCnt)
-                oFileWrite.WriteLine(sTag_Route)
-                'gridタグ
-                oFileWrite.WriteLine(pTag_grid)
 
-                iCnt = iCnt + 1
-            End If
-        Next
+        'routeタグ 1
+        sTag_Route = pTag_route(0)
+                oFileWrite.WriteLine(sTag_Route)
+
+        'gridタグ
+        oFileWrite.WriteLine(pTag_grid)
+
+        If pSet_d = 3 Then
+            'routeタグ 2
+            sTag_Route = pTag_route(1)
+            oFileWrite.WriteLine(sTag_Route)
+        ElseIf pSet_d = 4 Then
+            'routeタグ 2
+            sTag_Route = pTag_route(1)
+            oFileWrite.WriteLine(sTag_Route)
+
+            'routeタグ 3
+            sTag_Route = pTag_route(2)
+            oFileWrite.WriteLine(sTag_Route)
+        ElseIf pSet_d = 5 Then
+            'routeタグ 2
+            sTag_Route = pTag_route(1)
+            oFileWrite.WriteLine(sTag_Route)
+
+            'routeタグ 3
+            sTag_Route = pTag_route(2)
+            oFileWrite.WriteLine(sTag_Route)
+
+            'routeタグ 4
+            sTag_Route = pTag_route(3)
+            oFileWrite.WriteLine(sTag_Route)
+        End If
 
         'クローズ
         oFileWrite.Dispose()
