@@ -25,9 +25,15 @@ Module mduTxrx
         '配列を更新
         For iLoop = 1 To pSet_d
             If iLoop <> m Then
-                'routeタグ
-                sValue_route(0) = CDbl(pIti(iLoop, n - 1).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sTakasa).ToString("0.000000000000000")
-                sValue_route(1) = CDbl(pIti(iLoop, n).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n).sTakasa).ToString("0.000000000000000")
+                If n = 1 Then
+                    'routeタグ
+                    sValue_route(0) = CDbl(pIti(iLoop, 0).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, 0).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, 0).sTakasa).ToString("0.000000000000000")
+                    sValue_route(1) = CDbl(pIti(iLoop, 0).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, 0).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, 0).sTakasa).ToString("0.000000000000000")
+                Else
+                    'routeタグ
+                    sValue_route(0) = CDbl(pIti(iLoop, n - 2).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 2).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 2).sTakasa).ToString("0.000000000000000")
+                    sValue_route(1) = CDbl(pIti(iLoop, n - 1).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sTakasa).ToString("0.000000000000000")
+                End If
 
                 pTag_route(iCnt) = fncTagKeyAdd(pcTag_route, "nVertices", 2, sValue_route)
                 pTag_route(iCnt) = fncTagKeyUpdate(pTag_route(iCnt), "begin_<route> another drone tx", "another drone tx " & iCnt)
@@ -69,7 +75,7 @@ Module mduTxrx
 
         'routeタグ 1
         sTag_Route = pTag_route(0)
-                oFileWrite.WriteLine(sTag_Route)
+        oFileWrite.WriteLine(sTag_Route)
 
         'gridタグ
         oFileWrite.WriteLine(pTag_grid)
@@ -83,6 +89,8 @@ Module mduTxrx
             sTag_Route = pTag_route(1)
             oFileWrite.WriteLine(sTag_Route)
 
+            System.Threading.Thread.Sleep(500)
+
             'routeタグ 3
             sTag_Route = pTag_route(2)
             oFileWrite.WriteLine(sTag_Route)
@@ -91,9 +99,13 @@ Module mduTxrx
             sTag_Route = pTag_route(1)
             oFileWrite.WriteLine(sTag_Route)
 
+            System.Threading.Thread.Sleep(500)
+
             'routeタグ 3
             sTag_Route = pTag_route(2)
             oFileWrite.WriteLine(sTag_Route)
+
+            System.Threading.Thread.Sleep(500)
 
             'routeタグ 4
             sTag_Route = pTag_route(3)
