@@ -128,117 +128,117 @@ Module mduIti
         'n=0の場合、画面設定値から取込む
         If n = 0 Then
             ReDim Preserve p130(0)
-        Else
-            iX = 0
-            iY = 0
-            iZ = 0
-            Select Case m
-                Case 1
-                    '四捨五入
-                    iX = Math.Round(CDbl(frmMain.txtX_d1.Text), MidpointRounding.AwayFromZero)
-                    iY = Math.Round(CDbl(frmMain.txtY_d1.Text), MidpointRounding.AwayFromZero)
-                    iZ = Math.Round(CDbl(frmMain.txtZ_d1.Text), MidpointRounding.AwayFromZero)
-
-                    'pX_d1 = iX
-                    'pY_d1 = iY
-                    'pZ_d1 = iZ
-                Case 2
-                    '四捨五入
-                    iX = Math.Round(CDbl(frmMain.txtX_d2.Text), MidpointRounding.AwayFromZero)
-                    iY = Math.Round(CDbl(frmMain.txtY_d2.Text), MidpointRounding.AwayFromZero)
-                    iZ = Math.Round(CDbl(frmMain.txtZ_d2.Text), MidpointRounding.AwayFromZero)
-
-                    'pX_d2 = iX
-                    'pY_d2 = iY
-                    'pZ_d2 = iZ
-                Case 3
-                    '四捨五入
-                    iX = Math.Round(CDbl(frmMain.txtX_d3.Text), MidpointRounding.AwayFromZero)
-                    iY = Math.Round(CDbl(frmMain.txtY_d3.Text), MidpointRounding.AwayFromZero)
-                    iZ = Math.Round(CDbl(frmMain.txtZ_d3.Text), MidpointRounding.AwayFromZero)
-
-                    'pX_d3 = iX
-                    'pY_d3 = iY
-                    'pZ_d3 = iZ
-                Case 4
-                    '四捨五入
-                    iX = Math.Round(CDbl(frmMain.txtX_d4.Text), MidpointRounding.AwayFromZero)
-                    iY = Math.Round(CDbl(frmMain.txtY_d4.Text), MidpointRounding.AwayFromZero)
-                    iZ = Math.Round(CDbl(frmMain.txtZ_d4.Text), MidpointRounding.AwayFromZero)
-
-                    'pX_d4 = iX
-                    'pY_d4 = iY
-                    'pZ_d4 = iZ
-                Case 5
-                    '四捨五入
-                    iX = Math.Round(CDbl(frmMain.txtX_d5.Text), MidpointRounding.AwayFromZero)
-                    iY = Math.Round(CDbl(frmMain.txtY_d5.Text), MidpointRounding.AwayFromZero)
-                    iZ = Math.Round(CDbl(frmMain.txtZ_d5.Text), MidpointRounding.AwayFromZero)
-
-                    'pX_d5 = iX
-                    'pY_d5 = iY
-                    'pZ_d5 = iZ
-            End Select
-
-            p130(0).dCal1 = 0.0
-            p130(0).dCal2 = CDbl(frmMain.txtV.Text)
-            p130(0).iX = iX
-            p130(0).iY = iY
-            p130(0).iZ = iZ
-
-            For iRow = 1 To p130.Length - 1
-                iA1 = CInt(p130(iRow - 1).sX)
-                iA2 = CInt(p130(iRow).sX)
-                iB1 = CInt(p130(iRow - 1).sY)
-                iB2 = CInt(p130(iRow).sY)
-                iC1 = CInt(p130(iRow - 1).sZ)
-                iC2 = CInt(p130(iRow).sZ)
-                dE = p130(iRow).dCal1
-                dF = p130(iRow - 1).dCal2
-
-                dX = dF / dE * (iA2 - iA1) + iA1
-                dY = dF / dE * (iB2 - iB1) + iB1
-                dZ = dF / dE * (iC2 - iC1) + iC1
-
-                '四捨五入
-                iX = Math.Round(dX, MidpointRounding.AwayFromZero)
-                iY = Math.Round(dY, MidpointRounding.AwayFromZero)
-                iZ = Math.Round(dZ, MidpointRounding.AwayFromZero)
-
-                p130(iRow).iX = iX
-                p130(iRow).iY = iY
-                p130(iRow).iZ = iZ
-
-                'Select Case m
-                '    Case 1
-                '        pX_d1 = iX
-                '        pY_d1 = iY
-                '        pZ_d1 = iZ
-                '    Case 2
-                '        pX_d2 = iX
-                '        pY_d2 = iY
-                '        pZ_d2 = iZ
-                '    Case 3
-                '        pX_d3 = iX
-                '        pY_d3 = iY
-                '        pZ_d3 = iZ
-                '    Case 4
-                '        pX_d4 = iX
-                '        pY_d4 = iY
-                '        pZ_d4 = iZ
-                '    Case 5
-                '        pX_d5 = iX
-                '        pY_d5 = iY
-                '        pZ_d5 = iZ
-                'End Select
-
-                If dF < dE Then
-                    Exit For
-                Else
-                    p130(iRow).dCal2 = dF - dE
-                End If
-            Next
         End If
+
+        iX = 0
+        iY = 0
+        iZ = 0
+        Select Case m
+            Case 1
+                '四捨五入
+                iX = Math.Round(CDbl(frmMain.txtX_d1.Text), MidpointRounding.AwayFromZero)
+                iY = Math.Round(CDbl(frmMain.txtY_d1.Text), MidpointRounding.AwayFromZero)
+                iZ = Math.Round(CDbl(frmMain.txtZ_d1.Text), MidpointRounding.AwayFromZero)
+
+                'pX_d1 = iX
+                'pY_d1 = iY
+                'pZ_d1 = iZ
+            Case 2
+                '四捨五入
+                iX = Math.Round(CDbl(frmMain.txtX_d2.Text), MidpointRounding.AwayFromZero)
+                iY = Math.Round(CDbl(frmMain.txtY_d2.Text), MidpointRounding.AwayFromZero)
+                iZ = Math.Round(CDbl(frmMain.txtZ_d2.Text), MidpointRounding.AwayFromZero)
+
+                'pX_d2 = iX
+                'pY_d2 = iY
+                'pZ_d2 = iZ
+            Case 3
+                '四捨五入
+                iX = Math.Round(CDbl(frmMain.txtX_d3.Text), MidpointRounding.AwayFromZero)
+                iY = Math.Round(CDbl(frmMain.txtY_d3.Text), MidpointRounding.AwayFromZero)
+                iZ = Math.Round(CDbl(frmMain.txtZ_d3.Text), MidpointRounding.AwayFromZero)
+
+                'pX_d3 = iX
+                'pY_d3 = iY
+                'pZ_d3 = iZ
+            Case 4
+                '四捨五入
+                iX = Math.Round(CDbl(frmMain.txtX_d4.Text), MidpointRounding.AwayFromZero)
+                iY = Math.Round(CDbl(frmMain.txtY_d4.Text), MidpointRounding.AwayFromZero)
+                iZ = Math.Round(CDbl(frmMain.txtZ_d4.Text), MidpointRounding.AwayFromZero)
+
+                'pX_d4 = iX
+                'pY_d4 = iY
+                'pZ_d4 = iZ
+            Case 5
+                '四捨五入
+                iX = Math.Round(CDbl(frmMain.txtX_d5.Text), MidpointRounding.AwayFromZero)
+                iY = Math.Round(CDbl(frmMain.txtY_d5.Text), MidpointRounding.AwayFromZero)
+                iZ = Math.Round(CDbl(frmMain.txtZ_d5.Text), MidpointRounding.AwayFromZero)
+
+                'pX_d5 = iX
+                'pY_d5 = iY
+                'pZ_d5 = iZ
+        End Select
+
+        p130(0).dCal1 = 0.0
+        p130(0).dCal2 = CDbl(frmMain.txtV.Text)
+        p130(0).iX = iX
+        p130(0).iY = iY
+        p130(0).iZ = iZ
+
+        For iRow = 1 To p130.Length - 1
+            iA1 = CInt(p130(iRow - 1).sX)
+            iA2 = CInt(p130(iRow).sX)
+            iB1 = CInt(p130(iRow - 1).sY)
+            iB2 = CInt(p130(iRow).sY)
+            iC1 = CInt(p130(iRow - 1).sZ)
+            iC2 = CInt(p130(iRow).sZ)
+            dE = p130(iRow).dCal1
+            dF = p130(iRow - 1).dCal2
+
+            dX = dF / dE * (iA2 - iA1) + iA1
+            dY = dF / dE * (iB2 - iB1) + iB1
+            dZ = dF / dE * (iC2 - iC1) + iC1
+
+            '四捨五入
+            iX = Math.Round(dX, MidpointRounding.AwayFromZero)
+            iY = Math.Round(dY, MidpointRounding.AwayFromZero)
+            iZ = Math.Round(dZ, MidpointRounding.AwayFromZero)
+
+            p130(iRow).iX = iX
+            p130(iRow).iY = iY
+            p130(iRow).iZ = iZ
+
+            'Select Case m
+            '    Case 1
+            '        pX_d1 = iX
+            '        pY_d1 = iY
+            '        pZ_d1 = iZ
+            '    Case 2
+            '        pX_d2 = iX
+            '        pY_d2 = iY
+            '        pZ_d2 = iZ
+            '    Case 3
+            '        pX_d3 = iX
+            '        pY_d3 = iY
+            '        pZ_d3 = iZ
+            '    Case 4
+            '        pX_d4 = iX
+            '        pY_d4 = iY
+            '        pZ_d4 = iZ
+            '    Case 5
+            '        pX_d5 = iX
+            '        pY_d5 = iY
+            '        pZ_d5 = iZ
+            'End Select
+
+            If dF < dE Then
+                Exit For
+            Else
+                p130(iRow).dCal2 = dF - dE
+            End If
+        Next
 
         fncItiCalc = True
 
