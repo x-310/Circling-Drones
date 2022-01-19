@@ -43,17 +43,19 @@ Module mduMain
         End If
 
         ReDim Preserve p130(-1)
+        ReDim Preserve p130_2(-1)
         ReDim Preserve pTag_route(pSet_d - 1)
         'Itiファイルを作成する
         For m = pSet_d To 1 Step -1
             Call subLogOutput("> [d" & m & "_v0]")
+
+            '************
             '130.CSVファイルから130配列にセット
             If fncFile2Grid(pc130_Grid) Then
-                'fncMsgBox("130xxx.CSVファイル取込み=>OK")
-                Call subLogOutput("> 　" & "130.CSVファイルから130配列にセット=>OK")
+                Call subLogOutput("> 　" & "130.CSVから130配列にセット=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> 　" & "130.CSVファイルから130配列にセット=>NG")
+                Call subLogOutput("> 　" & "130.CSVから130配列にセット=>NG")
                 Call subOkNg_Color(1)
             End If
 
@@ -68,12 +70,41 @@ Module mduMain
 
             '経路計算(n=0)
             If fncItiCalc(m, 0) Then
-                Call subLogOutput("> 　経路計算(n=0)=>OK")
+                Call subLogOutput("> 　経路計算 n=0 =>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> 　経路計算(n=0)=>NG")
+                Call subLogOutput("> 　経路計算 n=0 =>NG")
                 Call subOkNg_Color(1)
             End If
+            '************
+            'tが倍用
+            '130.CSVファイルから130配列にセット
+            If fncFile2Grid_2() Then
+                Call subLogOutput("> 　" & "130.CSVから130配列にセット(tが倍)=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> 　" & "130.CSVから130配列にセット(tが倍)=>NG")
+                Call subOkNg_Color(1)
+            End If
+
+            '130配列から飛距離計算
+            If fnc130Calc_2() Then
+                Call subLogOutput("> 　" & "130配列から飛距離計算(tが倍)=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> 　" & "130配列から飛距離計算(tが倍)=>NG")
+                Call subOkNg_Color(1)
+            End If
+
+            '経路計算(n=0)
+            If fncItiCalc_2(m, 0) Then
+                Call subLogOutput("> 　経路計算 n=0 (tが倍)=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> 　経路計算 n=0 (tが倍)=>NG")
+                Call subOkNg_Color(1)
+            End If
+            '************
 
             'Itiファイル(n=0)を作成
             If fncItiFile(m, 0) Then
@@ -319,6 +350,41 @@ Module mduMain
         End If
 
         Application.DoEvents()
+        '************
+        'tが倍用
+        '130.CSVファイルから130配列にセット
+        If fncFile2Grid_2() Then
+            Call subLogOutput("> 　" & "130.CSVから130配列にセット(tが倍)=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> 　" & "130.CSVから130配列にセット(tが倍)=>NG")
+            Call subOkNg_Color(1)
+        End If
+
+        Application.DoEvents()
+
+        '130配列から飛距離計算
+        If fnc130Calc_2() Then
+            Call subLogOutput("> 　" & "130配列から飛距離計算(tが倍)=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> 　" & "130配列から飛距離計算(tが倍)=>NG")
+            Call subOkNg_Color(1)
+        End If
+
+        Application.DoEvents()
+
+        '経路計算
+        If fncItiCalc_2(m, n) Then
+            Call subLogOutput("> 　経路計算 n=0 (tが倍)=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> 　経路計算 n=0 (tが倍)=>NG")
+            Call subOkNg_Color(1)
+        End If
+
+        Application.DoEvents()
+        '************
 
         'Itiファイルを作成する
         If fncItiFile(m, n) Then
@@ -426,6 +492,32 @@ Module mduMain
         'クローズ
         oFileWrite.Dispose()
         oFileWrite.Close()
+
+        '****************************
+
+        Dim sFile2 As String = "d" & m & "_v" & n & "_p130_2.log"
+        Call subLogOutput("> " & sFile2)
+
+        Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\" & sFile2, True, System.Text.Encoding.UTF8)
+
+        sData = ""
+        ''経路計算情報用配列
+        For iLoop = 0 To p130_2.Length - 1
+            sData = p130_2(iLoop).sX & "," &
+                    p130_2(iLoop).sY & "," &
+                    p130_2(iLoop).sZ & "," &
+                    p130_2(iLoop).sAA & "," &
+                    p130_2(iLoop).dCal1 & "," &
+                    p130_2(iLoop).dCal2 & "," &
+                    p130_2(iLoop).iX & "," &
+                    p130_2(iLoop).iY & "," &
+                    p130_2(iLoop).iZ
+            oFileWrite2.WriteLine(sData)
+        Next
+
+        'クローズ
+        oFileWrite2.Dispose()
+        oFileWrite2.Close()
 
     End Sub
 End Module

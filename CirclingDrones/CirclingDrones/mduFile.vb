@@ -489,9 +489,6 @@ Module mduFile
         iRET = GetPrivateProfileString(pcSec_Route, pcKey_t, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pT = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
-        'vt：飛距離FD
-        pVT = CInt(pV) * CInt(pT)
-
         'ファイル切替
         pFileFlg = 0
         iRET = GetPrivateProfileString(pcSec_FileFlg, pcKey_sw, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
@@ -526,9 +523,13 @@ Module mduFile
         iRET = GetPrivateProfileString(pcSec_Set, pcKey_14, DEF_STR, sBuf, sBuf.Length, pIniPath & "\" & pcIniFileName)
         pP2mDir = sBuf.Substring(0, sBuf.IndexOf(vbNullChar))
 
-        frmMain.txtV.Text = pV                  'ドローン速度
-        frmMain.txtT.Text = pT                  '周回毎経過時間
-        frmMain.txtVT.Text = pVT                '飛距離FD
+        frmMain.txtV.Text = pV                                  'ドローン速度
+        frmMain.txtT.Text = pT                                  '周回毎経過時間
+        frmMain.txtVT.Text = CDbl(pV) * CDbl(pT)                '飛距離FD
+
+        frmMain.txtV2.Text = pV                                 'ドローン速度
+        frmMain.txtT2.Text = CDbl(pT) + CDbl(pT)                '周回毎経過時間
+        frmMain.txtVT2.Text = CDbl(pV) * (CDbl(pT) + CDbl(pT))  '飛距離FD
 
         frmMain.cmbFileFlg.Text = pFileFlg      'ファイル切替フラグ
         frmMain.txtExe1.Text = pExe1_Path       'Exe1_Path
@@ -569,41 +570,41 @@ Module mduFile
                     frmMain.txtY_d1.Text = sY            'Y設定値
                     frmMain.txtZ_d1.Text = sZ            'Z設定値
 
-                    pX_d1 = sX
-                    pY_d1 = sY
-                    pZ_d1 = sZ
+                    'pX_d1 = sX
+                    'pY_d1 = sY
+                    'pZ_d1 = sZ
                 Case 2
                     frmMain.txtX_d2.Text = sX            'X設定値
                     frmMain.txtY_d2.Text = sY            'Y設定値
                     frmMain.txtZ_d2.Text = sZ            'Z設定値
 
-                    pX_d2 = sX
-                    pY_d2 = sY
-                    pZ_d2 = sZ
+                    'pX_d2 = sX
+                    'pY_d2 = sY
+                    'pZ_d2 = sZ
                 Case 3
                     frmMain.txtX_d3.Text = sX            'X設定値
                     frmMain.txtY_d3.Text = sY            'Y設定値
                     frmMain.txtZ_d3.Text = sZ            'Z設定値
 
-                    pX_d3 = sX
-                    pY_d3 = sY
-                    pZ_d3 = sZ
+                    'pX_d3 = sX
+                    'pY_d3 = sY
+                    'pZ_d3 = sZ
                 Case 4
                     frmMain.txtX_d4.Text = sX            'X設定値
                     frmMain.txtY_d4.Text = sY            'Y設定値
                     frmMain.txtZ_d4.Text = sZ            'Z設定値
 
-                    pX_d4 = sX
-                    pY_d4 = sY
-                    pZ_d4 = sZ
+                    'pX_d4 = sX
+                    'pY_d4 = sY
+                    'pZ_d4 = sZ
                 Case 5
                     frmMain.txtX_d5.Text = sX            'X設定値
                     frmMain.txtY_d5.Text = sY            'Y設定値
                     frmMain.txtZ_d5.Text = sZ            'Z設定値
 
-                    pX_d5 = sX
-                    pY_d5 = sY
-                    pZ_d5 = sZ
+                    'pX_d5 = sX
+                    'pY_d5 = sY
+                    'pZ_d5 = sZ
             End Select
         Next
 

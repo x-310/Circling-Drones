@@ -15,9 +15,9 @@ Module mduCommon
     ''' -----------------------------------------------------------------------------
     Public Sub subCtlReset()
 
-        frmMain.cmbSet_d.Text = "2"
+        frmMain.cmbSet_d.Text = "3"
         frmMain.cmbSet_Interval.Text = "1000"
-        frmMain.cmbSet_v.Text = "2"
+        frmMain.cmbSet_v.Text = "4"
 
         frmMain.txtNow_m.Text = ""      '現在ローンNo
         frmMain.txtNow_n.Text = ""      '現在周目
@@ -26,6 +26,8 @@ Module mduCommon
         frmMain.txtV.Text = ""          'ドローン速度
         frmMain.txtT.Text = ""          '周回毎経過時間
         frmMain.txtVT.Text = ""         '飛距離FD
+        frmMain.txtT2.Text = ""          '周回毎経過時間
+        frmMain.txtVT2.Text = ""         '飛距離FD
 
         frmMain.txtIniPath.Text = ""    'INIファイルパス
         frmMain.txtPjName.Text = ""     'プロジェクト名
@@ -55,7 +57,7 @@ Module mduCommon
         frmMain.txtCom5.Text = ""        'コマンド
 
         frmMain.txtStopFlg.Text = "0"   '周回終了フラグ=1:終了
-        frmMain.txtNG.Text = "" 'NGカウント表示
+        frmMain.txtNG.Text = ""         'NGカウント表示
 
         'タブのサイズを固定する
         frmMain.TabControl1.SizeMode = TabSizeMode.Fixed

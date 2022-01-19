@@ -35,12 +35,12 @@ Partial Class frmMain
         Me.Label31 = New System.Windows.Forms.Label()
         Me.txtLogDisp = New System.Windows.Forms.RichTextBox()
         Me.txtNow_m = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.txtNow_n = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.btnStart = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbSet_v = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.pnlSet = New System.Windows.Forms.Panel()
         Me.cmbDebug = New System.Windows.Forms.ComboBox()
         Me.Label39 = New System.Windows.Forms.Label()
@@ -52,6 +52,12 @@ Partial Class frmMain
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.txtVT2 = New System.Windows.Forms.TextBox()
+        Me.txtT2 = New System.Windows.Forms.TextBox()
+        Me.txtV2 = New System.Windows.Forms.TextBox()
         Me.btnPower = New System.Windows.Forms.Button()
         Me.btnTxrx = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
@@ -245,12 +251,12 @@ Partial Class frmMain
         Me.pnlCon.Controls.Add(Me.Label31)
         Me.pnlCon.Controls.Add(Me.txtLogDisp)
         Me.pnlCon.Controls.Add(Me.txtNow_m)
-        Me.pnlCon.Controls.Add(Me.Label7)
         Me.pnlCon.Controls.Add(Me.txtNow_n)
-        Me.pnlCon.Controls.Add(Me.Label6)
         Me.pnlCon.Controls.Add(Me.btnStart)
         Me.pnlCon.Controls.Add(Me.Label2)
         Me.pnlCon.Controls.Add(Me.cmbSet_v)
+        Me.pnlCon.Controls.Add(Me.Label6)
+        Me.pnlCon.Controls.Add(Me.Label7)
         Me.pnlCon.Location = New System.Drawing.Point(9, 93)
         Me.pnlCon.Name = "pnlCon"
         Me.pnlCon.Size = New System.Drawing.Size(343, 411)
@@ -274,10 +280,9 @@ Partial Class frmMain
         'txtNG
         '
         Me.txtNG.BackColor = System.Drawing.Color.Black
-        Me.txtNG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtNG.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txtNG.ForeColor = System.Drawing.Color.Red
-        Me.txtNG.Location = New System.Drawing.Point(280, 14)
+        Me.txtNG.Location = New System.Drawing.Point(301, 14)
         Me.txtNG.MaxLength = 100
         Me.txtNG.Name = "txtNG"
         Me.txtNG.ReadOnly = True
@@ -291,7 +296,7 @@ Partial Class frmMain
         Me.Label31.AutoSize = True
         Me.Label31.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label31.ForeColor = System.Drawing.Color.Black
-        Me.Label31.Location = New System.Drawing.Point(247, 18)
+        Me.Label31.Location = New System.Drawing.Point(268, 18)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(38, 15)
         Me.Label31.TabIndex = 314
@@ -313,65 +318,41 @@ Partial Class frmMain
         'txtNow_m
         '
         Me.txtNow_m.BackColor = System.Drawing.Color.Black
-        Me.txtNow_m.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.txtNow_m.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txtNow_m.ForeColor = System.Drawing.Color.Yellow
-        Me.txtNow_m.Location = New System.Drawing.Point(103, 56)
+        Me.txtNow_m.Location = New System.Drawing.Point(204, 16)
         Me.txtNow_m.MaxLength = 100
         Me.txtNow_m.Name = "txtNow_m"
         Me.txtNow_m.ReadOnly = True
-        Me.txtNow_m.Size = New System.Drawing.Size(27, 28)
+        Me.txtNow_m.Size = New System.Drawing.Size(32, 22)
         Me.txtNow_m.TabIndex = 312
         Me.txtNow_m.TabStop = False
         Me.txtNow_m.Text = "1"
         Me.txtNow_m.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(23, 66)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(85, 15)
-        Me.Label7.TabIndex = 311
-        Me.Label7.Text = "ドローンNo："
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'txtNow_n
         '
         Me.txtNow_n.BackColor = System.Drawing.Color.Black
-        Me.txtNow_n.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.txtNow_n.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txtNow_n.ForeColor = System.Drawing.Color.Yellow
-        Me.txtNow_n.Location = New System.Drawing.Point(131, 56)
+        Me.txtNow_n.Location = New System.Drawing.Point(231, 16)
         Me.txtNow_n.MaxLength = 100
         Me.txtNow_n.Name = "txtNow_n"
         Me.txtNow_n.ReadOnly = True
-        Me.txtNow_n.Size = New System.Drawing.Size(63, 28)
+        Me.txtNow_n.Size = New System.Drawing.Size(32, 22)
         Me.txtNow_n.TabIndex = 310
         Me.txtNow_n.TabStop = False
-        Me.txtNow_n.Text = "1000"
+        Me.txtNow_n.Text = "1"
         Me.txtNow_n.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(193, 66)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(39, 15)
-        Me.Label6.TabIndex = 309
-        Me.Label6.Text = "周目"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'btnStart
         '
         Me.btnStart.BackColor = System.Drawing.Color.Transparent
         Me.btnStart.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.btnStart.ForeColor = System.Drawing.Color.Black
-        Me.btnStart.Location = New System.Drawing.Point(146, 9)
+        Me.btnStart.Location = New System.Drawing.Point(119, 9)
         Me.btnStart.Name = "btnStart"
-        Me.btnStart.Size = New System.Drawing.Size(86, 32)
+        Me.btnStart.Size = New System.Drawing.Size(77, 32)
         Me.btnStart.TabIndex = 13
         Me.btnStart.Text = "スタート"
         Me.btnStart.UseVisualStyleBackColor = False
@@ -381,7 +362,7 @@ Partial Class frmMain
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(17, 18)
+        Me.Label2.Location = New System.Drawing.Point(6, 18)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 15)
         Me.Label2.TabIndex = 305
@@ -394,11 +375,35 @@ Partial Class frmMain
         Me.cmbSet_v.DisplayMember = "1"
         Me.cmbSet_v.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSet_v.FormattingEnabled = True
-        Me.cmbSet_v.Items.AddRange(New Object() {"1", "2", "10", "50", "100", "500", "1000"})
-        Me.cmbSet_v.Location = New System.Drawing.Point(86, 16)
+        Me.cmbSet_v.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
+        Me.cmbSet_v.Location = New System.Drawing.Point(75, 16)
         Me.cmbSet_v.Name = "cmbSet_v"
-        Me.cmbSet_v.Size = New System.Drawing.Size(49, 20)
+        Me.cmbSet_v.Size = New System.Drawing.Size(36, 20)
         Me.cmbSet_v.TabIndex = 12
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.Black
+        Me.Label6.Location = New System.Drawing.Point(237, 2)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(16, 15)
+        Me.Label6.TabIndex = 316
+        Me.Label6.Text = "n"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Black
+        Me.Label7.Location = New System.Drawing.Point(210, 2)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(19, 15)
+        Me.Label7.TabIndex = 311
+        Me.Label7.Text = "m"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'pnlSet
         '
@@ -527,6 +532,12 @@ Partial Class frmMain
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel4.Controls.Add(Me.Label42)
+        Me.Panel4.Controls.Add(Me.Label41)
+        Me.Panel4.Controls.Add(Me.Label40)
+        Me.Panel4.Controls.Add(Me.txtVT2)
+        Me.Panel4.Controls.Add(Me.txtT2)
+        Me.Panel4.Controls.Add(Me.txtV2)
         Me.Panel4.Controls.Add(Me.btnPower)
         Me.Panel4.Controls.Add(Me.btnTxrx)
         Me.Panel4.Controls.Add(Me.Label25)
@@ -543,6 +554,78 @@ Partial Class frmMain
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(343, 500)
         Me.Panel4.TabIndex = 40
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label42.ForeColor = System.Drawing.Color.Black
+        Me.Label42.Location = New System.Drawing.Point(193, 302)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(124, 15)
+        Me.Label42.TabIndex = 331
+        Me.Label42.Text = "tを倍にする(v*t)："
+        Me.Label42.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label41.ForeColor = System.Drawing.Color.Black
+        Me.Label41.Location = New System.Drawing.Point(193, 252)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(107, 15)
+        Me.Label41.TabIndex = 330
+        Me.Label41.Text = "tを倍にする(t)："
+        Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label40.ForeColor = System.Drawing.Color.Black
+        Me.Label40.Location = New System.Drawing.Point(193, 197)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(109, 15)
+        Me.Label40.TabIndex = 329
+        Me.Label40.Text = "tを倍にする(v)："
+        Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtVT2
+        '
+        Me.txtVT2.BackColor = System.Drawing.Color.LightGray
+        Me.txtVT2.Location = New System.Drawing.Point(196, 320)
+        Me.txtVT2.MaxLength = 100
+        Me.txtVT2.Name = "txtVT2"
+        Me.txtVT2.ReadOnly = True
+        Me.txtVT2.Size = New System.Drawing.Size(114, 19)
+        Me.txtVT2.TabIndex = 328
+        Me.txtVT2.TabStop = False
+        Me.txtVT2.Text = "8"
+        '
+        'txtT2
+        '
+        Me.txtT2.BackColor = System.Drawing.Color.LightGray
+        Me.txtT2.Location = New System.Drawing.Point(196, 270)
+        Me.txtT2.MaxLength = 100
+        Me.txtT2.Name = "txtT2"
+        Me.txtT2.ReadOnly = True
+        Me.txtT2.Size = New System.Drawing.Size(114, 19)
+        Me.txtT2.TabIndex = 327
+        Me.txtT2.TabStop = False
+        Me.txtT2.Text = "1"
+        '
+        'txtV2
+        '
+        Me.txtV2.BackColor = System.Drawing.Color.LightGray
+        Me.txtV2.Location = New System.Drawing.Point(196, 215)
+        Me.txtV2.MaxLength = 100
+        Me.txtV2.Name = "txtV2"
+        Me.txtV2.ReadOnly = True
+        Me.txtV2.Size = New System.Drawing.Size(114, 19)
+        Me.txtV2.TabIndex = 326
+        Me.txtV2.TabStop = False
+        Me.txtV2.Text = "10"
         '
         'btnPower
         '
@@ -594,7 +677,7 @@ Partial Class frmMain
         Me.txtT.Location = New System.Drawing.Point(27, 270)
         Me.txtT.MaxLength = 100
         Me.txtT.Name = "txtT"
-        Me.txtT.Size = New System.Drawing.Size(186, 19)
+        Me.txtT.Size = New System.Drawing.Size(110, 19)
         Me.txtT.TabIndex = 43
         Me.txtT.Text = "１"
         '
@@ -648,7 +731,7 @@ Partial Class frmMain
         Me.txtVT.MaxLength = 100
         Me.txtVT.Name = "txtVT"
         Me.txtVT.ReadOnly = True
-        Me.txtVT.Size = New System.Drawing.Size(190, 19)
+        Me.txtVT.Size = New System.Drawing.Size(114, 19)
         Me.txtVT.TabIndex = 44
         Me.txtVT.TabStop = False
         Me.txtVT.Text = "8"
@@ -670,7 +753,7 @@ Partial Class frmMain
         Me.txtV.Location = New System.Drawing.Point(26, 215)
         Me.txtV.MaxLength = 100
         Me.txtV.Name = "txtV"
-        Me.txtV.Size = New System.Drawing.Size(186, 19)
+        Me.txtV.Size = New System.Drawing.Size(110, 19)
         Me.txtV.TabIndex = 42
         Me.txtV.Text = "10"
         '
@@ -1554,7 +1637,7 @@ Partial Class frmMain
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Circling Drones ver.220118"
+        Me.Text = "Circling Drones ver.220119"
         Me.pnlBtn.ResumeLayout(False)
         Me.pnlCon.ResumeLayout(False)
         Me.pnlCon.PerformLayout()
@@ -1611,7 +1694,6 @@ Partial Class frmMain
     Friend WithEvents btnIniSave As Button
     Friend WithEvents btnIniGet As Button
     Public WithEvents txtNow_n As TextBox
-    Friend WithEvents Label6 As Label
     Public WithEvents txtNow_m As TextBox
     Friend WithEvents Label7 As Label
     Public WithEvents txtPjPath As TextBox
@@ -1706,4 +1788,11 @@ Partial Class frmMain
     Friend WithEvents Label39 As Label
     Friend WithEvents btnPower As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Label42 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents Label40 As Label
+    Public WithEvents txtVT2 As TextBox
+    Public WithEvents txtT2 As TextBox
+    Public WithEvents txtV2 As TextBox
+    Friend WithEvents Label6 As Label
 End Class

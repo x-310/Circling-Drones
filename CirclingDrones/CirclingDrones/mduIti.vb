@@ -5,6 +5,44 @@ Module mduIti
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
+    ''' 130ファイルを配列にセットする
+    ''' </summary>
+    ''' <param name="sFileName">130Gridファイルのパス</param>
+    ''' <returns>True:OK False:NG</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncFile2Grid(ByVal sFileName As String) As Boolean
+
+        fncFile2Grid = False
+
+        '130.CSVファイルを配列にセットする
+        Dim arrCsv()() As String = ReadCsv(sFileName, False, False)
+        Dim iRow As Integer = 0
+
+        If arrCsv.Length > 0 Then
+            For iRow = 0 To arrCsv.Length - 1
+                ReDim Preserve p130(iRow)       'p130 に新規行を追加
+                If iRow = 0 Then
+                    p130(iRow).sX = arrCsv(iRow)(0).ToString
+                    p130(iRow).sY = arrCsv(iRow)(1).ToString
+                    p130(iRow).sZ = arrCsv(iRow)(2).ToString
+                Else
+                    p130(iRow).sX = arrCsv(iRow)(0).ToString
+                    p130(iRow).sY = arrCsv(iRow)(1).ToString
+                    p130(iRow).sZ = arrCsv(iRow)(2).ToString
+                    p130(iRow).sAA = arrCsv(iRow)(3).ToString
+                End If
+            Next
+        End If
+
+        fncFile2Grid = True
+
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
     ''' 130配列から飛距離計算する
     ''' </summary>
     ''' <returns>True:OK False:NG</returns>
@@ -74,23 +112,23 @@ Module mduIti
         Dim iB1, iB2 As Integer
         Dim iC1, iC2 As Integer
         Dim dE, dF As Double
-        Dim dX, dY, dZ As Double
-        Dim iX, iY, iZ As Integer
+        Dim dX As Double = 0
+        Dim dY As Double = 0
+        Dim dZ As Double = 0
+        Dim iX As Integer = 0.0
+        Dim iY As Integer = 0.0
+        Dim iZ As Integer = 0.0
 
-        iX = 0 : iY = 0 : iZ = 0
-        dX = 0.0 : dY = 0.0 : dZ = 0.0
+        'pX_d1 = 0 : pY_d1 = 0 : pZ_d1 = 0
+        'pX_d2 = 0 : pY_d2 = 0 : pZ_d2 = 0
+        'pX_d3 = 0 : pY_d3 = 0 : pZ_d3 = 0
+        'pX_d4 = 0 : pY_d4 = 0 : pZ_d4 = 0
+        'pX_d5 = 0 : pY_d5 = 0 : pZ_d5 = 0
 
-        pX_d1 = 0 : pY_d1 = 0 : pZ_d1 = 0
-        pX_d2 = 0 : pY_d2 = 0 : pZ_d2 = 0
-        pX_d3 = 0 : pY_d3 = 0 : pZ_d3 = 0
-        pX_d4 = 0 : pY_d4 = 0 : pZ_d4 = 0
-        pX_d5 = 0 : pY_d5 = 0 : pZ_d5 = 0
         'n=0の場合、画面設定値から取込む
         If n = 0 Then
             ReDim Preserve p130(0)
-
-            p130(0).dCal1 = 0.0
-            p130(0).dCal2 = CDbl(frmMain.txtV.Text)
+        Else
             iX = 0
             iY = 0
             iZ = 0
@@ -101,70 +139,52 @@ Module mduIti
                     iY = Math.Round(CDbl(frmMain.txtY_d1.Text), MidpointRounding.AwayFromZero)
                     iZ = Math.Round(CDbl(frmMain.txtZ_d1.Text), MidpointRounding.AwayFromZero)
 
-                    p130(iRow).iX = iX
-                    p130(iRow).iY = iY
-                    p130(iRow).iZ = iZ
-
-                    pX_d1 = iX
-                    pY_d1 = iY
-                    pZ_d1 = iZ
+                    'pX_d1 = iX
+                    'pY_d1 = iY
+                    'pZ_d1 = iZ
                 Case 2
                     '四捨五入
                     iX = Math.Round(CDbl(frmMain.txtX_d2.Text), MidpointRounding.AwayFromZero)
                     iY = Math.Round(CDbl(frmMain.txtY_d2.Text), MidpointRounding.AwayFromZero)
                     iZ = Math.Round(CDbl(frmMain.txtZ_d2.Text), MidpointRounding.AwayFromZero)
 
-                    p130(iRow).iX = iX
-                    p130(iRow).iY = iY
-                    p130(iRow).iZ = iZ
-
-                    pX_d2 = iX
-                    pY_d2 = iY
-                    pZ_d2 = iZ
+                    'pX_d2 = iX
+                    'pY_d2 = iY
+                    'pZ_d2 = iZ
                 Case 3
                     '四捨五入
                     iX = Math.Round(CDbl(frmMain.txtX_d3.Text), MidpointRounding.AwayFromZero)
                     iY = Math.Round(CDbl(frmMain.txtY_d3.Text), MidpointRounding.AwayFromZero)
                     iZ = Math.Round(CDbl(frmMain.txtZ_d3.Text), MidpointRounding.AwayFromZero)
 
-                    p130(iRow).iX = iX
-                    p130(iRow).iY = iY
-                    p130(iRow).iZ = iZ
-
-                    pX_d3 = iX
-                    pY_d3 = iY
-                    pZ_d3 = iZ
+                    'pX_d3 = iX
+                    'pY_d3 = iY
+                    'pZ_d3 = iZ
                 Case 4
                     '四捨五入
                     iX = Math.Round(CDbl(frmMain.txtX_d4.Text), MidpointRounding.AwayFromZero)
                     iY = Math.Round(CDbl(frmMain.txtY_d4.Text), MidpointRounding.AwayFromZero)
                     iZ = Math.Round(CDbl(frmMain.txtZ_d4.Text), MidpointRounding.AwayFromZero)
 
-                    p130(iRow).iX = iX
-                    p130(iRow).iY = iY
-                    p130(iRow).iZ = iZ
-
-                    pX_d4 = iX
-                    pY_d4 = iY
-                    pZ_d4 = iZ
+                    'pX_d4 = iX
+                    'pY_d4 = iY
+                    'pZ_d4 = iZ
                 Case 5
                     '四捨五入
                     iX = Math.Round(CDbl(frmMain.txtX_d5.Text), MidpointRounding.AwayFromZero)
                     iY = Math.Round(CDbl(frmMain.txtY_d5.Text), MidpointRounding.AwayFromZero)
                     iZ = Math.Round(CDbl(frmMain.txtZ_d5.Text), MidpointRounding.AwayFromZero)
 
-                    p130(iRow).iX = iX
-                    p130(iRow).iY = iY
-                    p130(iRow).iZ = iZ
-
-                    pX_d5 = iX
-                    pY_d5 = iY
-                    pZ_d5 = iZ
+                    'pX_d5 = iX
+                    'pY_d5 = iY
+                    'pZ_d5 = iZ
             End Select
-        Else
-            p130(0).iX = CInt(pIti(m, 0).sIdo)
-            p130(0).iY = CInt(pIti(m, 0).sKeido)
-            p130(0).iZ = CInt(pIti(m, 0).sTakasa)
+
+            p130(0).dCal1 = 0.0
+            p130(0).dCal2 = CDbl(frmMain.txtV.Text)
+            p130(0).iX = iX
+            p130(0).iY = iY
+            p130(0).iZ = iZ
 
             For iRow = 1 To p130.Length - 1
                 iA1 = CInt(p130(iRow - 1).sX)
@@ -189,28 +209,28 @@ Module mduIti
                 p130(iRow).iY = iY
                 p130(iRow).iZ = iZ
 
-                Select Case m
-                    Case 1
-                        pX_d1 = iX
-                        pY_d1 = iY
-                        pZ_d1 = iZ
-                    Case 2
-                        pX_d2 = iX
-                        pY_d2 = iY
-                        pZ_d2 = iZ
-                    Case 3
-                        pX_d3 = iX
-                        pY_d3 = iY
-                        pZ_d3 = iZ
-                    Case 4
-                        pX_d4 = iX
-                        pY_d4 = iY
-                        pZ_d4 = iZ
-                    Case 5
-                        pX_d5 = iX
-                        pY_d5 = iY
-                        pZ_d5 = iZ
-                End Select
+                'Select Case m
+                '    Case 1
+                '        pX_d1 = iX
+                '        pY_d1 = iY
+                '        pZ_d1 = iZ
+                '    Case 2
+                '        pX_d2 = iX
+                '        pY_d2 = iY
+                '        pZ_d2 = iZ
+                '    Case 3
+                '        pX_d3 = iX
+                '        pY_d3 = iY
+                '        pZ_d3 = iZ
+                '    Case 4
+                '        pX_d4 = iX
+                '        pY_d4 = iY
+                '        pZ_d4 = iZ
+                '    Case 5
+                '        pX_d5 = iX
+                '        pY_d5 = iY
+                '        pZ_d5 = iZ
+                'End Select
 
                 If dF < dE Then
                     Exit For
@@ -240,67 +260,91 @@ Module mduIti
         fncItiFile = False
 
         Dim sData As String = ""            'ファイル書込み用データ
-        ReDim Preserve pIti(pcMax_d, n)     '位置情報
+        Dim iLoop As Integer = 0
+        ReDim Preserve pIti(pcMax_d, n + 1)   '位置情報
 
         'm=1～、n=0～
+        pIti(m, n).sIdo = p130(n).iX
+        pIti(m, n).sKeido = p130(n).iY
+        pIti(m, n).sTakasa = p130(n).iZ
+
+        pIti(m, n + 1).sIdo = p130_2(n).iX
+        pIti(m, n + 1).sKeido = p130_2(n).iY
+        pIti(m, n + 1).sTakasa = p130_2(n).iZ
+
         Select Case m
             Case 1
                 'm=1
-                pIti(m, n).sIdo = pX_d1
-                pIti(m, n).sKeido = pY_d1
-                pIti(m, n).sTakasa = pZ_d1
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d1_iti.csv", False, System.Text.Encoding.UTF8)
 
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d1_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d1 & "," & pY_d1 & "," & pZ_d1
-                oFileWrite.WriteLine(sData)
+                For iLoop = 0 To n
+                    sData = pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa
+                    oFileWrite.WriteLine(sData)
+
+                    sData = pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa
+                    oFileWrite.WriteLine(sData)
+                Next
+
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
             Case 2
                 'm=2
-                pIti(m, n).sIdo = pX_d2
-                pIti(m, n).sKeido = pY_d2
-                pIti(m, n).sTakasa = pZ_d2
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d2_iti.csv", False, System.Text.Encoding.UTF8)
 
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d2_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d2 & "," & pY_d2 & "," & pZ_d2
-                oFileWrite.WriteLine(sData)
+                For iLoop = 0 To n
+                    sData = pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa
+                    oFileWrite.WriteLine(sData)
+
+                    sData = pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa
+                    oFileWrite.WriteLine(sData)
+                Next
+
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
             Case 3
                 'm=3
-                pIti(m, n).sIdo = pX_d3
-                pIti(m, n).sKeido = pY_d3
-                pIti(m, n).sTakasa = pZ_d3
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d3_iti.csv", False, System.Text.Encoding.UTF8)
 
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d3_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d3 & "," & pY_d3 & "," & pZ_d3
-                oFileWrite.WriteLine(sData)
+                For iLoop = 0 To n
+                    sData = pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa
+                    oFileWrite.WriteLine(sData)
+
+                    sData = pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa
+                    oFileWrite.WriteLine(sData)
+                Next
+
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
             Case 4
                 'm=4
-                pIti(m, n).sIdo = pX_d4
-                pIti(m, n).sKeido = pY_d4
-                pIti(m, n).sTakasa = pZ_d4
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d4_iti.csv", False, System.Text.Encoding.UTF8)
 
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d4_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d4 & "," & pY_d4 & "," & pZ_d4
-                oFileWrite.WriteLine(sData)
+                For iLoop = 0 To n
+                    sData = pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa
+                    oFileWrite.WriteLine(sData)
+
+                    sData = pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa
+                    oFileWrite.WriteLine(sData)
+                Next
+
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
             Case 5
                 'm=5
-                pIti(m, n).sIdo = pX_d5
-                pIti(m, n).sKeido = pY_d5
-                pIti(m, n).sTakasa = pZ_d5
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d5_iti.csv", False, System.Text.Encoding.UTF8)
 
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d5_iti.csv", True, System.Text.Encoding.UTF8)
-                sData = pX_d5 & "," & pY_d5 & "," & pZ_d5
-                oFileWrite.WriteLine(sData)
+                For iLoop = 0 To n
+                    sData = pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa
+                    oFileWrite.WriteLine(sData)
+
+                    sData = pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa
+                    oFileWrite.WriteLine(sData)
+                Next
+
                 'クローズ
                 oFileWrite.Dispose()
                 oFileWrite.Close()
@@ -342,41 +386,4 @@ Module mduIti
 
     End Function
 
-    ''' -----------------------------------------------------------------------------
-    ''' <summary>
-    ''' 130ファイルを配列にセットする
-    ''' </summary>
-    ''' <param name="sFileName">130Gridファイルのパス</param>
-    ''' <returns>True:OK False:NG</returns>
-    ''' <remarks></remarks>
-    ''' <author>RKA</author>
-    ''' <history></history>
-    ''' -----------------------------------------------------------------------------
-    Public Function fncFile2Grid(ByVal sFileName As String) As Boolean
-
-        fncFile2Grid = False
-
-        '130.CSVファイルを配列にセットする
-        Dim arrCsv()() As String = ReadCsv(sFileName, False, False)
-        Dim iRow As Integer = 0
-
-        If arrCsv.Length > 0 Then
-            For iRow = 0 To arrCsv.Length - 1
-                ReDim Preserve p130(iRow)       'p130 に新規行を追加
-                If iRow = 0 Then
-                    p130(iRow).sX = arrCsv(iRow)(0).ToString
-                    p130(iRow).sY = arrCsv(iRow)(1).ToString
-                    p130(iRow).sZ = arrCsv(iRow)(2).ToString
-                Else
-                    p130(iRow).sX = arrCsv(iRow)(0).ToString
-                    p130(iRow).sY = arrCsv(iRow)(1).ToString
-                    p130(iRow).sZ = arrCsv(iRow)(2).ToString
-                    p130(iRow).sAA = arrCsv(iRow)(3).ToString
-                End If
-            Next
-        End If
-
-        fncFile2Grid = True
-
-    End Function
 End Module

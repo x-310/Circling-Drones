@@ -10,7 +10,7 @@ Module mduConst
     '画面用
     Public Const pcAppName As String = "Circling Drones"            'アプリ名
     Public Const pcMax_d As Integer = 5                             'ドローン台数の最大値
-    Public Const pcMax_v As Integer = 1000                          '周回の最大値
+    Public Const pcMax_v As Integer = 5                             '周回の最大値
 
     'モジュール用
     Public Const pcDoNothing As String = "DoNothing"                'DoNothingファイル名
@@ -102,6 +102,7 @@ Module mduConst
     Public pP2m() As M_P2m_Def      'P2m情報
     Public pTxrx() As M_Txrx_Def    'Txrx情報
     Public p130() As M_130_Def      '経路計算情報
+    Public p130_2() As M_130_Def    '経路計算情報(tが倍用)
 
     'ファイル切替用
     '=========================================
@@ -119,7 +120,6 @@ Module mduConst
     'INIファイル用
     Public pV As String             'ドローン速度
     Public pT As String             '周回毎経過時間
-    Public pVT As String            '飛距離FD
 
     Public pIniPath As String       'INIファイルパス
     Public pPjName As String        'プロジェクト名
@@ -131,21 +131,22 @@ Module mduConst
     Public pExe2_Path As String     'calcpropパス
     Public pExe22 As String         'calcprop引数
 
-    Public pX_d1 As String          'd1のX設定値
-    Public pY_d1 As String          'd1のY設定値
-    Public pZ_d1 As String          'd1のZ設定値
-    Public pX_d2 As String          'd2のX設定値
-    Public pY_d2 As String          'd2のY設定値
-    Public pZ_d2 As String          'd2のZ設定値
-    Public pX_d3 As String          'd3のX設定値
-    Public pY_d3 As String          'd3のY設定値
-    Public pZ_d3 As String          'd3のZ設定値
-    Public pX_d4 As String          'd4のX設定値
-    Public pY_d4 As String          'd4のY設定値
-    Public pZ_d4 As String          'd4のZ設定値
-    Public pX_d5 As String          'd5のX設定値
-    Public pY_d5 As String          'd5のY設定値
-    Public pZ_d5 As String          'd5のZ設定値
+    'Public pX_d1 As String          'd1のX設定値
+    'Public pY_d1 As String          'd1のY設定値
+    'Public pZ_d1 As String          'd1のZ設定値
+    'Public pX_d2 As String          'd2のX設定値
+    'Public pY_d2 As String          'd2のY設定値
+    'Public pZ_d2 As String          'd2のZ設定値
+    'Public pX_d3 As String          'd3のX設定値
+    'Public pY_d3 As String          'd3のY設定値
+    'Public pZ_d3 As String          'd3のZ設定値
+    'Public pX_d4 As String          'd4のX設定値
+    'Public pY_d4 As String          'd4のY設定値
+    'Public pZ_d4 As String          'd4のZ設定値
+    'Public pX_d5 As String          'd5のX設定値
+    'Public pY_d5 As String          'd5のY設定値
+    'Public pZ_d5 As String          'd5のZ設定値
 
     Public pCommand(5) As String        'プロットコマンド値
+
 End Module

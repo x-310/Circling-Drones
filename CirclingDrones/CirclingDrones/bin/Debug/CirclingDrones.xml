@@ -319,6 +319,41 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduIti_2.fncFile2Grid_2">
+ -----------------------------------------------------------------------------
+ <summary>
+ 130ファイルを配列にセットする
+ </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduIti_2.fnc130Calc_2">
+ -----------------------------------------------------------------------------
+ <summary>
+ 130配列から飛距離計算する
+ </summary>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduIti_2.fncItiCalc_2(System.Int32,System.Int32)">
+ -----------------------------------------------------------------------------
+ <summary>
+ 経路計算する
+ </summary>
+ <param name="m">ドローン</param>
+ <param name="n">周回</param>
+ <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduMain.subPreProc">
  -----------------------------------------------------------------------------
  <summary>
@@ -354,6 +389,18 @@ CirclingDrones
  <summary>
  Logファイル出力処理
  </summary>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduIti.fncFile2Grid(System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ 130ファイルを配列にセットする
+ </summary>
+ <param name="sFileName">130Gridファイルのパス</param>
+ <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
  <history></history>
@@ -403,18 +450,6 @@ CirclingDrones
  </summary>
  <param name="m">ドローン</param>
  <param name="n">周回</param>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
-<member name="M:CirclingDrones.mduIti.fncFile2Grid(System.String)">
- -----------------------------------------------------------------------------
- <summary>
- 130ファイルを配列にセットする
- </summary>
- <param name="sFileName">130Gridファイルのパス</param>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
  <author>RKA</author>
