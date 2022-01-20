@@ -277,9 +277,9 @@ Module mduIti
                 'm=1
                 Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d1_iti.csv", False, System.Text.Encoding.UTF8)
 
+                sData = ""
                 For iLoop = 0 To n
                     sData = sData & pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa & vbCrLf
-                    sData = sData & pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa & vbCrLf
                 Next
                 oFileWrite.WriteLine(sData)
 
@@ -292,7 +292,6 @@ Module mduIti
 
                 For iLoop = 0 To n
                     sData = sData & pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa & vbCrLf
-                    sData = sData & pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa & vbCrLf
                 Next
                 oFileWrite.WriteLine(sData)
 
@@ -305,7 +304,6 @@ Module mduIti
 
                 For iLoop = 0 To n
                     sData = sData & pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa & vbCrLf
-                    sData = sData & pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa & vbCrLf
                 Next
                 oFileWrite.WriteLine(sData)
 
@@ -318,7 +316,6 @@ Module mduIti
 
                 For iLoop = 0 To n
                     sData = sData & pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa & vbCrLf
-                    sData = sData & pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa & vbCrLf
                 Next
                 oFileWrite.WriteLine(sData)
 
@@ -331,7 +328,6 @@ Module mduIti
 
                 For iLoop = 0 To n
                     sData = sData & pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa & vbCrLf
-                    sData = sData & pIti(m, iLoop + 1).sIdo & "," & pIti(m, iLoop + 1).sKeido & "," & pIti(m, iLoop + 1).sTakasa & vbCrLf
                 Next
                 oFileWrite.WriteLine(sData)
 
