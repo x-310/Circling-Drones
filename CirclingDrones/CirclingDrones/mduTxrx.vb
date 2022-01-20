@@ -84,11 +84,13 @@ Module mduTxrx
             'routeタグ 2
             'sTag_Route = pTag_route(1)
             sTag_Route = fncTagKeyUpdate(pTag_route(1), "project_id", "43")
+            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
         ElseIf pSet_d = 4 Then
             'routeタグ 2
             'sTag_Route = pTag_route(1)
             sTag_Route = fncTagKeyUpdate(pTag_route(1), "project_id", "43")
+            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
 
             System.Threading.Thread.Sleep(500)
@@ -96,11 +98,13 @@ Module mduTxrx
             'routeタグ 3
             'sTag_Route = pTag_route(2)
             sTag_Route = fncTagKeyUpdate(pTag_route(2), "project_id", "44")
+            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
         ElseIf pSet_d = 5 Then
             'routeタグ 2
             'sTag_Route = pTag_route(1)
             sTag_Route = fncTagKeyUpdate(pTag_route(1), "project_id", "43")
+            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
 
             System.Threading.Thread.Sleep(500)
@@ -108,6 +112,7 @@ Module mduTxrx
             'routeタグ 3
             'sTag_Route = pTag_route(2)
             sTag_Route = fncTagKeyUpdate(pTag_route(2), "project_id", "44")
+            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
 
             System.Threading.Thread.Sleep(500)
@@ -115,6 +120,7 @@ Module mduTxrx
             'routeタグ 4
             'sTag_Route = pTag_route(3)
             sTag_Route = fncTagKeyUpdate(pTag_route(3), "project_id", "45")
+            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
         End If
 
