@@ -42,6 +42,8 @@ terrain
 end_<reference>
 spacing 1000.00000
 nVertices 2
+1
+2
 end_<location>
 pattern_show_arrow no
 pattern_show_as_sphere no
@@ -73,9 +75,7 @@ end_<sbr>
 NoiseFigure 3.00000
 end_<receiver>
 powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
-end_<route>
-
-"
+end_<route>"
 
 	Public pTag_route() As String           'routeタグ
 

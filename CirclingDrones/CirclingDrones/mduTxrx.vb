@@ -36,7 +36,7 @@ Module mduTxrx
                 End If
                 pTag_route(iCnt) = fncTagKeyAdd(pcTag_route, "nVertices", 2, sValue_route)
 
-                pTag_route(iCnt) = fncTagKeyUpdate(pTag_route(iCnt), "begin_<route> another drone tx", "another drone tx " & iCnt + 1)
+                pTag_route(iCnt) = fncTagKeyUpdate(pTag_route(iCnt), "begin_<route> another drone tx", iCnt + 1)
 
                 'pTag_route(iCnt) = fncTagCrLf(pTag_route(iCnt))
 
@@ -82,45 +82,33 @@ Module mduTxrx
 
         If pSet_d = 3 Then
             'routeタグ 2
-            'sTag_Route = pTag_route(1)
             sTag_Route = fncTagKeyUpdate(pTag_route(1), "project_id", "43")
-            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
         ElseIf pSet_d = 4 Then
             'routeタグ 2
-            'sTag_Route = pTag_route(1)
             sTag_Route = fncTagKeyUpdate(pTag_route(1), "project_id", "43")
-            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
 
             System.Threading.Thread.Sleep(500)
 
             'routeタグ 3
-            'sTag_Route = pTag_route(2)
             sTag_Route = fncTagKeyUpdate(pTag_route(2), "project_id", "44")
-            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
         ElseIf pSet_d = 5 Then
             'routeタグ 2
-            'sTag_Route = pTag_route(1)
             sTag_Route = fncTagKeyUpdate(pTag_route(1), "project_id", "43")
-            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
 
             System.Threading.Thread.Sleep(500)
 
             'routeタグ 3
-            'sTag_Route = pTag_route(2)
             sTag_Route = fncTagKeyUpdate(pTag_route(2), "project_id", "44")
-            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
 
             System.Threading.Thread.Sleep(500)
 
             'routeタグ 4
-            'sTag_Route = pTag_route(3)
             sTag_Route = fncTagKeyUpdate(pTag_route(3), "project_id", "45")
-            sTag_Route = sTag_Route + vbCrLf + "end_<route>"
             oFileWrite.WriteLine(sTag_Route)
         End If
 
@@ -170,71 +158,50 @@ Module mduTxrx
 
         fncTagKeyAdd = ""
 
+        Dim sMemData() As String
         Dim sRowData As String = ""     '行データ
         Dim sColData As String = ""     '1文字データ
         Dim sData As String = ""        'ブロックデータ
-        Dim iLOOP As Integer = 0        'ブロックデータループ
-        Dim jLOOP As Integer = 0        '行データループ
+        Dim iLOOP As Integer            'ブロックデータループ
         Dim iRowCnt As Integer = 0      '行カウント
         Dim jRowCnt As Integer = 0      '行カウント
-        Dim iAddFlg As Integer = 0      '追加フラグ
+        Dim iColNo As Integer = 0
+        Dim sColData_Mae As String = ""
 
-        If iAddCnt <= sValue.Length Then
-            If sBlockData.Length >= 1 Then
-                For iLOOP = 1 To sBlockData.Length
-                    If Mid(sBlockData, iLOOP, 1) = vbLf Then
+        If sBlockData.Length >= 1 Then
+            ReDim Preserve sMemData(-1)
+            For iLOOP = 1 To sBlockData.Length
+                If Mid(sBlockData, iLOOP, 1) = vbLf Or Mid(sBlockData, iLOOP, 1) = vbCr Then
+                    If sData <> "" Then
+                        ReDim Preserve sMemData(iRowCnt)
+
+                        sMemData(iRowCnt) = sData & vbCrLf
+                        sData = ""
                         '行カウント
                         iRowCnt = iRowCnt + 1
                     End If
-                Next
+                Else
+                    sData = sData + Mid(sBlockData, iLOOP, 1)
+                End If
+            Next
 
-                For iLOOP = 1 To sBlockData.Length
-                    '行データ取得
-                    If Mid(sBlockData, iLOOP, 1) = vbLf Or Mid(sBlockData, iLOOP, 1) = vbCr Then
-                        If sRowData.Contains(sTagName) Then
-                            '行データに該当タグがある
-                            sData = sData & sRowData & vbCrLf
-                            '行カウント
-                            jRowCnt = jRowCnt + 1
-                            '追加フラグ
-                            iAddFlg = 1
+            ReDim Preserve sMemData(iRowCnt)
+            sMemData(iRowCnt) = sData
 
-                            '行データクリア
-                            sRowData = ""
-                        Else
-                            If iAddFlg = 1 Then
-                                For jLOOP = 0 To iAddCnt - 1
-                                    '行追加
-                                    sData = sData & sValue(jLOOP) & vbCrLf
-                                    '行カウント
-                                    jRowCnt = jRowCnt + 1
-                                Next
-                                '追加フラグ
-                                iAddFlg = 0
-                            End If
+            For iLOOP = 0 To iRowCnt
+                '行データ取得
+                iColNo = sMemData(iLOOP).IndexOf(sTagName)
+                If iColNo <> -1 Then
+                    sMemData(iLOOP + 1) = sValue(0) & vbCrLf
+                    sMemData(iLOOP + 2) = sValue(1) & vbCrLf
+                End If
+            Next
 
-                            '行データに該当タグはない
-                            If sRowData <> "" Then
-                                '行カウント
-                                jRowCnt = jRowCnt + 1
-
-                                'ブロックデータにセットする
-                                If jRowCnt >= (iRowCnt + iAddCnt) Then
-                                    '最終行は改行しない
-                                    sData = sData & sRowData
-                                Else
-                                    sData = sData & sRowData & vbCrLf
-                                End If
-                                '行データクリア
-                                sRowData = ""
-                            End If
-                        End If
-                    Else
-                        '行データ
-                        sRowData = sRowData & Mid(sBlockData, iLOOP, 1)
-                    End If
-                Next
-            End If
+            sData = ""
+            For iLOOP = 0 To iRowCnt
+                '行データ取得
+                sData = sData + sMemData(iLOOP)
+            Next
         End If
 
         fncTagKeyAdd = sData
@@ -257,64 +224,49 @@ Module mduTxrx
 
         fncTagKeyUpdate = ""
 
+        Dim sMemData() As String
         Dim sRowData As String = ""     '行データ
         Dim sColData As String = ""     '1文字データ
         Dim sData As String = ""        'ブロックデータ
         Dim iLOOP As Integer            'ブロックデータループ
-        Dim jLOOP As Integer            '行データループ
         Dim iRowCnt As Integer = 0      '行カウント
         Dim jRowCnt As Integer = 0      '行カウント
+        Dim iColNo As Integer = 0
+        Dim sColData_Mae As String = ""
 
         If sBlockData.Length >= 1 Then
+            ReDim Preserve sMemData(-1)
             For iLOOP = 1 To sBlockData.Length
-                If Mid(sBlockData, iLOOP, 1) = vbLf Then
-                    '行カウント
-                    iRowCnt = iRowCnt + 1
+                If Mid(sBlockData, iLOOP, 1) = vbLf Or Mid(sBlockData, iLOOP, 1) = vbCr Then
+                    If sData <> "" Then
+                        ReDim Preserve sMemData(iRowCnt)
+
+                        sMemData(iRowCnt) = sData & vbCrLf
+                        sData = ""
+                        '行カウント
+                        iRowCnt = iRowCnt + 1
+                    End If
+                Else
+                    sData = sData + Mid(sBlockData, iLOOP, 1)
                 End If
             Next
 
-            For iLOOP = 1 To sBlockData.Length
+            ReDim Preserve sMemData(iRowCnt)
+            sMemData(iRowCnt) = sData
+
+            For iLOOP = 0 To iRowCnt
                 '行データ取得
-                If Mid(sBlockData, iLOOP, 1) = vbLf Or Mid(sBlockData, iLOOP, 1) = vbCr Then
-                    If sRowData.Contains(sTagName) Then
-                        '行データに該当タグがある
-                        sColData = ""
-                        For jLOOP = 1 To sRowData.Length
-                            'スペース後に値を更新する
-                            If Mid(sRowData, jLOOP, 1) = " " Then
-                                'ブロックデータにセットする
-                                sData = sData & (sColData & " " & sValue) & vbCrLf
-                                Exit For
-                            Else
-                                sColData = sColData & Mid(sRowData, jLOOP, 1)
-                            End If
-                        Next
-                        '行カウント
-                        jRowCnt = jRowCnt + 1
-
-                        '行データクリア
-                        sRowData = ""
-                    Else
-                        '行データに該当タグはない
-                        If sRowData <> "" Then
-                            '行カウント
-                            jRowCnt = jRowCnt + 1
-
-                            'ブロックデータにセットする
-                            If jRowCnt = iRowCnt Then
-                                '最終行は改行しない
-                                sData = sData & sRowData
-                            Else
-                                sData = sData & sRowData & vbCrLf
-                            End If
-                            '行データクリア
-                            sRowData = ""
-                        End If
-                    End If
-                Else
-                    '行データ
-                    sRowData = sRowData & Mid(sBlockData, iLOOP, 1)
+                iColNo = sMemData(iLOOP).IndexOf(sTagName)
+                If iColNo <> -1 Then
+                    sColData_Mae = Mid(sMemData(iLOOP), 1, iColNo + sTagName.Length)
+                    sMemData(iLOOP) = sColData_Mae + " " & sValue & vbCrLf
                 End If
+            Next
+
+            sData = ""
+            For iLOOP = 0 To iRowCnt
+                '行データ取得
+                sData = sData + sMemData(iLOOP)
             Next
         End If
 

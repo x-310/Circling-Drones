@@ -1637,7 +1637,7 @@ Partial Class frmMain
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Circling Drones ver.220119"
+        Me.Text = "Circling Drones ver.220122"
         Me.pnlBtn.ResumeLayout(False)
         Me.pnlCon.ResumeLayout(False)
         Me.pnlCon.PerformLayout()
