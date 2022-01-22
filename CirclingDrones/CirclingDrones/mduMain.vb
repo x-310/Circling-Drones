@@ -471,7 +471,8 @@ Module mduMain
         Dim sFile As String = "d" & m & "_v" & n & "_p130.log"
         Call subLogOutput("> " & sFile)
 
-        Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\" & sFile, True, System.Text.Encoding.UTF8)
+        'Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\" & sFile, True, System.Text.Encoding.UTF8)
+        Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\" & sFile, True, pEnc)
         Dim sData As String
         Dim iLoop As Integer
 
@@ -498,7 +499,8 @@ Module mduMain
         Dim sFile2 As String = "d" & m & "_v" & n & "_p130_2.log"
         Call subLogOutput("> " & sFile2)
 
-        Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\" & sFile2, True, System.Text.Encoding.UTF8)
+        'Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\" & sFile2, True, System.Text.Encoding.UTF8)
+        Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\" & sFile2, True, pEnc)
 
         sData = ""
         ''経路計算情報用配列

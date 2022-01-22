@@ -176,9 +176,15 @@ Module mduIti_2
                 dE = p130_2(iRow).dCal1
                 dF = p130_2(iRow - 1).dCal2
 
-                dX = dF / dE * (iA2 - iA1) + iA1
-                dY = dF / dE * (iB2 - iB1) + iB1
-                dZ = dF / dE * (iC2 - iC1) + iC1
+                If dE = 0 Then
+                    dX = 0
+                    dY = 0
+                    dZ = 0
+                Else
+                    dX = dF / dE * (iA2 - iA1) + iA1
+                    dY = dF / dE * (iB2 - iB1) + iB1
+                    dZ = dF / dE * (iC2 - iC1) + iC1
+                End If
 
                 '四捨五入
                 iX = Math.Round(dX, MidpointRounding.AwayFromZero)

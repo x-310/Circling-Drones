@@ -197,9 +197,15 @@ Module mduIti
             dE = p130(iRow).dCal1
             dF = p130(iRow - 1).dCal2
 
-            dX = dF / dE * (iA2 - iA1) + iA1
-            dY = dF / dE * (iB2 - iB1) + iB1
-            dZ = dF / dE * (iC2 - iC1) + iC1
+            If dE = 0 Then
+                dX = 0
+                dY = 0
+                dZ = 0
+            Else
+                dX = dF / dE * (iA2 - iA1) + iA1
+                dY = dF / dE * (iB2 - iB1) + iB1
+                dZ = dF / dE * (iC2 - iC1) + iC1
+            End If
 
             '四捨五入
             iX = Math.Round(dX, MidpointRounding.AwayFromZero)
@@ -275,7 +281,8 @@ Module mduIti
         Select Case m
             Case 1
                 'm=1
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d1_iti.csv", False, System.Text.Encoding.UTF8)
+                'Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d1_iti.csv", False, System.Text.Encoding.UTF8)
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d1_iti.csv", False, pEnc)
 
                 sData = ""
                 For iLoop = 0 To n
@@ -288,7 +295,8 @@ Module mduIti
                 oFileWrite.Close()
             Case 2
                 'm=2
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d2_iti.csv", False, System.Text.Encoding.UTF8)
+                'Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d2_iti.csv", False, System.Text.Encoding.UTF8)
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d2_iti.csv", False, pEnc)
 
                 For iLoop = 0 To n
                     sData = sData & pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa & vbCrLf
@@ -300,7 +308,8 @@ Module mduIti
                 oFileWrite.Close()
             Case 3
                 'm=3
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d3_iti.csv", False, System.Text.Encoding.UTF8)
+                'Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d3_iti.csv", False, System.Text.Encoding.UTF8)
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d3_iti.csv", False, pEnc)
 
                 For iLoop = 0 To n
                     sData = sData & pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa & vbCrLf
@@ -312,7 +321,8 @@ Module mduIti
                 oFileWrite.Close()
             Case 4
                 'm=4
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d4_iti.csv", False, System.Text.Encoding.UTF8)
+                'Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d4_iti.csv", False, System.Text.Encoding.UTF8)
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d4_iti.csv", False, pEnc)
 
                 For iLoop = 0 To n
                     sData = sData & pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa & vbCrLf
@@ -324,7 +334,8 @@ Module mduIti
                 oFileWrite.Close()
             Case 5
                 'm=5
-                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d5_iti.csv", False, System.Text.Encoding.UTF8)
+                'Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d5_iti.csv", False, System.Text.Encoding.UTF8)
+                Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\d5_iti.csv", False, pEnc)
 
                 For iLoop = 0 To n
                     sData = sData & pIti(m, iLoop).sIdo & "," & pIti(m, iLoop).sKeido & "," & pIti(m, iLoop).sTakasa & vbCrLf
@@ -357,7 +368,9 @@ Module mduIti
 
         Dim sData As String = ""            'ファイル書込み用データ
 
-        Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\New_Iti.csv", False, System.Text.Encoding.UTF8)
+        'Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\New_Iti.csv", False, System.Text.Encoding.UTF8)
+        Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\New_Iti.csv", False, pEnc)
+
         If n = 0 Then
             sData = pIti(m, 0).sIdo & "," & pIti(m, 0).sKeido & "," & pIti(m, 0).sTakasa
         Else

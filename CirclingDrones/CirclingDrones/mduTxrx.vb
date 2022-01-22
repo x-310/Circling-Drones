@@ -66,8 +66,7 @@ Module mduTxrx
         'txrxファイル作成
         'Dim oFileWrite As New System.IO.StreamWriter(sFile, False, System.Text.Encoding.GetEncoding("shift_jis"))
         'Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
-        Dim enc As System.Text.Encoding = System.Text.Encoding.GetEncoding("shift_jis")
-        Dim oFileWrite As New System.IO.StreamWriter(sFile, False, enc)
+        Dim oFileWrite As New System.IO.StreamWriter(sFile, False, pEnc)
 
         'routeタグ
         Dim iCnt As Integer = 0

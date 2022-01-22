@@ -199,8 +199,8 @@ end_<points>"
         Dim sFile = pPjPath & "\" & pPjName & ".txrx"   'txrxファイルパス
 
         'txrxファイル作成
-        Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
-        Dim oFileWrite As New System.IO.StreamWriter(sFile, False, enc)
+        'Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
+        Dim oFileWrite As New System.IO.StreamWriter(sFile, False, pEnc)
 
         'タグ
         Dim pTag_Test As String = pcTag_test.Replace(vbLf, vbCrLf)

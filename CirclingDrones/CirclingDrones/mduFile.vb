@@ -275,7 +275,8 @@ Module mduFile
 
         If pP2m.Length >= 1 Then
             'Power.txtファイル作成
-            Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power.txt", True, System.Text.Encoding.UTF8)
+            'Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power.txt", True, System.Text.Encoding.UTF8)
+            Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power.txt", True, pEnc)
 
             For iRow = 0 To pP2m.Length - 1
                 oFileWrite.WriteLine(pP2m(iRow).sPower)
