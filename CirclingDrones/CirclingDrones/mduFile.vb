@@ -278,6 +278,8 @@ Module mduFile
             'Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power.txt", True, System.Text.Encoding.UTF8)
             Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power.txt", True, pEnc)
 
+            pP2m(iRow).sPower = fncTagLf(pP2m(iRow).sPower)
+
             For iRow = 0 To pP2m.Length - 1
                 oFileWrite.WriteLine(pP2m(iRow).sPower)
             Next

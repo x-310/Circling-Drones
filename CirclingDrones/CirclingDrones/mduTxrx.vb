@@ -283,15 +283,15 @@ Module mduTxrx
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncTagCrLf(ByVal sBlockData As String) As String
+    Public Function fncTagLf(ByVal sBlockData As String) As String
 
-        fncTagCrLf = ""
+        fncTagLf = ""
 
         Dim sData As String = ""        'ブロックデータ
 
-        sData = sBlockData.Replace(vbLf, vbCrLf)
+        sData = sBlockData.Replace(vbCrLf, vbLf)
 
-        fncTagCrLf = sData
+        fncTagLf = sData
 
     End Function
 

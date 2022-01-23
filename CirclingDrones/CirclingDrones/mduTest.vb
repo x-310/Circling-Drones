@@ -28,7 +28,7 @@ Module mduTest
         End If
         '***************************************************
         '経路計算(n=0)する
-        If fncItiCalc(m, 0) Then
+        If fnc130Calc(m, 0) Then
             'fncMsgBox("経路計算=>OK")
         Else
             fncErrors("経路計算=>NG")
@@ -42,7 +42,7 @@ Module mduTest
         End If
 
         '130配列から飛距離計算する
-        If fnc130Calc() Then
+        If fncCalc130() Then
             'fncMsgBox("130xxx.CSVファイル取込み=>OK")
         Else
             fncErrors("130xxx.CSVファイル取込み=>NG")
@@ -57,7 +57,7 @@ Module mduTest
 
         '***************************************************
         '経路計算する
-        If fncItiCalc(m, n) Then
+        If fnc130Calc(m, n) Then
             'fncMsgBox("経路計算=>OK")
         Else
             fncErrors("経路計算=>NG")
@@ -71,7 +71,7 @@ Module mduTest
         End If
 
         '130配列から飛距離計算する
-        If fnc130Calc() Then
+        If fncCalc130() Then
             'fncMsgBox("130xxx.CSVファイル取込み=>OK")
         Else
             fncErrors("130xxx.CSVファイル取込み=>NG")

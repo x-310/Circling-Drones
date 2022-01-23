@@ -16,15 +16,13 @@ Module mduMain
         Call subLogOutput("")
         Call subLogOutput("*** 前処理 ***")
 
-        'Logファイルを削除
-        Call subFileDel_w(pPjPath + "\*.log")
         'Csvファイルを削除
         Call subFileDel_w(pPjPath + "\*.csv")
         'Txrxファイルを削除
         Call subFileDel_w(pPjPath + "\*.txrx")
         'p2mファイルを削除
         'Call subFileDel_w(pPjPath + pP2mFile)
-        Call subLogOutput("> " & "ファイル(*.log,.csv,.txrx)削除=>OK")
+        Call subLogOutput("> " & "ファイル(.csv,.txrx)削除=>OK")
         Call subOkNg_Color(0)
 
         If frmMain.cmbDebug.Text = "ON" Then
@@ -44,69 +42,51 @@ Module mduMain
 
         ReDim Preserve p130(-1)
         ReDim Preserve p130_2(-1)
-        ReDim Preserve pTag_route(pSet_d - 1)
+
         'Itiファイルを作成する
-        For m = pSet_d To 1 Step -1
+        For m = 1 To pSet_d
             Call subLogOutput("> [d" & m & "_v0]")
 
-            '************
-            '130.CSVファイルから130配列にセット
-            If fncFile2Grid(pc130_Grid) Then
-                Call subLogOutput("> 　" & "130.CSVから130配列にセット=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> 　" & "130.CSVから130配列にセット=>NG")
-                Call subOkNg_Color(1)
-            End If
-
-            '130配列から飛距離計算
-            If fnc130Calc() Then
-                Call subLogOutput("> 　" & "130配列から飛距離計算=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> 　" & "130配列から飛距離計算=>NG")
-                Call subOkNg_Color(1)
-            End If
-
-            '経路計算(n=0)
-            If fncItiCalc(m, 0) Then
-                Call subLogOutput("> 　経路計算 n=0 =>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> 　経路計算 n=0 =>NG")
-                Call subOkNg_Color(1)
-            End If
-            '************
-            'tが倍用
-            '130.CSVファイルから130配列にセット
-            If fncFile2Grid_2() Then
-                Call subLogOutput("> 　" & "130.CSVから130配列にセット(tが倍)=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> 　" & "130.CSVから130配列にセット(tが倍)=>NG")
-                Call subOkNg_Color(1)
-            End If
-
-            '130配列から飛距離計算
-            If fnc130Calc_2() Then
-                Call subLogOutput("> 　" & "130配列から飛距離計算(tが倍)=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> 　" & "130配列から飛距離計算(tが倍)=>NG")
-                Call subOkNg_Color(1)
-            End If
-
-            '経路計算(n=0)
-            If fncItiCalc_2(m, 0) Then
-                Call subLogOutput("> 　経路計算 n=0 (tが倍)=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> 　経路計算 n=0 (tが倍)=>NG")
-                Call subOkNg_Color(1)
-            End If
-            '************
-
             'Itiファイル(n=0)を作成
+            ReDim Preserve pIti(pcMax_d, 1)   '位置情報
+            ReDim Preserve p130(0)
+            ReDim Preserve p130_2(0)
+
+            Dim sX As String = ""
+            Dim sY As String = ""
+            Dim sZ As String = ""
+
+            Select Case m
+                Case 1
+                    sX = frmMain.txtX_d1.Text
+                    sY = frmMain.txtY_d1.Text
+                    sZ = frmMain.txtZ_d1.Text
+                Case 2
+                    sX = frmMain.txtX_d2.Text
+                    sY = frmMain.txtY_d2.Text
+                    sZ = frmMain.txtZ_d2.Text
+                Case 3
+                    sX = frmMain.txtX_d3.Text
+                    sY = frmMain.txtY_d3.Text
+                    sZ = frmMain.txtZ_d3.Text
+                Case 4
+                    sX = frmMain.txtX_d4.Text
+                    sY = frmMain.txtY_d4.Text
+                    sZ = frmMain.txtZ_d4.Text
+                Case 5
+                    sX = frmMain.txtX_d5.Text
+                    sY = frmMain.txtY_d5.Text
+                    sZ = frmMain.txtZ_d5.Text
+            End Select
+
+            pIti(m, 0).sIdo = sX
+            pIti(m, 0).sKeido = sY
+            pIti(m, 0).sTakasa = sZ
+
+            pIti(m, 1).sIdo = sX
+            pIti(m, 1).sKeido = sY
+            pIti(m, 1).sTakasa = sZ
+
             If fncItiFile(m, 0) Then
                 Call subLogOutput("> 　" & "Itiファイル(n=0)作成=>OK")
                 Call subOkNg_Color(0)
@@ -115,15 +95,27 @@ Module mduMain
                 Call subOkNg_Color(1)
             End If
 
-            'New_Itiファイルを作成する
-            If fncNewItiFile(m, 0) Then
-                Call subLogOutput("> 　" & "New_Itiファイル作成=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> 　" & "New_Itiファイル作成=>NG")
-                Call subOkNg_Color(1)
-            End If
+            '130配列を作成
+            p130(0).dCal1 = 0.0
+            p130(0).dCal2 = CDbl(frmMain.txtV.Text)            'p130(0).sX = sX
+            p130(0).sY = sY
+            p130(0).sZ = sZ
+
+            p130_2(0).dCal1 = 0.0
+            p130_2(0).dCal2 = CDbl(frmMain.txtV.Text)            'p130(0).sX = sX
+            p130_2(0).sX = sX
+            p130_2(0).sY = sY
+            p130_2(0).sZ = sZ
         Next
+
+        'New_Itiファイルを作成する
+        If fncNewItiFile(1, 0) Then
+            Call subLogOutput("> 　" & "New_Itiファイル作成=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> 　" & "New_Itiファイル作成=>NG")
+            Call subOkNg_Color(1)
+        End If
 
     End Sub
 
@@ -195,6 +187,7 @@ Module mduMain
         Dim iLoop As Integer
         Dim iRowCnt As Integer = 0
 
+        ReDim Preserve pTag_route(pSet_d - 1)
         ReDim Preserve pP2m(-1)
 
         'P2mファイル数確認
@@ -330,7 +323,7 @@ Module mduMain
         End If
 
         '130配列から飛距離計算する
-        If fnc130Calc() Then
+        If fncCalc130() Then
             Call subLogOutput("> 130配列から飛距離計算=>OK")
             Call subOkNg_Color(0)
         Else
@@ -341,7 +334,7 @@ Module mduMain
         Application.DoEvents()
 
         '経路計算する
-        If fncItiCalc(m, n) Then
+        If fnc130Calc(m, n) Then
             Call subLogOutput("> 経路計算=>OK")
             Call subOkNg_Color(0)
         Else
@@ -364,7 +357,7 @@ Module mduMain
         Application.DoEvents()
 
         '130配列から飛距離計算
-        If fnc130Calc_2() Then
+        If fncCalc130_2() Then
             Call subLogOutput("> 　" & "130配列から飛距離計算(tが倍)=>OK")
             Call subOkNg_Color(0)
         Else
@@ -375,7 +368,7 @@ Module mduMain
         Application.DoEvents()
 
         '経路計算
-        If fncItiCalc_2(m, n) Then
+        If fnc130Calc_2(m, n) Then
             Call subLogOutput("> 　経路計算 n=0 (tが倍)=>OK")
             Call subOkNg_Color(0)
         Else
@@ -468,7 +461,7 @@ Module mduMain
 
         '***************************************************
 
-        Dim sFile As String = "d" & m & "_v" & n & "_p130.log"
+        Dim sFile As String = "d" & m & "_v" & n & "_p130_log.csv"
         Call subLogOutput("> " & sFile)
 
         'Dim oFileWrite As New System.IO.StreamWriter(pPjPath & "\" & sFile, True, System.Text.Encoding.UTF8)
@@ -496,7 +489,7 @@ Module mduMain
 
         '****************************
 
-        Dim sFile2 As String = "d" & m & "_v" & n & "_p130_2.log"
+        Dim sFile2 As String = "d" & m & "_v" & n & "_p130_2_log.csv"
         Call subLogOutput("> " & sFile2)
 
         'Dim oFileWrite2 As New System.IO.StreamWriter(pPjPath & "\" & sFile2, True, System.Text.Encoding.UTF8)

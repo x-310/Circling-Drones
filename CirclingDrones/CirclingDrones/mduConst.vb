@@ -149,5 +149,7 @@ Module mduConst
 
     Public pCommand(5) As String        'プロットコマンド値
 
-    Public pEnc As System.Text.Encoding = System.Text.Encoding.GetEncoding("shift_jis")
+    Public pEnc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
+    'Public pEnc As System.Text.Encoding = System.Text.Encoding.Default
+    'Public pEnc As System.Text.Encoding = System.Text.Encoding.GetEncoding("shift_jis")
 End Module

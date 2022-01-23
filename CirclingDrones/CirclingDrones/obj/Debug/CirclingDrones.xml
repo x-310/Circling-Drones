@@ -330,7 +330,7 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduIti_2.fnc130Calc_2">
+<member name="M:CirclingDrones.mduIti_2.fncCalc130_2">
  -----------------------------------------------------------------------------
  <summary>
  130配列から飛距離計算する
@@ -341,7 +341,7 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduIti_2.fncItiCalc_2(System.Int32,System.Int32)">
+<member name="M:CirclingDrones.mduIti_2.fnc130Calc_2(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
  経路計算する
@@ -406,7 +406,7 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduIti.fnc130Calc">
+<member name="M:CirclingDrones.mduIti.fncCalc130">
  -----------------------------------------------------------------------------
  <summary>
  130配列から飛距離計算する
@@ -417,7 +417,7 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduIti.fncItiCalc(System.Int32,System.Int32)">
+<member name="M:CirclingDrones.mduIti.fnc130Calc(System.Int32,System.Int32)">
  -----------------------------------------------------------------------------
  <summary>
  経路計算する
@@ -541,7 +541,7 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduTxrx.fncTagCrLf(System.String)">
+<member name="M:CirclingDrones.mduTxrx.fncTagLf(System.String)">
  -----------------------------------------------------------------------------
  <summary>
  行末をCrLfに更新する

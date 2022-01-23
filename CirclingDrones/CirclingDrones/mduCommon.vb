@@ -311,7 +311,9 @@ Module mduCommon
             'Shift-JISエンコードで変換できない場合は「?」文字の設定
             Dim encFallBack As System.Text.DecoderReplacementFallback = New System.Text.DecoderReplacementFallback("?")
             Dim enc As System.Text.Encoding =
-            System.Text.Encoding.GetEncoding("shift_jis", System.Text.EncoderFallback.ReplacementFallback, encFallBack)
+            System.Text.Encoding.GetEncoding("utf-8", System.Text.EncoderFallback.ReplacementFallback, encFallBack)
+            'Dim enc As System.Text.Encoding =
+            'System.Text.Encoding.GetEncoding("shift_jis", System.Text.EncoderFallback.ReplacementFallback, encFallBack)
 
             'TextFieldParserクラス
             parser = New TextFieldParser(astrFileName, enc)

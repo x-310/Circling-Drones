@@ -50,9 +50,9 @@ Module mduIti
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fnc130Calc() As Boolean
+    Public Function fncCalc130() As Boolean
 
-        fnc130Calc = False
+        fncCalc130 = False
 
         Dim iA1 As Integer = 0
         Dim iA2 As Integer = 0
@@ -88,7 +88,7 @@ Module mduIti
             p130(iRow).dCal2 = dF
         Next
 
-        fnc130Calc = True
+        fncCalc130 = True
 
     End Function
 
@@ -103,9 +103,9 @@ Module mduIti
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncItiCalc(ByVal m As Integer, ByVal n As Integer) As Boolean
+    Public Function fnc130Calc(ByVal m As Integer, ByVal n As Integer) As Boolean
 
-        fncItiCalc = False
+        fnc130Calc = False
 
         Dim iRow As Integer = 0
         Dim iA1, iA2 As Integer
@@ -125,10 +125,14 @@ Module mduIti
         'pX_d4 = 0 : pY_d4 = 0 : pZ_d4 = 0
         'pX_d5 = 0 : pY_d5 = 0 : pZ_d5 = 0
 
-        'n=0の場合、画面設定値から取込む
-        If n = 0 Then
-            ReDim Preserve p130(0)
-        End If
+        ''n=0の場合、画面設定値から取込む
+        'If n = 0 Then
+        '   p130(0).dCal1 = 0.0
+        '   p130(0).dCal2 = CDbl(frmMain.txtV.Text)
+        '   p130(0).iX = CInt(pIti(m, 0).sIdo)
+        '   p130(0).iY = CInt(pIti(m, 0).sKeido)
+        '   p130(0).iZ = CInt(pIti(m, 0).sTakasa)
+        'End If
 
         iX = 0
         iY = 0
@@ -180,12 +184,6 @@ Module mduIti
                 'pY_d5 = iY
                 'pZ_d5 = iZ
         End Select
-
-        p130(0).dCal1 = 0.0
-        p130(0).dCal2 = CDbl(frmMain.txtV.Text)
-        p130(0).iX = iX
-        p130(0).iY = iY
-        p130(0).iZ = iZ
 
         For iRow = 1 To p130.Length - 1
             iA1 = CInt(p130(iRow - 1).sX)
@@ -246,7 +244,7 @@ Module mduIti
             End If
         Next
 
-        fncItiCalc = True
+        fnc130Calc = True
 
     End Function
 
@@ -267,16 +265,19 @@ Module mduIti
 
         Dim sData As String = ""            'ファイル書込み用データ
         Dim iLoop As Integer = 0
-        ReDim Preserve pIti(pcMax_d, n + 1)   '位置情報
 
         'm=1～、n=0～
-        pIti(m, n).sIdo = p130(n).iX
-        pIti(m, n).sKeido = p130(n).iY
-        pIti(m, n).sTakasa = p130(n).iZ
+        If n <> 0 Then
+            ReDim Preserve pIti(pcMax_d, n + 1)   '位置情報
 
-        pIti(m, n + 1).sIdo = p130_2(n).iX
-        pIti(m, n + 1).sKeido = p130_2(n).iY
-        pIti(m, n + 1).sTakasa = p130_2(n).iZ
+            pIti(m, n).sIdo = p130(n).iX
+            pIti(m, n).sKeido = p130(n).iY
+            pIti(m, n).sTakasa = p130(n).iZ
+
+            pIti(m, n + 1).sIdo = p130_2(n).iX
+            pIti(m, n + 1).sKeido = p130_2(n).iY
+            pIti(m, n + 1).sTakasa = p130_2(n).iZ
+        End If
 
         Select Case m
             Case 1
