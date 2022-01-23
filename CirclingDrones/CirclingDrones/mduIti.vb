@@ -367,14 +367,37 @@ Module mduIti
         fncNewItiFile = False
 
         Dim sData As String = ""            'ファイル書込み用データ
+        Dim dX As Double = 0.0
+        Dim dY As Double = 0.0
+        Dim dZ As Double = 0.0
+        Dim sX As String = ""
+        Dim sY As String = ""
+        Dim sZ As String = ""
 
         'Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\New_Iti.csv", False, System.Text.Encoding.UTF8)
         Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\New_Iti.csv", False, pEnc)
 
         If n = 0 Then
-            sData = pIti(m, 0).sIdo & "," & pIti(m, 0).sKeido & "," & pIti(m, 0).sTakasa
+            dX = Integer.Parse(pIti(m, 0).sIdo)
+            dY = Integer.Parse(pIti(m, 0).sKeido)
+            dZ = Integer.Parse(pIti(m, 0).sTakasa)
+
+            sX = (dX / 5).ToString("0")
+            sY = (dY / 5).ToString("0")
+            sZ = ((dZ - 10) / 5).ToString("0")
+
+            sData = sX & "," & sY & "," & sZ
         Else
-            sData = pIti(m, n).sIdo & "," & pIti(m, n).sKeido & "," & pIti(m, n).sTakasa
+            dX = Integer.Parse(pIti(m, n).sIdo)
+            dY = Integer.Parse(pIti(m, n).sKeido)
+            dZ = Integer.Parse(pIti(m, n).sTakasa)
+
+            sX = (dX / 5).ToString("0")
+            sY = (dY / 5).ToString("0")
+            sZ = ((dZ - 10) / 5).ToString("0")
+
+            sData = sX & "," & sY & "," & sZ
+            'sData = pIti(m, n).sIdo & "," & pIti(m, n).sKeido & "," & pIti(m, n).sTakasa
         End If
         oFileWrite.WriteLine(sData)
         'クローズ
