@@ -42,6 +42,7 @@ Partial Class frmMain
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.pnlSet = New System.Windows.Forms.Panel()
+        Me.cmbPowerOff = New System.Windows.Forms.ComboBox()
         Me.cmbDebug = New System.Windows.Forms.ComboBox()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.cmbSet_d = New System.Windows.Forms.ComboBox()
@@ -147,7 +148,6 @@ Partial Class frmMain
         Me.txtCom1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cmbPowerOff = New System.Windows.Forms.ComboBox()
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -421,6 +421,19 @@ Partial Class frmMain
         Me.pnlSet.Size = New System.Drawing.Size(343, 81)
         Me.pnlSet.TabIndex = 0
         '
+        'cmbPowerOff
+        '
+        Me.cmbPowerOff.BackColor = System.Drawing.SystemColors.Menu
+        Me.cmbPowerOff.DisplayMember = "1"
+        Me.cmbPowerOff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbPowerOff.ForeColor = System.Drawing.Color.Black
+        Me.cmbPowerOff.FormattingEnabled = True
+        Me.cmbPowerOff.Items.AddRange(New Object() {"", "Power.txt固定"})
+        Me.cmbPowerOff.Location = New System.Drawing.Point(213, 8)
+        Me.cmbPowerOff.Name = "cmbPowerOff"
+        Me.cmbPowerOff.Size = New System.Drawing.Size(111, 20)
+        Me.cmbPowerOff.TabIndex = 307
+        '
         'cmbDebug
         '
         Me.cmbDebug.BackColor = System.Drawing.SystemColors.Menu
@@ -643,6 +656,7 @@ Partial Class frmMain
         'btnTxrx
         '
         Me.btnTxrx.BackColor = System.Drawing.SystemColors.GrayText
+        Me.btnTxrx.Enabled = False
         Me.btnTxrx.ForeColor = System.Drawing.Color.White
         Me.btnTxrx.Location = New System.Drawing.Point(27, 401)
         Me.btnTxrx.Name = "btnTxrx"
@@ -666,6 +680,7 @@ Partial Class frmMain
         'btnTest
         '
         Me.btnTest.BackColor = System.Drawing.SystemColors.GrayText
+        Me.btnTest.Enabled = False
         Me.btnTest.ForeColor = System.Drawing.Color.White
         Me.btnTest.Location = New System.Drawing.Point(26, 356)
         Me.btnTest.Name = "btnTest"
@@ -1628,19 +1643,6 @@ Partial Class frmMain
         Me.Label9.TabIndex = 305
         Me.Label9.Text = "コマンド1："
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'cmbPowerOff
-        '
-        Me.cmbPowerOff.BackColor = System.Drawing.SystemColors.Menu
-        Me.cmbPowerOff.DisplayMember = "1"
-        Me.cmbPowerOff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbPowerOff.ForeColor = System.Drawing.Color.Black
-        Me.cmbPowerOff.FormattingEnabled = True
-        Me.cmbPowerOff.Items.AddRange(New Object() {"", "Power.txt固定"})
-        Me.cmbPowerOff.Location = New System.Drawing.Point(213, 8)
-        Me.cmbPowerOff.Name = "cmbPowerOff"
-        Me.cmbPowerOff.Size = New System.Drawing.Size(111, 20)
-        Me.cmbPowerOff.TabIndex = 307
         '
         'frmMain
         '

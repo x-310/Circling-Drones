@@ -489,7 +489,7 @@ Public Class frmMain
             ReDim Preserve pP2m(-1)
 
             'P2mファイル数確認
-            If fncGetDir_P2m(pPjPath + pP2mDir) = pcP2mFileCnt Then
+            If fncGetDir_P2m(pPjPath + pP2mDir) >= pcP2mFileCnt Then
                 'P2mファイル名取得
                 sFileName = fncGetDirName_P2m(pPjPath + pP2mDir)
 
