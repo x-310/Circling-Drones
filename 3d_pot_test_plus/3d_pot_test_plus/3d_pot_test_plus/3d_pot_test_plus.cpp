@@ -41,8 +41,8 @@ double true_height[MAPSIZE_X][MAPSIZE_Y];
 
 //受信電力値を抜き出したものから座標をつけたtxtをつくる
 
-string file1 = "D:\\130.1K2490GD2route_grid.csv"; //グリッド表記経路が書かれた出力ファイルの名前
-string file2 = "D:\\130.1K249GD2route_meter.csv";//メートル表記経路が書かれた出力ファイルの名前
+string file1 = "130.1K2490GD2route_grid.csv"; //グリッド表記経路が書かれた出力ファイルの名前
+string file2 = "130.1K249GD2route_meter.csv";//メートル表記経路が書かれた出力ファイルの名前
 
  vector<string> split(string& input, char delimiter)
 	{
@@ -87,7 +87,7 @@ int input_WI_result(){
 		input.push_back(atof(str.c_str()));
 	}
 	//出力先のファイル
-	ofstream fout( "D:\\received_power.txt" );
+	ofstream fout( "received_power.txt" );
 	if(!fout){
 		std::cout<<"creative_power.txt could not be open" << endl;
 		return -1;
@@ -101,7 +101,7 @@ int input_WI_result(){
 	while(getline(ifs_t,str_t)){
 		terrain.push_back(atof(str_t.c_str()));
 	}
-	ofstream fout_t("D:\\true_height.csv" );
+	ofstream fout_t("true_height.csv" );
 	if(!fout_t){
 		std::cout<<"creative true_height.csv could not be open" << endl;
 		return -1;

@@ -147,6 +147,7 @@ Partial Class frmMain
         Me.txtCom1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.cmbPowerOff = New System.Windows.Forms.ComboBox()
         Me.pnlBtn.SuspendLayout()
         Me.pnlCon.SuspendLayout()
         Me.pnlSet.SuspendLayout()
@@ -408,6 +409,7 @@ Partial Class frmMain
         'pnlSet
         '
         Me.pnlSet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pnlSet.Controls.Add(Me.cmbPowerOff)
         Me.pnlSet.Controls.Add(Me.cmbDebug)
         Me.pnlSet.Controls.Add(Me.Label39)
         Me.pnlSet.Controls.Add(Me.cmbSet_d)
@@ -427,7 +429,7 @@ Partial Class frmMain
         Me.cmbDebug.ForeColor = System.Drawing.Color.Black
         Me.cmbDebug.FormattingEnabled = True
         Me.cmbDebug.Items.AddRange(New Object() {"OFF", "ON"})
-        Me.cmbDebug.Location = New System.Drawing.Point(280, 45)
+        Me.cmbDebug.Location = New System.Drawing.Point(280, 50)
         Me.cmbDebug.Name = "cmbDebug"
         Me.cmbDebug.Size = New System.Drawing.Size(48, 20)
         Me.cmbDebug.TabIndex = 305
@@ -437,7 +439,7 @@ Partial Class frmMain
         Me.Label39.AutoSize = True
         Me.Label39.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label39.ForeColor = System.Drawing.Color.Red
-        Me.Label39.Location = New System.Drawing.Point(272, 26)
+        Me.Label39.Location = New System.Drawing.Point(272, 31)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(61, 15)
         Me.Label39.TabIndex = 306
@@ -1627,6 +1629,19 @@ Partial Class frmMain
         Me.Label9.Text = "コマンド1："
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'cmbPowerOff
+        '
+        Me.cmbPowerOff.BackColor = System.Drawing.SystemColors.Menu
+        Me.cmbPowerOff.DisplayMember = "1"
+        Me.cmbPowerOff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbPowerOff.ForeColor = System.Drawing.Color.Black
+        Me.cmbPowerOff.FormattingEnabled = True
+        Me.cmbPowerOff.Items.AddRange(New Object() {"", "Power.txt固定"})
+        Me.cmbPowerOff.Location = New System.Drawing.Point(213, 8)
+        Me.cmbPowerOff.Name = "cmbPowerOff"
+        Me.cmbPowerOff.Size = New System.Drawing.Size(111, 20)
+        Me.cmbPowerOff.TabIndex = 307
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1637,7 +1652,7 @@ Partial Class frmMain
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Circling Drones ver.220123"
+        Me.Text = "Circling Drones ver.220124"
         Me.pnlBtn.ResumeLayout(False)
         Me.pnlCon.ResumeLayout(False)
         Me.pnlCon.PerformLayout()
@@ -1795,4 +1810,5 @@ Partial Class frmMain
     Public WithEvents txtT2 As TextBox
     Public WithEvents txtV2 As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents cmbPowerOff As ComboBox
 End Class

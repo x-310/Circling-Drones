@@ -146,8 +146,6 @@ Module mduMain
         Dim sFile As String
         Dim sFile2 As String
         Dim sFile3 As String
-        Dim sDir1 As String
-        Dim sDir2 As String
 
         If frmMain.cmbFileFlg.Text = "0" Then
             sFile = frmMain.txtExe1.Text
@@ -166,22 +164,6 @@ Module mduMain
 
         Call subLogOutput("> DoNothing / CalcProp起動")
         Call subOkNg_Color(2)
-
-        If frmMain.cmbDebug.Text = "ON" Then
-            '***************************************************
-            'DebugモードON
-            'b2\studyareaフォルダをdm_vnサブフォルダにコピー
-            sDir1 = pPjPath & "\studyarea"
-            sDir2 = pPjPath & "\Debug\d" & m & "_v" & n
-            If fncDirCopy(sDir1, sDir2) Then
-                Call subLogOutput("> " & "studyareaﾌｫﾙﾀﾞをDebugﾌｫﾙﾀﾞにｺﾋﾟｰ=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> " & "studyareaﾌｫﾙﾀﾞをDebugﾌｫﾙﾀﾞにｺﾋﾟｰ=>NG")
-                Call subOkNg_Color(1)
-            End If
-            '***************************************************
-        End If
 
         Dim sFileName() As String
         Dim iLoop As Integer
@@ -221,29 +203,31 @@ Module mduMain
         Next
 
         'power.txt作成
-        If fncMem2Power() Then
-            Call subLogOutput("> power.txt作成=>OK")
-            Call subOkNg_Color(0)
-        Else
-            Call subLogOutput("> power.txt作成=>NG")
-            Call subOkNg_Color(1)
-        End If
-
-        If frmMain.cmbDebug.Text = "ON" Then
-            '***************************************************
-            'DebugモードON
-            'Prgフォルダをdm_vnサブフォルダにコピー
-            sDir1 = pExePath
-            sDir2 = pPjPath & "\Debug\d" & m & "_v" & n
-            If fncDirCopy(sDir1, sDir2) Then
-                Call subLogOutput("> " & "exeフォルダをDebugフォルダにコピー=>OK")
+        If frmMain.cmbPowerOff.Text = "" Then
+            If fncMem2Power() Then
+                Call subLogOutput("> power.txt作成=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> " & "exeフォルダをDebugフォルダにコピー=>NG")
+                Call subLogOutput("> power.txt作成=>NG")
                 Call subOkNg_Color(1)
             End If
-            '***************************************************
         End If
+
+        'If frmMain.cmbDebug.Text = "ON" Then
+        '    '***************************************************
+        '    'DebugモードON
+        '    'Prgフォルダをdm_vnサブフォルダにコピー
+        '    sDir1 = pExePath
+        '    sDir2 = pPjPath & "\Debug\d" & m & "_v" & n
+        '    If fncDirCopy(sDir1, sDir2) Then
+        '        Call subLogOutput("> " & "exeフォルダをDebugフォルダにコピー=>OK")
+        '        Call subOkNg_Color(0)
+        '    Else
+        '        Call subLogOutput("> " & "exeフォルダをDebugフォルダにコピー=>NG")
+        '        Call subOkNg_Color(1)
+        '    End If
+        '    '***************************************************
+        'End If
 
         Application.DoEvents()
 
@@ -287,6 +271,8 @@ Module mduMain
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
     Public Sub subAfterProc(ByVal m As Integer, ByVal n As Integer)
+        Dim sDir1 As String
+        Dim sDir2 As String
 
         Call subLogOutput("")
         Call subLogOutput("*** 後処理 [d" & m & "_v" & n & "] ***")
@@ -442,6 +428,33 @@ Module mduMain
         Else
             Call subLogOutput("> 履歴用Txrxファイルにコピー=>NG")
             Call subOkNg_Color(1)
+        End If
+
+        If frmMain.cmbDebug.Text = "ON" Then
+            '***************************************************
+            'DebugモードON
+            'b2\studyareaフォルダをdm_vnサブフォルダにコピー
+            sDir1 = pPjPath & "\studyarea"
+            sDir2 = pPjPath & "\Debug\d" & m & "_v" & n
+            If fncDirCopy(sDir1, sDir2) Then
+                Call subLogOutput("> " & "studyareaﾌｫﾙﾀﾞをDebugﾌｫﾙﾀﾞにｺﾋﾟｰ=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> " & "studyareaﾌｫﾙﾀﾞをDebugﾌｫﾙﾀﾞにｺﾋﾟｰ=>NG")
+                Call subOkNg_Color(1)
+            End If
+
+            'Prgフォルダをdm_vnサブフォルダにコピー
+            sDir1 = pExePath
+            sDir2 = pPjPath & "\Debug\d" & m & "_v" & n
+            If fncDirCopy(sDir1, sDir2) Then
+                Call subLogOutput("> " & "exeフォルダをDebugﾌｫﾙﾀﾞにｺﾋﾟ=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> " & "exeフォルダをDebugﾌｫﾙﾀﾞにｺﾋﾟ=>NG")
+                Call subOkNg_Color(1)
+            End If
+            '***************************************************
         End If
 
     End Sub
