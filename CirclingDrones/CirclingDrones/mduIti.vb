@@ -389,9 +389,9 @@ Module mduIti
 
             sData = sX & "," & sY & "," & sZ
         Else
-            dX = Integer.Parse(pIti(m, n).sIdo)
-            dY = Integer.Parse(pIti(m, n).sKeido)
-            dZ = Integer.Parse(pIti(m, n).sTakasa)
+            dX = Integer.Parse(pIti(m, n - 1).sIdo)
+            dY = Integer.Parse(pIti(m, n - 1).sKeido)
+            dZ = Integer.Parse(pIti(m, n - 1).sTakasa)
 
             sX = (dX / 5).ToString("0")
             sY = (dY / 5).ToString("0")

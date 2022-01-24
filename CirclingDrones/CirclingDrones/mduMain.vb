@@ -172,38 +172,38 @@ Module mduMain
         ReDim Preserve pTag_route(pSet_d - 1)
         ReDim Preserve pP2m(-1)
 
-        'P2mファイル数確認
-        If fncGetDir_P2m(pPjPath + pP2mDir) >= pcP2mFileCnt Then
-            'P2mファイル名取得
-            sFileName = fncGetDirName_P2m(pPjPath + pP2mDir)
-            If sFileName.Length = pcP2mFileCnt Then
-                'P2mファイルをソート
-                sFileName = fncFileSort(sFileName)
+        If frmMain.cmbPowerOff.Text = "" Then
+            'P2mファイル数確認
+            If fncGetDir_P2m(pPjPath + pP2mDir) >= pcP2mFileCnt Then
+                'P2mファイル名取得
+                sFileName = fncGetDirName_P2m(pPjPath + pP2mDir)
+                If sFileName.Length = pcP2mFileCnt Then
+                    'P2mファイルをソート
+                    sFileName = fncFileSort(sFileName)
+                Else
+                    fncMsgBox("P2mファイル数エラー")
+                    End
+                End If
             Else
                 fncMsgBox("P2mファイル数エラー")
                 End
             End If
-        Else
-            fncMsgBox("P2mファイル数エラー")
-            End
-        End If
 
-        For iLoop = 0 To sFileName.Length - 1
-            'P2mファイルを配列にセット
-            iRowCnt = fncFile2P2m(iRowCnt, sFileName(iLoop))
-            If iRowCnt <> 0 Then
-                Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット:" & iLoop & "=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>NG")
-                Call subOkNg_Color(1)
-            End If
+            For iLoop = 0 To sFileName.Length - 1
+                'P2mファイルを配列にセット
+                iRowCnt = fncFile2P2m(iRowCnt, sFileName(iLoop))
+                If iRowCnt <> 0 Then
+                    Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット:" & iLoop & "=>OK")
+                    Call subOkNg_Color(0)
+                Else
+                    Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>NG")
+                    Call subOkNg_Color(1)
+                End If
 
-            Application.DoEvents()
-        Next
+                Application.DoEvents()
+            Next
 
-        'power.txt作成
-        If frmMain.cmbPowerOff.Text = "" Then
+            'power.txt作成
             If fncMem2Power() Then
                 Call subLogOutput("> power.txt作成=>OK")
                 Call subOkNg_Color(0)
@@ -212,22 +212,6 @@ Module mduMain
                 Call subOkNg_Color(1)
             End If
         End If
-
-        'If frmMain.cmbDebug.Text = "ON" Then
-        '    '***************************************************
-        '    'DebugモードON
-        '    'Prgフォルダをdm_vnサブフォルダにコピー
-        '    sDir1 = pExePath
-        '    sDir2 = pPjPath & "\Debug\d" & m & "_v" & n
-        '    If fncDirCopy(sDir1, sDir2) Then
-        '        Call subLogOutput("> " & "exeフォルダをDebugフォルダにコピー=>OK")
-        '        Call subOkNg_Color(0)
-        '    Else
-        '        Call subLogOutput("> " & "exeフォルダをDebugフォルダにコピー=>NG")
-        '        Call subOkNg_Color(1)
-        '    End If
-        '    '***************************************************
-        'End If
 
         Application.DoEvents()
 
