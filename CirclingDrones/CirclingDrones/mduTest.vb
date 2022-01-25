@@ -13,83 +13,97 @@ Module mduTest
     ''' -----------------------------------------------------------------------------
     Public Sub subTest()
         Dim m As Integer = 1
-        Dim n As Integer = 1
+        Dim n As Integer = 2
         pSet_d = 1
 
         '周回用ファイルを削除する
         Call subFileDel_w(pPjPath & "\d*.*")
 
-        '***************************************************
         'New_Itiファイルを削除
-        If fncFileDel(pExePath & "\New_Iti.csv") Then
-            'fncMsgBox("New_Itiファイル削除=>OK")
-        Else
-            fncErrors("New_Itiファイル削除=>NG")
-        End If
-        '***************************************************
-        '経路計算(n=0)する
-        If fnc130Calc(m, 0) Then
-            'fncMsgBox("経路計算=>OK")
-        Else
-            fncErrors("経路計算=>NG")
-        End If
+        fncFileDel(pExePath & "\New_Iti.csv")
+
+        ReDim Preserve p130(-1)
+        ReDim Preserve p130_2(-1)
+
+        'Itiファイル(n=0)を作成
+        ReDim Preserve pIti(pcMax_d, 2)   '位置情報
+        ReDim Preserve p130(2)
+        ReDim Preserve p130_2(2)
+
+        Dim sX As String = ""
+        Dim sY As String = ""
+        Dim sZ As String = ""
+
+        Select Case m
+            Case 1
+                sX = frmMain.txtX_d1.Text
+                sY = frmMain.txtY_d1.Text
+                sZ = frmMain.txtZ_d1.Text
+            Case 2
+                sX = frmMain.txtX_d2.Text
+                sY = frmMain.txtY_d2.Text
+                sZ = frmMain.txtZ_d2.Text
+            Case 3
+                sX = frmMain.txtX_d3.Text
+                sY = frmMain.txtY_d3.Text
+                sZ = frmMain.txtZ_d3.Text
+            Case 4
+                sX = frmMain.txtX_d4.Text
+                sY = frmMain.txtY_d4.Text
+                sZ = frmMain.txtZ_d4.Text
+            Case 5
+                sX = frmMain.txtX_d5.Text
+                sY = frmMain.txtY_d5.Text
+                sZ = frmMain.txtZ_d5.Text
+        End Select
+
+        pIti(m, 0).sIdo = sX
+        pIti(m, 0).sKeido = sY
+        pIti(m, 0).sTakasa = sZ
+
+        pIti(m, 1).sIdo = sX
+        pIti(m, 1).sKeido = sY
+        pIti(m, 1).sTakasa = sZ
+
+        pIti(m, 2).sIdo = "111"
+        pIti(m, 2).sKeido = "112"
+        pIti(m, 2).sTakasa = "113"
+
+        fncItiFile(m, 0)
+
+        '130配列を作成
+        p130(0).dCal1 = 0.0
+        p130(0).dCal2 = CDbl(frmMain.txtV.Text)
+        p130(0).sX = sX
+        p130(0).sY = sY
+        p130(0).sZ = sZ
+
+        p130_2(0).dCal1 = 0.0
+        p130_2(0).dCal2 = CDbl(frmMain.txtV.Text)
+        p130_2(0).sX = sX
+        p130_2(0).sY = sY
+        p130_2(0).sZ = sZ
 
         '130.CSVファイルから130配列にセット
-        If fncFile2Grid(pc130_Grid) Then
-            'fncMsgBox("130xxx.CSVファイル取込み=>OK")
-        Else
-            fncErrors("130xxx.CSVファイル取込み=>NG")
-        End If
+        fncFile2Grid(pc130_Grid)
 
         '130配列から飛距離計算する
-        If fncCalc130() Then
-            'fncMsgBox("130xxx.CSVファイル取込み=>OK")
-        Else
-            fncErrors("130xxx.CSVファイル取込み=>NG")
-        End If
+        fncCalc130()
 
-        'Itiファイル(n=0)を作成する
-        If fncItiFile(m, 0) Then
-            'fncMsgBox("d" & m & "_Itiファイル作成=>OK")
-        Else
-            fncErrors("d" & m & "_Itiファイル作成=>NG")
-        End If
-
-        '***************************************************
         '経路計算する
-        If fnc130Calc(m, n) Then
-            'fncMsgBox("経路計算=>OK")
-        Else
-            fncErrors("経路計算=>NG")
-        End If
+        fnc130Calc(m, n)
 
         '130.CSVファイルから130配列にセット
-        If fncFile2Grid(pc130_Grid) Then
-            'fncMsgBox("130xxx.CSVファイル取込み=>OK")
-        Else
-            fncErrors("130xxx.CSVファイル取込み=>NG")
-        End If
+        fncFile2Grid(pc130_Grid)
 
         '130配列から飛距離計算する
-        If fncCalc130() Then
-            'fncMsgBox("130xxx.CSVファイル取込み=>OK")
-        Else
-            fncErrors("130xxx.CSVファイル取込み=>NG")
-        End If
+        fncCalc130()
 
         'Itiファイルを作成する
-        If fncItiFile(m, n) Then
-            'fncMsgBox("d" & m & "_Itiファイル作成=>OK")
-        Else
-            fncErrors("d" & m & "_Itiファイル作成=>NG")
-        End If
+        fncItiFile(m, n)
 
         'New_Itiファイルを作成する
-        If fncNewItiFile(m, n) Then
-            'fncMsgBox("New_Itiファイル作成=>OK")
-        Else
-            fncErrors("New_Itiファイル作成=>NG")
-        End If
+        fncNewItiFile(m, n)
 
     End Sub
 

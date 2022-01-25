@@ -656,13 +656,12 @@ Partial Class frmMain
         'btnTxrx
         '
         Me.btnTxrx.BackColor = System.Drawing.SystemColors.GrayText
-        Me.btnTxrx.Enabled = False
         Me.btnTxrx.ForeColor = System.Drawing.Color.White
         Me.btnTxrx.Location = New System.Drawing.Point(27, 401)
         Me.btnTxrx.Name = "btnTxrx"
         Me.btnTxrx.Size = New System.Drawing.Size(284, 39)
         Me.btnTxrx.TabIndex = 46
-        Me.btnTxrx.Text = "txrxファイル作成"
+        Me.btnTxrx.Text = "txrxファイル作成テスト "
         Me.btnTxrx.UseVisualStyleBackColor = False
         '
         'Label25
@@ -680,7 +679,6 @@ Partial Class frmMain
         'btnTest
         '
         Me.btnTest.BackColor = System.Drawing.SystemColors.GrayText
-        Me.btnTest.Enabled = False
         Me.btnTest.ForeColor = System.Drawing.Color.White
         Me.btnTest.Location = New System.Drawing.Point(26, 356)
         Me.btnTest.Name = "btnTest"
@@ -1654,7 +1652,7 @@ Partial Class frmMain
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Circling Drones ver.220124"
+        Me.Text = "Circling Drones ver.220126"
         Me.pnlBtn.ResumeLayout(False)
         Me.pnlCon.ResumeLayout(False)
         Me.pnlCon.PerformLayout()

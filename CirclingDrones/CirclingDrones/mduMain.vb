@@ -97,12 +97,13 @@ Module mduMain
 
             '130配列を作成
             p130(0).dCal1 = 0.0
-            p130(0).dCal2 = CDbl(frmMain.txtV.Text)            'p130(0).sX = sX
+            p130(0).dCal2 = CDbl(frmMain.txtV.Text)
+            p130(0).sX = sX
             p130(0).sY = sY
             p130(0).sZ = sZ
 
             p130_2(0).dCal1 = 0.0
-            p130_2(0).dCal2 = CDbl(frmMain.txtV.Text)            'p130(0).sX = sX
+            p130_2(0).dCal2 = CDbl(frmMain.txtV.Text)
             p130_2(0).sX = sX
             p130_2(0).sY = sY
             p130_2(0).sZ = sZ

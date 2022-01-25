@@ -421,6 +421,10 @@ Public Class frmMain
 
     End Sub
 
+    '*******************************************************
+    '   txrxファイル作成テスト
+    '*******************************************************
+
     Private Sub btnTxrx_Click(sender As Object, e As EventArgs) Handles btnTxrx.Click
         Dim result As DialogResult = MessageBox.Show("txrxファイルを作成しますか？",
                                              "テスト",
@@ -445,12 +449,6 @@ Public Class frmMain
             pIti(1, 1).sIdo = "14"
             pIti(1, 1).sKeido = "15"
             pIti(1, 1).sTakasa = "16"
-            pIti(2, 0).sIdo = "21"
-            pIti(2, 0).sKeido = "22"
-            pIti(2, 0).sTakasa = "23"
-            pIti(2, 1).sIdo = "24"
-            pIti(2, 1).sKeido = "25"
-            pIti(2, 1).sTakasa = "26"
 
             'txrxファイルを削除
             fncFileDelete_pj_txrx()
@@ -468,6 +466,10 @@ Public Class frmMain
         End If
 
     End Sub
+
+    '*******************************************************
+    '   Powerファイル作成
+    '*******************************************************
 
     Private Sub btnPower_Click(sender As Object, e As EventArgs) Handles btnPower.Click
         Dim sFileName() As String
