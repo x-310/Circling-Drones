@@ -95,14 +95,19 @@ Module mduConst
         Dim iY As Integer       'Y
         Dim iZ As Integer       'Z
     End Structure
+    Structure M_Sabun_Def
+        Dim sX As String        'x
+        Dim sY As String        'y
+        Dim sSabun As String    'Sabun
+    End Structure
 
     '経路計算用
-    Public pIti(,) As M_Iti_Def     '位置情報
-    Public pOrder_d() As String     'ドローン順番
-    Public pP2m() As M_P2m_Def      'P2m情報
-    Public pTxrx() As M_Txrx_Def    'Txrx情報
-    Public p130() As M_130_Def      '経路計算情報
-    Public p130_2() As M_130_Def    '経路計算情報(tが倍用)
+    Public pIti(,) As M_Iti_Def         '位置情報
+    Public pOrder_d() As String         'ドローン順番
+    Public pP2m() As M_P2m_Def          'P2m情報
+    Public pTxrx() As M_Txrx_Def        'Txrx情報
+    Public p130() As M_130_Def          '経路計算情報
+    Public pSabun(4888) As M_Sabun_Def  'sabun情報
 
     'ファイル切替用
     '=========================================

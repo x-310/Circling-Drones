@@ -250,6 +250,38 @@ Module mduIti
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
+    ''' Sabunを取得する
+    ''' </summary>
+    ''' <param name="dX">Xのデータ</param>
+    ''' <param name="dY">Yのデータ</param>
+    ''' <returns>Zのデータ</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncGetSabun(ByVal dX As Double, ByVal dY As Double) As String
+
+        Dim iX As Integer
+        Dim iY As Integer
+        Dim sZ As String
+        Dim iLoop As Integer
+        Dim iP As Integer
+
+        iX = CType(dX, Integer)
+        iY = CType(dY, Integer)
+
+        For iLoop = 1 To 4888 - 1
+            If  CInt(pSabun(iLoop).sX) <= iX And CInt(pSabun(iLoop).sY) <= iY Then
+                iP = iLoop
+            End If
+        Next
+
+        sZ = pSabun(iP).sSabun
+
+        fncGetSabun = sZ
+    End Function
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
     ''' Itiファイルを作成する
     ''' </summary>
     ''' <param name="m">ドローン</param>
@@ -273,10 +305,6 @@ Module mduIti
             pIti(m, n).sIdo = p130(n).iX
             pIti(m, n).sKeido = p130(n).iY
             pIti(m, n).sTakasa = p130(n).iZ
-
-            pIti(m, n + 1).sIdo = p130_2(n).iX
-            pIti(m, n + 1).sKeido = p130_2(n).iY
-            pIti(m, n + 1).sTakasa = p130_2(n).iZ
         End If
 
         Select Case m
@@ -379,22 +407,22 @@ Module mduIti
         Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\New_Iti.csv", False, pEnc)
 
         If n = 0 Then
-            dX = Integer.Parse(pIti(m, 0).sIdo)
-            dY = Integer.Parse(pIti(m, 0).sKeido)
-            dZ = Integer.Parse(pIti(m, 0).sTakasa)
+            dX = Double.Parse(pIti(m, 0).sIdo)
+            dY = Double.Parse(pIti(m, 0).sKeido)
+            dZ = Double.Parse(pIti(m, 0).sTakasa)
 
-            sX = (dX / 5).ToString("0")
-            sY = (dY / 5).ToString("0")
+            sX = ((dX - 1079) / 5).ToString("0")
+            sY = ((dY - 1450) / 5).ToString("0")
             sZ = ((dZ - 10) / 5).ToString("0")
 
             sData = sX & "," & sY & "," & sZ
         Else
-            dX = Integer.Parse(pIti(m, n - 1).sIdo)
-            dY = Integer.Parse(pIti(m, n - 1).sKeido)
-            dZ = Integer.Parse(pIti(m, n - 1).sTakasa)
+            dX = Double.Parse(pIti(m, n - 1).sIdo)
+            dY = Double.Parse(pIti(m, n - 1).sKeido)
+            dZ = Double.Parse(pIti(m, n - 1).sTakasa)
 
-            sX = (dX / 5).ToString("0")
-            sY = (dY / 5).ToString("0")
+            sX = ((dX - 1079) / 5).ToString("0")
+            sY = ((dY - 1450) / 5).ToString("0")
             sZ = ((dZ - 10) / 5).ToString("0")
 
             sData = sX & "," & sY & "," & sZ

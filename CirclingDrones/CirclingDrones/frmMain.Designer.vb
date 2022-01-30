@@ -53,12 +53,6 @@ Partial Class frmMain
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.txtVT2 = New System.Windows.Forms.TextBox()
-        Me.txtT2 = New System.Windows.Forms.TextBox()
-        Me.txtV2 = New System.Windows.Forms.TextBox()
         Me.btnPower = New System.Windows.Forms.Button()
         Me.btnTxrx = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
@@ -547,12 +541,6 @@ Partial Class frmMain
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel4.Controls.Add(Me.Label42)
-        Me.Panel4.Controls.Add(Me.Label41)
-        Me.Panel4.Controls.Add(Me.Label40)
-        Me.Panel4.Controls.Add(Me.txtVT2)
-        Me.Panel4.Controls.Add(Me.txtT2)
-        Me.Panel4.Controls.Add(Me.txtV2)
         Me.Panel4.Controls.Add(Me.btnPower)
         Me.Panel4.Controls.Add(Me.btnTxrx)
         Me.Panel4.Controls.Add(Me.Label25)
@@ -569,78 +557,6 @@ Partial Class frmMain
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(343, 500)
         Me.Panel4.TabIndex = 40
-        '
-        'Label42
-        '
-        Me.Label42.AutoSize = True
-        Me.Label42.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label42.ForeColor = System.Drawing.Color.Black
-        Me.Label42.Location = New System.Drawing.Point(193, 302)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(124, 15)
-        Me.Label42.TabIndex = 331
-        Me.Label42.Text = "tを倍にする(v*t)："
-        Me.Label42.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label41.ForeColor = System.Drawing.Color.Black
-        Me.Label41.Location = New System.Drawing.Point(193, 252)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(107, 15)
-        Me.Label41.TabIndex = 330
-        Me.Label41.Text = "tを倍にする(t)："
-        Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label40.ForeColor = System.Drawing.Color.Black
-        Me.Label40.Location = New System.Drawing.Point(193, 197)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(109, 15)
-        Me.Label40.TabIndex = 329
-        Me.Label40.Text = "tを倍にする(v)："
-        Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtVT2
-        '
-        Me.txtVT2.BackColor = System.Drawing.Color.LightGray
-        Me.txtVT2.Location = New System.Drawing.Point(196, 320)
-        Me.txtVT2.MaxLength = 100
-        Me.txtVT2.Name = "txtVT2"
-        Me.txtVT2.ReadOnly = True
-        Me.txtVT2.Size = New System.Drawing.Size(114, 19)
-        Me.txtVT2.TabIndex = 328
-        Me.txtVT2.TabStop = False
-        Me.txtVT2.Text = "8"
-        '
-        'txtT2
-        '
-        Me.txtT2.BackColor = System.Drawing.Color.LightGray
-        Me.txtT2.Location = New System.Drawing.Point(196, 270)
-        Me.txtT2.MaxLength = 100
-        Me.txtT2.Name = "txtT2"
-        Me.txtT2.ReadOnly = True
-        Me.txtT2.Size = New System.Drawing.Size(114, 19)
-        Me.txtT2.TabIndex = 327
-        Me.txtT2.TabStop = False
-        Me.txtT2.Text = "1"
-        '
-        'txtV2
-        '
-        Me.txtV2.BackColor = System.Drawing.Color.LightGray
-        Me.txtV2.Location = New System.Drawing.Point(196, 215)
-        Me.txtV2.MaxLength = 100
-        Me.txtV2.Name = "txtV2"
-        Me.txtV2.ReadOnly = True
-        Me.txtV2.Size = New System.Drawing.Size(114, 19)
-        Me.txtV2.TabIndex = 326
-        Me.txtV2.TabStop = False
-        Me.txtV2.Text = "10"
         '
         'btnPower
         '
@@ -1803,12 +1719,6 @@ Partial Class frmMain
     Friend WithEvents Label39 As Label
     Friend WithEvents btnPower As Button
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents Label42 As Label
-    Friend WithEvents Label41 As Label
-    Friend WithEvents Label40 As Label
-    Public WithEvents txtVT2 As TextBox
-    Public WithEvents txtT2 As TextBox
-    Public WithEvents txtV2 As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents cmbPowerOff As ComboBox
 End Class

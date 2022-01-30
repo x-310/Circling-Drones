@@ -23,12 +23,10 @@ Module mduTest
         fncFileDel(pExePath & "\New_Iti.csv")
 
         ReDim Preserve p130(-1)
-        ReDim Preserve p130_2(-1)
 
         'Itiファイル(n=0)を作成
         ReDim Preserve pIti(pcMax_d, 2)   '位置情報
         ReDim Preserve p130(2)
-        ReDim Preserve p130_2(2)
 
         Dim sX As String = ""
         Dim sY As String = ""
@@ -77,12 +75,6 @@ Module mduTest
         p130(0).sX = sX
         p130(0).sY = sY
         p130(0).sZ = sZ
-
-        p130_2(0).dCal1 = 0.0
-        p130_2(0).dCal2 = CDbl(frmMain.txtV.Text)
-        p130_2(0).sX = sX
-        p130_2(0).sY = sY
-        p130_2(0).sZ = sZ
 
         '130.CSVファイルから130配列にセット
         fncFile2Grid(pc130_Grid)

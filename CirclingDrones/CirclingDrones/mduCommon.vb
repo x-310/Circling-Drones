@@ -26,8 +26,6 @@ Module mduCommon
         frmMain.txtV.Text = ""          'ドローン速度
         frmMain.txtT.Text = ""          '周回毎経過時間
         frmMain.txtVT.Text = ""         '飛距離FD
-        frmMain.txtT2.Text = ""          '周回毎経過時間
-        frmMain.txtVT2.Text = ""         '飛距離FD
 
         frmMain.txtIniPath.Text = ""    'INIファイルパス
         frmMain.txtPjName.Text = ""     'プロジェクト名

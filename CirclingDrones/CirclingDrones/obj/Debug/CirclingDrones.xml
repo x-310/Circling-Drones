@@ -190,6 +190,17 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduFile.fncFile2Sabun">
+ -----------------------------------------------------------------------------
+ <summary>
+ P2mファイルを配列にセット
+ </summary>
+ <returns>OK:True NG:False</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduFile.fncFile2P2m(System.Int32,System.String)">
  -----------------------------------------------------------------------------
  <summary>
@@ -319,41 +330,6 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduIti_2.fncFile2Grid_2">
- -----------------------------------------------------------------------------
- <summary>
- 130ファイルを配列にセットする
- </summary>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
-<member name="M:CirclingDrones.mduIti_2.fncCalc130_2">
- -----------------------------------------------------------------------------
- <summary>
- 130配列から飛距離計算する
- </summary>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
-<member name="M:CirclingDrones.mduIti_2.fnc130Calc_2(System.Int32,System.Int32)">
- -----------------------------------------------------------------------------
- <summary>
- 経路計算する
- </summary>
- <param name="m">ドローン</param>
- <param name="n">周回</param>
- <returns>True:OK False:NG</returns>
- <remarks></remarks>
- <author>RKA</author>
- <history></history>
- -----------------------------------------------------------------------------
-</member>
 <member name="M:CirclingDrones.mduMain.subPreProc">
  -----------------------------------------------------------------------------
  <summary>
@@ -425,6 +401,19 @@ CirclingDrones
  <param name="m">ドローン</param>
  <param name="n">周回</param>
  <returns>True:OK False:NG</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduIti.fncGetSabun(System.Double,System.Double)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Sabunを取得する
+ </summary>
+ <param name="dX">Xのデータ</param>
+ <param name="dY">Yのデータ</param>
+ <returns>Zのデータ</returns>
  <remarks></remarks>
  <author>RKA</author>
  <history></history>

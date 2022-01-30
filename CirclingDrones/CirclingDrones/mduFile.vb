@@ -181,6 +181,67 @@ Module mduFile
     ''' <summary>
     ''' P2mファイルを配列にセット
     ''' </summary>
+    ''' <returns>OK:True NG:False</returns>
+    ''' <remarks></remarks>
+    ''' <author>RKA</author>
+    ''' <history></history>
+    ''' -----------------------------------------------------------------------------
+    Public Function fncFile2Sabun() As Boolean
+
+        fncFile2Sabun = False
+
+        ' StreamReader の新しいインスタンスを生成する
+        Dim oReader As New System.IO.StreamReader("x_y_sabun.csv", System.Text.Encoding.Default)  'ファイル読込用
+        Dim sRowData As String = ""                                                         '行データ
+        Dim sColData As String = ""                                                         'カラムデータ
+        Dim iRow As Integer = 0                                                             '行
+        Dim iCol As Integer = 0                                                             '列
+        Dim iColNo As Integer = 0                                                           '列No
+        Dim iNowFlg As String = 0                                                           '現在行
+        Dim iLastFlg As String = 0                                                          '最終行
+
+        '行ループ
+        While (oReader.Peek() >= 0)
+            sRowData = oReader.ReadLine()   '1行を文字型配列に格納
+            '列ループ：１行分の列を埋める
+            iColNo = 0
+            sColData = ""
+            For iCol = 0 To sRowData.Length - 1
+                If sRowData.Substring(iCol, 1) = "," Then
+                    iNowFlg = 1
+                    iColNo = iColNo + 1
+                Else
+                    iNowFlg = 0
+                End If
+
+                If iNowFlg = 1 Then
+                    Select Case iColNo
+                        Case 1
+                            pSabun(iRow).sX = Trim(sColData)
+                        Case 2
+                            pSabun(iRow).sY = Trim(sColData)
+                    End Select
+                    iNowFlg = 0
+                    sColData = ""
+                Else
+                    sColData = sColData + sRowData.Substring(iCol, 1)
+                End If
+            Next '列ループ
+            pSabun(iRow).sSabun = Trim(sColData)
+            iRow += 1
+        End While '行ループ
+
+        oReader.Close()
+        oReader.Dispose()
+
+        fncFile2Sabun = True
+
+    End Function
+
+    ''' -----------------------------------------------------------------------------
+    ''' <summary>
+    ''' P2mファイルを配列にセット
+    ''' </summary>
     ''' <param name="iRowCnt">取得した行数</param>
     ''' <param name="sFileName">P2mファイルのパス</param>
     ''' <returns>取得した行数</returns>
@@ -529,10 +590,6 @@ Module mduFile
         frmMain.txtV.Text = pV                                  'ドローン速度
         frmMain.txtT.Text = pT                                  '周回毎経過時間
         frmMain.txtVT.Text = CDbl(pV) * CDbl(pT)                '飛距離FD
-
-        frmMain.txtV2.Text = pV                                 'ドローン速度
-        frmMain.txtT2.Text = CDbl(pT) + CDbl(pT)                '周回毎経過時間
-        frmMain.txtVT2.Text = CDbl(pV) * (CDbl(pT) + CDbl(pT))  '飛距離FD
 
         frmMain.cmbFileFlg.Text = pFileFlg      'ファイル切替フラグ
         frmMain.txtExe1.Text = pExe1_Path       'Exe1_Path

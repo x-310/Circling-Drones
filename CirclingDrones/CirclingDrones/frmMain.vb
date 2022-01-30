@@ -531,25 +531,4 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub txtT_LostFocus(sender As Object, e As EventArgs) Handles txtT.LostFocus
-
-        txtV2.Text = txtV.Text
-        txtVT.Text = CDbl(txtV.Text) * CDbl(txtT.Text)                '飛距離FD
-
-        'tを倍にする
-        txtT2.Text = CDbl(txtT.Text) + CDbl(txtT.Text)                '周回毎経過時間
-        txtVT2.Text = CDbl(txtV.Text) * CDbl(txtT2.Text)              '飛距離FD
-
-    End Sub
-
-    Private Sub txtV_LostFocus(sender As Object, e As EventArgs) Handles txtV.LostFocus
-
-        txtV2.Text = txtV.Text
-        txtVT.Text = CDbl(txtV.Text) * CDbl(txtT.Text)                '飛距離FD
-
-        'tを倍にする
-        txtT2.Text = CDbl(txtT.Text) + CDbl(txtT.Text)                '周回毎経過時間
-        txtVT2.Text = CDbl(txtV.Text) * CDbl(txtT2.Text)              '飛距離FD
-
-    End Sub
 End Class

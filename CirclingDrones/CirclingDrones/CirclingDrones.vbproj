@@ -103,7 +103,6 @@
     <Compile Include="mduCommon.vb" />
     <Compile Include="mduConst.vb" />
     <Compile Include="mduFile.vb" />
-    <Compile Include="mduIti_2.vb" />
     <Compile Include="mduMain.vb" />
     <Compile Include="mduIti.vb" />
     <Compile Include="mduTag.vb" />

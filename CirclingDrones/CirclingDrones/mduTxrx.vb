@@ -20,16 +20,32 @@ Module mduTxrx
         Dim iLoop As Integer = 0
         Dim iCnt As Integer = 0
         Dim sValue_route(1) As String                   'route用nVerticesデータ用配列
+        Dim dX_1 As Double
+        Dim dY_1 As Double
+        Dim dZ_1 As Double
+        Dim dX_2 As Double
+        Dim dY_2 As Double
+        Dim dZ_2 As Double
 
         '**********************************************
         '配列を更新
         For iLoop = 1 To pSet_d
             If iLoop <> m Then
                 If n = 1 Then
+                    dX_1 = CDbl(pIti(iLoop, 0).sIdo) + 1079
+                    dY_1 = CDbl(pIti(iLoop, 0).sKeido) + 1450
+                    dZ_1 = fncGetSabun(CDbl(pIti(iLoop, 0).sIdo), CDbl(pIti(iLoop, 0).sKeido))
                     'routeタグ
-                    sValue_route(0) = CDbl(pIti(iLoop, 0).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, 0).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, 0).sTakasa).ToString("0.000000000000000")
-                    sValue_route(1) = CDbl(pIti(iLoop, 0).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, 0).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, 0).sTakasa).ToString("0.000000000000000")
+                    sValue_route(0) = dX_1.ToString("0.000000000000000") & " " & dY_1.ToString("0.000000000000000") & " " & dZ_1.ToString("0.000000000000000")
+                    sValue_route(1) = dX_1.ToString("0.000000000000000") & " " & dY_1.ToString("0.000000000000000") & " " & dZ_1.ToString("0.000000000000000")
                 Else
+                    dX_1 = CDbl(pIti(iLoop, n - 2).sIdo) + 1079
+                    dY_1 = CDbl(pIti(iLoop, n - 2).sKeido) + 1450
+                    dZ_1 = fncGetSabun(CDbl(pIti(iLoop, n - 2).sIdo), CDbl(pIti(iLoop, n - 2).sKeido))
+
+                    dX_2 = CDbl(pIti(iLoop, n - 1).sIdo) + 1079
+                    dY_2 = CDbl(pIti(iLoop, n - 1).sKeido) + 1450
+                    dZ_2 = fncGetSabun(CDbl(pIti(iLoop, n - 1).sIdo), CDbl(pIti(iLoop, n - 1).sKeido))
                     'routeタグ
                     sValue_route(0) = CDbl(pIti(iLoop, n - 2).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 2).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 2).sTakasa).ToString("0.000000000000000")
                     sValue_route(1) = CDbl(pIti(iLoop, n - 1).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sTakasa).ToString("0.000000000000000")
