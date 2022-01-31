@@ -49,6 +49,15 @@ Module mduMain
             Call subOkNg_Color(1)
         End If
 
+        'KOD_power.txtを配列にセット
+        If fncFile2KOD_Power() Then
+            Call subLogOutput("> KOD_power.txtを配列にセット=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> KOD_power.txtを配列にセット=>NG")
+            Call subOkNg_Color(1)
+        End If
+
         ReDim Preserve p130(-1)
 
         'Itiファイルを作成する
@@ -171,7 +180,7 @@ Module mduMain
         Dim iLoop As Integer
         Dim iRowCnt As Integer = 0
 
-        ReDim Preserve pTag_route(pSet_d - 1)
+        ReDim Preserve pTag_point(pSet_d - 1)
         ReDim Preserve pP2m(-1)
 
         If frmMain.cmbPowerOff.Text = "" Then
@@ -205,12 +214,35 @@ Module mduMain
                 Application.DoEvents()
             Next
 
-            'power.txt作成
-            If fncMem2Power() Then
-                Call subLogOutput("> power.txt作成=>OK")
+            'Power_P2m.txt作成
+            If fncMem2Power_P2m() Then
+                Call subLogOutput("> Power_P2m.txt作成=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> power.txt作成=>NG")
+                Call subLogOutput("> Power_P2m.txt作成=>NG")
+                Call subOkNg_Color(1)
+            End If
+
+            Application.DoEvents()
+            Call subiInterval(500)
+
+            'Power_P2mﾌｧｲﾙを配列にセット
+            If fncFile2Power_P2m() Then
+                Call subLogOutput("> Power_P2mﾌｧｲﾙを配列にセット=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> Power_P2mﾌｧｲﾙを配列にセット=>NG")
+                Call subOkNg_Color(1)
+            End If
+
+            Application.DoEvents()
+
+            '比較後Powerファイルを作成する
+            If fncMem2Power() Then
+                Call subLogOutput("> Powerファイル作成=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> Powerファイル作成=>NG")
                 Call subOkNg_Color(1)
             End If
         End If

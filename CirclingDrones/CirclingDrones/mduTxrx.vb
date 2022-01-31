@@ -23,9 +23,7 @@ Module mduTxrx
         Dim dX_1 As Double
         Dim dY_1 As Double
         Dim dZ_1 As Double
-        Dim dX_2 As Double
-        Dim dY_2 As Double
-        Dim dZ_2 As Double
+        Dim sId As String = "45"
 
         '**********************************************
         '配列を更新
@@ -37,24 +35,17 @@ Module mduTxrx
                     dZ_1 = fncGetSabun(CDbl(pIti(iLoop, 0).sIdo), CDbl(pIti(iLoop, 0).sKeido))
                     'routeタグ
                     sValue_route(0) = dX_1.ToString("0.000000000000000") & " " & dY_1.ToString("0.000000000000000") & " " & dZ_1.ToString("0.000000000000000")
-                    sValue_route(1) = dX_1.ToString("0.000000000000000") & " " & dY_1.ToString("0.000000000000000") & " " & dZ_1.ToString("0.000000000000000")
                 Else
-                    dX_1 = CDbl(pIti(iLoop, n - 2).sIdo) + 1079
-                    dY_1 = CDbl(pIti(iLoop, n - 2).sKeido) + 1450
-                    dZ_1 = fncGetSabun(CDbl(pIti(iLoop, n - 2).sIdo), CDbl(pIti(iLoop, n - 2).sKeido))
-
-                    dX_2 = CDbl(pIti(iLoop, n - 1).sIdo) + 1079
-                    dY_2 = CDbl(pIti(iLoop, n - 1).sKeido) + 1450
-                    dZ_2 = fncGetSabun(CDbl(pIti(iLoop, n - 1).sIdo), CDbl(pIti(iLoop, n - 1).sKeido))
+                    dX_1 = CDbl(pIti(iLoop, n - 1).sIdo) + 1079
+                    dY_1 = CDbl(pIti(iLoop, n - 1).sKeido) + 1450
+                    dZ_1 = fncGetSabun(CDbl(pIti(iLoop, n - 1).sIdo), CDbl(pIti(iLoop, n - 1).sKeido))
                     'routeタグ
-                    sValue_route(0) = CDbl(pIti(iLoop, n - 2).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 2).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 2).sTakasa).ToString("0.000000000000000")
-                    sValue_route(1) = CDbl(pIti(iLoop, n - 1).sIdo).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sKeido).ToString("0.000000000000000") & " " & CDbl(pIti(iLoop, n - 1).sTakasa).ToString("0.000000000000000")
+                    sValue_route(0) = dX_1.ToString("0.000000000000000") & " " & dY_1.ToString("0.000000000000000") & " " & dZ_1.ToString("0.000000000000000")
                 End If
-                pTag_route(iCnt) = fncTagKeyAdd(pcTag_route, "nVertices", 2, sValue_route)
 
-                pTag_route(iCnt) = fncTagKeyUpdate(pTag_route(iCnt), "begin_<route> another drone tx", iCnt + 1)
+                pTag_point(iCnt) = fncTagKeyAdd(pcTag_point, "nVertices", 1, sValue_route)
 
-                'pTag_route(iCnt) = fncTagCrLf(pTag_route(iCnt))
+                pTag_point(iCnt) = fncTagKeyUpdate(pTag_point(iCnt), "begin_<route> another drone tx", iCnt + 1)
 
                 iCnt = iCnt + 1
             End If
@@ -84,47 +75,47 @@ Module mduTxrx
         'Dim enc As System.Text.Encoding = New System.Text.UTF8Encoding(False)
         Dim oFileWrite As New System.IO.StreamWriter(sFile, False, pEnc)
 
-        'routeタグ
+        'pointタグ
         Dim iCnt As Integer = 0
-        Dim sTag_Route As String = ""
-
-        'routeタグ 1
-        sTag_Route = pTag_route(0)
-        oFileWrite.WriteLine(sTag_Route)
+        Dim sTag_Point As String = ""
 
         'gridタグ
         oFileWrite.WriteLine(pTag_grid)
 
+        'pointタグ 1
+        sTag_Point = pTag_point(0)
+        oFileWrite.WriteLine(sTag_Point)
+
         If pSet_d = 3 Then
-            'routeタグ 2
-            sTag_Route = fncTagKeyUpdate(pTag_route(1), "project_id", "43")
-            oFileWrite.WriteLine(sTag_Route)
+            'pointタグ 2
+            sTag_Point = fncTagKeyUpdate(pTag_point(1), "project_id", "46")
+            oFileWrite.WriteLine(sTag_Point)
         ElseIf pSet_d = 4 Then
-            'routeタグ 2
-            sTag_Route = fncTagKeyUpdate(pTag_route(1), "project_id", "43")
-            oFileWrite.WriteLine(sTag_Route)
+            'pointタグ 2
+            sTag_Point = fncTagKeyUpdate(pTag_point(1), "project_id", "46")
+            oFileWrite.WriteLine(sTag_Point)
 
             System.Threading.Thread.Sleep(500)
 
-            'routeタグ 3
-            sTag_Route = fncTagKeyUpdate(pTag_route(2), "project_id", "44")
-            oFileWrite.WriteLine(sTag_Route)
+            'pointタグ 3
+            sTag_Point = fncTagKeyUpdate(pTag_point(2), "project_id", "47")
+            oFileWrite.WriteLine(sTag_Point)
         ElseIf pSet_d = 5 Then
-            'routeタグ 2
-            sTag_Route = fncTagKeyUpdate(pTag_route(1), "project_id", "43")
-            oFileWrite.WriteLine(sTag_Route)
+            'pointタグ 2
+            sTag_Point = fncTagKeyUpdate(pTag_point(1), "project_id", "46")
+            oFileWrite.WriteLine(sTag_Point)
 
             System.Threading.Thread.Sleep(500)
 
-            'routeタグ 3
-            sTag_Route = fncTagKeyUpdate(pTag_route(2), "project_id", "44")
-            oFileWrite.WriteLine(sTag_Route)
+            'pointタグ 3
+            sTag_Point = fncTagKeyUpdate(pTag_point(2), "project_id", "47")
+            oFileWrite.WriteLine(sTag_Point)
 
             System.Threading.Thread.Sleep(500)
 
-            'routeタグ 4
-            sTag_Route = fncTagKeyUpdate(pTag_route(3), "project_id", "45")
-            oFileWrite.WriteLine(sTag_Route)
+            'pointタグ 4
+            sTag_Point = fncTagKeyUpdate(pTag_point(3), "project_id", "48")
+            oFileWrite.WriteLine(sTag_Point)
         End If
 
         'クローズ

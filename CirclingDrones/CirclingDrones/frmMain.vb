@@ -441,7 +441,7 @@ Public Class frmMain
             pSet_d = 2
 
             ReDim Preserve pIti(pcMax_d, 1)     '位置情報
-            ReDim Preserve pTag_route(pSet_d - 1)
+            ReDim Preserve pTag_point(pSet_d - 1)
 
             pIti(1, 0).sIdo = "11"
             pIti(1, 0).sKeido = "12"
@@ -476,7 +476,7 @@ Public Class frmMain
         Dim iLoop As Integer
         Dim iRowCnt As Integer = 0
 
-        Dim result As DialogResult = MessageBox.Show("Powerファイルを作成しますか？",
+        Dim result As DialogResult = MessageBox.Show("Power_P2mファイルを作成しますか？",
                                              "テスト",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Exclamation,
@@ -516,12 +516,12 @@ Public Class frmMain
                 Application.DoEvents()
             Next
 
-            'power.txt作成
-            If fncMem2Power() Then
-                Call subLogOutput("> power.txt作成=>OK")
+            'Power_P2m.txt作成
+            If fncMem2Power_P2m() Then
+                Call subLogOutput("> Power_P2m.txt作成=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> power.txt作成=>NG")
+                Call subLogOutput("> Power_P2m.txt作成=>NG")
                 Call subOkNg_Color(1)
             End If
 

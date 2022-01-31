@@ -190,10 +190,43 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
+<member name="M:CirclingDrones.mduFile.fncMem2Power">
+ -----------------------------------------------------------------------------
+ <summary>
+ 比較後Powerファイルを作成する
+ </summary>
+ <returns>OK:True NG:False</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduFile.fncFile2Power_P2m">
+ -----------------------------------------------------------------------------
+ <summary>
+ Power_P2mファイルを配列にセット
+ </summary>
+ <returns>OK:True NG:False</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:CirclingDrones.mduFile.fncFile2KOD_Power">
+ -----------------------------------------------------------------------------
+ <summary>
+ KOD_Powerファイルを配列にセット
+ </summary>
+ <returns>OK:True NG:False</returns>
+ <remarks></remarks>
+ <author>RKA</author>
+ <history></history>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:CirclingDrones.mduFile.fncFile2Sabun">
  -----------------------------------------------------------------------------
  <summary>
- P2mファイルを配列にセット
+ Sabunファイルを配列にセット
  </summary>
  <returns>OK:True NG:False</returns>
  <remarks></remarks>
@@ -214,10 +247,10 @@ CirclingDrones
  <history></history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:CirclingDrones.mduFile.fncMem2Power">
+<member name="M:CirclingDrones.mduFile.fncMem2Power_P2m">
  -----------------------------------------------------------------------------
  <summary>
- Power.txtを作成する
+ Power_P2m.txtを作成する
  </summary>
  <returns>True:OK False:NG</returns>
  <remarks></remarks>
