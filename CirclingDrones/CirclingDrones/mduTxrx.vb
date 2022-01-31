@@ -31,13 +31,13 @@ Module mduTxrx
             If iLoop <> m Then
                 If n = 1 Then
                     dX_1 = CDbl(pIti(iLoop, 0).sIdo) + 1079
-                    dY_1 = CDbl(pIti(iLoop, 0).sKeido) + 1450
+                    dY_1 = CDbl(pIti(iLoop, 0).sKeido) + 537
                     dZ_1 = fncGetSabun(CDbl(pIti(iLoop, 0).sIdo), CDbl(pIti(iLoop, 0).sKeido))
                     'routeタグ
                     sValue_route(0) = dX_1.ToString("0.000000000000000") & " " & dY_1.ToString("0.000000000000000") & " " & dZ_1.ToString("0.000000000000000")
                 Else
                     dX_1 = CDbl(pIti(iLoop, n - 1).sIdo) + 1079
-                    dY_1 = CDbl(pIti(iLoop, n - 1).sKeido) + 1450
+                    dY_1 = CDbl(pIti(iLoop, n - 1).sKeido) + 537
                     dZ_1 = fncGetSabun(CDbl(pIti(iLoop, n - 1).sIdo), CDbl(pIti(iLoop, n - 1).sKeido))
                     'routeタグ
                     sValue_route(0) = dX_1.ToString("0.000000000000000") & " " & dY_1.ToString("0.000000000000000") & " " & dZ_1.ToString("0.000000000000000")
@@ -88,33 +88,33 @@ Module mduTxrx
 
         If pSet_d = 3 Then
             'pointタグ 2
-            sTag_Point = fncTagKeyUpdate(pTag_point(1), "project_id", "46")
+            sTag_Point = fncTagKeyUpdate(pTag_point(1), "project_id", "42")
             oFileWrite.WriteLine(sTag_Point)
         ElseIf pSet_d = 4 Then
             'pointタグ 2
-            sTag_Point = fncTagKeyUpdate(pTag_point(1), "project_id", "46")
+            sTag_Point = fncTagKeyUpdate(pTag_point(1), "project_id", "42")
             oFileWrite.WriteLine(sTag_Point)
 
             System.Threading.Thread.Sleep(500)
 
             'pointタグ 3
-            sTag_Point = fncTagKeyUpdate(pTag_point(2), "project_id", "47")
+            sTag_Point = fncTagKeyUpdate(pTag_point(2), "project_id", "43")
             oFileWrite.WriteLine(sTag_Point)
         ElseIf pSet_d = 5 Then
             'pointタグ 2
-            sTag_Point = fncTagKeyUpdate(pTag_point(1), "project_id", "46")
+            sTag_Point = fncTagKeyUpdate(pTag_point(1), "project_id", "42")
             oFileWrite.WriteLine(sTag_Point)
 
             System.Threading.Thread.Sleep(500)
 
             'pointタグ 3
-            sTag_Point = fncTagKeyUpdate(pTag_point(2), "project_id", "47")
+            sTag_Point = fncTagKeyUpdate(pTag_point(2), "project_id", "43")
             oFileWrite.WriteLine(sTag_Point)
 
             System.Threading.Thread.Sleep(500)
 
             'pointタグ 4
-            sTag_Point = fncTagKeyUpdate(pTag_point(3), "project_id", "48")
+            sTag_Point = fncTagKeyUpdate(pTag_point(3), "project_id", "44")
             oFileWrite.WriteLine(sTag_Point)
         End If
 
@@ -199,7 +199,7 @@ Module mduTxrx
                 iColNo = sMemData(iLOOP).IndexOf(sTagName)
                 If iColNo <> -1 Then
                     sMemData(iLOOP + 1) = sValue(0) & vbCrLf
-                    sMemData(iLOOP + 2) = sValue(1) & vbCrLf
+                    'sMemData(iLOOP + 2) = sValue(1) & vbCrLf
                 End If
             Next
 

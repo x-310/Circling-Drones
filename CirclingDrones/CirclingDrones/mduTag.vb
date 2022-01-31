@@ -21,8 +21,8 @@ Module mduTag
 	'
 
 	Public Const pcTag_point As String =
-"begin_<points> another drone tx
-project_id 45
+"begin_<points> another drone tx 1
+project_id 41
 active
 invisible
 vertical_line yes
@@ -53,11 +53,11 @@ is_transmitter yes
 is_receiver no
 begin_<transmitter> 
 begin_<pattern> 
-antenna 5
-waveform 1
+antenna 3
+waveform 3
 rotation_x 0.00000
-rotation_y 0.00000
-rotation_z 0.00000
+rotation_y -50.00000
+rotation_z 90.00000
 end_<pattern>
 power 30.00000
 end_<transmitter>
@@ -71,6 +71,48 @@ end_<points>"
 	'	固定値、最後は改行すること
 	'*******************************************************
 	Public pTag_grid As String =
+"begin_<points> Untitled Tx Points" & vbCrLf &
+"project_id 1" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 2" & vbCrLf &
+"waveform -1" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 23.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 23.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
 "begin_<grid> Dense Pine 50m Rx Grid" & vbCrLf &
 "project_id 6" & vbCrLf &
 "active" & vbCrLf &
@@ -493,6 +535,594 @@ end_<points>"
 "NoiseFigure 3.00000" & vbCrLf &
 "end_<receiver>" & vbCrLf &
 "powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
-"end_<grid>"
+"end_<grid>" & vbCrLf &
+"begin_<points> Untitled Tx Points2" & vbCrLf &
+"project_id 24" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.000000000000000 180.000000000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 2" & vbCrLf &
+"waveform -1" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 23.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 23.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> Untitled Tx Points 3" & vbCrLf &
+"project_id 25" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1470.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 2" & vbCrLf &
+"waveform -1" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 23.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 23.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> Untitled Tx Points 4" & vbCrLf &
+"project_id 27" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1300.247570000000000 561.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 2" & vbCrLf &
+"waveform -1" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -33.00000" & vbCrLf &
+"rotation_z 90.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 23.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> Untitled Tx Points 5" & vbCrLf &
+"project_id 28" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1450.247570000000000 561.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 2" & vbCrLf &
+"waveform -1" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -50.00000" & vbCrLf &
+"rotation_z 90.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 23.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> otameshiA" & vbCrLf &
+"project_id 31" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line no" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription yes" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.561926518429660" & vbCrLf &
+"latitude 36.409927283247356" & vbCrLf &
+"visible no" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"0.000000000000000 0.000000000000000 2.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow no" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration yes" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 2" & vbCrLf &
+"waveform -1" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y 0.00000" & vbCrLf &
+"rotation_z 0.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 23.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> 30dBm tx Point" & vbCrLf &
+"project_id 32" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 3" & vbCrLf &
+"waveform 3" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 23.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 30.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> 30dBm tx Point2" & vbCrLf &
+"project_id 33" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 8" & vbCrLf &
+"waveform 3" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 43.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 30.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> 30dBm tx Point3 Denseless" & vbCrLf &
+"project_id 34" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 8" & vbCrLf &
+"waveform 3" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 43.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 30.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> 30dBm tx Point4 Denseless" & vbCrLf &
+"project_id 35" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 3" & vbCrLf &
+"waveform 3" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 23.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 30.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> 30dBm tx Point5 hole Foli" & vbCrLf &
+"project_id 36" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 3" & vbCrLf &
+"waveform 3" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 23.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 30.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> 30dBm tx Point6 around Foli" & vbCrLf &
+"project_id 37" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 3" & vbCrLf &
+"waveform 3" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 23.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 30.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> 30dBm tx Point7 shokusei Foli" & vbCrLf &
+"project_id 38" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 3" & vbCrLf &
+"waveform 3" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 23.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 30.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> 30dBm tx Point8 shokusei Foli HAR" & vbCrLf &
+"project_id 39" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1100.247570000000000 651.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 3" & vbCrLf &
+"waveform 3" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -27.00000" & vbCrLf &
+"rotation_z 23.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 30.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>" & vbCrLf &
+"begin_<points> Tx Points 9 shokusei 2" & vbCrLf &
+"project_id 40" & vbCrLf &
+"inactive" & vbCrLf &
+"invisible" & vbCrLf &
+"vertical_line yes" & vbCrLf &
+"cube_size 25.00000" & vbCrLf &
+"CVxLength 10.00000" & vbCrLf &
+"CVyLength 10.00000" & vbCrLf &
+"CVzLength 10.00000" & vbCrLf &
+"AutoPatternScale" & vbCrLf &
+"ShowDescription no" & vbCrLf &
+"CVsVisible no" & vbCrLf &
+"CVsThickness 3" & vbCrLf &
+"begin_<location> " & vbCrLf &
+"begin_<reference> " & vbCrLf &
+"cartesian" & vbCrLf &
+"longitude 138.544999999999990" & vbCrLf &
+"latitude 36.402900000000002" & vbCrLf &
+"visible yes" & vbCrLf &
+"terrain" & vbCrLf &
+"end_<reference>" & vbCrLf &
+"nVertices 1" & vbCrLf &
+"1300.247570000000000 561.187590000000000 1.000000000000000" & vbCrLf &
+"end_<location>" & vbCrLf &
+"pattern_show_arrow yes" & vbCrLf &
+"pattern_show_as_sphere no" & vbCrLf &
+"generate_p2p yes" & vbCrLf &
+"use_apg_acceleration no" & vbCrLf &
+"is_transmitter yes" & vbCrLf &
+"is_receiver no" & vbCrLf &
+"begin_<transmitter> " & vbCrLf &
+"begin_<pattern> " & vbCrLf &
+"antenna 3" & vbCrLf &
+"waveform 3" & vbCrLf &
+"rotation_x 0.00000" & vbCrLf &
+"rotation_y -33.00000" & vbCrLf &
+"rotation_z 90.00000" & vbCrLf &
+"end_<pattern>" & vbCrLf &
+"power 30.00000" & vbCrLf &
+"end_<transmitter>" & vbCrLf &
+"powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10" & vbCrLf &
+"end_<points>"
 
 End Module
