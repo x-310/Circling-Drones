@@ -463,7 +463,6 @@ end_<transmitter>
 powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
 end_<points>
 begin_<points> another drone tx 2
-begin_<points> another drone tx 1
 project_id 46
 active
 invisible
@@ -504,4 +503,3 @@ power 30.00000
 end_<transmitter>
 powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
 end_<points>
-begin_<points> another drone tx 2

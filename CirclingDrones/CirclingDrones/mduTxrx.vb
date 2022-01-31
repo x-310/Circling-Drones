@@ -45,7 +45,7 @@ Module mduTxrx
 
                 pTag_point(iCnt) = fncTagKeyAdd(pcTag_point, "nVertices", 1, sValue_route)
 
-                pTag_point(iCnt) = fncTagKeyUpdate(pTag_point(iCnt), "begin_<route> another drone tx", iCnt + 1)
+                pTag_point(iCnt) = fncTagKeyUpdate(pTag_point(iCnt), "begin_<points> another drone tx", iCnt + 1)
 
                 iCnt = iCnt + 1
             End If

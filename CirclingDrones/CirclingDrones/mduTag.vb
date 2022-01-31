@@ -21,7 +21,7 @@ Module mduTag
 	'
 
 	Public Const pcTag_point As String =
-"begin_<points> another drone tx 1
+"begin_<points> another drone tx
 project_id 45
 active
 invisible
@@ -62,8 +62,7 @@ end_<pattern>
 power 30.00000
 end_<transmitter>
 powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
-end_<points>
-begin_<points> another drone tx 2"
+end_<points>"
 
 	Public pTag_point() As String           'routeタグ
 
