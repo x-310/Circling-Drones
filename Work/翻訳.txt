@@ -1,0 +1,17 @@
+電波伝搬シミュレーションを用いた動的環境における遠隔操縦ロボットのための3次元経路生成
+
+
+論文要旨
+人の立ち入りが難しい環境を調査するとき，遠隔操縦ロボットが用いられることがある．遠隔操縦では通信が途切れればロボットは停止し，それ以降の運用が困難になる．特に情報収集もさせる場合，制御不能にならず，かつ送信情報も途切れさせないよう，安定した通信を維持する必要がある．しかし無線通信によって遠隔操縦を行う際にロボットを受信電力が不十分な箇所へ移動させてしまい操縦不能となる問題が存在する．
+我々の研究グループではそのような無線通信の問題を解決するために，既知環境において電波伝搬シミュレーションを行い，その結果を基に通信の途切れにくい経路を生成することを目的として研究してきた．
+先行研究ではドローンの経路を生成する際，ドローンは一台として経路を生成していたが，複数台のドローンを運用したいケースも存在すると考えられる．そのため本研究では本研究グループの経路生成手法を複数台に拡張した．
+
+
+Three-Dimensional Path Generation 
+for Unmanned Aerial Robots in Dynamic Environments 
+Using Radio Wave Propagation Simulation
+
+Abstract:
+Unmanned Aerial Robots are sometimes used to investigate environments that are difficult for humans to enter. In the remote control, the robot stops when the communication is interrupted, and the operation after that becomes difficult. Especially, when information is collected, it is necessary to maintain stable communication so as not to lose control and not to interrupt transmission information. However, there is a problem that the robot is moved to the place where the reception power is insufficient and becomes uncontrollable when the remote control is performed by radio communication.
+In our research group, in order to solve such problems of wireless communication, radio wave propagation simulation is carried out in known environment, and on the basis of the result, it has been studied for the purpose of generating a route in which communication is difficult to be interrupted.
+Though in the previous research, in generating the route of the drone, the drone has generated the route as one, there seems to be a case in which multiple drones are operated. Therefore, in this study, the route generation technique of this research group was extended to multiple units.
