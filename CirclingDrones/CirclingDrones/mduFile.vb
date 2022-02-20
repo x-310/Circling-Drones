@@ -179,48 +179,6 @@ Module mduFile
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
-    ''' 比較後Powerファイルを作成する
-    ''' </summary>
-    ''' <returns>OK:True NG:False</returns>
-    ''' <remarks></remarks>
-    ''' <author>RKA</author>
-    ''' <history></history>
-    ''' -----------------------------------------------------------------------------
-    Public Function fncMem2Power() As Boolean
-
-        fncMem2Power = False
-
-        Dim iLoop As Integer
-        Dim sRowData As String = ""
-
-        For iLoop = 0 To 43992 - 1
-            If CInt(pKOD_Power(iLoop)) < CInt(pPower(iLoop)) Then
-                pPower(iLoop) = "-250"
-            Else
-                pPower(iLoop) = pKOD_Power(iLoop)
-            End If
-        Next
-
-        '存在すればファイル削除
-        fncFileDel(pExePath & "\Power.txt")
-
-        'Power.txtファイル作成
-        Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power.txt", True, pEnc)
-
-        For iLoop = 0 To 43992 - 1
-            oFileWrite.WriteLine(pPower(iLoop))
-        Next
-
-        'クローズ
-        oFileWrite.Dispose()
-        oFileWrite.Close()
-
-        fncMem2Power = True
-
-    End Function
-
-    ''' -----------------------------------------------------------------------------
-    ''' <summary>
     ''' Power_P2mファイルを配列にセット
     ''' </summary>
     ''' <returns>OK:True NG:False</returns>
@@ -228,12 +186,12 @@ Module mduFile
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncFile2Power_P2m() As Boolean
+    Public Function fncFile2Power() As Boolean
 
-        fncFile2Power_P2m = False
+        fncFile2Power = False
 
         ' StreamReader の新しいインスタンスを生成する
-        Dim oReader As New System.IO.StreamReader("Power_P2m.txt", System.Text.Encoding.Default)  'ファイル読込用
+        Dim oReader As New System.IO.StreamReader("Power.txt", System.Text.Encoding.Default)  'ファイル読込用
         Dim iRow As Integer = 0
         Dim sRowData As String = ""
 
@@ -248,40 +206,7 @@ Module mduFile
         oReader.Close()
         oReader.Dispose()
 
-        fncFile2Power_P2m = True
-
-    End Function
-
-    ''' -----------------------------------------------------------------------------
-    ''' <summary>
-    ''' KOD_Powerファイルを配列にセット
-    ''' </summary>
-    ''' <returns>OK:True NG:False</returns>
-    ''' <remarks></remarks>
-    ''' <author>RKA</author>
-    ''' <history></history>
-    ''' -----------------------------------------------------------------------------
-    Public Function fncFile2KOD_Power() As Boolean
-
-        fncFile2KOD_Power = False
-
-        ' StreamReader の新しいインスタンスを生成する
-        Dim oReader As New System.IO.StreamReader("KOD_Power.txt", System.Text.Encoding.Default)  'ファイル読込用
-        Dim iRow As Integer = 0                                                             '行
-        Dim sRowData As String = ""
-
-        '行ループ
-        While (oReader.Peek() >= 0)
-            sRowData = oReader.ReadLine()   '1行を文字型配列に格納
-            '列ループ：１行分の列を埋める
-            pKOD_Power(iRow) = sRowData
-            iRow += 1
-        End While '行ループ
-
-        oReader.Close()
-        oReader.Dispose()
-
-        fncFile2KOD_Power = True
+        fncFile2Power = True
 
     End Function
 
@@ -427,25 +352,25 @@ Module mduFile
 
     ''' -----------------------------------------------------------------------------
     ''' <summary>
-    ''' Power_P2m.txtを作成する
+    ''' Power.txtを作成する
     ''' </summary>
     ''' <returns>True:OK False:NG</returns>
     ''' <remarks></remarks>
     ''' <author>RKA</author>
     ''' <history></history>
     ''' -----------------------------------------------------------------------------
-    Public Function fncMem2Power_P2m() As Boolean
+    Public Function fncMem2Power() As Boolean
 
-        fncMem2Power_P2m = False
+        fncMem2Power = False
 
         Dim iRow As Integer '行ループ
         '存在すればファイル削除
-        fncFileDel(pExePath & "\Power_P2m.txt")
+        fncFileDel(pExePath & "\Power.txt")
 
         If pP2m.Length >= 1 Then
             'Power.txtファイル作成
             'Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power.txt", True, System.Text.Encoding.UTF8)
-            Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power_P2m.txt", True, pEnc)
+            Dim oFileWrite As New System.IO.StreamWriter(pExePath & "\Power.txt", True, pEnc)
 
             pP2m(iRow).sPower = fncTagLf(pP2m(iRow).sPower)
 
@@ -457,7 +382,7 @@ Module mduFile
             oFileWrite.Dispose()
             oFileWrite.Close()
 
-            fncMem2Power_P2m = True
+            fncMem2Power = True
         End If
 
     End Function

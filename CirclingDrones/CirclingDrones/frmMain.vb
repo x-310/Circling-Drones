@@ -476,7 +476,7 @@ Public Class frmMain
         Dim iLoop As Integer
         Dim iRowCnt As Integer = 0
 
-        Dim result As DialogResult = MessageBox.Show("Power_P2mファイルを作成しますか？",
+        Dim result As DialogResult = MessageBox.Show("Powerファイルを作成しますか？",
                                              "テスト",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Exclamation,
@@ -486,6 +486,7 @@ Public Class frmMain
             Cursor.Current = Cursors.WaitCursor
 
             TabControl1.SelectedTab = TabPage1
+            txtLogDisp.Text = ""
             Application.DoEvents()
 
             ReDim Preserve pP2m(-1)
@@ -506,7 +507,7 @@ Public Class frmMain
                 'P2mファイルを配列にセット
                 iRowCnt = fncFile2P2m(iRowCnt, sFileName(iLoop))
                 If iRowCnt <> 0 Then
-                    Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット:" & iLoop & "=>OK")
+                    Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット:" & iLoop + 1 & "=>OK")
                     Call subOkNg_Color(0)
                 Else
                     Call subLogOutput("> " & pPjName & "P2mファイルを配列にセット=>NG")
@@ -516,12 +517,12 @@ Public Class frmMain
                 Application.DoEvents()
             Next
 
-            'Power_P2m.txt作成
-            If fncMem2Power_P2m() Then
-                Call subLogOutput("> Power_P2m.txt作成=>OK")
+            'Power.txt作成
+            If fncMem2Power() Then
+                Call subLogOutput("> Power.txt作成=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> Power_P2m.txt作成=>NG")
+                Call subLogOutput("> Power.txt作成=>NG")
                 Call subOkNg_Color(1)
             End If
 

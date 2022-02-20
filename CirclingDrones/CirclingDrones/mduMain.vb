@@ -49,15 +49,6 @@ Module mduMain
             Call subOkNg_Color(1)
         End If
 
-        'KOD_power.txtを配列にセット
-        If fncFile2KOD_Power() Then
-            Call subLogOutput("> KOD_power.txtを配列にセット=>OK")
-            Call subOkNg_Color(0)
-        Else
-            Call subLogOutput("> KOD_power.txtを配列にセット=>NG")
-            Call subOkNg_Color(1)
-        End If
-
         ReDim Preserve p130(-1)
 
         'Itiファイルを作成する
@@ -214,37 +205,26 @@ Module mduMain
                 Application.DoEvents()
             Next
 
-            'Power_P2m.txt作成
-            If fncMem2Power_P2m() Then
-                Call subLogOutput("> Power_P2m.txt作成=>OK")
+            'Power.txt作成
+            If fncMem2Power() Then
+                Call subLogOutput("> Power.txt作成=>OK")
                 Call subOkNg_Color(0)
             Else
-                Call subLogOutput("> Power_P2m.txt作成=>NG")
+                Call subLogOutput("> Power.txt作成=>NG")
                 Call subOkNg_Color(1)
             End If
 
             Application.DoEvents()
             Call subiInterval(500)
+        End If
 
-            'Power_P2mﾌｧｲﾙを配列にセット
-            If fncFile2Power_P2m() Then
-                Call subLogOutput("> Power_P2mﾌｧｲﾙを配列にセット=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> Power_P2mﾌｧｲﾙを配列にセット=>NG")
-                Call subOkNg_Color(1)
-            End If
-
-            Application.DoEvents()
-
-            '比較後Powerファイルを作成する
-            If fncMem2Power() Then
-                Call subLogOutput("> Powerファイル作成=>OK")
-                Call subOkNg_Color(0)
-            Else
-                Call subLogOutput("> Powerファイル作成=>NG")
-                Call subOkNg_Color(1)
-            End If
+        'Powerﾌｧｲﾙを配列にセット
+        If fncFile2Power() Then
+            Call subLogOutput("> Powerﾌｧｲﾙを配列にセット=>OK")
+            Call subOkNg_Color(0)
+        Else
+            Call subLogOutput("> Powerﾌｧｲﾙを配列にセット=>NG")
+            Call subOkNg_Color(1)
         End If
 
         Application.DoEvents()

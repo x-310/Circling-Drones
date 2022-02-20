@@ -412,7 +412,7 @@ Module mduIti
             dZ = Double.Parse(pIti(m, 0).sTakasa)
 
             sX = ((dX - 1079) / 5).ToString("0")
-            sY = ((dY - 1450) / 5).ToString("0")
+            sY = ((dY - 537) / 5).ToString("0")
             sZ = ((dZ - 10) / 5).ToString("0")
 
             sData = sX & "," & sY & "," & sZ
@@ -422,7 +422,7 @@ Module mduIti
             dZ = Double.Parse(pIti(m, n - 1).sTakasa)
 
             sX = ((dX - 1079) / 5).ToString("0")
-            sY = ((dY - 1450) / 5).ToString("0")
+            sY = ((dY - 537) / 5).ToString("0")
             sZ = ((dZ - 10) / 5).ToString("0")
 
             sData = sX & "," & sY & "," & sZ

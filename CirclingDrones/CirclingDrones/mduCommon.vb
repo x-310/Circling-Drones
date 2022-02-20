@@ -15,7 +15,7 @@ Module mduCommon
     ''' -----------------------------------------------------------------------------
     Public Sub subCtlReset()
 
-        frmMain.cmbSet_d.Text = "3"
+        frmMain.cmbSet_d.Text = "2"
         frmMain.cmbSet_Interval.Text = "1000"
         frmMain.cmbSet_v.Text = "4"
 

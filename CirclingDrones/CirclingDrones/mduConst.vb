@@ -108,8 +108,6 @@ Module mduConst
     Public pTxrx() As M_Txrx_Def        'Txrx情報
     Public p130() As M_130_Def          '経路計算情報
     Public pSabun(4888) As M_Sabun_Def  'sabun情報
-    Public pKOD_Power(43992) As String  'KOD_Power情報
-    Public pPower_P2m(43992) As String      'Power情報
     Public pPower(43992) As String    'Power更新情報
 
     'ファイル切替用
