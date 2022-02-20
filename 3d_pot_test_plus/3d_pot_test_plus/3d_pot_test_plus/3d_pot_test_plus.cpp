@@ -57,9 +57,9 @@ string file2 = "130.1K249GD2route_meter.csv";//ƒ[ƒgƒ‹•\‹LŒo˜H‚ª‘‚©‚ê‚½o—Íƒtƒ
 
 //óM“d—Í’l‚ğ”²‚«o‚µ‚½ƒtƒ@ƒCƒ‹‚©‚çÀ•W‚ğ‚Â‚¯‚½ƒtƒ@ƒCƒ‹‚ğ‚Â‚­‚é(power‚Ì‚İ)=>(x,y,z,power)
 int input_WI_result(){
-	ifstream ifs("d:\\power.txt");//óM‹N“d—Í‚ª“ü‚Á‚½ƒtƒ@ƒCƒ‹
-	ifstream ifs_t("d:\\sabun.csv");//zÀ•W‚ğƒ[ƒgƒ‹•\‹L‚É•ÏŠ·‚·‚é‚½‚ß‚Ì‚à‚Ì
-	ifstream ifs_i("d:\\New_Iti.csv");//ˆÊ’uî•ñƒtƒ@ƒCƒ‹
+	ifstream ifs("power.txt");//óM‹N“d—Í‚ª“ü‚Á‚½ƒtƒ@ƒCƒ‹
+	ifstream ifs_t("sabun.csv");//zÀ•W‚ğƒ[ƒgƒ‹•\‹L‚É•ÏŠ·‚·‚é‚½‚ß‚Ì‚à‚Ì
+	ifstream ifs_i("New_Iti.csv");//ˆÊ’uî•ñƒtƒ@ƒCƒ‹
 	//ƒGƒ‰[•¶
 	if(!ifs)
 	{
