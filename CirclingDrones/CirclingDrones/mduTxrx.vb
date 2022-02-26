@@ -40,7 +40,7 @@ Module mduTxrx
                     dX_1 = CDbl(pIti(iLoop, n - 1).sIdo) + 1079
                     dY_1 = CDbl(pIti(iLoop, n - 1).sKeido) + 537
                     dZ_1 = fncGetSabun(CDbl(pIti(iLoop, n - 1).sIdo), CDbl(pIti(iLoop, n - 1).sKeido))
-                    dZ_1 = dZ_1 + CDbl(pIti(iLoop, 0).sTakasa) + 10
+                    dZ_1 = dZ_1 + CDbl(pIti(iLoop, n - 1).sTakasa) + 10
                     'routeタグ
                     sValue_route(0) = dX_1.ToString("0.000000000000000") & " " & dY_1.ToString("0.000000000000000") & " " & dZ_1.ToString("0.000000000000000")
                 End If
