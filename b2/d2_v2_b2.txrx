@@ -1073,7 +1073,7 @@ visible yes
 terrain
 end_<reference>
 nVertices 1
-13.000000000000000 51.000000000000000 42.900017000000000
+1105.000000000000000 761.000000000000000 46.770014000000000
 end_<location>
 pattern_show_arrow yes
 pattern_show_as_sphere no

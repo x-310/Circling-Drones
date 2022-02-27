@@ -411,9 +411,9 @@ Module mduIti
             dY = Double.Parse(pIti(m, 0).sKeido)
             dZ = Double.Parse(pIti(m, 0).sTakasa)
 
-            sX = ((dX - 1079) / 5).ToString("0")
-            sY = ((dY - 537) / 5).ToString("0")
-            sZ = ((dZ - 10) / 5).ToString("0")
+            sX = dX.ToString("0")
+            sY = dY.ToString("0")
+            sZ = dZ.ToString("0")
 
             sData = sX & "," & sY & "," & sZ
         Else

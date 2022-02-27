@@ -38,7 +38,7 @@ Public Class frmMain
         pExePath = System.Environment.CurrentDirectory
 
         'Debugフラグ
-        cmbDebug.Text = "OFF"
+        cmbDebug.Text = "ON"
     End Sub
 
     '*******************************************************

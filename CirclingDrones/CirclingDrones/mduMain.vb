@@ -119,6 +119,25 @@ Module mduMain
             Call subOkNg_Color(1)
         End If
 
+        If frmMain.cmbDebug.Text = "ON" Then
+            '***************************************************
+            'DebugモードON
+            'b2\studyareaフォルダをdm_vnサブフォルダにコピー
+            Dim sDir1 As String
+            Dim sDir2 As String
+
+            'Prgフォルダをv0サブフォルダにコピー
+            sDir1 = pExePath
+            sDir2 = pPjPath & "\Debug\v0"
+            If fncDirCopy(sDir1, sDir2) Then
+                Call subLogOutput("> " & "exeフォルダをDebugﾌｫﾙﾀﾞにｺﾋﾟ=>OK")
+                Call subOkNg_Color(0)
+            Else
+                Call subLogOutput("> " & "exeフォルダをDebugﾌｫﾙﾀﾞにｺﾋﾟ=>NG")
+                Call subOkNg_Color(1)
+            End If
+            '***************************************************
+        End If
     End Sub
 
     ''' -----------------------------------------------------------------------------
