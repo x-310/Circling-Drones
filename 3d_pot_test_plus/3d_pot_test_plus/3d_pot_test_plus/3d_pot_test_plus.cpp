@@ -36,7 +36,8 @@ using namespace std;
 int start[3] = {0,0,0};//
 int goal[3] = {59,10,8};//
 
-double received_power[MAPSIZE_X][MAPSIZE_Y][MAPSIZE_Z];
+double received_power1[MAPSIZE_X][MAPSIZE_Y][MAPSIZE_Z];
+double received_power2[MAPSIZE_X][MAPSIZE_Y][MAPSIZE_Z];
 double true_height[MAPSIZE_X][MAPSIZE_Y];
 
 //óM“d—Í’l‚ğ”²‚«o‚µ‚½‚à‚Ì‚©‚çÀ•W‚ğ‚Â‚¯‚½txt‚ğ‚Â‚­‚é
@@ -57,13 +58,19 @@ string file2 = "130.1K249GD2route_meter.csv";//ƒ[ƒgƒ‹•\‹LŒo˜H‚ª‘‚©‚ê‚½o—Íƒtƒ
 
 //óM“d—Í’l‚ğ”²‚«o‚µ‚½ƒtƒ@ƒCƒ‹‚©‚çÀ•W‚ğ‚Â‚¯‚½ƒtƒ@ƒCƒ‹‚ğ‚Â‚­‚é(power‚Ì‚İ)=>(x,y,z,power)
 int input_WI_result(){
-	ifstream ifs("power.txt");//óM‹N“d—Í‚ª“ü‚Á‚½ƒtƒ@ƒCƒ‹
-	ifstream ifs_t("sabun.csv");//zÀ•W‚ğƒ[ƒgƒ‹•\‹L‚É•ÏŠ·‚·‚é‚½‚ß‚Ì‚à‚Ì
-	ifstream ifs_i("New_Iti.csv");//ˆÊ’uî•ñƒtƒ@ƒCƒ‹
+	ifstream ifs_p1("power1.txt");	//óM‹N“d—Í‚ª“ü‚Á‚½ƒtƒ@ƒCƒ‹
+	ifstream ifs_p2("power2.txt");	//óM‹N“d—Í‚ª“ü‚Á‚½ƒtƒ@ƒCƒ‹
+	ifstream ifs_t("sabun.csv");	//zÀ•W‚ğƒ[ƒgƒ‹•\‹L‚É•ÏŠ·‚·‚é‚½‚ß‚Ì‚à‚Ì
+	ifstream ifs_i("New_Iti.csv");	//ˆÊ’uî•ñƒtƒ@ƒCƒ‹
 	//ƒGƒ‰[•¶
-	if(!ifs)
+	if (!ifs_p1)
 	{
-		std::cout << "Could not input power.txt" << endl;
+		std::cout << "Could not input power1.txt" << endl;
+		return -1;
+	}
+	if (!ifs_p2)
+	{
+		std::cout << "Could not input power2.txt" << endl;
 		return -1;
 	}
 	if(!ifs_t)
@@ -78,21 +85,35 @@ int input_WI_result(){
 	}
 
 	//“Ç‚ñ‚¾ƒtƒ@ƒCƒ‹‚ğ”—ñ‚É’u‚«Š·‚¦‚Äo—Í
-	string str;				//•¶š—ñƒNƒ‰ƒX
-	vector<double> input;	//“®“I”z—ñƒNƒ‰ƒX
+	string str;					//•¶š—ñƒNƒ‰ƒX
+	vector<double> input_p1;	//“®“I”z—ñƒNƒ‰ƒX
+	vector<double> input_p2;	//“®“I”z—ñƒNƒ‰ƒX
 
 	//ƒOƒŠƒbƒh‚ÌŠeóM“d—Í
-	while(getline(ifs,str))
+	while (getline(ifs_p1, str))
 	{
-		input.push_back(atof(str.c_str()));
+		input_p1.push_back(atof(str.c_str()));
 	}
 	//o—Íæ‚Ìƒtƒ@ƒCƒ‹
-	ofstream fout( "received_power.txt" );
-	if(!fout){
-		std::cout<<"creative_power.txt could not be open" << endl;
+	ofstream fout_p1( "received_power1.txt" );
+	if(!fout_p1){
+		std::cout<<"creative_powertxt could not be open" << endl;
 		return -1;
 	}
-	else std::cout <<"received_power.txt opened." << endl;
+	else std::cout <<"received_power1.txt opened." << endl;
+
+	//ƒOƒŠƒbƒh‚ÌŠeóM“d—Í
+	while (getline(ifs_p2, str))
+	{
+		input_p2.push_back(atof(str.c_str()));
+	}
+	//o—Íæ‚Ìƒtƒ@ƒCƒ‹
+	ofstream fout_p2("received_power2.txt");
+	if (!fout_p2) {
+		std::cout << "creative_power2.txt could not be open" << endl;
+		return -1;
+	}
+	else std::cout << "received_power2.txt opened." << endl;
 
 	//ƒ[ƒgƒ‹•\‹L‚Ì‚‚³
 	string str_t;
@@ -122,7 +143,7 @@ int input_WI_result(){
 
 	/////////////////
 
-	//received_power[][][]‚É‚¢‚ê‚é
+	//received_power1[][][]‚É‚¢‚ê‚é
 	int k;
 	int j;
 	int i;
@@ -134,13 +155,32 @@ int input_WI_result(){
 		{
 			for(i=0 ; i<MAPSIZE_X ; i++)
 			{
-				if(input[s])
+				if(input_p1[s])
 				{
-					input[s]=input[s];
-					received_power[i][j][k]=input[s];
+					input_p1[s]= input_p1[s];
+					received_power1[i][j][k]= input_p1[s];
 					s++;
 					//cout << received_power[i][j][k]  << endl;
-					fout << i << "," << j << "," << k << "," << received_power[i][j][k] << endl;
+					fout_p1 << i << "," << j << "," << k << "," << received_power1[i][j][k] << endl;
+				}
+			}
+		}
+	}
+
+	//received_powe2[][][]‚É‚¢‚ê‚é
+	for (k = 0; k < MAPSIZE_Z; k++)
+	{
+		for (j = 0; j < MAPSIZE_Y; j++)
+		{
+			for (i = 0; i < MAPSIZE_X; i++)
+			{
+				if (input_p2[s])
+				{
+					input_p2[s] = input_p2[s];
+					received_power2[i][j][k] = input_p2[s];
+					s++;
+					//cout << received_power[i][j][k]  << endl;
+					fout_p2 << i << "," << j << "," << k << "," << received_power2[i][j][k] << endl;
 				}
 			}
 		}
@@ -166,7 +206,8 @@ int input_WI_result(){
 			}
 		}
 	}
-	fout.close();
+	fout_p1.close();
+	fout_p2.close();
 	fout_t.close();
 	return 0;
 }
@@ -179,14 +220,14 @@ double get_pot(int x,int y,int z,int loop)
 	double pf_target = - loop  / sqrt(n);
 
 	//óM‹N“d—Í‚Ìƒ|ƒeƒ“ƒVƒƒƒ‹
-	double power = received_power[x][y][z];
+	double power1 = received_power1[x][y][z];
 	//ã‚Ìè‡’lˆÈã‚Ì‚Æ‚«
-	if(received_power[x][y][z] >= shikiichi_max)
+	if(received_power1[x][y][z] >= shikiichi_max)
 	{
-		power = shikiichi_max;
+		power1 = shikiichi_max;
 	}
 
-	double pf_received_power = -atan(power - shikiichi_min);
+	double pf_received_power1 = -atan(power1 - shikiichi_min);
 
 	double d;			//Ë—Íˆê•Û‘¶
 	double pf_uncomunication = 0;//‚±‚Ì€‚ÌË—Í‚Ì‘˜a
@@ -202,7 +243,7 @@ double get_pot(int x,int y,int z,int loop)
 				if(x+a < 0 || y+b < 0 || z+c < 0) continue;
 				if(x+a >= MAPSIZE_X || y+b >= MAPSIZE_Y || z+c >= MAPSIZE_Z) continue;
 				//è‡’lˆÈ‰º‚Ì‚Æ‚«Ë—ÍŒvZ
-				if(received_power[x+a][y+b][z+c] < shikiichi_min)
+				if(received_power1[x+a][y+b][z+c] < shikiichi_min)
 				{
 					d = sqrt((a*a)+(b*b)+(c*c));
 					pf_uncomunication += 1/d;
@@ -214,9 +255,9 @@ double get_pot(int x,int y,int z,int loop)
 
 
 	//ƒ|ƒeƒ“ƒVƒƒƒ‹‚Ì˜a
- 	double pot = D * pf_target + R * pf_received_power + O * pf_uncomunication;
+ 	double pot = D * pf_target + R * pf_received_power1 + O * pf_uncomunication;
 	//‰º‚Ìè‡’lˆÈ‰ºA’ÊM•s”\‚¾‚Æl‚¦‚ç‚ê‚éÀ•W‚É‘Î‚µ‚Ä
-	if(received_power[x][y][z] <= shikiichi_min)
+	if(received_power1[x][y][z] <= shikiichi_min)
 	{
 		pot = 250;
 	}
@@ -292,7 +333,7 @@ int main(void)
 						if(x+a < 0 || y+b < 0 || z+c < 0) continue;
 						if(x+a >= MAPSIZE_X || y+b >= MAPSIZE_Y || z+c >= MAPSIZE_Z) continue;
 						//20‹ß–T‚ÌÀ•W‚ÆóM‹N“d—ÍAƒ|ƒeƒ“ƒVƒƒƒ‹
-						cout << x+a << " " << y+b << " " << z+c << " " << received_power[x+a][y+b][z+c] << " " << get_pot(x+a,y+b,z+c,loop) << endl;//Še‹ß–T‚Ì•\¦
+						cout << x+a << " " << y+b << " " << z+c << " " << received_power1[x+a][y+b][z+c] << " " << get_pot(x+a,y+b,z+c,loop) << endl;//Še‹ß–T‚Ì•\¦
 
 						//Å’á’l‚ğXV‚µ‚½‚çs‚¤
 						if(get_pot(x+a,y+b,z+c,loop) < min)
@@ -356,8 +397,8 @@ int main(void)
 				printf("ƒ‹[ƒvI—¹");
 			}
 
-			fout << tx << "," << ty << "," << go_z << "," << received_power[x][y][z] << endl;
-			fout_t << tx << "," << ty << "," << tz << "," << received_power[x][y][z] << endl;
+			fout << tx << "," << ty << "," << go_z << "," << received_power1[x][y][z] << endl;
+			fout_t << tx << "," << ty << "," << tz << "," << received_power1[x][y][z] << endl;
 		}
 	}
 	return 0;

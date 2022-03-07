@@ -1,4 +1,4 @@
 ﻿  3d_pot_test_plus.cpp
-D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(333,35): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(349,35): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(374,35): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus\3d_pot_test_plus.cpp(390,35): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
   3d_pot_test_plus.vcxproj -> D:\GIT\Circling-Drones\3d_pot_test_plus\3d_pot_test_plus\Debug\3d_pot_test_plus.exe
