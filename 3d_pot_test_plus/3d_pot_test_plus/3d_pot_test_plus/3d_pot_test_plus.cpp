@@ -15,9 +15,9 @@ using namespace std;
 
 //重み
 #define D 800 //目標位置　初期800
-#define R 50  //受信電力　初期50
-#define G 0  //自身じゃない方の地上局　初期50
-#define AA 0  //another drone　初期50
+#define R 70  //受信電力　初期50 自身の方の地上局
+#define G 40  //自身じゃない方の地上局　初期50
+#define AA 40  //another drone　初期50
 #define O1 0.0002 //通信不能な受信電力座標
 #define O2 0.0002 //通信不能な受信電力座標
 #define O3 0.0002 //通信不能な受信電力座標
@@ -38,7 +38,7 @@ using namespace std;
 
 //int start[3] = {4,46,0};//
 int start[3] = {0,0,0};//
-int goal[3] = {59,10,8};//
+int goal[3] = {64,4,8};//
 
 double received_power1[MAPSIZE_X][MAPSIZE_Y][MAPSIZE_Z];
 double received_power2[MAPSIZE_X][MAPSIZE_Y][MAPSIZE_Z];
@@ -370,10 +370,16 @@ double get_pot(int x,int y,int z,int loop)
 	////////////////////////////////////////////////////////////////////////
 
 	//ポテンシャルの和
+	if (isinf(pf_uncomunication1)) {
+		pf_uncomunication3 = 1;
+	}
+	if (isinf(pf_uncomunication2)) {
+		pf_uncomunication3 = 1;
+	}
 	if (isinf(pf_uncomunication3)) {
 		pf_uncomunication3 = 1;
 	}
-	double pot = D * pf_target + R * pf_received_power1 + O1 * pf_uncomunication1 - G * pf_received_power2 - O2 * pf_uncomunication2 - AA * pf_received_power3 - O3 * pf_uncomunication3;
+	double pot = D * pf_target + R * pf_received_power1 + O1 * pf_uncomunication1; //- G * pf_received_power2 - O2 * pf_uncomunication2 - AA * pf_received_power3 - O3 * pf_uncomunication3;
 	//下の閾値以下、通信不能だと考えられる座標に対して
 	if(received_power1[x][y][z] <= shikiichi_min)
 	{
